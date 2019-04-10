@@ -240,3 +240,26 @@
         }
     }
 }
+
+
+/* Dialog Layout */
+
+.desktop {
+
+  background: #62a0ea url(/img/adwaita.jpg);
+  background-size: cover;
+  background-position: center;
+
+  .wrapper {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     width: 100vw;
+  }
+}
+
+.dialog {
+   width: 400px;
+   background-color: #eee;
+}
