@@ -53,14 +53,14 @@ $variant: 'light';
 ;
 
 @keyframes tickit {
-  0% { stroke-dashoffset: -103 !important; }
-  100% { stroke-dashoffset: -206 !important; }
+  0% { stroke-dashoffset: -103; }
+  100% { stroke-dashoffset: 0; }
 }
 
 @keyframes transformpulse {
   0% { transform: scale(1); }
-  70% { transform: scale(.9); }
-  80% { transform: scale(1.2); }
+  50% { transform: scale(.9); }
+  60% { transform: scale(1.2); }
   100% { transform: scale(1); }
 }
 
@@ -86,19 +86,21 @@ $variant: 'light';
    svg {
     margin-top: 148px;
     animation-name: transformpulse;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
     animation-direction: forwards;
     
     
     
     #checkmark {
-      stroke-dashoffset: -103 !important;
-      stroke-dasharray: 103 !important;
+      stroke-dashoffset: -103;
+      stroke-dasharray: 103;
       animation-name: tickit;
-      animation-duration: 2s;
-      animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+      animation-delay: .3s;
+      animation-duration: .3s;
+      animation-timing-function: linear;
       animation-direction: forwards;
+      animation-fill-mode: forwards;
     }
    }
 
