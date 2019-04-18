@@ -43,12 +43,79 @@ $on-laptop:        800px;
     }
 }
 
-
-
+$variant: 'light';
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
         "layout",
-        "syntax-highlighting"
+        "syntax-highlighting",
+        "colors"
 ;
 
+@keyframes tickit {
+  0% { stroke-dashoffset: -103 !important; }
+  100% { stroke-dashoffset: -206 !important; }
+}
+
+@keyframes transformpulse {
+  0% { transform: scale(1); }
+  70% { transform: scale(.9); }
+  80% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+#initial-setup-dialog {
+
+   width: 820px;
+   height: 650px;
+   margin: 0; padding: 0;
+   background: transparent url(/img/initial-setup.svg) no-repeat center;
+   flex-shrink: 0;
+   
+   .dialogwrap {
+
+    height: 100%;
+     display: flex;
+     justify-content: flex-start;
+     align-items: center;
+     flex-direction: column;
+   }
+   
+   h1 {
+   }
+   svg {
+    margin-top: 148px;
+    animation-name: transformpulse;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation-direction: forwards;
+    
+    
+    
+    #checkmark {
+      stroke-dashoffset: -103 !important;
+      stroke-dasharray: 103 !important;
+      animation-name: tickit;
+      animation-duration: 2s;
+      animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+      animation-direction: forwards;
+    }
+   }
+
+   
+   a.button {
+    display: block;
+    margin: auto;
+    background-color: red;
+    background-color: $selected_bg_color;
+    color: $selected_fg_color;
+    border-radius: 5px;
+    border: 1px solid darken($selected_bg_color,20%);
+    padding: 1em 2em;
+
+    &:hover {
+      text-decoration: none;
+      cursor: pointer;
+    }
+   }
+}
