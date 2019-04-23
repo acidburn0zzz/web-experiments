@@ -10,7 +10,7 @@ title: Web Mockups
 email: jimmac@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   GNOME Design HTML/CSS mockups.
-#baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "/Design/web-experiments/" # the subpath of your site, e.g. /blog
 url: "/" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
