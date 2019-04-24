@@ -64,13 +64,21 @@ $variant: 'light';
   100% { transform: scale(1); }
 }
 
-#initial-setup-dialog {
+@keyframes fademove {
+  0% { margin-top: -20px; opacity: 0; }
+  100% { margin-top: 0; opacity: 1; }
+}
 
+#initial-setup-dialog {
+   position: relative;
    width: 820px;
    height: 650px;
    margin: 0; padding: 0;
-   background: transparent url(../img/initial-setup.svg) no-repeat center;
+   background: transparent url(../img/initial-setup.svg) no-repeat 0 -8px;
    flex-shrink: 0;
+   border-top-right-radius: 10px;
+   border-top-left-radius: 10px;
+   box-shadow: 0 2px 2px rgba(0,0,0,0.4), 0 2px 16px rgba(0,0,0,0.3);
    
    .dialogwrap {
 
@@ -104,6 +112,33 @@ $variant: 'light';
     }
    }
 
+   .floating-icon {
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+    animation-name: fademove;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    animation-direction: forwards;
+    animation-fill-mode: forwards;
+   }
+
+   #games { top: 172px; left: 148px; animation-delay: 0; }
+   #gcolor { top: 60px; right: 62px; animation-delay: 300ms; }
+   #podcasts { top: 42px; left: 22px; animation-delay: 1s; }
+   
+   .spacer {
+    height: 280px;
+   }
+   .bg {
+    position: absolute;
+    top: 48px;
+    left: 1px;
+    right: 1px;
+    height: 200px;
+    background: url(../img/adwaita.jpg) no-repeat center;
+    background-size: cover;
+   }
    
    a.button {
     display: block;
