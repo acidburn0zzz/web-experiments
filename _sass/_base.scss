@@ -15,7 +15,7 @@ dl, dd, ol, ul, figure {
  */
 body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-    color: $text-color;
+    color: #fff;
     background: $brand-color url(../img/triangles.svg) no-repeat bottom left;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $text-color;
+    color: $selected_fg_color;
     text-decoration: none;
     font-weight: bold;
 
@@ -100,7 +100,7 @@ a {
     }
 
     &:hover {
-        color: $text-color;
+        color: $selected_fg_color;
         text-decoration: underline;
     }
 }

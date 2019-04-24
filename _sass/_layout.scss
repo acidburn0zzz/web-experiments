@@ -2,7 +2,7 @@
  * Site header
  */
 .site-header {
-    padding-top: 4em;
+    padding: 4em 0 2em 0;
     min-height: 56px;
 }
 
@@ -28,7 +28,7 @@
     }
 
     .page-link {
-        color: $text-color;
+        color: $selected_fg_color;
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the last one
@@ -93,7 +93,7 @@
  * Site footer
  */
 .site-footer {
-    margin-top: 2em;
+    margin-top: 16em;
     padding: $spacing-unit 0;
     font-size: 80%;
 }
@@ -203,6 +203,7 @@
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
+    margin-bottom: 1em;
 
     @include media-query($on-laptop) {
         font-size: 36px;
@@ -237,6 +238,33 @@
     }
 }
 
+/* lists */
+
+ul {
+  background-color: #fff;
+  margin: 1em auto;
+  max-width: 100%;
+  border: 1px solid $borders_color;
+  display: block;
+  border-radius: 3px;
+  li {
+    display: block;
+    padding: 1em 2em;
+    background-color: $base_color;
+    color: $text_color;
+    border-bottom: 1px solid $borders_color;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    a {
+      color: $selected_bg_color;
+      
+      &:hover { color: lighten($selected_bg_color, 5%); }
+    }
+  }
+}
 
 /* Dialog Layout */
 
