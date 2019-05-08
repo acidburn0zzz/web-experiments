@@ -1,0 +1,96 @@
+---
+layout: mockup
+title: "Settings - Privacy - Background Usage"
+theme: Adwaita/Adwaita.css
+permalink: settings/privacy/background
+wallpaper: triangles
+category: "Privacy"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/switch.html checked = "checked" id="backgroundUsageSwitch" -%}
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsPrivacySidebar" class="sidebar">
+		{%- for item in site.data.settings-privacy-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row" id="backgroundUsageSettings">
+				<p>Allows applications to run tasks and use data in the background.</p>
+				<p>Applications that have requested {{ page.title }} permissions will appear here.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#backgroundAppSwitch1');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Builder.svg">
+						<label>Builder</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundAppSwitch1" -%}
+					</li>
+					<li onclick="toggleChecked('#backgroundAppSwitch2');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Messages.svg">
+						<label>Messages</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundAppSwitch2" -%}
+					</li>
+					<li onclick="toggleChecked('#backgroundAppSwitch3');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/com.transmissionbt.Transmission.svg">
+						<label>Transmission</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundAppSwitch3" -%}
+					</li>
+				</ul>
+			</div>
+			{%- include components/empty-state.html
+				id = "backgroundUsageDisabled"
+				icon="actions/system-run" 
+				title = "Background Usage is disabled" 
+				message= "No applications are able to run tasks or use data in the background." 
+			-%}
+		</div>
+	</div>
+	<!-- Disable Background Usage Dialog -->
+	<div class="gtkdialog" id="backgroundUsageDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Disable Background Usage?</h3>
+					<p>Disabling run in background for application will prevent them from running tasks when not in use. This may cause some applications to not function properly.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#backgroundUsageSwitch').prop('checked', true );$('#backgroundUsageDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#backgroundUsageSettings').hide();$('#backgroundUsageDisabled').show();$('#backgroundUsageDialog').hide();">Disable</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsPrivacySidebar a:nth-of-type(4) li').addClass("active");});
+
+$(document).ready(function(){
+	$('#backgroundUsageSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#backgroundUsageSettings').show();
+			$('#backgroundUsageDisabled').addClass("hidden");
+		} else {
+			$('#backgroundUsageDialog').show();
+		}
+	});
+});
+$("#backgroundUsageDisabled").hide();
+</script>

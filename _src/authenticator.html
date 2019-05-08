@@ -1,0 +1,93 @@
+---
+layout: mockup
+title: "Authenticator"
+theme: Adwaita/Adwaita.css
+permalink: authenticator/
+wallpaper: triangles
+---
+
+{%- include widgets/_panel.html -%}
+
+<style type="text/css">
+	code {
+		font-size:18px;
+		margin: auto 6px;
+	}
+
+	code b span {opacity: 0.2;}
+</style>
+
+<!-- Window -->
+<div class="window small">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a class="button image-button">{%- include symbolic/actions/list-add-symbolic.svg -%}</a>
+		</div>
+		<div class="title-group float-center">
+			<span class="title">{{ page.title }}</span>
+		</div>
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<div class="content">
+		<div class="row">
+				<h5>One-Time Passwords</h5>
+				<ul class="listrow">
+					<li class="medium oneTimePasswordPopover">
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-google.png">
+						<div class="label-group">
+							<label>Google</label>
+							<label class="small-label dim-label">googleaccount@gmail.com</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right"><code><b>432<span>&bull;</span>100</b></code></label>
+					</li>
+					<li class="medium oneTimePasswordPopover">
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-google.png">
+						<div class="label-group">
+							<label>Google</label>
+							<label class="small-label dim-label">anothergoogleaccount@gmail.com</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right"><code><b>929<span>&bull;</span>271</b></code></label>
+					</li>
+					<li class="medium oneTimePasswordPopover">
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-owncloud.png">
+						<div class="label-group">
+							<label>Nextcloud</label>
+							<label class="small-label dim-label">nextclouduser@nextcloud.com</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right"><code><b>631<span>&bull;</span>369</b></code></label>
+					</li>
+				</ul>
+			</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="popoverOneTimePassword($(this).text());">Copy</li>',
+			'<li onclick="popoverOneTimePassword($(this).text());">Edit</li>',
+		'</ul>'].join('');
+
+	$(".oneTimePasswordPopover").popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function popoverOneTimePassword() {
+	$('#blankScreenDelayStatus').text(arguments[0]);
+	$(".oneTimePasswordPopover").popover("hide");
+}
+</script>

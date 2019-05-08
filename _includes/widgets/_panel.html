@@ -1,0 +1,42 @@
+﻿<!-- Panel -->
+<div class="panel">
+	<!-- Activities -->
+	<div id="activitiesButton" class="panel-item float-left">
+		<span>Activities</span>
+	</div>
+	<!-- Clock -->
+	<div id="dateTimeMenu" class="panel-item center">
+		<span class="date"><script> document.write(new Date().toDateString()); </script></span>
+		<span class="time"><script> document.write(new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",minute: "numeric"})); </script></span>
+	</div>
+	<!-- Status menu -->
+	<div id="statusMenu" class="panel-item float-right">
+		<!-- Power Saving  -->
+		<span class="icon hidden" id="statusPowerSaving">{% include symbolic/status/power-saving-symbolic.svg %}</span>
+		<!-- Do Not Disturb -->
+		<span class="icon hidden" id="statusDoNotDisturb">{% include symbolic/status/do-not-disturb-symbolic.svg %}</span>
+		<!-- Night Light -->
+		<span class="icon hidden" id="statusNightLight">{% include symbolic/status/night-light-symbolic.svg %}</span>
+		<!-- Wireless -->
+		<span class="icon" id="statusWireless">{% include symbolic/status/network-wireless-signal-good-symbolic.svg %}</span>
+		<!-- VPN -->
+		<span class="icon hidden" id="statusVPN">{% include symbolic/status/network-vpn-symbolic.svg %}</span>
+		<!-- Airplane Mode -->
+		<span class="icon hidden" id="statusAirplaneMode">{% include symbolic/status/airplane-mode-symbolic.svg %}</span>
+		<!-- Volume -->
+		<span class="icon hidden" id="statusVolumeMuted">{% include symbolic/status/audio-volume-muted-symbolic.svg %}</span>
+		<span class="icon" id="statusVolumeMedium">{% include symbolic/status/audio-volume-medium-symbolic.svg %}</span>
+		<!-- Battery -->
+		<span class="icon hidden" id="statusBatteryEmpty">{% include symbolic/status/battery-empty-symbolic.svg %}</span>
+		<span class="icon" id="statusBattery">{% include symbolic/status/battery-good-symbolic.svg %}</span>
+		<span class="icon hidden" id="statusBatteryCharging">{% include symbolic/status/battery-good-charging-symbolic.svg %}</span>
+		<span class="hidden" id="statusBatteryPercentage">70%</span>
+		<!-- Dropdown -->
+		<span class="icon dropdown">{% include symbolic/actions/dropdown-symbolic.svg %}</span>
+	</div>
+	<!-- Accessibility menu -->
+	<div id="accessibilityMenu" class="panel-item float-right">
+		<span class="icon status-accessibility">{% include symbolic/apps/preferences-desktop-accessibility-symbolic.svg %}</span>
+		<span class="icon dropdown">{% include symbolic/actions/dropdown-symbolic.svg %}</span>
+	</div>
+</div>

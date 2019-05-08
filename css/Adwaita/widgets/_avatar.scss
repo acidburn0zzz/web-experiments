@@ -1,0 +1,35 @@
+// Avatar
+$avatar_size: 64px;
+$avatar_bg_color: darken(white, 20%);
+
+.avatar {
+	background: center no-repeat $avatar_bg_color;
+	background-size: 100%;
+	border-radius:50%;
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+	display: inline-block;
+	height: $avatar_size;
+	width: $avatar_size;
+	float: left;
+	z-index: 1;
+
+	&.small {
+		height: $avatar_size * 0.5;
+		width: $avatar_size * 0.5;
+		margin: 4px;
+	}
+
+	&.medium {
+		height: $avatar_size * 0.75;
+		width: $avatar_size * 0.75;
+	}
+
+	&.large {
+		height: $avatar_size * 3;
+		width: $avatar_size * 3;
+	}
+
+	&.shadowed {
+		box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+	}
+}

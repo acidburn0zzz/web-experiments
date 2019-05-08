@@ -1,0 +1,183 @@
+- link: /applications
+  icon: apps/org.gnome.2048
+  title: 2048
+
+- link: /applications
+  icon: apps/anjuta6
+  title: Anjuta
+
+- link: /applications
+  icon: apps/atomix
+  title: Atomix
+
+- link: /applications
+  icon: apps/gnome-books
+  title: Books
+
+- link: /applications
+  icon: apps/blender
+  title: Blender
+
+- link: /applications
+  icon: apps/boxes
+  title: Boxes
+
+- link: /applications
+  icon: apps/builder
+  title: Builder
+
+- link: /applications
+  icon: apps/cheese
+  title: Cheese
+
+- link: /applications
+  icon: apps/empathy
+  title: Chat
+
+- link: /applications
+  icon: apps/documents
+  title: Documents
+
+- link: /applications
+  icon: apps/evolution
+  title: Evolution Mail
+
+- link: /applications
+  icon: apps/firefox
+  title: Firefox
+
+- link: /applications
+  icon: apps/frogr
+  title: Frogr
+
+- link: /applications
+  icon: apps/org.gnome.Geary
+  title: Geary
+
+- link: /applications
+  icon: apps/gimp
+  title: GIMP
+
+- link: /applications
+  icon: apps/gitg
+  title: Gitg
+
+- link: /applications
+  icon: apps/glade
+  title: Glade
+
+- link: /applications
+  icon: apps/haguichi
+  title: Haguichi
+
+- link: /applications
+  icon: apps/inkscape
+  title: Inkscape
+
+- link: /applications
+  icon: apps/libreoffice-base
+  title: LibreOffice Base
+
+- link: /applications
+  icon: apps/libreoffice-calc
+  title: LibreOffice Calc
+
+- link: /applications
+  icon: apps/libreoffice-draw
+  title: LibreOffice Draw
+
+- link: /applications
+  icon: apps/libreoffice-impress
+  title: LibreOffice Impress
+
+- link: /applications
+  icon: apps/libreoffice-math
+  title: LibreOffice Math
+
+- link: /applications
+  icon: apps/libreoffice-writer
+  title: LibreOffice Writer
+
+- link: /applications
+  icon: apps/gnome-maps
+  title: Maps
+
+- link: /applications
+  icon: apps/miro
+  title: Miro
+
+- link: /applications
+  icon: apps/gnome-music
+  title: Music
+
+- link: /applications
+  icon: apps/gnome-news
+  title: News
+
+- link: /applications
+  icon: apps/bijiben
+  title: Notes
+
+- link: /applications
+  icon: apps/pidgin
+  title: Pidgin
+
+- link: /applications
+  icon: apps/pino
+  title: Pino
+
+- link: /applications
+  icon: apps/pitivi
+  title: Pitivi
+
+- link: /applications
+  icon: apps/org.gnome.Podcasts
+  title: Podcasts
+
+- link: /applications
+  icon: apps/polari
+  title: Polari
+
+- link: /applications
+  icon: apps/org.gnome.Screenshot
+  title: Screenshots
+
+- link: /applications
+  icon: apps/scribus
+  title: Scribus
+
+- link: /applications
+  icon: apps/sparkleshare
+  title: Sparkleshare
+
+- link: /applications
+  icon: apps/gnome-todo
+  title: To-Do
+
+- link: /applications
+  icon: apps/transmission
+  title: Transmission
+
+- link: /applications
+  icon: apps/org.gnome.Tweaks
+  title: Tweaks
+
+- link: /applications
+  icon: apps/org.gnome.SystemMonitor
+  title: Usage
+
+- link: /applications
+  icon: apps/org.gnome.Totem
+  title: Videos
+
+- link: /applications
+  icon: apps/vim
+  title: Vim
+
+- link: /applications
+  icon: apps/org.gnome.Weather
+  title: Weather
+
+- link: /applications
+  icon: apps/xchat
+  title: XChat

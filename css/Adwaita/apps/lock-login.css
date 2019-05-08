@@ -1,0 +1,185 @@
+html {
+  padding: 0;
+  margin: 0;
+  z-index: 100000;
+  width: 100%;
+  height: 100%; }
+
+body {
+  color: #eeeeec;
+  font-family: "cantarell", sans-serif;
+  font-size: 15px;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+  background: no-repeat center center fixed;
+  background-size: cover;
+  background-image: none;
+  background-color: #353535; }
+
+.insensitive {
+  opacity: 0.5;
+  pointer-events: none;
+  filter: grayscale(100%); }
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+     supported by Chrome and Opera */ }
+
+#lockscreenBG {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  background: no-repeat center center fixed;
+  background-size: cover;
+  background-image: none;
+  -moz-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  z-index: 0;
+  transform: scale(1.2); }
+  #lockscreenBG.blurred {
+    filter: blur(40px);
+    box-shadow: inset 0 4000px 0 0 rgba(255, 255, 255, 0.2); }
+
+ul.login,
+ul.login-bgs {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 1024px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 320px;
+  left: calc(50% - 512px);
+  text-align: center;
+  z-index: 12; }
+  ul.login li,
+  ul.login-bgs li {
+    height: 192px;
+    width: 192px;
+    margin: 24px;
+    padding: 24px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 12px;
+    vertical-align: top; }
+    ul.login li.selected > .avatar,
+    ul.login-bgs li.selected > .avatar {
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 8px rgba(21, 83, 158, 0.7); }
+    ul.login li.selected input,
+    ul.login-bgs li.selected input {
+      display: block; }
+    ul.login li *,
+    ul.login-bgs li * {
+      display: block;
+      float: none;
+      margin: 0 auto; }
+    ul.login li input,
+    ul.login-bgs li input {
+      display: none; }
+    ul.login li .avatar,
+    ul.login-bgs li .avatar {
+      display: block;
+      margin: 8px auto;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.7); }
+    ul.login li h2,
+    ul.login-bgs li h2 {
+      color: white;
+      font-family: "cantarell", sans-serif;
+      font-size: 23px;
+      margin: 12px auto;
+      text-shadow: 0 2px 2px rgba(0, 0, 0, 0.7); }
+
+ul.login-bgs {
+  z-index: 10; }
+  ul.login-bgs li {
+    overflow: hidden; }
+    ul.login-bgs li div {
+      background-size: 100%;
+      transform: scale(3);
+      width: 100%;
+      height: 100%;
+      filter: blur(1px); }
+
+.notifications {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  float: right;
+  position: absolute;
+  left: 24px;
+  bottom: 24px; }
+  .notifications li {
+    display: block;
+    border: 1px solid #1b1b1b;
+    background-color: rgba(53, 53, 53, 0.9);
+    border-radius: 6px;
+    width: 240px;
+    height: 32px;
+    line-height: 32px;
+    padding: 8px;
+    margin: 6px; }
+    .notifications li > .icon {
+      margin-right: 12px; }
+    .notifications li > span.right {
+      margin: 0 12px; }
+
+.lockscreen {
+  width: 400px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  margin-top: calc(25% - 200px);
+  text-align: center; }
+  .lockscreen * {
+    display: block;
+    float: none;
+    margin: 0 auto; }
+  .lockscreen .avatar {
+    display: block;
+    margin: 0 auto; }
+  .lockscreen h2 {
+    color: white;
+    font-family: "cantarell", sans-serif;
+    font-weight: 200;
+    font-size: 24px;
+    margin: 12px auto;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); }
+
+.bubbles {
+  display: inline-block;
+  float: right;
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9; }
+
+.bubble {
+  display: block;
+  background-color: rgba(53, 53, 53, 0.9);
+  border-radius: 50%;
+  height: 48px;
+  width: 48px; }
+  .bubble .symbolic {
+    margin: 16px; }
+  .bubble svg path, .bubble svg g {
+    fill: #eeeeec; }
+
+/*# sourceMappingURL=lock-login.css.map */

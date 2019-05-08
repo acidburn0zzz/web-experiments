@@ -1,0 +1,41 @@
+- link: /devices/displays
+  icon: apps/preferences-desktop-display
+  title: Displays
+  has-submenu: false
+  has-separator: false
+
+- link: /devices/keyboard
+  icon: apps/preferences-desktop-keyboard
+  title: Keyboard
+  has-submenu: false
+  has-separator: false
+
+- link: /devices/mouse-touchpad
+  icon: devices/input-mouse
+  title: Mouse & Touchpad
+  has-submenu: false
+  has-separator: false
+
+- link: /devices/printers
+  icon: devices/printer
+  title: Printers
+  has-submenu: false
+  has-separator: false
+
+- link: /devices/removable-media
+  icon: devices/media-removable
+  title: Removable Media
+  has-submenu: false
+  has-separator: false
+
+- link: /devices/thunderbolt
+  icon: devices/thunderbolt
+  title: Thunderbolt
+  has-submenu: false
+  has-separator: false
+
+- link: /devices/color
+  icon: apps/preferences-color
+  title: Color
+  has-submenu: false
+  has-separator: false

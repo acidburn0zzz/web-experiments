@@ -1,0 +1,85 @@
+---
+layout: mockup
+title: "Settings - Universal Access - Hearing"
+theme: Adwaita/Adwaita.css
+permalink: settings/accessibility/hearing/
+wallpaper: triangles
+category: "Universal Access"
+---
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsAccessibilitySidebar a:nth-of-type(2) li').addClass("active");});
+</script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsAccessibilitySidebar" class="sidebar">
+		{%- for item in site.data.settings-accessibility-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Typing -->
+			<div class="row">
+				<ul class="listrow">
+					<li>
+						<label>Mono Audio</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+				</ul>
+				<p>System volume can be adjusted in the <a href="{{ site.baseurl }}/settings/sound">Sound</a> settings.</p>
+			</div>
+			<!-- Hearing -->
+			<div class="row">
+				<h5>Visual Alerts</h5>
+				<p>Use a visual indication when an alert sound occurs</p>
+				<ul class="listrow">
+					<li>
+						<label>Screen Flash</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+					<li>
+						<label>Test Flash</label>
+						<a class="button text-button float-right">Test</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsAccessibilitySidebar a:nth-of-type(2) li').addClass("active");});
+
+//
+$(document).ready(function(){
+	$('#a11ySwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('.accessibility-menu').removeClass("invisible");
+		} else {
+			$('.accessibility-menu').addClass("invisible");
+		}
+	});
+});
+</script>

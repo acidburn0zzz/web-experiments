@@ -1,0 +1,23 @@
+- link: /details/about
+  icon: actions/help-about
+  title: About
+  has-submenu: false
+  has-separator: false
+
+- link: /details/datetime
+  icon: apps/preferences-system-time
+  title: Date & Time
+  has-submenu: false
+  has-separator: false
+
+- link: /details/users
+  icon: apps/system-users
+  title: Users
+  has-submenu: false
+  has-separator: false
+
+- link: /details/defaults
+  icon: status/starred
+  title: Default Applications
+  has-submenu: false
+  has-separator: false

@@ -1,0 +1,12 @@
+// Default GNOME theme
+
+// $variant: 'dark';
+$variant: 'light';
+
+@import 'mixins';
+@import 'colors';
+@import 'cantarell';
+@import 'drawing';
+@import 'common';
+@import 'widgets';
+@import 'wallpapers';

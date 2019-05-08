@@ -1,0 +1,224 @@
+ - icon: org.gnome.Aisleriot.svg
+   title: Aisleriot
+
+ - icon: org.gnome.ArchiveManager.svg
+   title: ArchiveManager
+
+ - icon: org.gnome.Baobab.svg
+   title: Baobab
+
+ - icon: org.blender.Blender.svg
+   title: Blender
+
+ - icon: org.gnome.Books.svg
+   title: Books
+
+ - icon: org.gnome.Boxes.svg
+   title: Boxes
+
+ - icon: org.gnome.Builder.svg
+   title: Builder
+
+ - icon: org.gnome.Calculator.svg
+   title: Calculator
+
+ - icon: org.gnome.Calendar.svg
+   title: Calendar
+
+ - icon: org.gnome.Calls.svg
+   title: Calls
+
+ - icon: org.gnome.Camera.svg
+   title: Camera
+
+ - icon: org.gnome.CharacterMap.svg
+   title: CharacterMap
+
+ - icon: org.gnome.Characters.svg
+   title: Characters
+
+ - icon: org.gnome.Cheese.svg
+   title: Cheese
+
+ - icon: org.gnome.Chess.svg
+   title: Chess
+
+ - icon: org.gnome.Clocks.svg
+   title: Clocks
+
+ - icon: org.gnome.Contacts.svg
+   title: Contacts
+
+ - icon: org.gnome.DejaDup.svg
+   title: DejaDup
+
+ - icon: org.gnome.Devhelp.svg
+   title: Devhelp
+
+ - icon: org.gnome.DFeet.svg
+   title: DFeet
+
+ - icon: org.gnome.Dictionary.svg
+   title: Dictionary
+
+ - icon: org.gnome.Discussions.svg
+   title: Discussions
+
+ - icon: org.gnome.DiskUtility.svg
+   title: Disk Utility
+
+ - icon: org.gnome.Documents.svg
+   title: Documents
+
+ - icon: org.gnome.Epiphany.svg
+   title: Epiphany
+
+ - icon: org.gnome.Evince.svg
+   title: Evince
+
+ - icon: org.gnome.Evolution.svg
+   title: Evolution
+
+ - icon: org.gnome.five-or-more.svg
+   title: five-or-more
+
+ - icon: org.gnome.Fonts.svg
+   title: Fonts
+
+ - icon: org.gnome.Fractal.svg
+   title: Fractal
+
+ - icon: org.gnome.Games.svg
+   title: Games
+
+ - icon: org.gnome.Geary.svg
+   title: Geary
+
+ - icon: org.gnome.Gedit.svg
+   title: Gedit
+
+ - icon: org.gimp.GIMP.svg
+   title: GIMP
+
+ - icon: org.gnome.gitg.svg
+   title: gitg
+
+ - icon: org.gnome.Glade.svg
+   title: Glade
+
+ - icon: org.gnome.gnome-2048.svg
+   title: gnome-2048
+
+ - icon: org.gnome.Help.svg
+   title: Help
+
+ - icon: org.gnome.IconBrowser.svg
+   title: Icon Browser
+
+ - icon: org.gnome.ImageViewer.svg
+   title: Image Viewer
+
+ - icon: org.inkscape.Inkscape.svg
+   title: Inkscape
+
+ - icon: org.gnome.Keysign.svg
+   title: Keysign
+
+ - icon: org.gnome.Logs.svg
+   title: Logs
+
+ - icon: org.gnome.Maps.svg
+   title: Maps
+
+ - icon: org.gnome.Messages.svg
+   title: Messages
+
+ - icon: org.gnome.Mines.svg
+   title: Mines
+
+ - icon: org.gnome.Music.svg
+   title: Music
+
+ - icon: org.gnome.Nautilus.svg
+   title: Nautilus
+
+ - icon: org.gnome.Nostalgia.svg
+   title: Nostalgia
+
+ - icon: org.gnome.Notes.svg
+   title: Notes
+
+ - icon: org.gnome.PasswordSafe.svg
+   title: Password Safe
+
+ - icon: org.gnome.Photos.svg
+   title: Photos
+
+ - icon: org.gnome.Pitivi.svg
+   title: Pitivi
+
+ - icon: org.gnome.Podcasts.svg
+   title: Podcasts
+
+ - icon: org.gnome.Polari.svg
+   title: Polari
+
+ - icon: org.gnome.Recipes.svg
+   title: Recipes
+
+ - icon: org.gnome.Rhythmbox.svg
+   title: Rhythmbox
+
+ - icon: org.gnome.Screenshot.svg
+   title: Screenshot
+
+ - icon: org.gnome.Seahorse.svg
+   title: Seahorse
+
+ - icon: org.gnome.Settings.old.svg
+   title: Settings
+
+ - icon: org.gnome.SimpleScan.svg
+   title: Simple Scan
+
+ - icon: org.gnome.Social.svg
+   title: Social
+
+ - icon: org.gnome.Software.svg
+   title: Software
+
+ - icon: org.gnome.SoundRecorder.svg
+   title: Sound Recorder
+
+ - icon: org.sparkleshare.SparkleShare.svg
+   title: SparkleShare
+
+ - icon: org.gnome.Sysprof.svg
+   title: Sysprof
+
+ - icon: org.gnome.SystemMonitor.svg
+   title: System Monitor
+
+ - icon: org.gnome.Terminal.svg
+   title: Terminal
+
+ - icon: org.gnome.Todo.svg
+   title: Todo
+
+ - icon: org.gnome.Totem.svg
+   title: Totem
+
+ - icon: com.transmissionbt.Transmission.svg
+   title: Transmission
+
+ - icon: org.gnome.Tweaks.svg
+   title: Tweaks
+
+ - icon: org.gnome.Usage.svg
+   title: Usage
+
+ - icon: org.gnome.Weather.svg
+   title: Weather
+
+ - icon: org.gtk.WidgetFactory.svg
+   title: Widget Factory

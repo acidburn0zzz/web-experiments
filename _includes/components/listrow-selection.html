@@ -1,0 +1,12 @@
+{%- assign id = include.id | default: "" -%}
+{%- assign onclick = include.onclick | default: "" -%}
+{%- assign float = include.float | default: "none" -%}
+{%- assign checked = include.checked | default: "" -%}
+{%- assign name = include.name | default: "" -%}
+{%- assign type = include.type | default: "checkbox" -%}
+
+<!-- Selection -->
+<div class="selection float-{{ float }}">
+	<input type="{{ type }}" name="{{ name }}" id="{{ id }}" onclick="{{ onclick }}" {{ checked }}>
+	<div class="{{ type }}"></div>
+</div>

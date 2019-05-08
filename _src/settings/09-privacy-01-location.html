@@ -1,0 +1,102 @@
+---
+layout: mockup
+title: "Settings - Privacy - Location Services"
+theme: Adwaita/Adwaita.css
+permalink: settings/privacy/location
+wallpaper: triangles
+category: "Privacy"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/switch.html checked = "checked" id = "locationServicesSwitch" -%}
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsPrivacySidebar" class="sidebar">
+		{%- for item in site.data.settings-privacy-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row" id="locationServicesSettings">
+				<p>Location services allow applications to know your location. Using Wi-fi and mobile broadband increases accuracy.</p>
+				<p>Uses Mozilla Location Service: <u>Privacy Policy</u></p>
+				<p>Allow the applications below to determine your location.</p>
+				<ul class="listrow scrollbox">
+					<li onclick="toggleChecked('#locationServicesAppSwitch1');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Maps.svg">
+						<label>Maps</label>
+						{%- include components/switch.html float = "right" checked = "checked" id="locationServicesAppSwitch1" -%}
+					</li>
+					<li onclick="toggleChecked('#locationServicesAppSwitch2');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Weather.svg">
+						<label>Weather</label>
+						{%- include components/switch.html float = "right" checked = "checked" id="locationServicesAppSwitch2" -%}
+					</li>
+					<li onclick="toggleChecked('#locationServicesAppSwitch3');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Epiphany.svg">
+						<label>Web</label>
+						{%- include components/switch.html float = "right" checked = "checked" id="locationServicesAppSwitch3" -%}
+					</li>
+					<li onclick="toggleChecked('#locationServicesAppSwitch4');">
+						<div class="icon s32">{%- include symbolic/categories/applications-system-symbolic.svg -%}</div>
+						<label>System Services</label>
+						{%- include components/switch.html float = "right" checked = "checked" id="locationServicesAppSwitch4" -%}
+					</li>
+				</ul>
+			</div>
+			{%- include components/empty-state.html
+				id = "locationServicesDisabled"
+				icon="actions/mark-location" 
+				title = "Location Services are disabled" 
+				message= "No applications are able to determine your location." 
+			-%}
+		</div>
+	</div>
+	<!-- Disable Location Services Dialog -->
+	<div class="gtkdialog" id="locationServicesDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Disable Location Services?</h3>
+					<p>Disabling location services will prevent applications from knowing your location. This may cause some applications to not function properly.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#locationServicesSwitch').prop('checked', true );$('#locationServicesDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#locationServicesSettings').hide();$('#locationServicesDisabled').show();$('#locationServicesDialog').hide();">Disable</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsPrivacySidebar a:nth-of-type(1) li').addClass("active");});
+
+$(document).ready(function(){
+	$('#locationServicesSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#locationServicesSettings').show();
+			$('#locationServicesDisabled').hide();
+		} else {
+			$('#locationServicesDialog').show();
+		}
+	});
+});
+$("#locationServicesDisabled").hide();
+</script>

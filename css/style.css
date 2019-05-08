@@ -1,0 +1,94 @@
+.clearfix::after {
+  display: block;
+  clear: both;
+  content: ""; }
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+     supported by Chrome and Opera */ }
+
+.center {
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto; }
+
+.float-left {
+  float: left; }
+
+.float-right {
+  float: right; }
+
+.float-none {
+  float: none; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.align-baseline {
+  vertical-align: baseline !important; }
+
+.align-top {
+  vertical-align: top !important; }
+
+.align-middle {
+  vertical-align: middle !important; }
+
+.align-bottom {
+  vertical-align: bottom !important; }
+
+.align-text-bottom {
+  vertical-align: text-bottom !important; }
+
+.align-text-top {
+  vertical-align: text-top !important; }
+
+.visible {
+  visibility: visible !important;
+  display: none !important; }
+
+.hidden,
+.invisible {
+  visibility: hidden !important;
+  display: none !important; }
+
+.disclaimer {
+  display: block;
+  z-index: 100000000000;
+  height: 16px;
+  position: fixed;
+  bottom: 4px;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white !important;
+  border-radius: 4px;
+  font: bold;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 4px 6px; }
+  .disclaimer:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: black !important; }
+
+@media only screen and (max-width: 600px) {
+  .disclaimer {
+    display: none; } }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,227 @@
+---
+layout: mockup
+title: "Settings - Devices - Displays"
+theme: Adwaita/Adwaita.css
+permalink: settings/devices/displays
+wallpaper: triangles
+category: "Devices"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+<style type="text/css">
+.night-light {
+	display: none; 
+	position: fixed; 
+	z-index: 10000; 
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background-color: rgba(265,165,0,0.2);
+	pointer-events: none;
+}
+</style>
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsDevicesSidebar" class="sidebar">
+		{%- for item in site.data.settings-devices-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Displays -->
+			<div class="row">
+				<h5>Built-in Display</h5>
+				<ul class="listrow">
+					<li id="displayOrientationPopover">
+						<label>Orientation</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="displayOrientationStatus">Landscape</label>
+					</li>
+					<li id="displayResolutionPopover">
+						<label>Resolution</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="displayResolutionStatus">1920 x 1080 (16:9)</label>
+					</li>
+					<li>
+						<label>Display Scale</label>
+						<div class="linked float-right">
+							<a id="scale100" class="button text-button pressed left">100%</a><a id="scale200" class="button text-button middle">200%</a><a id="scale200" class="button text-button right">300%</a>
+						</div>
+					</li>
+					<li>
+						<label>Interface Scale</label>
+						<div class="linked float-right">
+							<a id="scaleplus0" class="button text-button pressed left">+0%</a><a id="scaleplus25" class="button text-button middle">+25%</a><a id="scaleplus50" class="button text-button middle">+50%</a><a id="scaleplus75" class="button text-button right">+75%</a>
+						</div>
+					</li>
+					<li id="displayRefreshRatePopover">
+						<label>RefreshRate</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="displayRefreshRateStatus">60.02 Hz</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Night Light -->
+			<div class="row">
+				<ul class="listrow">
+					<li onclick="$('#nightLightDialog').show();">
+						<label>Night Light</label>
+						<label class="nightLightStatus float-right">Off</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Night Light Dialog -->
+	<div class="gtkdialog" id="nightLightDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">Night Light</span>
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Night Light makes the screen color warmer. This can help prevent eye strain and sleepless ness</p>
+				<ul class="listrow unstyled">
+					<li>
+						<span><b>Night Light</b></span>
+						{%- include components/switch.html float = "right" id = "nightLightSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="night-light"></div>
+
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsDevicesSidebar a:nth-of-type(1) li').addClass("active");});
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="displayRefreshRateOption($(this).text());">60.02 Hz</li>',
+			'<li onclick="displayRefreshRateOption($(this).text());">59.96 Hz</li>',
+		'</ul>'].join('');
+
+	$('#displayRefreshRatePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function displayRefreshRateOption() {
+	$('#displayRefreshRateStatus').text(arguments[0]);
+	$("#displayRefreshRatePopover").popover("hide");
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="displayOrientationOption($(this).text());">Landscape</li>',
+			'<li onclick="displayOrientationOption($(this).text());">Portrait Right</li>',
+			'<li onclick="displayOrientationOption($(this).text());">Portrait Left</li>',
+			'<li onclick="displayOrientationOption($(this).text());">Landscape (flipped)</li>',
+		'</ul>'].join('');
+
+	$('#displayOrientationPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function displayOrientationOption() {
+	$('#displayOrientationStatus').text(arguments[0]);
+	$("#displayOrientationPopover").popover("hide");
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul class="scrollbox">',
+			'<li onclick="displayResolutionOption($(this).text());">1920 x 1080 (16:9)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1680 x 1050 (16:9)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1440 x 1080 (4:3)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1400 x 1050 (4:3)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1600 x 900 (16:9)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1440 x 900 (16:10)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1280 x 960 (4:3)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1368 x 768 (16:9)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1152 x 864 (4:3)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1280 x 720 (16:9)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">1024 x 768 (4:3)</li>',
+			'<li onclick="displayResolutionOption($(this).text());">800 x 600 (4:3)</li>',
+		'</ul>'].join('');
+
+	$('#displayResolutionPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function displayResolutionOption() {
+	$('#displayResolutionStatus').text(arguments[0]);
+	$("#displayResolutionPopover").popover("hide");
+}
+
+// toggle joined button status
+$(document).ready(function(){
+	$("#scale200").click(function(){
+		$("#scale100").removeClass("pressed");
+		$("#scale200").addClass("pressed");
+	});
+});
+$(document).ready(function(){
+	$("#scale100").click(function(){
+		$("#scale200").removeClass("pressed");
+		$("#scale100").addClass("pressed");
+	});
+});
+
+// enable Night light
+$(document).ready(function(){
+	$('#nightLightSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('.status-night-light').removeClass("hidden");
+			$(".nightLightStatus").text("On");
+			$(".night-light").css({ 'display': "block" });
+		} else {
+			$(".nightLightStatus").text("Off");
+			$('.status-night-light').addClass("hidden");
+			$(".night-light").css({ 'display': "none" });
+		}
+	});
+});
+
+</script>

@@ -1,0 +1,26 @@
+---
+layout: mockup
+title: "Initial Setup Done Page"
+permalink: initial-setup-done
+theme: Adwaita/Adwaita.css
+wallpaper: adwaita
+published: true
+issue: https://gitlab.gnome.org/GNOME/gnome-initial-setup/issues/8
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/initial-setup.css">
+
+<div class="window small" id="initial-setup-dialog">
+	<!-- Titlebar -->
+	<div class="titlebar">
+		<span class="title">Initial Setup</span>
+	</div>
+	<div class="content text-center">
+		{% include done-anim-simple.svg %}
+		<h1>All done!</h1>
+		<p>GNOME 3.32 is ready to be used. We hope that you love it!</p>
+		<br>
+		<a class="button large suggested-action">Start using GNOME 3</a>
+	</div>
+</div>

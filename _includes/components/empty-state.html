@@ -1,0 +1,11 @@
+{%- assign id = include.id | default: "emptyState" -%}
+{%- assign icon = include.icon | default: "status/dialog-information" -%}
+{%- assign title = include.title | default: "Empty" -%}
+{%- assign message = include.message | default: "Nothing to see here" -%}
+
+<!-- Empty State -->
+<div id="{{ id }}" class="row empty-state text-center">
+	<div class="icon s128 large">{%- include symbolic/{{ icon }}-symbolic.svg -%}</div>
+	<h3>{{ title }}</h3>
+	<p>{{ message }}</p>
+</div>

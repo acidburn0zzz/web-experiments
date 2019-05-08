@@ -1,0 +1,57 @@
+$viewswitcher_height:52px;
+$viewswitcher_padding:12px;
+
+// view switcher
+.view-switcher {
+	background-color: $bg_color;
+	position: relative;
+	margin:0;
+	padding:0;
+	padding: 0 $viewswitcher_padding;
+	border-top: 1px solid $borders_color;
+	height: $viewswitcher_height;
+	min-height: $viewswitcher_height;
+	width: calc(100% - (#{$viewswitcher_padding} * 2));
+	text-align: center;
+
+	li {
+		// background-color: red; //debug
+		display: inline-block;
+		padding: 6px 12px;
+		height: calc(#{$viewswitcher_height} - 12px);
+		width: 64px;
+		color: $fg_color !important;
+
+		* {
+			text-align: center;
+			display: block;
+			margin: 0 auto;
+
+			&.icon {
+				padding: 4px;
+			}
+		}
+
+		&.active {
+			border-left: 1px solid $borders_color;
+			border-right: 1px solid $borders_color;
+			background-color: darken($bg_color, 5%);
+			&:hover{background-color: darken($bg_color, 3%);}
+		}
+
+		&:hover {
+			background-color: lighten($bg_color, 5%);
+		}
+	}
+
+	&.bottom {
+		bottom:0;
+		margin:0;
+		margin-top: calc(#{$viewswitcher_height} * -1);
+	}
+}
+
+.view-switcher-padding {
+	display: block;
+	height: $viewswitcher_height !important;
+}

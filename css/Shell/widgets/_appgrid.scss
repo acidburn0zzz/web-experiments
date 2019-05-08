@@ -1,0 +1,48 @@
+#appGrid {
+	max-width: 1280px;
+	margin: 64px auto;
+	> ul {
+		list-style: none;
+
+		li {
+			height: 128px;
+			width: 128px;
+			@extend %icon_tile;
+			display: inline-block;
+			margin: 30px;
+			span {display: block;}
+
+			&:hover {
+				background-color: transparentize($osd_fg_color,.9);
+				transition-duration: 200ms;
+			}
+		}
+	}
+}
+
+.paginator {
+	list-style: none;
+	position: fixed;
+	right: 0;
+	top: calc(50% - 100px);
+	height: 200px;
+
+	li {
+		margin: 15px 20px;
+		padding: 8px;
+		input {
+			appearance: none;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			display: block;
+			width: 16px;
+			height: 16px;
+			background-color: transparent;
+			border: 2px solid rgba(255, 255, 255, 0.4);
+			border-radius:50%;
+			&:hover { border-color: white; }
+			&:active { border: none; background-color:#fff; }
+			&:checked,&:checked:active { background-color: #fff;}
+		}
+	}
+}

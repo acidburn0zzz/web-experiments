@@ -1,0 +1,6 @@
+// Visibility utilities
+
+.visible { @include invisible(visible);}
+
+.hidden,
+.invisible { @include invisible(hidden);}

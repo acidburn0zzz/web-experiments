@@ -1,0 +1,82 @@
+---
+layout: mockup
+title: "Settings - Details - Date & Time"
+theme: Adwaita/Adwaita.css
+permalink: settings/details/datetime
+wallpaper: triangles
+category: "Details"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsDetailsSidebar" class="sidebar">
+		{%- for item in site.data.settings-details-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Touchpad -->
+			<div class="row">
+				<ul class="listrow">
+					<li class="medium" onclick="toggleChecked('#automaticDateTimeSwitch');">
+						<div class="label-group">
+							<label>Automatic Date & Time</label>
+							<label class="small-label dim-label">Required internet access.</label>
+						</div>
+						{%- include components/switch.html float = "right" checked = "checked" id = "automaticDateTimeSwitch" -%}
+					</li>
+					<li class="medium" onclick="toggleChecked('#automaticTimeZoneSwitch');">
+						<div class="label-group">
+							<label>Automatic Time Zone</label>
+							<label class="small-label dim-label">Required internet access.</label>
+						</div>
+						{%- include components/switch.html float = "right" checked = "checked" id = "automaticTimeZoneSwitch" -%}
+					</li>
+					<li>
+						<label>Date & Time</label>
+						<label class="float-right dim-label" id="dateTimeStatus"></label>
+					</li>
+					<li>
+						<label>Time Zone</label>
+						<label class="float-right dim-label" id="timeZoneStatus">TMZ (City, Country)</label>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<ul class="listrow">
+					<li onclick="toggleChecked('#hourFormatSwitch');">
+						<label>24-Hour Time</label>
+						{%- include components/switch.html float = "right" id = "hourFormatSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsDetailsSidebar a:nth-of-type(2) li').addClass("active");});
+
+var date = new Date().toDateString();
+var time = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",minute: "numeric"});
+$("#dateTimeStatus").text(date+"   "+time);
+</script>

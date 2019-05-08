@@ -1,0 +1,53 @@
+// Text Entries *
+$entry_height: 32px;
+$entry_padding: 8px;
+
+
+%entry,
+input.entry {
+	%entry_basic, & {
+		min-height: $entry_height;
+		padding:0 $entry_padding;
+		border: 1px solid;
+		border-radius: 3px;
+		transition: all 200ms $ease-out-quad;
+
+		@include entry(normal);
+
+		svg { // icons inside the entry
+			&.left { margin-right: 6px; }
+			&.right { margin-left: 6px; }
+		}
+
+		&.flat {
+			&:focus, &:backdrop, &:disabled, &:backdrop:disabled, & {
+				min-height: 0;
+				padding: 2px;
+				background-color: transparent;
+				border-color: transparent;
+				border-radius: 0;
+			}
+		}
+
+		&.full-width {
+			width: calc(100% -(#{$entry_padding * 2}));
+		}
+
+		&:focus { @include entry(focus); }
+
+		&:disabled { @include entry(insensitive); }
+
+		// entry error and warning style
+		@each $e_type, $e_color in (error, $error_color),
+															 (warning, $warning_color) {
+			&.#{$e_type} {
+				color: $e_color;
+				border-color: entry_focus_border($e_color);
+
+				&:focus { @include entry(focus, $e_color); }
+
+				selection { background-color: $e_color; }
+			}
+		}
+	}
+}

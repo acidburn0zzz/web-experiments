@@ -1,0 +1,189 @@
+---
+layout: mockup
+title: "Settings - Search"
+theme: Adwaita/Adwaita.css
+permalink: settings/search
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/switch.html checked = "checked" id = "searchSwitch" -%}
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Folders Search -->
+			<div class="row">
+				<h4>Web Search</h4>
+				<p>Perform web searches from with the search provider below.</p>
+				<ul class="listrow">
+					<li class="medium">
+						<img class="icon s32" src="{{ site.baseurl }}/img/duckduckgo.png">
+						<div class="label-group">
+							<label>DuckDuckGo</label>
+						</div>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchWebSwitch" -%}
+					</li>
+				</ul>
+				<h5>Folders</h5>
+				<p>Find things quickly on your computer and see results and suggestions from folders and other applications.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#searchHomeFolderSwitch');">
+						<label>Home</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchHomeFolderSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#searchDocumentsFolderSwitch');">
+						<label>Documents</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchDocumentsFolderSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#searchDownloadFolderSwitch');">
+						<label>Downloads</label>
+						{%- include components/switch.html float = "right" id = "searchDownloadFolderSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#searchPicturesFolderSwitch');">
+						<label>Pictures</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchPicturesFolderSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#searchMusicFolderSwitch');">
+						<label>Music</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchMusicFolderSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#searchVideosFolderSwitch');">
+						<label>Videos</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchVideosFolderSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#searchUserAddedFolderSwitch');">
+						<label>Added Folder</label>
+						{%- include components/listrow-menu-button.html -%}
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchUserAddedFolderSwitch" -%}
+					</li>
+					<li class="text-center">
+						<label class="center">Add another folder&hellip;</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Applications Controls -->
+			<div class="row">
+				<h5>Applications</h5>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#searchAppContacts');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Contacts.svg">
+						<label>Contacts</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppContacts" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppDocuments');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Documents.svg">
+						<label>Documents</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppDocuments" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppFiles');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Nautilus.svg">
+						<label>Files</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppFiles" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppBoxes');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Boxes.svg">
+						<label>Boxes</label>
+						{%- include components/switch.html float = "right" id = "searchAppBoxes" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppCalculator');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg">
+						<label>Calculator</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppCalculator" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppCalendar');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calendar.svg">
+						<label>Calendar</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppCalendar" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppClocks');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Clocks.svg">
+						<label>Clocks</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppClocks" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppCharacters');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Characters.svg">
+						<label>Characters</label>
+						{%- include components/switch.html float = "right" id = "searchAppCharacters" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppNotees');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Notes.svg">
+						<label>Notes</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppNotees" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppPhotos');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Photos.svg">
+						<label>Photos</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppPhotos" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppSofware');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Software.svg">
+						<label>Software</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppSofware" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppRecipes');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Recipes.svg">
+						<label>Recipes</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppRecipes" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppTerminal');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Terminal.svg">
+						<label>Terminal</label>
+						{%- include components/switch.html float = "right" id = "searchAppTerminal" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppWeather');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Weather.svg">
+						<label>Weather</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppWeather" -%}
+					</li>
+					<li onclick="toggleChecked('#searchAppWeb');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Epiphany.svg">
+						<label>Web</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchAppWeb" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(5) li').addClass("active");});
+
+// switch toggle
+$(document).ready(function(){
+	$('#searchSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('div.view').removeClass("insensitive");
+		} else {
+			$('div.view').addClass("insensitive");
+		}
+	});
+});
+</script>

@@ -1,0 +1,95 @@
+- link: /wifi
+  icon: devices/network-wireless
+  title: Wi-Fi
+  has-submenu: false
+  has-separator: false
+
+- link: /bluetooth
+  icon: status/bluetooth-active
+  title: Bluetooth
+  has-submenu: false
+  has-separator: true
+
+- link: /background
+  icon: apps/preferences-desktop-wallpaper
+  title: Background
+  has-submenu: false
+  has-separator: false
+
+- link: /notifications
+  icon: apps/preferences-system-notifications
+  title: Notifications
+  has-submenu: false
+  has-separator: false
+
+- link: /search
+  icon: apps/preferences-system-search
+  title: Search
+  has-submenu: false
+  has-separator: false
+
+- link: /locale
+  icon: apps/preferences-desktop-locale
+  title: Region & Language
+  has-submenu: false
+  has-separator: false
+
+- link: /accessibility/seeing
+  icon: apps/preferences-desktop-accessibility
+  title: Universal Access
+  has-submenu: true
+  has-separator: true
+
+- link: /online-accounts
+  icon: apps/goa-panel
+  title: Online Accounts
+  has-submenu: false
+  has-separator: false
+
+- link: /privacy/location
+  icon: apps/preferences-system-privacy
+  title: Privacy
+  has-submenu: true
+  has-separator: false
+
+- link: /sharing
+  icon: apps/preferences-system-sharing
+  title: Sharing
+  has-submenu: false
+  has-separator: true
+
+- link: /sound
+  icon: status/audio-volume-high
+  title: Sound
+  has-submenu: false
+  has-separator: false
+
+- link: /power
+  icon: apps/gnome-power-manager
+  title: Power
+  has-submenu: false
+  has-separator: false
+
+- link: /network
+  icon: apps/preferences-system-network
+  title: Network
+  has-submenu: false
+  has-separator: false
+
+- link: /devices/displays
+  icon: apps/preferences-system-devices
+  title: Devices
+  has-submenu: true
+  has-separator: true
+
+- link: /details/about
+  icon: apps/preferences-system-details
+  title: Details
+  has-submenu: true
+  has-separator: false
+
+- link: /applications
+  icon: apps/preferences-system-applications
+  title: Applications
+  has-submenu: true
+  has-separator: false

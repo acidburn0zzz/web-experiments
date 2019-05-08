@@ -1,0 +1,103 @@
+---
+layout: mockup
+title: "Settings - Privacy - Trusted Devices"
+theme: Adwaita/Adwaita.css
+permalink: settings/privacy/devices
+wallpaper: triangles
+category: "Privacy"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsPrivacySidebar" class="sidebar">
+		{%- for item in site.data.settings-privacy-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<p>Let applications make use of external devices that you have already connected to this computer.</p>
+				<ul class="listrow">
+					<li class="medium" id="revokeDevice1">
+						<div class="label-group">
+							<label>Suspicious Dongle</label>
+							<label class="small-label dim-label">USB Disk</label>
+						</div>
+						<a class="button text-button float-right" onclick="$('#removeTrustedDeviceDialog').show();">Remove</a>
+					</li>
+					<li class="medium" id="revokeDevice2">
+						<div class="label-group">
+							<label>Canon&reg; Inkjet MG4000s-I</label>
+							<label class="small-label dim-label">USB Printer</label>
+						</div>
+						<a class="button text-button float-right" onclick="$('#removeTrustedDeviceDialog').show();">Remove</a>
+					</li>
+					<li class="medium" id="revokeDevice2">
+						<div class="label-group">
+							<label>SanDisk&reg; SDHC&trade; SDUNC-024</label>
+							<label class="small-label dim-label">SD Card</label>
+						</div>
+						<a class="button text-button float-right" onclick="$('#removeTrustedDeviceDialog').show();">Remove</a>
+					</li>
+				</ul>
+			</div>
+			<div id="devicePermissions" class="row">
+				<h4>Device Access</h4>
+				<p>Allow the applications below to use your trusted devices.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#devicesAppSwitch1');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Builder.svg">
+						<label>Builder</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "devicesAppSwitch1" -%}
+					</li>
+					<li onclick="toggleChecked('#devicesAppSwitch2');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Nautilus.svg">
+						<label>Files</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "devicesAppSwitch2" -%}
+					</li>
+					<li onclick="toggleChecked('#devicesAppSwitch3');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Photos.svg">
+						<label>Photos</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "devicesAppSwitch3" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Remove Device Dialog -->
+	<div class="gtkdialog" id="removeTrustedDeviceDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Remove "$DEVICE" from Trusted Devices?</h3>
+					<p>Record of this device will be removed, you will have to re-attach it for apps to be able to use it again.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#removeTrustedDeviceDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#revokeDevice1').hide();$('#removeTrustedDeviceDialog').hide();">Remove Device</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsPrivacySidebar a:nth-of-type(5) li').addClass("active");});
+</script>

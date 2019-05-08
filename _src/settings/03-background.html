@@ -1,0 +1,46 @@
+---
+layout: mockup
+title: "Settings - Background"
+theme: Adwaita/Adwaita.css
+permalink: settings/background
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(3) li').addClass("active");});
+</script>

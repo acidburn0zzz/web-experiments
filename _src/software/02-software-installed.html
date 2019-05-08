@@ -1,0 +1,123 @@
+---
+layout: mockup
+title: "Software - Installed"
+theme: Adwaita/Adwaita.css
+permalink: software/installed
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/software.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Software</span>
+		</div>
+		<!-- Title -->
+		<span class="title">Installed</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="softwareSidebar" class="sidebar">
+		{%- for item in site.data.software-sidebar -%}
+			<a href="{{ site.baseurl }}/software{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-value %}<span class="pillbox float-right">{{ item.has-value }}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<ul class="listrow">
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg">
+						<div class="label-group">
+							<label>Calculator</label>
+							<label class="small-label dim-label">3.4 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Builder.svg">
+						<div class="label-group">
+							<label>Builder</label>
+							<label class="small-label dim-label">17.2 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Nautilus.svg">
+						<div class="label-group">
+							<label>Nautilus</label>
+							<label class="small-label dim-label">6.5 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Notes.svg">
+						<div class="label-group">
+							<label>Notes</label>
+							<label class="small-label dim-label">3.4 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Recipes.svg">
+						<div class="label-group">
+							<label>Recipes</label>
+							<label class="small-label dim-label">17.2 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Dictionary.svg">
+						<div class="label-group">
+							<label>Dictionary</label>
+							<label class="small-label dim-label">6.5 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Cheese.svg">
+						<div class="label-group">
+							<label>Cheese</label>
+							<label class="small-label dim-label">3.4 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Epiphany.svg">
+						<div class="label-group">
+							<label>Epiphany</label>
+							<label class="small-label dim-label">17.2 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Fractal.svg">
+						<div class="label-group">
+							<label>Fractal</label>
+							<label class="small-label dim-label">6.5 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="removeButton">Remove</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#softwareSidebar a:nth-of-type(2) li').addClass("active");});
+</script>

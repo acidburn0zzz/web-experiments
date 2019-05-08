@@ -1,0 +1,101 @@
+---
+layout: mockup
+title: "Settings - Privacy - Camera"
+theme: Adwaita/Adwaita.css
+permalink: settings/privacy/camera
+wallpaper: triangles
+category: "Privacy"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/switch.html checked = "checked" id = "cameraSwitch" -%}
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsPrivacySidebar" class="sidebar">
+		{%- for item in site.data.settings-privacy-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row" id="cameraSettings">
+				<p>Use of the camera allows applications to capture photos and video. Disabling the camera may cause some applications to not function properly.</p>
+				<p>Allow the applications below to use your camera.</p>
+				<ul class="listrow scrollbox">
+					<li onclick="toggleChecked('#cameraAppSwitch1');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.blender.Blender.svg">
+						<label>Blender</label>
+						{%- include components/switch.html float = "right" id = "cameraAppSwitch1" -%}
+					</li>
+					<li onclick="toggleChecked('#cameraAppSwitch2');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gimp.GIMP.svg">
+						<label>GIMP</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "cameraAppSwitch2" -%}
+					</li>
+					<li onclick="toggleChecked('#cameraAppSwitch3');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Cheese.svg">
+						<label>Cheese</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "cameraAppSwitch3" -%}
+					</li>
+					<li onclick="toggleChecked('#cameraAppSwitch4');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Photos.svg">
+						<label>Photos</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "cameraAppSwitch4" -%}
+					</li>
+				</ul>
+			</div>
+			{%- include components/empty-state.html
+				id = "cameraDisabled"
+				icon="status/camera-disabled" 
+				title = "Camera is turned off" 
+				message= "No applications can capture photos or record video." 
+			-%}
+		</div>
+	</div>
+	<!-- Disable Camera Dialog -->
+	<div class="gtkdialog" id="cameraDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Disable Camera?</h3>
+					<p>Disabling the camera will prevent applications from capturing photos and video. This may cause some applications to not function properly.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#cameraSwitch').prop('checked', true );$('#cameraDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#cameraSettings').hide();$('#cameraDisabled').show();$('#cameraDialog').hide();">Disable</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsPrivacySidebar a:nth-of-type(2) li').addClass("active");});
+
+$(document).ready(function(){
+	$('#cameraSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#cameraSettings').show();
+			$('#cameraDisabled').hide();
+		} else {
+			$('#cameraDialog').show();
+		}
+	});
+});
+$("#cameraDisabled").hide();
+</script>

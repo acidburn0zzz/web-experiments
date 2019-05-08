@@ -1,0 +1,165 @@
+---
+layout: mockup
+title: "Settings - Universal Access"
+theme: Adwaita/Adwaita.css
+permalink: settings/accessibility
+wallpaper: triangles
+---
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(8) li').addClass("active");});
+</script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Seeing -->
+			<div class="row">
+				<ul class="listrow unstyled">
+					<li>
+						<span>Always Show Universal Access Menu</span>
+						<label class="switch float-right">
+							<input type="checkbox" class="switch-input" id="a11ySwitch" checked>
+							<div class="switch-trough" data-on="On" data-off="Off"></div>
+							<div class="switch-slider"></div>
+						</label>
+					</li>
+				</ul>
+				<!-- Seeing -->
+				<h5>Seeing</h5>
+				<ul class="listrow">
+					<li>
+						<span>High Contrast</span>
+						<label class="switch float-right">
+							<input type="checkbox" class="switch-input" id="hcSwitch">
+							<div class="switch-trough" data-on="On" data-off="Off"></div>
+							<div class="switch-slider"></div>
+						</label>
+					</li>
+					<li>
+						<span>Large Text</span>
+						<label class="switch float-right">
+							<input type="checkbox" class="switch-input" id="hcSwitch">
+							<div class="switch-trough" data-on="On" data-off="Off"></div>
+							<div class="switch-slider"></div>
+						</label>
+					</li>
+					<li>
+						<span>Cursor Size</span>
+						<span class="float-right">Default</span>
+					</li>
+					<li>
+						<span>Zoom</span>
+						<span class="float-right">Off</span>
+					</li>
+					<li>
+						<span>Screen Reader</span>
+						<span class="float-right">Off</span>
+					</li>
+					<li>
+						<span>Sound Keys</span>
+						<span class="float-right">Off</span>
+					</li>
+				</ul>
+			</div>
+			<!-- Hearing -->
+			<div class="row">
+				<h5>Hearing</h5>
+				<ul class="listrow">
+					<li>
+						<span>Visual Alerts</span>
+						<span class="float-right">Off</span>
+					</li>
+				</ul>
+			</div>
+			<!-- Typing -->
+			<div class="row">
+				<h5>Typing</h5>
+				<ul class="listrow">
+					<li>
+						<span>Screen Keyboard</span>
+						<label class="switch float-right">
+							<input type="checkbox" class="switch-input" id="hcSwitch">
+							<div class="switch-trough" data-on="On" data-off="Off"></div>
+							<div class="switch-slider"></div>
+						</label>
+					</li>
+					<li>
+						<span>Repeat Keys</span>
+						<span class="float-right">On</span>
+					</li>
+					<li>
+						<span>Blinking Cursor</span>
+						<span class="float-right">On</span>
+					</li>
+					<li>
+						<span>Typing Assist (AccessX)</span>
+						<span class="float-right">Off</span>
+					</li>
+				</ul>
+			</div>
+			<!-- Typing -->
+			<div class="row">
+				<h5>Pointing & Clicking</h5>
+				<ul class="listrow">
+					<li>
+						<span>Mouse Keys</span>
+						<label class="switch float-right">
+							<input type="checkbox" class="switch-input">
+							<div class="switch-trough" data-on="On" data-off="Off"></div>
+							<div class="switch-slider"></div>
+						</label>
+					</li>
+					<li>
+						<span>Click Assist</span>
+						<span class="float-right">Off</span>
+					</li>
+					<li>
+						<span>Double-Click Delay</span>
+						<span class="float-right">[ to-do: slider ]</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#a11ySwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('.accessibility-menu').removeClass("invisible");
+		} else {
+			$('.accessibility-menu').addClass("invisible");
+		}
+	});
+});
+</script>

@@ -1,0 +1,69 @@
+---
+layout: mockup
+title: "Settings - Universal Access - Display"
+theme: Adwaita/Adwaita.css
+permalink: settings/accessibility/seeing/
+wallpaper: triangles
+category: "Universal Access"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsAccessibilitySidebar" class="sidebar">
+		{%- for item in site.data.settings-accessibility-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Seeing -->
+			<div class="row">
+				<h5>Visual accommodations</h5>
+				<ul class="listrow">
+					<li>
+						<label>High Contrast</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+					<li>
+						<label>Large Text</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Cursor Size -->
+			<div class="row">
+				<h4>Cursor Size</h4>
+				<p>Increasing the size of the cursor along with desktop zoom can make it easier to see the cursor.</p>
+				<ul class="listrow">
+					<li>
+						<label>Cursor Size</label>
+						<input class="float-right" type="range" min="1" max="100" value="50" id="cursorSize">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsAccessibilitySidebar a:nth-of-type(1) li').addClass("active");});
+</script>

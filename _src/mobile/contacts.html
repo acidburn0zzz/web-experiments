@@ -1,0 +1,97 @@
+---
+layout: mockup
+title: "Contacts"
+theme: Adwaita/Adwaita.css
+permalink: mobile/contacts
+wallpaper: black
+---
+
+
+<div class="window mobile">
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a class="button image-button">{%- include symbolic/actions/list-add-symbolic.svg -%}</a>
+		</div>
+		<div class="title-group"><span class="title">Contacts</span></div>
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a><div class="spacer small"></div>
+			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="view">
+			<div class="row">
+				<h5>Your Contact Card</h5>
+				<ul class="listrow">
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: none;"><div class="icon s16" style="margin-top:8px;opacity: 0.5">{%- include symbolic/status/avatar-default-symbolic.svg -%}</div></div>
+						<label>Your Name</label>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<h5>Favourites</h5>
+				<ul class="listrow">
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/agata.jpg);"></div>
+						<label>Agata Christy</label>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/angela.jpg);"></div>
+						<label>Angela Hendricks</label>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/pavel.jpg);"></div>
+						<label>Pavel Litukov</label>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/zamfira.jpg);"></div>
+						<label>Zamfira Numastri</label>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/john.jpg);"></div>
+						<label>John Smith</label>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<h5>All Contacts</h5>
+				<ul class="listrow">
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/agata.jpg);"></div>
+						<label>Agata Christy</label>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/angela.jpg);"></div>
+						<label>Angela Hendricks</label>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/pavel.jpg);"></div>
+						<label>Pavel Litukov</label>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/zamfira.jpg);"></div>
+						<label>Zamfira Numastri</label>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/john.jpg);"></div>
+						<label>John Smith</label>
+					</li>
+				</ul>
+			</div>
+			<div class="view-switcher-padding"></div>
+		</div>
+		<ul class="view-switcher bottom">
+			<a href="{{ site.baseurl }}/mobile/calls"><li>
+				<div class="icon s16">{%- include symbolic/actions/document-open-recent-symbolic.svg -%}</div>
+				<label class="small-label">Recent</label>
+			</li></a><li class="active">
+				<div class="icon s16">{%- include symbolic/apps/system-users-symbolic.svg -%}</div>
+				<label class="small-label">Contacts</label>
+			</li><a href="{{ site.baseurl }}/mobile/dialpad"><li>
+				<div class="icon s16">{%- include symbolic/devices/input-dialpad-symbolic.svg -%}</div>
+				<label class="small-label">Dialpad</label>
+			</li></a>
+		</ul>
+	</div>
+</div>

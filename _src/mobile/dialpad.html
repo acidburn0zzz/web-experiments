@@ -1,0 +1,57 @@
+---
+layout: mockup
+title: "Dialpad"
+theme: Adwaita/Adwaita.css
+permalink: mobile/dialpad
+wallpaper: black
+---
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/dialpad.css">
+
+<div class="window mobile">
+	<div class="titlebar grouped">
+		<div class="button-group float-left"><a class="button text-button">Redial</a></div>
+		<div class="title-group"><span class="title">Dialpad</span></div>
+		<div class="button-group float-right"><a class="button image-button">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a></div>
+	</div>
+	<div class="content">
+		<div class="view">
+			<br>
+			<div class="row text-center">
+				<input type="" name="">
+			</div>
+			<br>
+			<div class="row">
+				<ul class="dialpad">
+					<li class="button"><h2>1</h2></li>
+					<li class="button"><h2>2</h2><div class="small-label dim-label">ABC</div></li>
+					<li class="button"><h2>3</h2><div class="small-label dim-label">DEF</div></li>
+					<li class="button"><h2>4</h2><div class="small-label dim-label">GHI</div></li>
+					<li class="button"><h2>5</h2><div class="small-label dim-label">JKL</div></li>
+					<li class="button"><h2>6</h2><div class="small-label dim-label">MNO</div></li>
+					<li class="button"><h2>7</h2><div class="small-label dim-label">PQRS</div></li>
+					<li class="button"><h2>8</h2><div class="small-label dim-label">TUV</div></li>
+					<li class="button"><h2>9</h2><div class="small-label dim-label">WXYZ</div></li>
+					<li class="button"><h2>*</h2></li>
+					<li class="button"><h2>0</h2><div class="small-label dim-label">+</div></li>
+					<li class="button"><h2>#</h2></li>
+					<li class="button suggested-action"><div class="icon s32">{%- include symbolic/actions/call-start-symbolic.svg -%}</div></li>
+				</ul>
+			</div>
+			<br>
+			<div class="view-switcher-padding"></div>
+		</div>
+		<ul class="view-switcher bottom">
+			<a href="{{ site.baseurl }}/mobile/calls"><li>
+				<div class="icon s16">{%- include symbolic/actions/document-open-recent-symbolic.svg -%}</div>
+				<label class="small-label">Recent</label>
+			</li></a><a href="{{ site.baseurl }}/mobile/contacts"><li>
+				<div class="icon s16">{%- include symbolic/apps/system-users-symbolic.svg -%}</div>
+				<label class="small-label">Contacts</label>
+			</li></a><li class="active">
+				<div class="icon s16">{%- include symbolic/devices/input-dialpad-symbolic.svg -%}</div>
+				<label class="small-label">Dialpad</label>
+			</li>
+		</ul>
+	</div>
+</div>

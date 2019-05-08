@@ -1,0 +1,122 @@
+---
+layout: mockup
+title: "Settings - Devices - Color"
+theme: Adwaita/Adwaita.css
+permalink: settings/devices/color
+wallpaper: triangles
+category: "Devices"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsDevicesSidebar" class="sidebar">
+		{%- for item in site.data.settings-devices-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<p>Use a color calibration device to improve the appearance of screens, cameras and printers. <u>Learn more</u>.</p>
+			</div>
+			<div class="row">
+				<ul class="listrow">
+					<li class="medium" onclick="$('#colorManagementDialog').show();">
+						<div class="label-group">
+							<label>External Monitor</label>
+							<label class="small-label dim-label">Color Management Enabled</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+					<li class="medium" onclick="$('#colorManagementDialog').show();">
+						<div class="label-group">
+							<label>Laptop Screen</label>
+							<label class="small-label dim-label">Color Management Disabled</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+					<li class="medium" onclick="$('#colorManagementDialog').show();">
+						<div class="label-group">
+							<label>Color Printer</label>
+							<label class="small-label dim-label">Color Management Enabled</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Device Color Profile Dialog -->
+	<div class="gtkdialog" id="colorManagementDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">${DEVICE}</span>
+				
+<div class="button-group float-right">
+	{%- include components/close-button.html close = "gtkdialog" -%}
+</div>
+			</div>
+			<div class="gtkdialog-content">
+				<ul class="listrow unstyled">
+					<li>
+						<label><b>Color Management</b></label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "colorManagementSwitch" -%}
+					</li>
+				</ul>
+				<h5>Profile</h5>
+				<ul class="listrow">
+					<li>
+						<label>Profile 1</label>
+						<a class="button image-button float-right">{%- include symbolic/actions/edit-delete-symbolic.svg -%}</a>
+						<a class="button image-button float-right">{%- include symbolic/status/dialog-information-symbolic.svg -%}</a>
+						<div class="separator float-right"></div>
+						<div class="float-right">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
+					</li>
+					<li>
+						<label>Profile 2</label>
+						<a class="button image-button float-right">{%- include symbolic/actions/edit-delete-symbolic.svg -%}</a>
+						<a class="button image-button float-right">{%- include symbolic/status/dialog-information-symbolic.svg -%}</a>
+						<div class="separator float-right"></div>
+						<div class="float-right">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
+					</li>
+					<li>
+						<label>Profile 3</label>
+						<a class="button image-button float-right">{%- include symbolic/actions/edit-delete-symbolic.svg -%}</a>
+						<a class="button image-button float-right">{%- include symbolic/status/dialog-information-symbolic.svg -%}</a>
+						<div class="separator float-right"></div>
+						<div class="float-right">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
+					</li>
+					<li class="text-center">
+						<label class="center">Add color profile&hellip;</label>
+					</li>
+				</ul>
+				<div class="row">
+					<a class="button text-button float-left">Set for All Users</a>
+					<a class="button text-button float-right">Reset to Default</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsDevicesSidebar a:nth-of-type(7) li').addClass("active");});
+</script>

@@ -1,0 +1,161 @@
+---
+layout: mockup
+title: "Settings - Details - Users"
+theme: Adwaita/Adwaita.css
+permalink: settings/details/users
+wallpaper: triangles
+category: "Details"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			<a class="button image-text-button">{%- include symbolic/status/changes-allow-symbolic.svg -%}Unlock</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsDetailsSidebar" class="sidebar">
+		{%- for item in site.data.settings-details-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Current Users -->
+			<div class="row">
+				<h5>Current User</h5>
+				<ul class="listrow">
+					<li class="medium">
+						<div class="avatar small" style="background-image: url(/images/heads/admin.jpg);"></div>
+						<div class="label-group">
+							<label>User Name</label>
+							<label class="small-label dim-label">Administrator</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+					<li onclick="$('#changePasswordDialog').show();">
+						<label>Password</label>
+						<label class="float-right">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
+					</li>
+					<li>
+						<label>Last Login</label>
+						<label class="float-right dim-label">1 Jan 2018</label>
+					</li>
+					<li onclick="toggleChecked('#automaticLoginSwitch');">
+						<label>Automatic Login</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "automaticLoginSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Guest -->
+			<div class="row">
+				<h5>Guest Users</h5>
+				<ul class="listrow">
+					<li onclick="$('#guestLoginDialog').show();">
+						<label>Guest Login</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right" id="guestLoginStatus">Disabled</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Other Users -->
+			<div class="row">
+				<h5>Other Users</h5>
+				<ul class="listrow">
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/admin2.jpg);"></div>
+						<div class="label-group">
+							<label>Other Admin</label>
+							<label class="small-label dim-label">Administrator</label>
+						</div>
+						{%- include components/listrow-menu-button.html -%}
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/user1.jpg);"></div>
+						<div class="label-group">
+							<label>Another User</label>
+							<label class="small-label dim-label">Regular user</label>
+						</div>
+						{%- include components/listrow-menu-button.html -%}
+					</li>
+					<li class="text-center">
+						<label class="center">Add another user&hellip;</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- User Setup Dialog -->
+	<div class="gtkdialog" id="userSetupDialog">
+		<div class="gtkdialog-window action-dialog">
+			<div class="titlebar" title="User Setup">
+				<a class="close button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="deviceNameApply">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+			</div>
+		</div>
+	</div>
+	<!-- Change Password Dialog -->
+	<div class="gtkdialog" id="changePasswordDialog">
+		<div class="gtkdialog-window action-dialog">
+			<div class="titlebar" title="Change Password">
+				<a class="close button text-button float-left" onclick="$('#changePasswordDialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="deviceNameApply" onclick="$('#changePasswordDialog').hide();">Change</a>
+			</div>
+			<div class="gtkdialog-content">
+			</div>
+		</div>
+	</div>
+	<!-- Guest Login Dialog -->
+	<div class="gtkdialog" id="guestLoginDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">Guest Login</span>
+				
+<div class="button-group float-right">
+	{%- include components/close-button.html close = "gtkdialog" -%}
+</div>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Enabling the guest user will allow other people to temporarily log into this device. Logging into the guest account does not require a password.</p>
+				<p>When a guest user logs out all, all information and files created by the guest are deleted.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<span><b>Guest User login</b></span>
+						{%- include components/switch.html float = "right" id = "guestLoginSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsDetailsSidebar a:nth-of-type(3) li').addClass("active");});
+
+// guest toggle
+$(document).ready(function(){
+	$('#guestLoginSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$("#guestLoginStatus").text("Enabled");
+		} else {
+			$("#guestLoginStatus").text("Disabled");
+		}
+	});
+});
+</script>

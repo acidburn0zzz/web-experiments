@@ -1,9 +1,12 @@
 ---
 layout: default
+theme: Base/base.css
 ---
 
-<ul>
-<li><a href="initial-setup-start">Initial Setup Welcome Page</a> &mdash; <a href="https://gitlab.gnome.org/GNOME/gnome-initial-setup/issues/7">gitlab issue</a></li>
-<li><a href="initial-setup-done">Initial Setup Done Page</a> 
-    &mdash; <a href="https://gitlab.gnome.org/GNOME/gnome-initial-setup/issues/8">gitlab issue</a></li>
+<ul class="trigger">
+{% for my_page in site.pages %}
+  {% if my_page.published %}
+  <li><a href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>{% if my_page.issue %} &mdash; <a href="{{ my_page.issue }}">Gitlab issue</a>{% endif %}</li>
+  {% endif %}
+{% endfor %}
 </ul>

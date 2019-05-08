@@ -1,0 +1,35 @@
+// css overrides and hardcodes for the dialpad
+
+.dialpad {
+	list-style: none;
+	margin:0;
+	padding: 0;
+	margin: 0 auto !important;
+	height: 100%;
+	text-align: center;
+	max-width: 256px;
+	height: 400px;
+	.button {
+		vertical-align: top;
+		border-radius: 50%;
+		text-align: center;
+		display: inline-block;
+		height: 48px;
+		max-height: 48px;
+		width: 48px;
+		max-width: 48px;
+		padding: 12px;
+		margin: 4px;
+
+		> .icon {
+			margin: 6px;
+		}
+	}
+}
+
+.call-button {
+	display: inline-block;
+	margin: 24px auto;
+	width: 128px;
+	padding: 32px !important;
+}

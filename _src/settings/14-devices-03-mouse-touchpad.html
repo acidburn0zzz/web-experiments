@@ -1,0 +1,164 @@
+---
+layout: mockup
+title: "Settings - Devices - Mouse & Touchpad"
+theme: Adwaita/Adwaita.css
+permalink: settings/devices/mouse-touchpad
+wallpaper: triangles
+category: "Devices"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsDevicesSidebar" class="sidebar">
+		{%- for item in site.data.settings-devices-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- General -->
+			<div class="row wide">
+				<h5>General</h5>
+				<ul class="listrow">
+					<li class="medium">
+						<div class="label-group">
+							<span>Primary Button</span>
+							<span class="small-label dim-label">The primary physical button for clicking.</span>
+						</div>
+						<div class="linked float-right">
+							<a class="button text-button pressed float-left">Left</a><a class="button text-button float-right">Right</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- Mouse -->
+			<div class="row wide">
+				<h5>Mouse</h5>
+				<ul class="listrow">
+					<li>
+						<label>Mouse Speed</label>
+						<label class="float-right">[ to-do: scale]</label>
+					</li>
+					<li class="medium">
+						<div class="label-group">
+							<label>Natural Scrolling</label>
+							<label class="small-label dim-label">Scrolling moves the content, not the view.</label>
+						</div>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Touchpad -->
+			<div class="row wide">
+				<h5>Touchpad</h5>
+				<ul class="listrow">
+					<li onclick="$('#touchPadDialog').show();">
+						<label>Touchpad</label>
+						<label class="float-right dim-label" id="touchPadStatus">Enabled</label>
+					</li>
+					<li>
+						<label>Touchpad Speed</label>
+						<label class="float-right">[ to-do: scale]</label>
+					</li>
+					<li class="medium">
+						<div class="label-group">
+							<label>Tap to Click</label>
+							<label class="small-label dim-label">Tap the touchpad with one finger to click.</label>
+						</div>
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li class="medium">
+						<div class="label-group">
+							<label>Natural Scrolling</label>
+							<label class="small-label dim-label">Scrolling moves the content, not the view.</label>
+						</div>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+					<li class="medium">
+						<div class="label-group">
+							<label>Two-Finger Scrolling</label>
+							<label class="small-label dim-label">Gesture with two fingers on the touchpad to scroll</label>
+						</div>
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li class="medium">
+						<div class="label-group">
+							<label>Edge Scrolling</label>
+							<label class="small-label dim-label">Move finger along the edge of the touchpad to scroll.</label>
+						</div>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Touchpad Dialog -->
+	<div class="gtkdialog" id="touchPadDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">Touchpad</span>
+				
+<div class="button-group float-right">
+	{%- include components/close-button.html close = "gtkdialog" -%}
+</div>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Disabling the touchpad with no other pointing devices attached is not recommended.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<span>Touchpad</span>
+						{%- include components/switch.html float = "right" checked = "checked" id = "touchPadSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsDevicesSidebar a:nth-of-type(3) li').addClass("active");});
+
+// toggle joined button status
+$(document).ready(function(){
+	$("a.right").click(function(){
+		$("a.left").removeClass("pressed");
+		$("a.right").addClass("pressed");
+	});
+});
+$(document).ready(function(){
+	$("a.left").click(function(){
+		$("a.right").removeClass("pressed");
+		$("a.left").addClass("pressed");
+	});
+});
+
+// touchpad toggle
+$(document).ready(function(){
+	$('#touchPadSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$("#touchPadStatus").text("Enabled");
+		} else {
+			$("#touchPadStatus").text("Disabled");
+		}
+	});
+});
+
+</script>

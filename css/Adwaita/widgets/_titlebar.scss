@@ -1,0 +1,268 @@
+$titlebar_height:46px;
+$titlebar_padding: 6px;
+$titlebar_corner_radius: 8px;
+$title_font_family:"cantarell_bold", sans-serif;
+$subtitle_font_family:"cantarell", sans-serif;
+
+//pane
+$pane_width:270px;
+
+// titlebar
+.titlebar {
+	display:block;
+	padding: 0 $titlebar_padding;
+	min-height: $titlebar_height;
+	border: 0 solid $borders_color;
+	border-bottom-width: 1px;
+	border-radius: $titlebar_corner_radius $titlebar_corner_radius 0 0;
+	width: calc(100% - 12px);
+	height: $titlebar_height;
+	background-color:$bg_color;
+	// overflow: hidden;
+
+
+	@include headerbar_fill;
+
+	&.backdrop {
+		border-color: $backdrop_borders_color;
+		background-color: $bg_color;
+		background-image: none;
+		box-shadow: inset 0 1px $top_hilight;
+		transition: $backdrop_transition;
+	}
+
+	&:after {
+		padding:0;
+		margin: 0 auto;
+		display: block;
+		width: 100%;
+		text-align: center;
+		color:$fg_color;
+		content: attr(title);
+		font-family:$title_font_family;
+		font-size:$font-size;
+		line-height: $titlebar_height;
+	}
+
+	// Title
+	%title_text,
+	.title {
+		// text style
+		text-align:center;
+		font-family:$title_font_family;
+		font-size:$font-size;
+		line-height: $titlebar_height;
+
+		// positioning
+		display:inline-block;
+		left: 0;
+		margin-top: $titlebar_height * -1; // hardcode in position
+		overflow:hidden;
+		padding: 0;
+		pointer-events: none;
+		position: relative;
+		vertical-align: top;
+		width:100%;
+	}
+
+	.title-group {
+		pointer-events: none;
+		display: inline-block;
+		position: relative;
+		vertical-align: top;
+		width: 100%;
+		z-index: 2;
+
+		.title {
+			margin: 0;
+			margin-top: -6px; // hardcode in position
+		}
+		
+		.subtitle {
+			margin: 0;
+			margin-top: $titlebar_height * -1 + 16px; // hardcode in position
+		}
+	}
+
+	// Subtitle
+	.subtitle {
+		// style
+		@extend %dim_label;
+		@extend %title_text;
+
+		font-family:$subtitle_font_family;
+		font-size: smaller;
+	}
+
+	// separator
+	.separator {
+		width: 1px;
+		height: $titlebar_height - 12px;
+		background-color: lighten($borders_color, 10%);
+		display: inline-block;
+		padding: 0;
+		position: relative;
+		margin: 6px;
+	}
+
+	// spacer
+	.spacer {
+		margin:0;
+		padding:0;
+		height: $titlebar_height;
+		max-height: $titlebar_height;
+		display: inline-block;
+		width: 8px;
+		&.small {
+			width: 6px;
+		}
+	}
+
+	// Buttons 
+	.button {
+		margin:6px 0;
+		vertical-align: top;
+		display: block;
+		// padding on all except close button
+		&:not(.left){margin-left:0;}
+		&:not(.right){margin-left:0;}
+		&:not(.flat){margin-left:0;}
+		&:not(.linked){margin-left:0;}
+
+		&.flat {margin-right:-6px;}
+	}
+
+	// switches
+	.switch{
+		vertical-align: top;
+		margin:6px 4px;
+	}
+
+	// Paned
+	>.paned {
+		max-height: $titlebar_height;
+		overflow:hidden;
+		left: 0;
+		width: $sidebar_width - 6px;
+		>div {
+			width: $sidebar_width;
+			line-height: $titlebar_height;
+		}
+		&.left {border-right:1px solid $borders_color;}
+	}
+}
+
+.title-group,
+.button-group {
+	display: inline-block;
+	vertical-align: top;
+	height: $titlebar_height;
+	margin-top: $titlebar_height * -1; // hardcode in positionz
+	padding:0 6px;
+}
+
+.button-group {
+	z-index: 1;
+}
+
+// grouped
+.titlebar.grouped {
+	.title-group,
+	.button-group {
+		display: inline-block;
+		vertical-align: top !important;
+		top: 0 !important;
+		margin-top: 0 !important;
+	}
+
+	.title-group {
+		width: calc(40%) !important;
+		margin: 0 auto;
+		.title {
+			margin-top: 0; // hardcode in position
+		}
+	}
+
+	>.button-group {
+		padding:0;
+		z-index: 1;
+		* {
+			display: inline-block;
+		}
+
+		&.float-center {
+			width: calc(40%);
+			text-align: center;
+		}
+
+		&.float-left {
+			width: calc(30%);
+			> .button:not(.flat):not(.left):not(.right):not(.middle) { margin-right:6px;}
+			> .linked {
+				margin-right:6px;
+			}
+		}
+
+		&.float-right {
+			width: auto;
+			margin-right:6px;
+			> .button:not(.flat):not(.left):not(.right):not(.middle) { margin-left:6px;}
+			> .linked { 
+				margin-left:6px;
+			}
+		}
+	}
+}
+
+// paned
+.titlebar.paned {
+	>.pane {
+		max-height: $titlebar_height;
+		border-right: 1px solid $borders_color;
+
+		width: $pane_width - $titlebar_padding;
+
+		.title {
+			position: relative;
+			display: inline-block;
+			width:$pane_width - 6px;
+			left: $titlebar_padding * -1;
+		}
+	}
+
+	>.title-group,
+	>.subtitle,
+	>.title {
+		width: calc(100% - #{$pane_width});
+		left: $pane_width;
+	}
+
+	>.button-group {
+		padding:0;
+		a {
+			display: inline-block;
+		}
+
+		&.float-center {
+			width: calc(40%);
+			text-align: center;
+		}
+
+		&.float-left {
+			width: calc(30%);
+			> .button:not(.flat):not(.left):not(.right):not(.middle) { margin-right:6px;}
+			> .linked {
+				margin-right:6px;
+			}
+		}
+
+		&.float-right {
+			width: auto;
+			margin-right:6px;
+			> .button:not(.flat):not(.left):not(.right):not(.middle) { margin-left:6px;}
+			> .linked { 
+				margin-left:6px;
+			}
+		}
+	}
+}

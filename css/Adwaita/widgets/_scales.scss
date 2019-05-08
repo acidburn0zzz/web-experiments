@@ -1,0 +1,78 @@
+// GtkScale
+%scale_trough {
+	border: 1px solid $borders_color;
+	border-radius: 3px;
+	background-color: $dark_fill;
+	height: 3px;
+}
+
+%scale_highlight {
+	border: 1px solid $selected_borders_color;
+	border-radius: 3px;
+	background-color: $selected_bg_color;
+	height: 3px;
+}
+
+// slider
+$scale_slider_size: 24px;
+%slider {
+	@include button(normal-alt, $edge: $shadow_color);
+
+	border: 1px solid darken($alt_borders_color, 3%);
+	border-radius: 24px;
+	transition: $button_transition;
+	transition-property: background, border, box-shadow;
+	padding: 0;
+	width: $scale_slider_size;
+	height: $scale_slider_size;
+
+}
+
+
+
+
+.scale {
+	background: transparent;
+
+	&:focus {
+		outline: none; 
+		@extend %scale_highlight;
+	}
+
+	// thumb
+	&::-webkit-slider-thumb {
+		@extend %slider;
+		-webkit-appearance: none;
+		appearance: none;
+		cursor: pointer;
+	}
+
+	&::-moz-range-thumb {
+		@extend %slider;
+		cursor: pointer;
+	}
+
+	&:active { 
+		&::-webkit-slider-thumb {
+			border-color: $selected_borders_color;
+		}
+
+		&::-moz-range-thumb {
+			border-color: $selected_borders_color;
+		}
+	}
+
+	// track
+	input[type=range]::-webkit-slider-runnable-track {
+		@extend %scale_trough;
+	}
+
+	input[type=range]:focus::-webkit-slider-runnable-track {
+		@extend %scale_highlight;
+	}
+
+	input[type=range]::-moz-range-track {
+		@extend %scale_trough;
+	}
+}
+

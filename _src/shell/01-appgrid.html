@@ -1,0 +1,54 @@
+---
+layout: mockup
+title: "Shell - App Grid"
+theme: Shell/Shell.css
+permalink: shell/appgrid
+wallpaper: stripes
+---
+
+{%- include shell/panel.html -%}
+
+<div id="overview">
+<!-- begining of overview -->
+<div id="appGrid">
+	<ul class="page1">
+	{%- for app in site.data.app-list offset: 0 limit:24 -%}<li>
+			<img class="icon s96 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/{{ app.icon }}">
+			<span>{{ app.title }}</span>
+	</li>{%- endfor -%}
+	</ul>
+	<ul class="page2">
+	{%- for app in site.data.app-list offset: 24 limit:24 -%}<li>
+			<img class="icon s96 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/{{ app.icon }}">
+			<span>{{ app.title }}</span>
+	</li>{%- endfor -%}
+	</ul>
+	<ul class="page3">
+	{%- for app in site.data.app-list offset: 48 limit:24 -%}<li>
+			<img class="icon s96 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/{{ app.icon }}">
+			<span>{{ app.title }}</span>
+	</li>{%- endfor -%}
+	</ul>
+	<ul class="page4">
+	{%- for app in site.data.app-list offset: 64 limit:24 -%}<li>
+			<img class="icon s96 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/{{ app.icon }}">
+			<span>{{ app.title }}</span>
+	</li>{%- endfor -%}
+	</ul>
+<div>
+<!-- paginator -->
+<ul class="paginator">
+	<li><input type="radio" name="appPagination" onclick="$('#appGrid>ul').hide();$('#appGrid>.page1').show();" checked></li>
+	<li><input type="radio" name="appPagination" onclick="$('#appGrid>ul').hide();$('#appGrid>.page2').show();"></li>
+	<li><input type="radio" name="appPagination" onclick="$('#appGrid>ul').hide();$('#appGrid>.page3').show();"></li>
+	<li><input type="radio" name="appPagination" onclick="$('#appGrid>ul').hide();$('#appGrid>.page4').show();"></li>
+</ul>
+<!-- end of overview -->
+</div>
+
+
+<script type="text/javascript">
+$('#appGridLauncher').addClass('pressed');
+
+$('#appGrid>ul').hide();$('#appGrid>.page1').show();
+</script>

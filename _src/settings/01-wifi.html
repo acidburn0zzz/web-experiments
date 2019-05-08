@@ -1,0 +1,297 @@
+---
+layout: mockup
+title: "Settings - Wi-Fi"
+theme: Adwaita/Adwaita.css
+permalink: settings/wifi
+wallpaper: triangles
+published: true
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<!-- Title -->
+		<div class="title-group">
+			<span class="title">{{ page.title }}</span><span class="subtitle" id="wifiStatus">Connected</span>
+		</div>
+		<div class="button-group float-right">
+			{%- include components/switch.html checked="checked" id = "wifiSwitch" -%}
+			<a class="button image-button" id="wifiMenuPopover">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Airplane mode -->
+			<div class="row">
+				<ul class="listrow">
+					<li class="medium" onclick="toggleChecked('#airplaneModeSwitch');">
+						<div class="label-group">
+							<label>Airplane Mode</label>
+							<label class="small-label dim-label">Disables Wi-Fi, Bluetooth and mobile broadband</label>
+						</div>
+						{%- include components/switch.html float = "right" id = "airplaneModeSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- My Visible Networks -->
+			<div id="networkList" class="row">
+				<h5>My Networks</h5>
+				<ul class="listrow">
+					<li id="wifiNetwork1" onclick="$('#wifiOption1').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "wifiOption1" name = "wifiOptions" onclick = "wifiConnect();" -%}
+						<label>MyWifi</label>
+						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover1" -%}
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+						<label class="dim-label float-right hidden">Disconnected</label>
+					</li>
+					<li onclick="$('#wifiOption2').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption2" name = "wifiOptions" -%}
+						<label>MyWifi_5GHz</label>
+						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover2" -%}
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+					</li>
+					<li onclick="$('#wifiOption3').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption3" name = "wifiOptions" -%}
+						<label>eduroam</label>
+						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover3" -%}
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+					</li>
+					<li class="text-center overflow" id="viewMoreWifiOptions" onclick="$('.viewMoreWifiOptions').show();$('#viewMoreWifiOptions').css({'display':'none'});">
+						<!-- <div class="icon s16">{%- include symbolic/actions/view-more-symbolic.svg -%}</div> -->
+						<label>View your other networks&hellip;</label>
+					</li>
+					<li class="viewMoreWifiOptions">
+						<div class="insensitive">
+							{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption4" name = "wifiOptions" -%}
+						</div>
+						<label class="dim-label">Public Library</label>
+						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover4" -%}
+						<label class="dim-label float-right">Not Found</label>
+					</li>
+					<li class="viewMoreWifiOptions">
+						<div class="insensitive">
+							{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption5" name = "wifiOptions" -%}
+						</div>
+						<label class="dim-label">Starbucks</label>
+						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover5" -%}
+						<label class="dim-label float-right">Not Found</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Visible Networks -->
+			<div id="nearbyNetworkList" class="row">
+				<h5>Nearby Networks<div class="icon s16 spinner dim-label float-right">{%- include symbolic/status/process-working-symbolic.svg -%}</div></h5>
+				<ul class="listrow">
+					<li id="forgottenNetwork1" class="hidden" onclick="$('#connectToWifiDialog').show();">
+						<label>MyWifi</label>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+					</li>
+					<li onclick="$('#connectToWifiDialog').show();">
+						<label>Coffee Shop</label>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+					</li>
+					<li onclick="$('#connectToWifiDialog').show();">
+						<label>d-link333</label>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+					</li>
+					<li onclick="$('#connectToWifiDialog').show();">
+						<label>d-link333 Guest</label>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+					</li>
+					<li onclick="$('#connectToWifiDialog').show();">
+						<label>FBI Surveillance Van</label>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
+					</li>
+					<li>
+						<label class="dim-label">Unknown</label>
+						<label class="dim-label float-right">&mdash;</label>
+					</li>
+				</ul>
+			</div>
+			{%- include components/empty-state.html
+				id = "wifiDisabled"
+				icon="status/network-wireless-no-route" 
+				title = "No Wi-Fi adapter found" 
+				message= "Make sure you have a Wi-Fi adapter plugged in and turned on." 
+			-%}
+		</div>
+	</div>
+	<!-- Connect to Hidden Wi-Fi Network Dialog -->
+	<div class="gtkdialog" id="hiddenNetworksDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">Connect to Hidden Wi-Fi Network</span>
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
+			</div>
+			<div class="gtkdialog-content">
+			</div>
+		</div>
+	</div>
+	<!-- Connect to Hot Spot Dialog -->
+	<div class="gtkdialog" id="wifiHotspotDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">Connect to Hot Spot Network</span>
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
+			</div>
+			<div class="gtkdialog-content">
+			</div>
+		</div>
+	</div>
+	<!-- Connect to Wifi Dialog -->
+	<div class="gtkdialog" id="connectToWifiDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Authentication required</h3>
+					<p>A password or encryption key is required to connect to wireless network "$NETWORK".</p>
+					<ul class="listrow unstyled">
+						<li><input class="entry full-width" placeholder="Password" type="password" id="wifiPasswordEntry"></input></li>
+					</ul>
+				</div>
+				<a class="button text-button float-left" onclick="$('#connectToWifiDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#connectToWifiDialog').hide();">Connect</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+
+
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var popoverContent = ['<ul>',
+		'<li onclick="wifiDisconnect();">Disconnect</li>',
+		'<li onclick="wifiForget();">Forget</li>',
+		'<li>Settings&hellip;</li>',
+		'</ul>'].join('');
+
+	$('#wifiOptionsMenuPopover1').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+
+function wifiConnect() {
+	$('#wifiOption1').prop('checked', true );
+	$('#wifiNetwork1 > label').removeClass('dim-label');
+	$('#wifiNetwork1 > .icon').show();
+	$('#wifiNetwork1 > label.float-right').addClass('hidden');
+}
+
+function wifiDisconnect() {
+	$('#wifiNetwork1 > label').addClass('dim-label');
+	$('#wifiNetwork1 > .icon').hide();
+	$('#wifiNetwork1 > label.float-right').removeClass('hidden');
+	$('#wifiOptionsMenuPopover1').popover('hide');
+	$('#wifiOption2').prop('checked', true );
+}
+
+function wifiForget() {
+	$("#wifiNetwork1").hide();
+	$('#wifiOption2').prop('checked', true );
+	$('#wifiOptionsMenuPopover1').popover('hide');
+	$('#forgottenNetwork1').removeClass('hidden');
+}
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function () {
+	var popoverContent = ['<ul>',
+			'<li onclick="$(&apos;#hiddenNetworksDialog&apos;).show();$(&apos;.popover&apos;).hide();">Connect to Hidden Network&hellip;</li>',
+			'<li onclick="$(&apos;#wifiHotspotDialog&apos;).show();$(&apos;.popover&apos;).hide();">Turn on Wi-Fi Hotspot&hellip;</li>',
+			'<li onclick="$(&apos;#knownWifiDialog&apos;).show();$(&apos;.popover&apos;).hide();">Known Wi-Fi Networks&hellip;</li>',
+		'</ul>'].join('');
+
+	$('#wifiMenuPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+// wifi toggle
+$(document).ready(function(){
+	$('#wifiSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#nearbyNetworkList').show(); // show network list
+			$('#networkList').show(); // show network list
+			$('#wifiDisabled').hide(); // hide empty state
+			$('#statusWireless').show(); // show panel icon
+			$('#wifiStatus').text('Connected'); //change status text
+		} else {
+			$('#nearbyNetworkList').hide();
+			$('#networkList').hide();
+			$('#wifiDisabled').show();
+			$('#statusWireless').hide();
+			$('#wifiStatus').text('Disconnected');
+		}
+	});
+});
+
+// airplane mode
+$(document).ready(function(){
+	$('#airplaneModeSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#statusAirplaneMode').removeClass('hidden');
+			$('#statusWireless').hide();
+			$('#networkList').addClass('insensitive');
+			$('#nearbyNetworkList').hide();
+			$('#wifiStatus').text('Disconnected');
+		} else {
+			$('#statusAirplaneMode').addClass('hidden');
+			$('#statusWireless').show();
+			$('#networkList').removeClass('insensitive');
+			$('#nearbyNetworkList').show();
+			$('#wifiStatus').text('Connected');
+		}
+	});
+});
+
+// hide empty state
+$('#wifiDisabled').hide().css({'margin-top':'-140px'});
+
+
+$('.viewMoreWifiOptions').hide();
+</script>

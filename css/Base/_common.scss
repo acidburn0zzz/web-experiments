@@ -1,0 +1,44 @@
+// Common variables
+$base_font_family: "cantarell", sans-serif;
+$base_font_size:   16px;
+$base_font_weight: 400;
+$small_font_size:  $base_font_size * 0.875;
+$base_line_height: 1.5;
+
+$spacing_unit:     24px;
+
+// Width of the content area
+$content_width:    800px;
+
+$on_palm:          600px;
+$on_laptop:        800px;
+
+$legacy_browser_support: false !default;
+
+// Text
+$font_family: "cantarell", sans-serif;
+$font_size: 15px;
+$font_weight: 400;
+
+// Colors
+$text_color:       #444;
+$background_color: #fdfdfd;
+$brand_color:      #4a86cf;
+
+$grey_color:       #828282;
+$grey_color_light: lighten($grey_color, 40%);
+$grey_color_dark:  darken($grey_color, 25%);
+
+$bg_color: $background_color;
+$base_color: #fff;
+
+$link_color: $brand_color;
+
+$selected_bg_color: $link_color;
+$selected_fg_color: #fff;
+
+$borders_color: darken($bg_color, 18%);
+
+$osd_bg_color: transparentize(darken(#3d3846,10%), 0.3);
+$osd_fg_color: #eeeeec;
+$osd_text_color: white;

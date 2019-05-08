@@ -1,0 +1,21 @@
+// Collapse
+
+.turn {
+	transform: rotate(90deg);
+	transition-duration: 100ms;
+}
+
+.collapse {
+	display:none;
+	&.in {display:block;}
+}
+
+.collapsing {
+	position: relative;
+	height: 0;
+	overflow: hidden;
+
+	-webkit-transition-property: ease 350ms height;
+	-o-transition-property: ease 350ms height;
+	transition-property: ease 350ms height;
+}

@@ -1,0 +1,33 @@
+.view {
+  padding: 0 24px;
+  width: calc(100% - 48px); }
+
+ul.photos-grid {
+  list-style: none;
+  margin: 12px auto;
+  padding: 0; }
+  ul.photos-grid li {
+    background-color: grey;
+    width: 192px;
+    height: 192px;
+    display: inline-block;
+    margin: 2px; }
+
+ul.albums-grid {
+  list-style: none;
+  margin: 12px auto;
+  padding: 0; }
+  ul.albums-grid li {
+    width: 256px;
+    height: 300px;
+    display: inline-block;
+    margin: 6px; }
+    ul.albums-grid li > .album-cover {
+      background-color: grey;
+      width: 256px;
+      height: 256px;
+      border-radius: 4px; }
+    ul.albums-grid li > .album-title {
+      margin: 8px 0; }
+
+/*# sourceMappingURL=photos.css.map */

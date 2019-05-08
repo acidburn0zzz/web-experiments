@@ -1,0 +1,40 @@
+
+<!-- Delete App Dialog -->
+<div class="gtkdialog" id="deleteAppDialog">
+	<div class="gtkdialog-window message-dialog">
+		<div class="gtkdialog-content">
+			<div class="row">
+				<h3>Delete application?</h3>
+				<p>This will remove "${APPLICATION}" and all related data from your device. This cannot be undone.</p>
+			</div>
+			<a class="close button dialog-button text-button left" onclick="$('.gtkdialog').hide();">Cancel</a>
+			<a class="button dialog-button text-button right" onclick="$('#deleteAppDialog').hide();$('.active').hide();$('#settingsApplicationsSidebar a:nth-of-type(2) li').addClass('active');">Delete App</a>
+		</div>
+	</div>
+</div>
+<!-- Clear App Data Dialog -->
+<div class="gtkdialog" id="deleteAppDataDialog">
+	<div class="gtkdialog-window message-dialog">
+		<div class="gtkdialog-content">
+			<div class="row">
+				<h3>Delete application data?</h3>
+				<p>This will remove all documents, files and other data related to "${APPLICATION}" from your device. This cannot be undone.</p>
+			</div>
+			<a class="close button dialog-button text-button left" onclick="$('.gtkdialog').hide();">Cancel</a>
+			<a class="button dialog-button text-button right" onclick="$('#deleteAppDataDialog').hide();$('#appDataStatus').text('0.0 KiB');">Clear Data</a>
+		</div>
+	</div>
+</div>
+<!-- Clear App Cache Dialog -->
+<div class="gtkdialog" id="deleteAppCacheDialog">
+	<div class="gtkdialog-window message-dialog">
+		<div class="gtkdialog-content">
+			<div class="row">
+				<h3>Clear application Cache?</h3>
+				<p>This will delete temporary files and cached data related to "${APPLICATION}". This is a harmless action, but cannot be undone.</p>
+			</div>
+			<a class="close button dialog-button text-button left" onclick="$('.gtkdialog').hide();">Cancel</a>
+			<a class="button dialog-button text-button right" onclick="$('#deleteAppCacheDialog').hide();$('#appCacheStatus').text('0.0 KiB');">Clear Cache</a>
+		</div>
+	</div>
+</div>

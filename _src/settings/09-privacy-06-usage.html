@@ -1,0 +1,114 @@
+---
+layout: mockup
+title: "Settings - Privacy - Usage & History"
+theme: Adwaita/Adwaita.css
+permalink: settings/privacy/usage
+wallpaper: triangles
+category: "Privacy"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsPrivacySidebar" class="sidebar">
+		{%- for item in site.data.settings-privacy-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<p>Remembering your history of recently used applications and files makes things easier to find again. These items are never shared over the network.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#recentlyUsedSwitch');">
+						<label>Recently used</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "recentlyUsedSwitch" -%}
+					</li>
+					<li id="recentItemsPopover" >
+						<label>Number of recent items</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="recentItemsStatus">Forever</label>
+					</li>
+					<li id="retainHistoryPopover" >
+						<label>Retain History</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="retainHistoryStatus">Forever</label>
+					</li>
+					<li>
+						<label>History</label>
+						<a class="button text-button float-right destructive-action">Clear Recent History</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsPrivacySidebar a:nth-of-type(6) li').addClass("active");});
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="recentItemsOption($(this).text());">None</li>',
+			'<li onclick="recentItemsOption($(this).text());">5</li>',
+			'<li onclick="recentItemsOption($(this).text());">10</li>',
+			'<li onclick="recentItemsOption($(this).text());">15</li>',
+			'<li onclick="recentItemsOption($(this).text());">30</li>',
+			'<li onclick="recentItemsOption($(this).text());">50</li>',
+			'<li onclick="recentItemsOption($(this).text());">100</li>',
+		'</ul>'].join('');
+
+	$('#recentItemsPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function recentItemsOption() {
+	$('#recentItemsStatus').text(arguments[0]);
+	$("#recentItemsPopover").popover("hide");
+}
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="retainHistoryOption($(this).text());">1 days</li>',
+			'<li onclick="retainHistoryOption($(this).text());">7 days</li>',
+			'<li onclick="retainHistoryOption($(this).text());">30 days</li>',
+			'<li onclick="retainHistoryOption($(this).text());">Forever</li>',
+		'</ul>'].join('');
+
+	$('#retainHistoryPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function retainHistoryOption() {
+	$('#retainHistoryStatus').text(arguments[0]);
+	$("#retainHistoryPopover").popover("hide");
+}
+</script>

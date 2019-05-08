@@ -1,0 +1,6 @@
+.content {
+  display: grid;
+  grid-template-columns: fit-content(270px) 1fr;
+  grid-gap: 0; }
+
+/*# sourceMappingURL=settings.css.map */

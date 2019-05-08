@@ -1,0 +1,71 @@
+- link: /home
+  icon: categories/applications-discover
+  title: Discover
+  has-value: false
+  has-separator: false
+
+- link: /installed
+  icon: categories/applications-installed
+  title: Installed
+  has-value: false
+  has-separator: false
+
+- link: /updates
+  icon: categories/applications-updates
+  title: Updates
+  has-value: 4
+  has-separator: true
+
+- link: /audio-video
+  icon: categories/applications-multimedia
+  title: Audio & Video
+  has-value: false
+  has-separator: false
+
+- link: /communication
+  icon: categories/applications-communication
+  title: Communication & News
+  has-value: false
+  has-separator: false
+
+- link: /productivity
+  icon: apps/text-editor
+  title: Productivity
+  has-value: false
+  has-separator: false
+
+- link: /games
+  icon: categories/applications-games
+  title: Games
+  has-value: false
+  has-separator: false
+
+- link: /graphics
+  icon: categories/applications-graphics
+  title: Graphics & Photography
+  has-value: false
+  has-separator: false
+
+- link: /developer
+  icon: categories/applications-engineering
+  title: Developer Tools
+  has-value: false
+  has-separator: false
+
+- link: /educations
+  icon: categories/applications-science
+  title: Education & Science
+  has-value: false
+  has-separator: false
+
+- link: /utilities
+  icon: categories/applications-utilities
+  title: Utilities
+  has-value: false
+  has-separator: false
+
+- link: /addons
+  icon: mimetypes/application-x-addon
+  title: Add-ons
+  has-value: false
+  has-separator: false

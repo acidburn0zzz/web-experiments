@@ -1,0 +1,114 @@
+---
+layout: mockup
+title: "Settings - Details - About"
+theme: Adwaita/Adwaita.css
+permalink: settings/details/about
+wallpaper: triangles
+category: "Details"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsDetailsSidebar" class="sidebar">
+		{%- for item in site.data.settings-details-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row text-center middle">
+				<div class="icon s128 large">{%- include symbolic/places/start-here-symbolic.svg -%}</div>
+				<h4>Distribution 67.8</h4>
+			</div>
+			<div class="row">
+				<ul class="listrow">
+					<li onclick="$('#deviceNameDialog').show();">
+						<label>Device Name</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label" id="deviceName">Computer</label>
+					</li>
+					<li>
+						<label>Memory</label>
+						<label class="float-right dim-label">12.0 GiB</label>
+					</li>
+					<li>
+						<label>Processor</label>
+						<label class="float-right dim-label">Intel &reg; Core &trade; i7</label>
+					</li>
+					<li>
+						<label>Graphics</label>
+						<label class="float-right dim-label">Intel &reg; HD Graphics</label>
+					</li>
+					<li>
+						<label>GNOME Version</label>
+						<label class="float-right dim-label">3.30.2</label>
+					</li>
+					<li>
+						<label>OS Type</label>
+						<label class="float-right dim-label">64-bit</label>
+					</li>
+					<li>
+						<label>Disk Capacity</label>
+						<label class="float-right dim-label">512 GiB</label>
+					</li>
+					<li>
+						<label>Disk Available</label>
+						<label class="float-right dim-label">289 GiB</label>
+					</li>
+					<li>
+						<label>Applications</label>
+						<label class="float-right dim-label">29</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Device Name Dialog -->
+	<div class="gtkdialog" id="deviceNameDialog">
+		<div class="gtkdialog-window action-dialog">
+			<div class="titlebar" title="Device Name">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="deviceNameApply">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Choose a new device name. This is how it will appear to others and over the network.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<input class="entry full-width" placeholder="Computer" id="deviceNameEntry"></input>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsDetailsSidebar a:nth-of-type(1) li').addClass("active");});
+
+// change device name
+$(document).ready(function(){
+	$('#deviceNameApply').click(function(){
+		$("#deviceName").text($('#deviceNameEntry').val());
+	});
+});
+$("#deviceNameApply").click(function(){$(".gtkdialog").hide();}); 
+</script>

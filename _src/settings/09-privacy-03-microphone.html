@@ -1,0 +1,98 @@
+---
+layout: mockup
+title: "Settings - Privacy - Microphone"
+theme: Adwaita/Adwaita.css
+permalink: settings/privacy/microphone
+wallpaper: triangles
+category: "Privacy"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/switch.html id = "microphoneSwitch" -%}
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsPrivacySidebar" class="sidebar">
+		{%- for item in site.data.settings-privacy-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div id="microphoneSettings" class="row">
+				<p>Use of the microphone allows applications to record and listen to audio. Disabling the microphone may cause some applications to not function properly.</p>
+				<p>Allow the applications below to use your microphone.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#microphoneAppSwitch1')">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Music.svg">
+						<label>Music</label>
+						{%- include components/switch.html float = "right" id = "microphoneAppSwitch1" -%}
+					</li>
+					<li onclick="toggleChecked('#microphoneAppSwitch2')">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.SoundRecorder.svg">
+						<label>Sound Recorder</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "microphoneAppSwitch2" -%}
+					</li>
+				</ul>
+			</div>
+			{%- include components/empty-state.html
+				id = "microphoneDisabled"
+				icon="status/microphone-disabled" 
+				title = "Microphone is turned off" 
+				message= "No applications can record or listen to audio." 
+			-%}
+		</div>
+	</div>
+	<!-- Disable Camera Dialog -->
+	<div class="gtkdialog" id="microphoneDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Disable Microphone?</h3>
+					<p>Disabling the microphone will prevent applications from recording and listening for audio. This may cause some applications to not function properly.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#microphoneSwitch').prop('checked', true );$('#microphoneDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" id="microphoneDisable" onclick="$('#microphoneSettings').hide();$('#microphoneDisabled').show();$('#microphoneDialog').hide();">Disable</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsPrivacySidebar a:nth-of-type(3) li').addClass("active");});
+
+$(document).ready(function(){
+	$('#microphoneSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#microphoneSettings').show();
+			$('#microphoneDisabled').hide();
+		} else {
+			$('#microphoneDialog').show();
+		}
+	});
+});
+
+if($('#microphoneSwitch').is(":checked")) {
+	$("#microphoneDisabled").hide();
+	$('#microphoneSettings').show();
+} else {
+	$('#microphoneSettings').hide();
+	$("#microphoneDisabled").show();
+}
+</script>

@@ -1,0 +1,28 @@
+<!-- Panel -->
+<div class="panel">
+	<!-- Activities -->
+	<a id="activitiesButton" class="panel-item float-left" onclick="$('#overview').toggleClass('hidden');">
+		<span>Activities</span>
+	</a>
+	<!-- Clock -->
+	<a id="dateTimeMenu" class="panel-item center"  onclick="$('#NotificationsPopover').toggleClass('hidden');">
+		<span class="date"><script> document.write(new Date().toDateString()); </script></span>
+		<span class="time"><script> document.write(new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",minute: "numeric"})); </script></span>
+	</a>
+	<!-- Status menu -->
+	<a id="statusMenu" class="panel-item float-right">
+		<!-- Wireless -->
+		<span class="icon" id="statusWireless">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</span>
+		<!-- Volume -->
+		<span class="icon" id="statusVolumeMedium">{%- include symbolic/status/audio-volume-medium-symbolic.svg -%}</span>
+		<!-- Battery -->
+		<span class="icon" id="statusBattery">{%- include symbolic/status/battery-good-symbolic.svg -%}</span>
+		<!-- Dropdown -->
+		<span class="icon dropdown">{%- include symbolic/actions/dropdown-symbolic.svg -%}</span>
+	</a>
+	<!-- Accessibility menu -->
+	<a id="accessibilityMenu" class="panel-item float-right">
+		<span class="icon status-accessibility">{%- include symbolic/apps/preferences-desktop-accessibility-symbolic.svg -%}</span>
+		<span class="icon dropdown">{%- include symbolic/actions/dropdown-symbolic.svg -%}</span>
+	</a>
+</div>

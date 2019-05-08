@@ -1,0 +1,39 @@
+// Common SASS for all themes
+
+@charset "utf-8";
+
+@import
+  "mixins",
+  'clearfix',
+  'noselect',
+  'positions',
+  'visibility'
+;
+
+
+// disclaimer 
+.disclaimer {
+	display: block;
+	z-index: 100000000000;
+	height: 16px;
+	position: fixed;
+	bottom: 4px;
+	right: 4px;
+	background-color: rgba(0,0,0,0.6);
+	color: white !important;
+	border-radius: 4px;
+	font: bold;
+	font-family: monospace;
+	font-size: 14px;
+	padding: 4px 6px;
+	&:hover {
+		background-color: rgba(255,255,255,0.6);
+		color: black !important;
+	}
+}
+
+@media only screen and (max-width:600px) {
+	.disclaimer {
+		display: none;
+	}
+}

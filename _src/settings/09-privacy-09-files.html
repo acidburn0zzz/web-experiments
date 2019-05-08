@@ -1,0 +1,169 @@
+---
+layout: mockup
+title: "Settings - Privacy - Trash & Temporary Files"
+theme: Adwaita/Adwaita.css
+permalink: settings/privacy/files
+wallpaper: triangles
+category: "Privacy"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsPrivacySidebar" class="sidebar">
+		{%- for item in site.data.settings-privacy-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<p>Automatically empty the Trash and purge temporary files to help keep your computer free of unnecessary and potentially sensitive information.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#emptyTrashSwitch');emptyTrashToggle();">
+						<label>Automatically empty Trash</label>
+						{%- include components/switch.html 
+							float = "right"
+							id = "emptyTrashSwitch"
+							onclick = "emptyTrashToggle();"
+						-%}
+					</li>
+					<li onclick="toggleChecked('#purgeTempSwitch');purgeTempToggle();">
+						<label>Automatically purge Temporary Files</label>
+						{%- include components/switch.html 
+							float = "right"
+							id = "purgeTempSwitch"
+							onclick = "purgeTempToggle();"
+						-%}
+					</li>
+					<li id="cleanupSchedulePopover" class="insensitive">
+						<label>Schedule</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="cleanupScheduleStatus">Daily</label>
+					</li>
+					<li class="medium">
+						<div class="label-group">
+							<label>Trash</label>
+							<label class="small-label dim-label" id="trashSizeStatus">209.7 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="emptyTrashButton" onclick="$('#emptyTrashDialog').show();">Empty Trash&hellip;</a>
+					</li>
+					<li class="medium" >
+						<div class="label-group">
+							<label>Temporary Files</label>
+							<label class="small-label dim-label" id="tempSizeStatus">79.2 MiB</label>
+						</div>
+						<a class="button text-button float-right" id="purgeTempButton" onclick="$('#purgeTempDialog').show();">Purge Temporary Files&hellip;</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Empty Trash Dialog -->
+	<div class="gtkdialog" id="emptyTrashDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Empty all items from Trash?</h3>
+					<p>All items in the Trash will be permanently deleted.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#emptyTrashDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#trashSizeStatus').text('&mdash;');$('#emptyTrashDialog').hide();$('#emptyTrashButton').addClass('insensitive');">Empty Trash</a>
+			</div>
+		</div>
+	</div>
+	<!-- Empty Trash Dialog -->
+	<div class="gtkdialog" id="purgeTempDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Purge temporary files?</h3>
+					<p>All temporary files created by the system will be permanently deleted.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#purgeTempDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#tempSizeStatus').text('&mdash;');$('#purgeTempDialog').hide();$('#purgeTempButton').addClass('insensitive');">Purge</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsPrivacySidebar a:nth-of-type(9) li').addClass("active");});
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="cleanupScheduleOption($(this).text());">Hourly</li>',
+			'<li onclick="cleanupScheduleOption($(this).text());">Twice daily</li>',
+			'<li onclick="cleanupScheduleOption($(this).text());">Daily</li>',
+			'<li onclick="cleanupScheduleOption($(this).text());">Weekly</li>',
+			'<li onclick="cleanupScheduleOption($(this).text());">Monthly</li>',
+		'</ul>'].join('');
+
+	$('#cleanupSchedulePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function cleanupScheduleOption() {
+	$('#cleanupScheduleStatus').text(arguments[0]);
+	$("#cleanupSchedulePopover").popover("hide");
+}
+
+// toggle trash button sensitivity
+function emptyTrashToggle() {
+	if($('#emptyTrashSwitch').is(":checked")) {
+		$('#emptyTrashButton').addClass('insensitive');
+	} else {
+		$('#emptyTrashButton').removeClass('insensitive');
+	}
+	scheduleToggle();
+}
+
+// toggle purge button sensitivity
+function purgeTempToggle() {
+	if($('#purgeTempSwitch').is(":checked")) {
+		$('#purgeTempButton').addClass('insensitive');
+	} else {
+		$('#purgeTempButton').removeClass('insensitive');
+	}
+	scheduleToggle();
+}
+
+// toggle schedule row sensitivity
+function scheduleToggle() {
+	if($('#purgeTempSwitch').is(":checked") && $('#emptyTrashSwitch').is(":checked")) {
+		$('#cleanupSchedulePopover').removeClass('insensitive');
+	} else if($('#purgeTempSwitch').is(":checked") && $('#emptyTrashSwitch').not(":checked")) {
+		$('#cleanupSchedulePopover').removeClass('insensitive');
+	} else if($('#purgeTempSwitch').not(":checked") && $('#emptyTrashSwitch').is(":checked")) {
+		$('#cleanupSchedulePopover').removeClass('insensitive');
+	} else if($('#purgeTempSwitch').not(":checked") && $('#emptyTrashSwitch').not(":checked")) {
+		$('#cleanupSchedulePopover').addClass('insensitive');
+	}
+}
+
+
+</script>

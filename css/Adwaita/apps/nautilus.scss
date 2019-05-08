@@ -1,0 +1,19 @@
+
+// Pathbar
+.pathbar {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 6px;
+	&.entry {
+		background-color: white;
+		// border: 1px solid $borders_color;
+		width: 720px;
+		max-width: 720px;
+	}
+	* {
+		display: inline-block;
+		top: 0 !important;
+		&.narrow {top:-2px !important;}
+	}
+	
+}

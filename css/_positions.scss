@@ -1,0 +1,25 @@
+// (attempt to) center a thing
+.center {
+  display:block;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+// floats
+.float-left  { float:left; }
+.float-right { float:right; }
+.float-none  { float:none; }
+
+// text aligns
+.text-left   { text-align:left; }
+.text-right  { text-align:right; }
+.text-center { text-align:center; }
+
+// vertical aligns
+.align-baseline    { vertical-align: baseline !important; } // default
+.align-top         { vertical-align: top !important; }
+.align-middle      { vertical-align: middle !important; }
+.align-bottom      { vertical-align: bottom !important; }
+.align-text-bottom { vertical-align: text-bottom !important; }
+.align-text-top    { vertical-align: text-top !important; }

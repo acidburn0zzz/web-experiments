@@ -1,0 +1,50 @@
+---
+layout: mockup
+title: "Settings - Devices - Printers"
+theme: Adwaita/Adwaita.css
+permalink: settings/devices/printers
+wallpaper: triangles
+category: "Devices"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			<a class="button text-button">Add a printer&hellip;</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsDevicesSidebar" class="sidebar">
+		{%- for item in site.data.settings-devices-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			{%- include components/empty-state.html
+				id = "noPrintersAvailable"
+				icon="devices/printer" 
+				title = "No printers are available" 
+				message= "Add or attach a printer" 
+			-%}
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsDevicesSidebar a:nth-of-type(4) li').addClass("active");});
+</script>

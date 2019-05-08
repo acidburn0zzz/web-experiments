@@ -1,0 +1,327 @@
+---
+layout: mockup
+title: "Settings - Details - Applications"
+theme: Adwaita/Adwaita.css
+permalink: settings/applications
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window large">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.title }}</span>
+		</div>
+		<!-- Title -->
+		<span class="title">App Name</span>
+		<div class="button-group float-right">
+			<a class="button image-text-button"><div>{%- include symbolic/apps/org.gnome.Software-symbolic.svg -%}</div>Show in Software</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsApplicationsSidebar" class="sidebar">
+		{%- for item in site.data.settings-applications-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Access and Permissions -->
+			<div class="row" id="appPermissions">
+				<h4>Permissions & Access</h4>
+				<p>Data and services that this application has asked for access to and permissions that it requires.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#cameraPermissionsSwitch');">
+						<label>Camera</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "cameraPermissionsSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#locationServicesSwitch');">
+						<label>Location Services</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "locationServicesSwitch" -%}
+					</li>
+					<li>
+						<label>Microphone</label>
+						<label class="float-right dim-label" id="microphonePermissionsStatus">Disabled</label>
+					</li>
+					<li onclick="toggleChecked('#backgroundPermissionsSwitch');">
+						<label>Run in Background</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundPermissionsSwitch" -%}
+					</li>
+					<li onclick="$('#builtinPermissionDialog').show();">
+						<label>Built-in Permissions</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">Network, File System, Settings</label>
+					</li>
+				</ul>
+				<p>Individual permissions for all applications can be reviewed in the <a href="{{ site.baseurl }}/settings/privacy/location">Privacy Settings</a>.</p>
+			</div>
+			<!-- Device Access -->
+			<div class="row">
+				<h4>Device Access</h4>
+				<p>This application has access to the following devices.</p>
+				<ul class="listrow">
+					<li class="medium" id="revokeDevice1">
+						<div class="label-group">
+							<label>Suspicious Dongle</label>
+							<label class="small-label dim-label">USB Disk</label>
+						</div>
+						<a class="button text-button float-right" onclick="n=1;$('#revokeDeviceAccessDialog').show();">Revoke</a>
+					</li>
+					<li class="medium" id="revokeDevice2">
+						<div class="label-group">
+							<label>SanDisk&reg; SDHC&trade; SDUNC-024</label>
+							<label class="small-label dim-label">SD Card</label>
+						</div>
+						<a class="button text-button float-right" onclick="n=1;$('#revokeDeviceAccessDialog').show();">Revoke</a>
+					</li>
+				</ul>
+				<p>Permissions for all devices can be reviewed in the <a href="{{ site.baseurl }}/settings/privacy/devices">Trusted Devices</a> settings.</p>
+			</div>
+			<!-- System Integration -->
+			<div class="row">
+				<h4>Integration</h4>
+				<p>System features used by this application.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#searchPermissionsSwitch');">
+						<label>Search</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "searchPermissionsSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#notificationsPermissionsSwitch');">
+						<label>Notifications</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "notificationsPermissionsSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#soundPermissionsSwitch');">
+						<label>Sounds</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "soundPermissionsSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Default Handlers -->
+			<div class="row" id="defaultHandlers">
+				<h4>Default Handlers</h4>
+				<p>Types of files and links that this application opens.</p>
+				<ul class="listrow accordion" id="defaultHandlersAccordion">
+					<li class="dropdown" data-toggle="collapse" data-target="#textFiles" aria-controls="textFiles" aria-expanded="false" id="textFileAssociations" onclick="$('#textFileAssociations svg').toggleClass('turn');">
+						<label>Text Files</label>
+						{%- include components/listrow-expander-icon.html -%}
+						<label class="float-right dim-label">4</label>
+					</li>
+					<div id="textFiles" class="collapse" data-parent="#defaultHandlersAccordion">
+						<ul class="listrow scrollbox borderless">
+							<li class="medium" id="unsetDefault1">
+								<div class="label-group">
+									<label>Plaintext</label>
+									<label class="small-label dim-label">.txt</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=1;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+							<li class="medium" id="unsetDefault2">
+								<div class="label-group">
+									<label>Markdown</label>
+									<label class="small-label dim-label">.md</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=2;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+							<li class="medium" id="unsetDefault3">
+								<div class="label-group">
+									<label>Document</label>
+									<label class="small-label dim-label">.doc</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=3;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+							<li class="medium" id="unsetDefault4">
+								<div class="label-group">
+									<label>Rich Text</label>
+									<label class="small-label dim-label">.rtf</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=4;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+						</ul>
+					</div>
+					<li class="dropdown" data-toggle="collapse" data-target="#imageFiles" aria-controls="imageFiles" aria-expanded="false" id="imageFileAssociations" onclick="$('#imageFileAssociations svg').toggleClass('turn');">
+						<label>Image Files</label>
+						{%- include components/listrow-expander-icon.html -%}
+						<label class="float-right dim-label">3</label>
+					</li>
+					<div id="imageFiles" class="collapse" data-parent="#defaultHandlersAccordion">
+						<ul class="listrow scrollbox borderless">
+							<li class="medium" id="unsetDefault5">
+								<div class="label-group">
+									<label>JPEG</label>
+									<label class="small-label dim-label">.jpg, .jpeg</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=5;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+							<li class="medium" id="unsetDefault6">
+								<div class="label-group">
+									<label>PNG</label>
+									<label class="small-label dim-label">.png</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=6;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+							<li class="medium" id="unsetDefault7">
+								<div class="label-group">
+									<label>SVG</label>
+									<label class="small-label dim-label">.svg, .svgz</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=7;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+						</ul>
+					</div>
+					<li class="dropdown" data-toggle="collapse" data-target="#linkTypes" aria-controls="linkTypes" aria-expanded="false" id="linkAssociations" onclick="$('#linkAssociations svg').toggleClass('turn');">
+						<label>Links</label>
+						{%- include components/listrow-expander-icon.html -%}
+						<label class="float-right dim-label">2</label>
+					</li>
+					<div id="linkTypes" class="collapse" data-parent="#defaultHandlersAccordion">
+						<ul class="listrow scrollbox borderless">
+							<li class="medium" id="unsetDefault9">
+								<div class="label-group">
+									<label>Web Links</label>
+									<label class="small-label dim-label">http://, https://</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=9;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+							<li class="medium" id="unsetDefault10">
+								<div class="label-group">
+									<label>Git Links</label>
+									<label class="small-label dim-label">git://</label>
+								</div>
+								<a class="button text-button float-right" onclick="n=10;$('#unsetDefaultDialog').show();">Unset</a>
+							</li>
+						</ul>
+					</div>
+				</ul>
+			</div>
+			<!-- Storage -->
+			<div class="row">
+				<h4>Usage</h4>
+				<p>Network usage and disk space used by this application.</p>
+				<ul class="listrow">
+					<li class="medium">
+						<label>Network Usage</label>
+						<label class="float-right dim-label">288.3 MiB</label>
+					</li>
+					<li onclick="$('#dataUsageDialog').show();">
+						<label>Storage</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">9.7 MiB</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Unset Default Dialog -->
+	<div class="gtkdialog" id="unsetDefaultDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Unset application as default?</h3>
+					<p>"${APPLICATION}" will be removed as the default application for "${DEFAULT}".</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#unsetDefaultDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#unsetDefault'+ n).hide();$('#unsetDefaultDialog').hide();">Unset Default</a>
+			</div>
+		</div>
+	</div>
+	<!-- Revoke Device Access Dialog -->
+	<div class="gtkdialog" id="revokeDeviceAccessDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Revoke device access?</h3>
+					<p>"${APPLICATION}"'s access to "${DEVICE}" will be revoked until you grant it again.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#revokeDeviceAccessDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#revokeDevice1').hide();$('#revokeDeviceAccessDialog').hide();">Revoke Access</a>
+			</div>
+		</div>
+	</div>
+	<!-- Data Usage Dialog -->
+	<div class="gtkdialog" id="dataUsageDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">Data Usage</span>
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
+			</div>
+			<div class="gtkdialog-content">
+				<div class="row">
+					<p>How much disk space this application is occupying with app data and caches.</p>
+					<ul class="listrow">
+						<li>
+							<label>Application</label>
+							<label class="float-right dim-label">8.2 MiB</label>
+						</li>
+						<li>
+							<label>Data</label>
+							<label class="float-right dim-label">341.9 KiB</label>
+						</li>
+						<li>
+							<label>Cache</label>
+							<label class="float-right dim-label" id="appCacheStatus">903.6 KiB</label>
+						</li>
+						<li>
+							<label><b>Total</b></label>
+							<label class="float-right dim-label">9.7 MiB</label>
+						</li>
+					</ul>
+					<p>The size of the cache is set by the application and cannot be changed.</p>
+					<a class="button text-button float-left" onclick="$('#appCacheStatus').text('0.0 KiB');">Clear Cache</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Built-In Permissions Dialog -->
+	<div class="gtkdialog" id="builtinPermissionDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">Built-in Permissions</span>
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
+			</div>
+			<div class="gtkdialog-content">
+				<div class="row">
+					<p>$APPLICATION has the following permissions built-in. These cannot be altered. If you are concerned about these permissions, consider removing this application.</p>
+					<ul class="listrow">
+						<li>
+							<label>System Locations</label>
+							<label class="float-right dim-label">No access</label>
+						</li>
+						<li>
+							<label>Home Directory</label>
+							<label class="float-right dim-label">Can change and delete files</label>
+						</li>
+						<li>
+							<label>Specific Folders</label>
+							<label class="float-right dim-label">No access</label>
+						</li>
+						<li>
+							<label>Network</label>
+							<label class="float-right dim-label">Can connect to the internet</label>
+						</li>
+						<li>
+							<label>Settings</label>
+							<label class="float-right dim-label">Can store settings</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsApplicationsSidebar a:nth-of-type(1) li').addClass("active");});
+</script>

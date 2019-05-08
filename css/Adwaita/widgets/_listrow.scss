@@ -1,0 +1,317 @@
+$listrow_padding: 12px;
+// $listrow_border_radius: 4px;
+$listrow_border_radius: 0;
+$listrow_item_height: 32px;
+
+// drag mode thing
+[draggable] {
+}
+
+// List Rows
+ul.listrow  {
+	margin: 6px 0;
+	padding: 0;
+	list-style: none;
+	width: 100%;
+	border: 1px solid $borders_color;
+	border-radius:$listrow_border_radius;
+	background-color: $base_color;
+	// box-shadow:0 2px 4px 0 transparentize($borders_color, 0.6), 0 1px 2px 0 rgba(0,0,0,0.1);
+
+
+	// list item
+	li {
+		border:none;
+		border-bottom:1px solid darken($base_color, 5%); // draw only bottomr
+		padding: $listrow_padding;
+		height: $listrow_item_height;
+		line-height: $listrow_item_height;
+		// 100% - padding - border width
+		width: calc(100% - (#{$listrow_padding} * 2));
+
+		@extend %noselect;
+
+		* {
+			z-index: 15;
+		}
+
+		// box-shadow: inset 0 0 0 $listrow_padding red; //debug padding
+		// background-color: yellow; //debug 
+
+		&:hover { background-color: darken($base_color, 2%);}
+		
+		&.edit-mode { background-color:  darken($base_color, 2%);}
+
+		// drag mode
+		&.drag-target {
+			cursor: move;
+			&.dragging {
+				opacity: 1;
+			}
+			&.over {
+				// background-color: red; // debug
+				border-top: 3px solid $selected_bg_color;
+			}
+		}
+
+		// text in the list item
+		label {
+			padding: 0 6px;
+			&:not(.switch) {
+				pointer-events: none;
+			}
+			&.suggested-action {
+				font:bold;
+				color: $link_color;
+			}
+
+			&.destructive-action {
+				font:bold;
+				color: $destructive_color;
+			}
+		}
+
+
+		&:first-child {
+			border-radius: $listrow_border_radius $listrow_border_radius 0 0;
+		}
+
+		&.overflow,
+		&:last-child {
+			border-radius: 0 0 $listrow_border_radius $listrow_border_radius;
+			border-bottom:none;
+		}
+
+		&:only-child {
+			border-radius: $listrow_border_radius;
+		}
+
+		// icons in the list item
+		.icon {
+			vertical-align: top;
+			// add margin to equal list item height
+			&.s16 {
+				padding: 0;
+				margin: 8px;
+			}
+			// same height as list row item
+			&.s32 {
+				margin: 0;
+			}
+		}
+
+		// buttons in list item 
+		.button {
+			// to account for border
+			margin-top: -1px;
+		}
+
+		// switches in list item 
+		.switch {
+			// to account for border
+			margin-top: -1px;
+		}
+
+		// when there are two labels
+		.label-group {
+			display: inline-block;
+			margin:0;
+
+			// top label
+			:nth-child(1) {
+				line-height: 1.5;
+				display: block;
+			}
+			// subtitle
+			:nth-child(2) {
+				line-height: 1.25;
+				display: block;
+			}
+		}
+
+		// separator
+		.separator {
+			width: 1px;
+			height: $listrow_item_height;
+			background-color: lighten($borders_color, 5%);
+			display: inline-block;
+			padding: 0;
+			margin: 0 8px;
+			position: relative;
+			z-index: 14;
+		}
+
+		// drag handle
+		.drag-handle {
+			opacity: 0.5;
+			margin: 0;
+			margin-left:-8px !important;
+		}
+		// expander
+		.icon.expander {
+			padding: 0;
+			margin-left: 0;
+			margin-right: 0;
+		}
+		// link icon
+		.icon.link {
+			padding: 0;
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		// input
+		input[type=range]{
+			vertical-align: middle;
+		}
+
+		// medium sized list item
+		&.medium {
+			// new height is 40px;
+			height: $listrow_item_height + 8px;
+			line-height: $listrow_item_height + 8px;
+
+			// icons in the list item
+			.icon {
+				vertical-align: top;
+				// add margin to equal list item height
+				&.s16 {
+					margin: 8px;
+					margin-top: 8px + 4px;
+				}
+				// same height as list row item
+				&.s32 {
+					margin: 4px;
+				}
+			}
+			>.selection {
+				margin: 10px 7px;
+			}
+
+			.separator,
+			.button,
+			.switch {
+				// to account for border
+				margin-top: 4px - 1px;
+			}
+		}
+
+		// large sized list item
+		&.large {
+			// new height is 40px;
+			height: $listrow_item_height * 2;
+			line-height: $listrow_item_height * 2;
+
+			// icons in the list item
+			.icon {
+				vertical-align: top;
+				// add margin to equal list item height
+				&.s16 {
+					margin: 8px;
+					margin-top: 8px + 4px;
+				}
+				// same height as list row item
+				&.s32 {
+					margin: 4px;
+				}
+				&.expander{margin-top: 24px;}
+			}
+			>.selection {
+				margin: 10px 7px;
+			}
+
+			.separator,
+			.button,
+			.switch {
+				// to account for border
+				margin: 6px;
+				margin-top: 16px - 1px;
+			}
+
+			.label-group {
+				margin-top: 12px;
+				margin-left: 4px;
+			}
+		}
+
+	}
+
+	&.nohover {
+		li:hover {background-color:$base_color;}
+	}
+
+	&.borderless {
+		border-top:none;
+		border-left:none;
+		border-right:none;
+		border-bottom-color: $borders_color;
+		margin: 0;
+		box-shadow:none;
+	}
+
+	&.unstyled {
+		background: transparent;
+		border:none;
+		margin: 0;
+		box-shadow:none;
+		> li {
+			border:none;
+			background:none;
+			padding: calc(#{$listrow_padding} - 8px) 0;
+			> span {
+				margin: 0;
+			}
+			// 100% - padding - border width
+			width: calc(100% - 2px);
+		}
+	}
+}
+
+// in collapses
+.collapsing > ul,
+.collapse > ul,
+.collapse.in > ul {
+	padding-left: 24px;
+	width: calc(100% - 24px);
+	border-bottom-color: lighten($borders_color, 5%);
+
+
+	> li {
+		height: $listrow_item_height - 8px;
+		line-height: $listrow_item_height - 8px;
+		> .button {margin-top:-5px;}
+		> .selection {
+			margin: 4px;
+		}
+		&:hover {
+		}
+		&.selected {
+		}
+	}
+}
+
+// in popovers
+.popover-content > ul {
+	width: 100%;
+	list-style: none;
+	margin:0;
+	padding:0;
+	display: block;
+	position: relative;
+
+	> li {
+		@extend %noselect;
+		width: calc(100% - 8px);
+		height: $listrow_item_height;
+		line-height: $listrow_item_height;
+		padding: 0 4px;
+		margin: 0 auto;
+		border-radius: 4px;
+		border-bottom: none;
+		&:hover {
+			background-color:lighten($popover_bg_color, 20%);
+		}
+		&.selected {
+		}
+	}
+}

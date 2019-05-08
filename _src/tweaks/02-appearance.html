@@ -1,0 +1,246 @@
+---
+layout: mockup
+title: "Tweaks - Appearance"
+theme: Adwaita/Adwaita.css
+permalink: tweaks/appearance
+wallpaper: adwaita
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Tweaks</span>
+		</div>
+		<!-- Title -->
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="tweaksSidebar" class="sidebar">
+		{%- for item in site.data.tweaks-sidebar -%}
+			<a href="{{ site.baseurl }}/tweaks{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="infobar warning" id="themeInfobar">
+				<p>Not all apps are optimized for these settings. You may encounter visual issues as a result.</p>
+				<a class="button text-button float-right insensitive" id="resetThemesButton" onclick="resetThemes();$(this).addClass('insensitive');">Reset</a>
+			</div>
+			<div class="row wide" id="themeTweaks">
+				<h4>Themes</h4>
+				<p>Tweak the look and feel of your computer with different themes.</p>
+				<ul class="listrow">
+					<li id="gtkThemePopover" class="medium">
+						<div class="label-group">
+							<label>Applications</label>
+							<label class="small-label dim-label">Window dressing and application interface style</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="gtkThemeStatus">Adwaita (default)</label>
+					</li>
+					<li id="cursorThemePopover" class="medium">
+						<div class="label-group">
+							<label>Cursors</label>
+							<label class="small-label dim-label">Mouse pointers</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="cursorThemeStatus">Adwaita (default)</label>
+					</li>
+					<li id="iconThemePopover" class="medium">
+						<div class="label-group">
+							<label>Icons</label>
+							<label class="small-label dim-label">Application, system and file & folder icons</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="iconThemeStatus">Adwaita (default)</label>
+					</li>
+					<li id="shellThemePopover" class="medium">
+						<div class="label-group">
+							<label>Shell</label>
+							<label class="small-label dim-label">The window overview and top bar style</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="shellThemeStatus">None (default)</label>
+					</li>
+					<li id="soundThemePopover"  class="medium">
+						<div class="label-group">
+							<label>Sound</label>
+							<label class="small-label dim-label">Audio feedback and alert sound theme</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="soundThemeStatus">Default</label>
+					</li>
+				</ul>
+			</div>
+			<div class="row wide" id="themeTweaks">
+				<h4>Wallpapers</h4>
+				<p>Change the background images for your desktop and lock screen.</p>
+				<ul class="listrow">
+					<li>
+						<label>Desktop</label>
+						<a class="button image-text-button float-right">image_22.png<div class="float-right">{%- include symbolic/actions/document-open-symbolic.svg -%}</div></a>
+						<div class="separator float-right"></div>
+						<a class="button text-button float-right">Zoom</a>
+					</li>
+					<li>
+						<label>Lockscreen</label>
+						<a class="button image-text-button float-right">wallpaper001.png<div class="float-right">{%- include symbolic/actions/document-open-symbolic.svg -%}</div></a>
+						<div class="separator float-right"></div>
+						<a class="button text-button float-right">Stretched</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#tweaksSidebar a:nth-of-type(2) li').addClass("active");});
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="gtkThemeOption($(this).text());">Adwaita (default)</li>',
+			'<li onclick="gtkThemeOption($(this).text());">Arc</li>',
+			'<li onclick="gtkThemeOption($(this).text());">elementary</li>',
+			'<li onclick="gtkThemeOption($(this).text());">Paper</li>',
+			'<li onclick="gtkThemeOption($(this).text());">Moka</li>',
+			'<li onclick="gtkThemeOption($(this).text());">Suru</li>',
+		'</ul>'].join('');
+
+	$('#gtkThemePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function gtkThemeOption() {
+	$('#gtkThemeStatus').text(arguments[0]);
+	$("#gtkThemePopover").popover("hide");
+	$('#resetThemesButton').removeClass('insensitive');
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="cursorThemeOption($(this).text());">Adwaita (default)</li>',
+			'<li onclick="cursorThemeOption($(this).text());">Arc</li>',
+			'<li onclick="cursorThemeOption($(this).text());">elementary</li>',
+			'<li onclick="cursorThemeOption($(this).text());">Paper</li>',
+			'<li onclick="cursorThemeOption($(this).text());">Moka</li>',
+			'<li onclick="cursorThemeOption($(this).text());">Suru</li>',
+		'</ul>'].join('');
+
+	$('#cursorThemePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function cursorThemeOption() {
+	$('#cursorThemeStatus').text(arguments[0]);
+	$("#cursorThemePopover").popover("hide");
+	$('#resetThemesButton').removeClass('insensitive');
+}
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="iconThemeOption($(this).text());">Adwaita (default)</li>',
+			'<li onclick="iconThemeOption($(this).text());">Arc</li>',
+			'<li onclick="iconThemeOption($(this).text());">elementary</li>',
+			'<li onclick="iconThemeOption($(this).text());">Paper</li>',
+			'<li onclick="iconThemeOption($(this).text());">Moka</li>',
+			'<li onclick="iconThemeOption($(this).text());">Suru</li>',
+		'</ul>'].join('');
+
+	$('#iconThemePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function iconThemeOption() {
+	$('#iconThemeStatus').text(arguments[0]);
+	$("#iconThemePopover").popover("hide");
+	$('#resetThemesButton').removeClass('insensitive');
+}
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="shellThemeOption($(this).text());">None (default)</li>',
+			'<li onclick="shellThemeOption($(this).text());">Arc</li>',
+			'<li onclick="shellThemeOption($(this).text());">elementary</li>',
+			'<li onclick="shellThemeOption($(this).text());">Paper</li>',
+			'<li onclick="shellThemeOption($(this).text());">Moka</li>',
+			'<li onclick="shellThemeOption($(this).text());">Suru</li>',
+		'</ul>'].join('');
+
+	$('#shellThemePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function shellThemeOption() {
+	$('#shellThemeStatus').text(arguments[0]);
+	$("#shellThemePopover").popover("hide");
+	$('#resetThemesButton').removeClass('insensitive');
+}
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="soundThemeOption($(this).text());">Default</li>',
+		'</ul>'].join('');
+
+	$('#soundThemePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function soundThemeOption() {
+	$('#soundThemeStatus').text(arguments[0]);
+	$("#soundThemePopover").popover("hide");
+	$('#resetThemesButton').removeClass('insensitive');
+}
+
+function resetThemes() {
+	$('#gtkThemeStatus').text('Adwaita (default)');
+	$('#cursorThemeStatus').text('Adwaita (default)');
+	$('#iconThemeStatus').text('Adwaita (default)');
+	$('#shellThemeStatus').text('None (default)');
+	$('#soundThemeStatus').text('Default');
+}
+</script>

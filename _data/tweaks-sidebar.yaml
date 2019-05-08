@@ -1,0 +1,53 @@
+- link: /general
+  icon: apps/configuration-editor
+  title: General
+  has-submenu: false
+  has-separator: false
+
+- link: /appearance
+  icon: apps/preferences-desktop-wallpaper
+  title: Appearance
+  has-submenu: false
+  has-separator: false
+
+- link: /extensions
+  icon: mimetypes/application-x-addon
+  title: Extensions
+  has-submenu: false
+  has-separator: false
+
+- link: /fonts
+  icon: apps/preferences-desktop-font
+  title: Fonts
+  has-submenu: false
+  has-separator: false
+
+- link: /keyboard-mouse
+  icon: devices/input-mouse
+  title: Keyboard & Mouse
+  has-submenu: false
+  has-separator: false
+
+- link: /startup
+  icon: apps/session-properties
+  title: Startup Applications
+  has-submenu: false
+  has-separator: false
+
+- link: /top-bar
+  icon: actions/focus-top-bar
+  title: Top Bar
+  has-submenu: false
+  has-separator: false
+
+- link: /windows
+  icon: actions/focus-windows
+  title: Windows
+  has-submenu: false
+  has-separator: false
+
+- link: /workspaces
+  icon: apps/preferences-desktop-remote-desktop
+  title: Workspaces
+  has-submenu: false
+  has-separator: false

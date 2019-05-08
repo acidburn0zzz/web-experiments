@@ -1,0 +1,126 @@
+---
+layout: mockup
+title: "Photos - Albums"
+theme: Adwaita/Adwaita-Dark.css
+permalink: photos/albums
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/photos.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a class="button image-text-button">{%- include symbolic/devices/media-flash-symbolic.svg -%} SD Card</a>
+		</div>
+		<!-- Title -->
+		<div class="button-group float-center linked">
+			<a class="button text-button left" href="{{ site.baseurl }}/photos/photos">Photos</a><a class="button text-button right pressed">Albums</a>
+		</div>
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<div class="view">
+			<br>
+			<h2>My Albums</h2>
+			<ul class="albums-grid">
+				<li>
+					<div class="album-cover"></div>
+					<h3 class="album-title">All Photos</h3>
+					<span class="dim-label album-subtitle">20,409 photos</span>
+				</li>
+				<li>
+					<div class="album-cover"></div>
+					<h3 class="album-title">Favourites</h3>
+					<span class="dim-label album-subtitle">1,801 photos</span>
+				</li>
+			</ul>
+			<hr>
+			<h2>Shared Albums</h2>
+			<ul class="albums-grid">
+				<li>
+					<div class="album-cover"></div>
+					<h3 class="album-title">Dog Photos</h3>
+					<span class="dim-label album-subtitle">1,729 photos</span>
+				</li>
+				<li>
+					<div class="album-cover"></div>
+					<h3 class="album-title">Mom's 53rd Birthday</h3>
+					<span class="dim-label album-subtitle">134 photos</span>
+				</li>
+				<li>
+					<div class="album-cover"></div>
+					<h3 class="album-title">Jan & Kat's Wedding</h3>
+					<span class="dim-label album-subtitle">221 photos</span>
+				</li>
+			</ul>
+			<hr>
+			<div class="row">
+				<h5>Media Types</h5>
+				<ul class="listrow">
+					<li>
+						<div class="icon s16 dim-label float-left">{%- include symbolic/mimetypes/video-x-generic-symbolic.svg -%}</div>
+						<label class="float-left">Videos</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">129</label>
+					</li>
+					<li>
+						<div class="icon s16 dim-label float-left">{%- include symbolic/status/avatar-default-symbolic.svg -%}</div>
+						<label class="float-left">Selfies</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">247</label>
+					</li>
+					<li>
+						<div class="icon s16 dim-label float-left">{%- include symbolic/mimetypes/image-x-generic-symbolic.svg -%}</div>
+						<label class="float-left">Panorama</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">91</label>
+					</li>
+					<li>
+						<div class="icon s16 dim-label float-left">{%- include symbolic/status/image-loading-symbolic.svg -%}</div>
+						<label class="float-left">Slow-motion</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">13</label>
+					</li>
+					<li>
+						<div class="icon s16 dim-label float-left">{%- include symbolic/emblems/emblem-photos-symbolic.svg -%}</div>
+						<label class="float-left">Burst Photos</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">45</label>
+					</li>
+					<li>
+						<div class="icon s16 dim-label float-left">{%- include symbolic/mimetypes/application-x-executable-symbolic.svg -%}</div>
+						<label class="float-left">RAW Photos</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">62</label>
+					</li>
+					<li>
+						<div class="icon s16 dim-label float-left">{%- include symbolic/apps/org.gnome.Screenshot-symbolic.svg -%}</div>
+						<label class="float-left">Screenshots</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">765</label>
+					</li>
+					<li>
+						<div class="icon s16 dim-label float-left">{%- include symbolic/status/process-working-symbolic.svg -%}</div>
+						<label class="float-left">Animated</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">59</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+</script>

@@ -1,0 +1,95 @@
+---
+layout: mockup
+title: "Photos - Main"
+theme: Adwaita/Adwaita-Dark.css
+permalink: photos/photos
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/photos.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a class="button image-text-button">{%- include symbolic/devices/media-flash-symbolic.svg -%} SD Card</a>
+		</div>
+		<!-- Title -->
+		<div class="button-group float-center linked">
+			<a class="button text-button left pressed">Photos</a><a href="{{ site.baseurl }}/photos/albums" class="button text-button right">Albums</a>
+		</div>
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<div class="view">
+			<div class="row text-center">
+				<h3>20,409 Photos, 129 Videos</h3>
+				<p>Last updated: Today 4:12 PM </p>
+			</div>
+			<ul class="listrow unstyled">
+				<li class="medium">
+					<div class="label-group">
+						<label class="bold-label">Today</label>
+						<label class="small-label dim-label">Location</label>
+					</div>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+			</ul>
+			<ul class="photos-grid">
+				<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>
+			</ul>
+			<ul class="listrow unstyled">
+				<li class="medium">
+					<div class="label-group">
+						<label class="bold-label">Yesterday</label>
+						<label class="small-label dim-label">Location</label>
+					</div>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+			</ul>
+			<ul class="photos-grid">
+				<li></li><li></li><li></li>
+			</ul>
+			<ul class="listrow unstyled">
+				<li class="medium">
+					<div class="label-group">
+						<label class="bold-label">January 14, 2019</label>
+						<label class="small-label dim-label">Location</label>
+					</div>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+			</ul>
+			<ul class="photos-grid">
+				<li></li><li></li><li></li><li></li><li></li>
+			</ul>
+			<ul class="listrow unstyled">
+				<li class="medium">
+					<div class="label-group">
+						<label class="bold-label">January 03, 2019</label>
+						<label class="small-label dim-label">Location</label>
+					</div>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+			</ul>
+			<ul class="photos-grid">
+				<li></li><li></li>
+			</ul>
+			<ul class="listrow unstyled">
+				<li><h4 class="text-center dim-label">Etc.</h4></li>
+			</ul>
+			<br>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+</script>

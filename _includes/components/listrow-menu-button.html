@@ -1,0 +1,5 @@
+{%- assign icon = include.icon | default: "categories/applications-system" -%}
+{%- assign onclick = include.onclick | default: "" -%}
+{%- assign id = include.id | default: "" -%}
+{%- assign id = include.id | default: "" -%}
+<a class="button image-button float-right"  onclick="{{ onclick }}" id="{{ id }}">{% include symbolic/{{ icon }}-symbolic.svg %}</a><div class="separator float-right"></div>

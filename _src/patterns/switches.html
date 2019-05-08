@@ -1,0 +1,29 @@
+---
+layout: mockup
+title: "Patterns - Switches"
+theme: Adwaita/Adwaita.css
+permalink: patterns/switches
+---
+<!-- Switches Lists -->
+<div class="row" id="switches">
+	<ul class="listrow">
+		<li onclick="toggleChecked('#exampleSwitch1');">
+			<!-- Switch -->
+			<label>Normal switch</label>
+			{%- include components/switch.html float = "right"  checked = "checked" id = "exampleSwitch1" -%}
+		</li>
+		<li onclick="toggleChecked('#exampleSwitch2');">
+			<label>Unchecked switch</label>
+			{%- include components/switch.html float = "right"  checked = "" id = "exampleSwitch2" -%}
+		</li>
+		<li onclick="toggleChecked('#exampleSwitch3');">
+			<!-- Switch -->
+			<label>Symbolic switch</label>
+			{%- include components/switch.html float = "right" intl = "intl" checked = "checked" id = "exampleSwitch3" -%}
+		</li>
+		<li onclick="toggleChecked('#exampleSwitch4');">
+			<label>Symbolic unchecked switch</label>
+			{%- include components/switch.html float = "right" intl = "intl" checked = "" id = "exampleSwitch4" -%}
+		</li>
+	</ul>
+</div>

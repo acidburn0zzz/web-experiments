@@ -1,0 +1,238 @@
+---
+layout: mockup
+title: "Tweaks - Windows"
+theme: Adwaita/Adwaita.css
+permalink: tweaks/windows
+wallpaper: adwaita
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Tweaks</span>
+		</div>
+		<!-- Title -->
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="tweaksSidebar" class="sidebar">
+		{%- for item in site.data.tweaks-sidebar -%}
+			<a href="{{ site.baseurl }}/tweaks{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row wide" id="windowTweaks">
+				<h4>Windows</h4>
+				<ul class="listrow">
+					<li class="medium" onclick="toggleChecked('#attachModalSwitch');">
+						<div class="label-group">
+							<label>Attach Modal Dialogs</label>
+							<label class="small-label dim-label">Keep modal dialogs attached to their parent windows</label>
+						</div>
+						{%- include components/switch.html float = "right" checked = "checked" id="attachModalSwitch" -%}
+					</li>
+					<li class="medium" onclick="toggleChecked('#edgeTilingSwitch');">
+						<div class="label-group">
+							<label>Edge Tiling</label>
+							<label class="small-label dim-label">Tile windows when dragged to edge of the desktop.<label>
+						</div>
+						{%- include components/switch.html float = "right" checked = "checked" id="edgeTilingSwitch" -%}
+					</li>
+					<li class="" onclick="toggleChecked('#centerWindowsSwitch');">
+						<label>Center New Windows</label>
+						{%- include components/switch.html float = "right" checked = "checked" id="centerWindowsSwitch" -%}
+					</li>
+					<li class="" onclick="toggleChecked('#overamplificationSwitch');">
+						<label>Resize with Secondary Click</label>
+						{%- include components/switch.html float = "right" id="overamplificationSwitch" -%}
+					</li>
+					<li class="">
+						<label>Window Action Key</label>
+						<select class="button text-button flat float-right text-right">
+							<option selected>Super&nbsp;&#9660;</option>
+							<option>Alt</option>
+							<option>Disabled</option>
+						</select>
+					</li>
+				</ul>
+			</div>
+			<div class="row wide" id="focusTweaks">
+				<h4>Focus</h4>
+				<ul class="listrow">
+					<li class="medium" onclick="$('#focusOption1').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "focusOption1" name = "focusOptions" -%}
+						<div class="label-group">
+							<label>Click to Focus</label>
+							<label class="small-label dim-label">Focus windows when they are clicked.<label>
+						</div>
+					</li>
+					<li class="medium" onclick="$('#focusOption2').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" id = "focusOption2" name = "focusOptions" -%}
+						<div class="label-group">
+							<label>Focus on Hover</label>
+							<label class="small-label dim-label">Focus windows on hover with the pointer. Desktop hover preserves focus.<label>
+						</div>
+					</li>
+					<li class="medium" onclick="$('#focusOption3').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" id = "focusOption3" name = "focusOptions" -%}
+						<div class="label-group">
+							<label>Secondary Click</label>
+							<label class="small-label dim-label">Focus windows on hover with the pointer. Desktop hover removes focus.<label>
+						</div>
+					</li>
+					<li onclick="toggleChecked('#raiseWindowSwitch');">
+						<label>Raise Windows on Focus</label>
+						{%- include components/switch.html float = "right" id="raiseWindowSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<div class="row wide" id="titlebarTweaks">
+				<h4>Titlebars</h4>
+				<ul class="listrow">
+					<li id="doubleClickPopover">
+						<label>Double-click Action</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="doubleClickStatus">Maximize</label>
+					</li>
+					<li id="middleClickPopover">
+						<label>Middle-click Action</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="middleClickStatus">None</label>
+					</li>
+					<li id="secondaryClickPopover">
+						<label>Secondary-click Action</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="secondaryClickStatus">None</label>
+					</li>
+					<li>
+						<label>Button Alignment</label>
+						<div class="linked float-right">
+							<a id="posLeft" class="button text-button left">Left</a><a id="posRight" class="button text-button pressed right">Right</a>
+						</div>
+					</li>
+					<li onclick="toggleChecked('#mazimizeButtonSwitch');">
+						<label>Maximize Button</label>
+						{%- include components/switch.html float = "right" id = "mazimizeButtonSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#minimizeButtonSwitch');">
+						<label>Minimize Button</label>
+						{%- include components/switch.html float = "right" id = "minimizeButtonSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#tweaksSidebar a:nth-of-type(8) li').addClass("active");});
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="doubleClickOption($(this).text());">None</li>',
+			'<li onclick="doubleClickOption($(this).text());">Menu</li>',
+			'<li onclick="doubleClickOption($(this).text());">Lower</li>',
+			'<li onclick="doubleClickOption($(this).text());">Minimize</li>',
+			'<li onclick="doubleClickOption($(this).text());">Maximize</li>',
+			'<li onclick="doubleClickOption($(this).text());">Maximize Horizontally</li>',
+			'<li onclick="doubleClickOption($(this).text());">Maximize Vertically</li>',
+			'<li onclick="doubleClickOption($(this).text());">Toggle Shade</li>',
+		'</ul>'].join('');
+
+	$('#doubleClickPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function doubleClickOption() {
+	$('#doubleClickStatus').text(arguments[0]);
+	$("#doubleClickPopover").popover("hide");
+}
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="middleClickOption($(this).text());">None</li>',
+			'<li onclick="middleClickOption($(this).text());">Menu</li>',
+			'<li onclick="middleClickOption($(this).text());">Lower</li>',
+			'<li onclick="middleClickOption($(this).text());">Minimize</li>',
+			'<li onclick="middleClickOption($(this).text());">Maximize</li>',
+			'<li onclick="middleClickOption($(this).text());">Maximize Horizontally</li>',
+			'<li onclick="middleClickOption($(this).text());">Maximize Vertically</li>',
+			'<li onclick="middleClickOption($(this).text());">Toggle Shade</li>',
+		'</ul>'].join('');
+
+	$('#middleClickPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function middleClickOption() {
+	$('#middleClickStatus').text(arguments[0]);
+	$("#middleClickPopover").popover("hide");
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="secondaryClickOption($(this).text());">None</li>',
+			'<li onclick="secondaryClickOption($(this).text());">Menu</li>',
+			'<li onclick="secondaryClickOption($(this).text());">Lower</li>',
+			'<li onclick="secondaryClickOption($(this).text());">Minimize</li>',
+			'<li onclick="secondaryClickOption($(this).text());">Maximize</li>',
+			'<li onclick="secondaryClickOption($(this).text());">Maximize Horizontally</li>',
+			'<li onclick="secondaryClickOption($(this).text());">Maximize Vertically</li>',
+			'<li onclick="secondaryClickOption($(this).text());">Toggle Shade</li>',
+		'</ul>'].join('');
+
+	$('#secondaryClickPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function secondaryClickOption() {
+	$('#secondaryClickStatus').text(arguments[0]);
+	$("#secondaryClickPopover").popover("hide");
+}
+
+
+// toggle joined button status
+$("#posRight").click(function(){
+	$("#posLeft").removeClass("pressed");
+	$("#posRight").addClass("pressed");
+});
+$("#posLeft").click(function(){
+	$("#posRight").removeClass("pressed");
+	$("#posLeft").addClass("pressed");
+});
+</script>

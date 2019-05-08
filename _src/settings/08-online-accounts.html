@@ -1,0 +1,182 @@
+---
+layout: mockup
+title: "Settings - Online Accounts"
+theme: Adwaita/Adwaita.css
+permalink: settings/online-accounts
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Online Accounts -->
+			<div class="row text-center">
+				<div class="icon s128 large">{%- include symbolic/apps/goa-panel-symbolic.svg -%}</div>
+				<h2>Connect to your data in the cloud</h2>
+			</div>
+			<div class="row">
+				<h5>Connected Accounts</h5>
+				<ul class="listrow">
+					<li class="medium" id="googleAccount1" onclick="$('#accountControlDialog').show();">
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-google.png">
+						<div class="label-group">
+							<label>Google</label>
+							<label class="small-label dim-label">googleaccount@gmail.com</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
+					</li>
+					<li class="medium" id="googleAccount2">
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-google.png">
+						<div class="label-group">
+							<label>Google</label>
+							<label class="small-label dim-label">anothergoogleaccount@gmail.com</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
+					</li>
+					<li class="medium" id="nextcloudAccount1">
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-owncloud.png">
+						<div class="label-group">
+							<label>Nextcloud</label>
+							<label class="small-label dim-label">nextclouduser@nextcloud.com</label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<h5>Add an account</h5>
+				<ul class="listrow">
+					<li onclick="$('#googleAccount2').show();">
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-google.png">
+						<label>Google</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-owncloud.png">
+						<label>Nextcloud</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-facebook.png">
+						<label>Facebook</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-msn.png">
+						<label>Microsoft</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-flickr.png">
+						<label>Flickr</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-foursquare.png">
+						<label>Foursquare</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<div class="icon s32">{%- include symbolic/apps/internet-mail-symbolic.svg -%}</div>
+						<label>Microsoft Exchange</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<div class="icon s32">{%- include symbolic/apps/internet-mail-symbolic.svg -%}</div>
+						<label>IMAP and SMTP</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<div class="icon s32">{%- include symbolic/apps/enterprise-login-symbolic.svg -%}</div>
+						<label>Enterprise Login</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Account Setup Dialog -->
+	<div class="gtkdialog" id="accountControlDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<span class="title">Account Setup</span>
+				<div class="button-group float-right">{%- include components/close-button.html close = "gtkdialog" -%}</div>
+			</div>
+			<div class="gtkdialog-content">
+				<ul class="listrow">
+					<li class="medium">
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-google.png">
+						<div class="label-group">
+							<label>Google</label>
+							<label class="small-label dim-label">googleaccount@gmail.com</label>
+						</div>
+					</li>
+					<li>
+						<label>Mail</label>
+						<label class="switch float-right">
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li>
+						<label>Calendar</label>
+						<label class="switch float-right">
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li>
+						<label>Documents</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+					<li>
+						<label>Photos</label>
+						<label class="switch float-right">
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li>
+						<label>Files</label>
+						<label class="switch float-right">
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li>
+						<label>Printers</label>
+						<label class="switch float-right">
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+				</ul>
+				<ul class="row listrow unstyled">
+					<li><a class="button text-button right destructive-action" onclick="$('.gtkdialog').hide();$('#googleAccount1').hide();$('#googleAccountNotSetUp').show();">Remove Account</a></li>
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(8) li').addClass("active");});
+</script>

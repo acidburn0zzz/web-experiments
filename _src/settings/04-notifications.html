@@ -1,0 +1,241 @@
+---
+layout: mockup
+title: "Settings - Notifications"
+theme: Adwaita/Adwaita.css
+permalink: settings/notifications
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Notifications Controls -->
+			<div class="row">
+				<ul class="listrow">
+					<li onclick="toggleChecked('#notificationsPopupsSwitch');">
+						<label>Notification Popups</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "notificationsPopupsSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#notificationsOnLockScreenSwitch');">
+						<label>Lock Screen Notifications</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "notificationsOnLockScreenSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Notifications Controls -->
+			<div class="row">
+				<h4>Do Not Disturb</h4>
+				<p>During Do Not Disturb non-urgent notifications will be silenced, but still appear in the notifications list.</p>
+				<ul class="listrow">
+					<li id="dndSwitchRow" onclick="toggleChecked('#dndSwitch');dndToggle();">
+						<label>Do Not Disturb</label>
+						{%- include components/switch.html float = "right" id = "dndSwitch" onclick = "dndToggle();" -%}
+					</li>
+					<li id="dndScheduleSwitchRow" class="insensitive" onclick="toggleChecked('#dndScheduleSwitch');dndScheduleToggle();">
+						<label>Automatic Schedule</label>
+						{%- include components/switch.html float = "right" id = "dndScheduleSwitch" onclick = "dndScheduleToggle();" -%}
+					</li>
+					<li id="dndScheduleRow" class="insensitive">
+						<label>12:00 AM to 8:00 AM</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+					</li>
+				</ul>
+			</div>
+			<!-- Applications -->
+			<div class="row">
+				<h4>Applications</h4>
+				<p>Allow the applications below to send notifications.</p>
+				<ul class="listrow">
+					<li class="dropdown" data-toggle="collapse" data-target="#appNotificationsDropdown1" id="appNotificationsOption1" onclick="$('#appNotificationsOption1 svg').toggleClass('turn');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calendar.svg">
+						<label>Calendar</label>
+						{%- include components/switch.html float = "right" checked = "checked" onclick = "$('#appNotificationsDropdown1>ul').toggleClass('insensitive');" -%}
+						<div class="separator float-right"></div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="appNotificationsDropdown1" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li>
+								<label>Sound Alerts</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Notification Popups</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Show Message Content in Popups</label>
+								{%- include components/switch.html float = "right" -%}
+							</li>
+							<li>
+								<label>Lock Screen Notifications</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Show Message Content on Lock Screen</label>
+								{%- include components/switch.html float = "right" -%}
+							</li>
+						</ul>
+					</div>
+					<li class="dropdown" data-toggle="collapse" data-target="#appNotificationsDropdown2" id="appNotificationsOption2" onclick="$('#appNotificationsOption2 svg').toggleClass('turn');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calls.svg">
+						<label>Calls</label>
+						{%- include components/switch.html float = "right" checked = "checked" onclick = "$('#appNotificationsDropdown2>ul').toggleClass('insensitive');" -%}
+						<div class="separator float-right"></div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="appNotificationsDropdown2" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li>
+								<label>Sound Alerts</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Notification Popups</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Show Message Content in Popups</label>
+								{%- include components/switch.html float = "right" -%}
+							</li>
+							<li>
+								<label>Lock Screen Notifications</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Show Message Content on Lock Screen</label>
+								{%- include components/switch.html float = "right" -%}
+							</li>
+						</ul>
+					</div>
+					<li class="dropdown" data-toggle="collapse" data-target="#appNotificationsDropdown3" id="appNotificationsOption3" onclick="$('#appNotificationsOption3 svg').toggleClass('turn');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Messages.svg">
+						<label>Messages</label>
+						{%- include components/switch.html float = "right" checked = "checked" onclick = "$('#appNotificationsDropdown3>ul').toggleClass('insensitive');" -%}
+						<div class="separator float-right"></div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="appNotificationsDropdown3" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li>
+								<label>Sound Alerts</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Notification Popups</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Show Message Content in Popups</label>
+								{%- include components/switch.html float = "right" -%}
+							</li>
+							<li>
+								<label>Lock Screen Notifications</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Show Message Content on Lock Screen</label>
+								{%- include components/switch.html float = "right" -%}
+							</li>
+						</ul>
+					</div>
+					<li class="dropdown" data-toggle="collapse" data-target="#appNotificationsDropdown4" id="appNotificationsOption4" onclick="$('#appNotificationsOption4 svg').toggleClass('turn');">
+						<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Todo.svg">
+						<label>To-do</label>
+						{%- include components/switch.html float = "right" checked = "checked" onclick = "$('#appNotificationsDropdown4>ul').toggleClass('insensitive');" -%}
+						<div class="separator float-right"></div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="appNotificationsDropdown4" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li>
+								<label>Sound Alerts</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Notification Popups</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Show Message Content in Popups</label>
+								{%- include components/switch.html float = "right" -%}
+							</li>
+							<li>
+								<label>Lock Screen Notifications</label>
+								{%- include components/switch.html float = "right" checked = "checked" -%}
+							</li>
+							<li>
+								<label>Show Message Content on Lock Screen</label>
+								{%- include components/switch.html float = "right" -%}
+							</li>
+						</ul>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- App Notifications Dialog -->
+	<div class="gtkdialog" id="notificationSettingsDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar">
+				<label class="title">${App Name}</label>
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
+			</div>
+			<div class="gtkdialog-content no-padding">
+				<ul class="listrow">
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+// dnd toggle
+function dndToggle() {
+	if($('#dndSwitch').is(":checked")) {
+		$('#dndScheduleSwitchRow').removeClass("insensitive");
+		$('#statusDoNotDisturb').removeClass("hidden");
+	} else {
+		$('#dndScheduleSwitchRow').addClass("insensitive");
+		$('#statusDoNotDisturb').addClass("hidden");
+		$('#dndScheduleRow').addClass("insensitive");
+	}
+}
+
+function dndScheduleToggle() {
+	if($('#dndScheduleSwitch').is(":checked")) {
+		$('#dndScheduleRow').removeClass("insensitive");
+	} else {
+		$('#dndScheduleRow').addClass("insensitive");
+	}
+}
+</script>

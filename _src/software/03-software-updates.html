@@ -1,0 +1,175 @@
+---
+layout: mockup
+title: "Software - Updates"
+theme: Adwaita/Adwaita.css
+permalink: software/updates
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/software.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Software</span>
+		</div>
+		<!-- Title -->
+		<div class="title">
+			Updates
+		</div>
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/view-refresh-symbolic.svg -%}</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="softwareSidebar" class="sidebar">
+		{%- for item in site.data.software-sidebar -%}
+			<a href="{{ site.baseurl }}/software{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-value %}<span class="pillbox float-right">{{ item.has-value }}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<h4 class="float-left">Pending</h4>
+				<a class="button text-button float-right">Update All</a>
+				<br><br>
+				<ul class="listrow">
+					<li class="large" class="dropdown" data-toggle="collapse" data-target="#dropdownListContent1" id="dropdownList1" onclick="$('#dropdownList1 svg').toggleClass('turn');">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg">
+						<div class="label-group">
+							<label>Calculator</label>
+							<label class="small-label dim-label">3.32.4</label>
+						</div>
+						<a class="button text-button float-right">Update</a>
+						{%- include components/listrow-expander-icon.html -%}
+						<label class="float-right dim-label">2.4 MiB</label>
+					</li>
+					<div id="dropdownListContent1" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li>
+								<label>&bull; Bug fixes and performance improvements</label>
+							</li>
+						</ul>
+					</div>
+					<li class="large" class="dropdown" data-toggle="collapse" data-target="#dropdownListContent2" id="dropdownList2" onclick="$('#dropdownList2 svg').toggleClass('turn');">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Builder.svg">
+						<div class="label-group">
+							<label>Builder</label>
+							<label class="small-label dim-label">3.32.4</label>
+						</div>
+						<a class="button text-button float-right">Update</a>
+						{%- include components/listrow-expander-icon.html -%}
+						<label class="float-right dim-label">17.2 MiB</label>
+					</li>
+					<div id="dropdownListContent2" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li>
+								<label>&bull; Bug fixes and performance improvements</label>
+							</li>
+						</ul>
+					</div>
+					<li class="large" class="dropdown" data-toggle="collapse" data-target="#dropdownListContent3" id="dropdownList3" onclick="$('#dropdownList3 svg').toggleClass('turn');">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Nautilus.svg">
+						<div class="label-group">
+							<label>Nautilus</label>
+							<label class="small-label dim-label">3.32.4</label>
+						</div>
+						<a class="button text-button float-right">Update</a>
+						{%- include components/listrow-expander-icon.html -%}
+						<label class="float-right dim-label">8.6 MiB</label>
+					</li>
+					<div id="dropdownListContent3" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li>
+								<label>&bull; Bug fixes and performance improvements</label>
+							</li>
+						</ul>
+					</div>
+					<li class="large" class="dropdown" data-toggle="collapse" data-target="#dropdownListContent4" id="dropdownList4" onclick="$('#dropdownList4 svg').toggleClass('turn');">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Photos.svg">
+						<div class="label-group">
+							<label>Photos</label>
+							<label class="small-label dim-label">3.32.5</label>
+						</div>
+						<a class="button text-button float-right">Update</a>
+						{%- include components/listrow-expander-icon.html -%}
+						<label class="float-right dim-label">3.3 MiB</label>
+					</li>
+					<div id="dropdownListContent4" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li>
+								<label>&bull; Bug fixes and performance improvements</label>
+							</li>
+						</ul>
+					</div>
+				</ul>
+			</div>
+			<div class="row">
+				<h5>Recently Updated</h5>
+				<ul class="listrow">
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Cheese.svg">
+						<div class="label-group">
+							<label>Cheese</label>
+							<label class="small-label dim-label">3.32.7</label>
+						</div>
+						<!-- <a class="button text-button float-right">Open</a> -->
+						<label class="float-right dim-label">Today</label>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Dictionary.svg">
+						<div class="label-group">
+							<label>Dictionary</label>
+							<label class="small-label dim-label">3.32.2</label>
+						</div>
+						<!-- <a class="button text-button float-right">Open</a> -->
+						<label class="float-right dim-label">Yesterday</label>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Recipes.svg">
+						<div class="label-group">
+							<label>Recipes</label>
+							<label class="small-label dim-label">3.34.1</label>
+						</div>
+						<!-- <a class="button text-button float-right">Open</a> -->
+						<label class="float-right dim-label">Yesterday</label>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Notes.svg">
+						<div class="label-group">
+							<label>Notes</label>
+							<label class="small-label dim-label">3.36.7</label>
+						</div>
+						<!-- <a class="button text-button float-right">Open</a> -->
+						<label class="float-right dim-label">3 Days ago</label>
+					</li>
+					<li class="large">
+						<img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Fractal.svg">
+						<div class="label-group">
+							<label>Fractal</label>
+							<label class="small-label dim-label">2.0.1</label>
+						</div>
+						<!-- <a class="button text-button float-right">Open</a> -->
+						<label class="float-right dim-label">3 Days ago</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#softwareSidebar a:nth-of-type(3) li').addClass("active");});
+</script>

@@ -1,0 +1,53 @@
+- link: /privacy/location
+  icon: actions/mark-location
+  title: Location Services
+  has-submenu: false
+  has-separator: false
+
+- link: /privacy/camera
+  icon: devices/camera-photo
+  title: Camera
+  has-submenu: false
+  has-separator: false
+
+- link: /privacy/microphone
+  icon: devices/audio-input-microphone
+  title: Microphone
+  has-submenu: false
+  has-separator: false
+
+- link: /privacy/background
+  icon: actions/system-run
+  title: Background Usage
+  has-submenu: false
+  has-separator: false
+
+- link: /privacy/devices
+  icon: apps/preferences-system-devices
+  title: Trusted Devices
+  has-submenu: false
+  has-separator: true
+
+- link: /privacy/usage
+  icon: actions/document-open-recent
+  title: Usage & History
+  has-submenu: false
+  has-separator: false
+
+- link: /privacy/screen
+  icon: status/changes-prevent
+  title: Screen Lock
+  has-submenu: false
+  has-separator: false
+  
+- link: /privacy/diagnostics
+  icon: apps/help-browser
+  title: Diagnostics
+  has-submenu: false
+  has-separator: false
+
+- link: /privacy/files
+  icon: places/user-trash
+  title: Trash & Temporary Files
+  has-submenu: false
+  has-separator: false

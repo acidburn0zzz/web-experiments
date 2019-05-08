@@ -1,0 +1,12 @@
+{%- assign id = include.id | default: "" -%}
+{%- assign onclick = include.onclick | default: "" -%}
+{%- assign float = include.float | default: "none" -%}
+{%- assign checked = include.checked | default: "" -%}
+{%- assign intl = include.intl | default: "" -%}
+
+<!-- Switch -->
+<label class="switch float-{{ float }} {{ intl }}">
+	<input type="checkbox" class="switch-input" id="{{ id}}" onclick="{{ onclick }}" {{ checked }}>
+	<div class="switch-trough" data-on="on" data-off="off" data-on-intl="❙" data-off-intl="⭘"></div>
+	<div class="switch-slider"></div>
+</label>

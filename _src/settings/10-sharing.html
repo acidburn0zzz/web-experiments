@@ -1,0 +1,257 @@
+---
+layout: mockup
+title: "Settings - Sharing"
+theme: Adwaita/Adwaita.css
+permalink: settings/sharing
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/switch.html checked = "checked" id = "sharingSwitch" -%}
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row sharingSettings" id="deviceName">
+				<ul class="listrow">
+					<li onclick="$('#deviceNameDialog').show();">
+						<label>Device Name</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label deviceName">Computer</label>
+					</li>
+				</ul>
+			</div>
+			<!-- File Sharing -->
+			<div class="row sharingSettings" id="fileSharing">
+				<h4>File Sharing</h4>
+				<p>File sharing allows you to share files in your <u>Public</u> folder with others over the network or by connecting to: <u>dav://<span class="deviceName">computer</span>.local</u>.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#fileSharingSwitch');fileSharingToggle();">
+						<label>File Sharing</label>
+						{%- include components/switch.html float = "right" checked = "checked" id="fileSharingSwitch" onclick = "fileSharingToggle();"-%}
+					</li>
+					<li id="fileSharingRequirePassword" onclick="toggleChecked('#fileSharingPasswordSwitch');fileSharingPasswordToggle();">
+						<label>Require Password</label>
+						{%- include components/switch.html float = "right" id="fileSharingPasswordSwitch" onclick = "fileSharingPasswordToggle();" -%}
+					</li>
+					<li id="fileSharingPassword">
+						<label>Password</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="dim-label float-right">&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Media Sharing -->
+			<div class="row sharingSettings" id="mediaSharing">
+				<h4>Media Sharing</h4>
+				<p>Media sharing allow other users to access shared music, photos and videos on this compuer over the network.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#mediaSharingSwitch');mediaSharingToggle();">
+						<label>Media Sharing</label>
+						{%- include components/switch.html float = "right" id="mediaSharingSwitch" onclick = "mediaSharingToggle();" -%}
+					</li>
+					<li class="mediaSharingOption">
+						<label>Music</label>
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li class="mediaSharingOption">
+						<label>Pictures</label>
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li class="mediaSharingOption">
+						<label>Videos</label>
+						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li class="mediaSharingOption text-center">
+						<label class="center">Add location&hellip;</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Screen Sharing -->
+			<div class="row sharingSettings" id="screenSharing">
+				<h4>Screen Sharing</h4>
+				<p>Screen sharing allows remote users to view or control your computer by connecting to: <u>vnc://<span class="deviceName">computer</span>.local</u>.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#screenSharingSwitch');screenSharingToggle();">
+						<label>Screen Sharing</label>
+						{%- include components/switch.html float = "right" id="screenSharingSwitch" -%}
+					</li>
+					<li class="medium screenSharingOption" onclick="toggleChecked('#screenSharingRemoteControlSwitch');screenSharingToggle();">
+						<div class="label-group">
+							<label>Remote Control</label>
+							<label class="small-label dim-label">Connections are granted screen control.</label>
+						</div>
+						{%- include components/switch.html float = "right" checked="" id="" id = "screenSharingRemoteControlSwitch" -%}
+					</li>
+					<li id="screenSharingRequirePassword" onclick="toggleChecked('#screenSharingPasswordSwitch');screenSharingPasswordToggle();">
+						<label>Require Password</label>
+						{%- include components/switch.html float = "right" id="screenSharingPasswordSwitch" -%}
+					</li>
+					<li class="screenSharingOption" id="screenSharingPassword">
+						<label>Password</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="dim-label float-right">&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Remote Login -->
+			<div class="row sharingSettings" id="remoteLogin">
+				<h4>Remote Login</h4>
+				<p>Remote login allows remote users to connect to this computer using the Secure Shell command: <code>"ssh <span class="deviceName">computer</span>.local"</code>.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#remoteLoginSwitch');">
+						<label>Remote Login</label>
+						{%- include components/switch.html float = "right" id="remoteLoginSwitch" -%}
+					</li>
+					<li>
+						<label>Access</label>
+						<label class="dim-label float-right">All Users</label>
+					</li>
+				</ul>
+			</div>
+			{%- include components/empty-state.html
+				id = "sharingDisabled"
+				icon="emblems/emblem-shared" 
+				title = "Sharing is turned off" 
+				message= "Sharing files and media, and remote access to this computer is disabled." 
+			-%}
+		</div>
+	</div>
+	<!-- Disable Sharing Dialog -->
+	<div class="gtkdialog" id="sharingDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row sharingSettings">
+					<h3>Disable Sharing?</h3>
+					<p>Disabling sharing will prevent other users from logging into and accessing files on this computer. This will also close any current remote connections.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#sharingSwitch').prop('checked', true );$('#sharingDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('.sharingSettings').hide();$('#sharingDisabled').show();$('#sharingDialog').hide();">Disable</a>
+			</div>
+		</div>
+	</div>
+	<!-- Device Name Dialog -->
+	<div class="gtkdialog" id="deviceNameDialog">
+		<div class="gtkdialog-window action-dialog">
+			<div class="titlebar" title="Device Name">
+				<a class="button text-button float-left" onclick="$('#deviceNameDialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="deviceNameApply" onclick="$('.deviceName').text($('#deviceNameEntry').val());$('#deviceNameDialog').hide();">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Choose a new device name. This is how it will appear to others and over the network.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<input class="entry full-width" placeholder="Computer" id="deviceNameEntry"></input>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(10) li').addClass("active");});
+// switch toggle
+$('#sharingSwitch').change(function(){
+	if($(this).is(":checked")) {
+		$('.sharingSettings').show();
+		$('#sharingDisabled').addClass("hidden");
+	} else {
+		$('#sharingDialog').show();
+	}
+});
+
+$("#sharingDisabled").hide();
+
+
+
+// file sharing toggle
+function fileSharingToggle() {
+	if($('#fileSharingSwitch').is(":checked")) {
+		$('#fileSharingRequirePassword').removeClass('insensitive');
+	} else {
+		$('#fileSharingRequirePassword').addClass('insensitive');
+	}
+	fileSharingPasswordToggle();
+}
+
+function fileSharingPasswordToggle() {
+	if($('#fileSharingPasswordSwitch').is(":checked") && $('#fileSharingSwitch').is(":checked")) {
+		$('#fileSharingPassword').removeClass('insensitive');
+	} else if($('#fileSharingPasswordSwitch').is(":checked") && $('#fileSharingSwitch').not(":checked")) {
+		$('#fileSharingPassword').addClass('insensitive');
+	} else if($('#fileSharingPasswordSwitch').not(":checked") && $('#fileSharingSwitch').is(":checked")) {
+		$('#fileSharingPassword').addClass('insensitive');
+	} else if($('#fileSharingPasswordSwitch').not(":checked") && $('#fileSharingSwitch').not(":checked")) {
+		$('#fileSharingPassword').addClass('insensitive');
+	}
+}
+// run for good measure
+fileSharingPasswordToggle();
+
+// screen sharing toggle
+function screenSharingToggle() {
+	if($('#screenSharingSwitch').is(":checked")) {
+		$('.screenSharingOption').removeClass('insensitive');
+		$('#screenSharingRequirePassword').removeClass('insensitive');
+	} else {
+		$('.screenSharingOption').addClass('insensitive');
+		$('#screenSharingRequirePassword').addClass('insensitive');
+	}
+	screenSharingPasswordToggle();
+}
+
+function screenSharingPasswordToggle() {
+	if($('#screenSharingPasswordSwitch').is(":checked") && $('#screenSharingSwitch').is(":checked")) {
+		$('#screenSharingPassword').removeClass('insensitive');
+	} else if($('#screenSharingPasswordSwitch').is(":checked") && $('#screenSharingSwitch').not(":checked")) {
+		$('#screenSharingPassword').addClass('insensitive');
+	} else if($('#screenSharingPasswordSwitch').not(":checked") && $('#screenSharingSwitch').is(":checked")) {
+		$('#screenSharingPassword').addClass('insensitive');
+	} else if($('#screenSharingPasswordSwitch').not(":checked") && $('#screenSharingSwitch').not(":checked")) {
+		$('#screenSharingPassword').addClass('insensitive');
+	}
+}
+// run for good measure
+screenSharingToggle();
+
+// media sharing toggle
+
+function mediaSharingToggle() {
+	if($('#mediaSharingSwitch').is(":checked")) {
+		$('.mediaSharingOption').removeClass('insensitive');
+	} else {
+		$('.mediaSharingOption').addClass('insensitive');
+	}
+}
+// run for good measure
+mediaSharingToggle();
+
+</script>

@@ -1,0 +1,84 @@
+---
+layout: mockup
+title: "Settings - Privacy - Screen Lock"
+theme: Adwaita/Adwaita.css
+permalink: settings/privacy/screen
+wallpaper: triangles
+category: "Privacy"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsPrivacySidebar" class="sidebar">
+		{%- for item in site.data.settings-privacy-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<p>The Screen Lock protects your privacy when you are away.</p>
+				<ul class="listrow">
+					<li onclick="toggleChecked('#automaticScreenLockSwitch');">
+						<label>Automatic Screen Lock</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "automaticScreenLockSwitch" -%}
+					</li>
+					<li id="screenLockPopover" >
+						<label>Lock Screen</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="screenLockStatus">After 30 minutes</label>
+					</li>
+					<li onclick="toggleChecked('#showScreenLockNotificationSwitch');">
+						<label>Show Notification</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "showScreenLockNotificationSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsPrivacySidebar a:nth-of-type(7) li').addClass("active");});
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="screenLockOption($(this).text());">Immediately</li>',
+			'<li onclick="screenLockOption($(this).text());">After 5 minutes</li>',
+			'<li onclick="screenLockOption($(this).text());">After 10 minutes</li>',
+			'<li onclick="screenLockOption($(this).text());">After 30 minutes</li>',
+			'<li onclick="screenLockOption($(this).text());">After 1 hour</li>',
+		'</ul>'].join('');
+
+	$('#screenLockPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function screenLockOption() {
+	$('#screenLockStatus').text(arguments[0]);
+	$("#screenLockPopover").popover("hide");
+}
+</script>

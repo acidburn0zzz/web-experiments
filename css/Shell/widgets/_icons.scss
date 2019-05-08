@@ -1,0 +1,81 @@
+// icons
+.icon {
+	vertical-align: top;
+	display: inline-block;
+	&.large{
+		display: inline-block;
+		margin: 24px auto;
+		>svg {
+			fill:desaturate(darken($bg_color, 30%), 50%);
+			> path, > g {fill:desaturate(darken($bg_color, 30%), 50%);}
+		}
+	}
+	&.vector {
+		filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+	}
+}
+
+// symbolic icons
+svg,
+.symbolic {
+	vertical-align: top; // keep it at the top of the container
+	> path, > g {fill:$fg_color;}
+}
+
+// icon sizes
+.s16,.s16>svg {
+	width: 16px;
+	max-width: 16px;
+	height: 16px;
+	max-height: 16px;
+}
+
+.s32,.s32>svg {
+	width: 32px;
+	max-width: 32px;
+	height: 32px;
+	max-height: 32px;
+}
+
+.s48,.s48>svg {
+	width: 48px;
+	max-width: 48px;
+	height: 48px;
+	max-height: 48px;
+}
+
+.s64,.s64>svg {
+	width: 64px;
+	max-width: 64px;
+	height: 64px;
+	max-height: 64px;
+}
+
+.s96,.s96>svg {
+	width: 96px;
+	max-width: 96px;
+	height: 96px;
+	max-height: 96px;
+}
+
+
+.s128,.s128>svg {
+	width: 128px;
+	max-width: 128px;
+	height: 128px;
+	max-height: 128px;
+}
+
+.s192,.s192>svg {
+	width: 192px;
+	max-width: 192px;
+	height: 192px;
+	max-height: 192px;
+}
+
+.s256,.s256>svg {
+	width: 256px;
+	max-width: 256px;
+	height: 256px;
+	max-height: 256px;
+}

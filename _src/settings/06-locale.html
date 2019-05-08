@@ -1,0 +1,120 @@
+---
+layout: mockup
+title: "Settings - Region & Language"
+theme: Adwaita/Adwaita.css
+permalink: settings/locale
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Locale -->
+			<div class="row">
+				<ul class="listrow">
+					<li>
+						<label>Language</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right">English (United States)</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Input Sources -->
+			<div class="row">
+				<h5>Input Sources</h5>
+				<ul class="listrow">
+					<li onclick="$('#inputSource1').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "inputSource1" name = "inputSources" -%}
+						<label>English (US)</label>
+						{%- include components/listrow-menu-button.html -%}
+						<a class="button image-button flat float-right">{%- include symbolic/devices/input-keyboard-symbolic.svg -%}</a>
+					</li>
+					<li onclick="$('#inputSource2').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" id = "inputSource2" name = "inputSources" -%}
+						<label>French (France)</label>
+						{%- include components/listrow-menu-button.html -%}
+						<a class="button image-button flat float-right">{%- include symbolic/devices/input-keyboard-symbolic.svg -%}</a>
+					</li>
+					<li id="hiddenInputSource" class="hidden" onclick="$('#inputSource3').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" id = "inputSource3" name = "inputSources" -%}
+						<label>Other (Typing Booster)</label>
+						{%- include components/listrow-menu-button.html -%}
+						<a class="button image-button flat float-right">{%- include symbolic/devices/input-keyboard-symbolic.svg -%}</a>
+					</li>
+					<li class="text-center" onclick="$('#hiddenInputSource').removeClass('hidden');">
+						<label class="center">Add input source&hellip;</label>
+					</li>
+				</ul>
+				<p>You can switch between input sources using <b>Super+Space</b> and <b>Shift+Super+Space</b>. These shortcuts can be changed in <a href="{{ site.baseurl }}/settings/devices/keyboard">Keyboard Settings</a>.</p>
+			</div>
+			<!-- Locale -->
+			<div class="row">
+				<h5>Formats</h5>
+				<ul class="listrow">
+					<li>
+						<label>Region</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right">United States (English)</label>
+					</li>
+					<li>
+						<label>Temperature</label>
+						<div class="linked float-right">
+							<a id="formatCelcius" class="button text-button pressed left" onclick="$('#formatFahrenheit').removeClass('pressed');$('#formatCelcius').addClass('pressed');">&deg;C</a><a id="formatFahrenheit" class="button text-button right" onclick="$('#formatCelcius').removeClass('pressed');$('#formatFahrenheit').addClass('pressed');">&deg;F</a>
+						</div>
+					</li>
+					<li>
+						<label>Date & Time</label>
+						<label class="float-right dim-label" id="dateTimeStatus">12.0 GiB</label>
+					</li>
+					<li>
+						<label>Numbers</label>
+						<label class="float-right dim-label">$1,234.56 4,567.89</label>
+					</li>
+					<li>
+						<label>Measurement</label>
+						<label class="float-right dim-label">Imperial</label>
+					</li>
+					<li>
+						<label>Paper</label>
+						<label class="float-right dim-label">US Letter</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(6) li').addClass("active");});
+
+var date = new Date().toDateString();
+var time = new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",minute: "numeric"});
+$("#dateTimeStatus").text(date+"   "+time);
+</script>

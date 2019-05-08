@@ -1,0 +1,7 @@
+// css overrides and hardcodes for the settings app
+
+.content {
+	display: grid;
+	grid-template-columns: fit-content(270px) 1fr;
+	grid-gap: 0;
+}

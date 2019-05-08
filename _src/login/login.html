@@ -1,0 +1,73 @@
+---
+layout: mockup
+title: "Login Screen"
+theme: Adwaita/Adwaita.css
+permalink: login/
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/lock-login.css">
+
+{%- include widgets/_lock-screen-panel.html -%}
+
+<ul class="login" id="users">
+	<li id="user1" class="selected">
+		<div class="avatar medium" style="background-image: url(/images/heads/admin.jpg);"></div>
+		<h2>White Tiger</h2>
+		<form id="loginPassword">
+			<input type="password" class="entry" placeholder="Password">
+			<input type="submit" class="hidden">
+		</form>
+	</li>
+	<li id="user2" class="">
+		<div class="avatar medium" style="background-image: url(/images/heads/admin2.jpg);"></div>
+		<h2>African Lion</h2>
+		<form id="loginPassword">
+			<input type="password" class="entry" placeholder="Password">
+			<input type="submit" class="hidden">
+		</form>
+	</li>
+	<li id="user3" class="">
+		<div class="avatar medium" style="background-image: url(/images/heads/user1.jpg);"></div>
+		<h2>Kitty Cat</h2>
+		<form id="loginPassword">
+			<input type="password" class="entry" placeholder="Password">
+			<input type="submit" class="hidden">
+		</form>
+	</li>
+</ul>
+<!-- <ul class="login-bgs">
+	<li id="user1bg"><div class="road"></div></li>
+	<li id="user2bg"><div class="stripes"></div></li>
+	<li id="user3bg"><div class="flowerbed"></div></li>
+</ul>
+ -->
+<div class="bubbles">
+	<span class="bubble"><span class="icon">{%- include symbolic/categories/applications-system-symbolic.svg -%}</span></span>
+</div>
+
+<div id="lockscreenBG" class="blurred road"></div>
+
+
+<script type="text/javascript">
+$("#user1").click(function(){
+	$('#lockscreenBG').removeClass('adwaita').removeClass('flowerbed');
+	$('#lockscreenBG').addClass('road');
+});
+
+$("#user2").click(function(){
+	$('#lockscreenBG').removeClass('road').removeClass('flowerbed');
+	$('#lockscreenBG').addClass('adwaita');
+});
+$("#user3").click(function(){
+	$('#lockscreenBG').removeClass('adwaita').removeClass('road');
+	$('#lockscreenBG').addClass('flowerbed');
+});
+
+$(document).ready(function() {
+	$("#users").on('click', 'li', function() {
+		$("#users li").removeClass("selected");
+		$(this).addClass("selected");
+	});
+});
+</script>

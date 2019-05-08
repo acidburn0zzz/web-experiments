@@ -1,0 +1,119 @@
+// text
+%text {
+	color:$fg_color;
+	font-family:$font_family;
+	font-kerning:initial;
+	font-size: $font_size;
+	font-weight: $font_weight;
+	text-rendering:optimizelegibility;
+}
+
+// label
+p,
+.gtklabel {
+	@extend %text;
+	margin:6px 0;
+	display: inline-block;
+	color: lighten($fg_color, 20%);
+}
+
+.small-label {
+	line-height: $font_size - 2px;
+	font-size: $font_size - 2px;
+}
+
+.larger-label {
+	line-height: $font_size + 3px;
+	font-size: $font_size + 3px;
+}
+
+.dark-label {
+	color: darken($fg_color, 20%);
+}
+
+%dim_label,
+.dim-label {
+	color: desaturate(lighten($fg_color, 40%), 20%);
+	b,u,i {color: inherit;}
+	svg>path, svg>g {fill: desaturate(lighten($fg_color, 30%), 20%);}
+}
+
+.info-label,
+.link-label {
+	color: $selected_bg_color;
+	// color: lighten($fg_color, 20%);
+	svg>path, svg>g {fill: $selected_bg_color;}
+}
+
+.success-label {
+	color: $success_color;
+}
+
+.monospace-label,
+code {
+	@extend %text;
+	font-size: $font_size - 2px;
+	font-family: monospace;
+	color: lighten($fg_color, 20%);
+}
+
+// links
+a {
+	@extend %text;
+	text-decoration: none;
+	color: $selected_bg_color;
+}
+
+// bold
+.bold-label,
+b {
+	@extend %text;
+	font-family:"cantarell_bold", sans-serif;
+	font-size: inherit;
+	font-weight: 700;
+	color:inherit;
+}
+
+// underlined aka links
+u { color: $selected_bg_color }
+
+
+// headings
+h1, h2, h3, h4, h5, h6 {
+	@extend %text;
+	font-family:"cantarell_bold", sans-serif;
+	margin:0;
+	* {
+		vertical-align: middle;
+	}
+}
+
+h1 {
+	font-size:$font_size * 2;
+	line-height:$font_size * 2 + 12px;
+}
+
+h2 {
+	font-size:$font_size * 1.5;
+	line-height:$font_size * 1.5 + 12px;
+	color: lighten($fg_color, 10%);
+}
+
+h3 {
+	font-size:$font_size + 3px;
+	line-height:$font_size + 6px;
+	color: lighten($fg_color, 10%);
+	margin: 2px 0;
+}
+
+h4 {
+	font-size:$font_size;
+	line-height:$font_size + 8px;
+	margin: 4px 0;
+}
+
+h5 {
+	font-size:$font_size;
+	line-height:$font_size;
+	margin: 16px 0;
+}

@@ -1,0 +1,52 @@
+
+<li class="medium dropdown" data-toggle="collapse" data-parent="#accordion" data-target="#notificationsPermissions" id="notificationsPermissionsDropdown" onclick="$('#notificationsPermissionsDropdown svg').toggleClass('turn');">
+	<div class="label-group left">
+		<span>Notifications</span>
+		<span class="small-label dim-label" id="microphonePermissionsStatus">Able to send alerts and popups</span>
+	</div>
+	<span class="right">{% include symbolic/actions/pan-end-symbolic.svg %}</span>
+</li>
+<div id="notificationsPermissions" class="collapse" aria-expanded="false">
+	<ul class="listrow scrollbox borderless">
+		<li>
+			<span class="left">{% include symbolic/apps/evolution-symbolic.svg %}</span>
+			<span class="left">Evolution Mail</span>
+			<label class="switch right">
+				<input type="checkbox" class="switch-input" checked>
+				<span class="switch-trough" data-on="On" data-off="Off"></span>
+				<span class="switch-slider"></span>
+			</label>
+			<span class="right dim-label">Nov 10</span>
+		</li>
+		<li>
+			<span class="left">{% include symbolic/apps/firefox-symbolic.svg %}</span>
+			<span class="left">Firefox</span>
+			<label class="switch right">
+				<input type="checkbox" class="switch-input" checked>
+				<span class="switch-trough" data-on="On" data-off="Off"></span>
+				<span class="switch-slider"></span>
+			</label>
+			<span class="right dim-label">Nov 10</span>
+		</li>
+		<li>
+			<span class="left">{% include symbolic/apps/org.gnome.Geary-symbolic.svg %}</span>
+			<span class="left">Geary</span>
+			<label class="switch right">
+				<input type="checkbox" class="switch-input" checked>
+				<span class="switch-trough" data-on="On" data-off="Off"></span>
+				<span class="switch-slider"></span>
+			</label>
+			<span class="right dim-label">Nov 10</span>
+		</li>
+		<li>
+			<span class="left">{% include symbolic/apps/pino-symbolic.svg %}</span>
+			<span class="left">Pino</span>
+			<label class="switch right">
+				<input type="checkbox" class="switch-input">
+				<span class="switch-trough" data-on="On" data-off="Off"></span>
+				<span class="switch-slider"></span>
+			</label>
+			<span class="right dim-label">Nov 10</span>
+		</li>
+	</ul>
+</div>

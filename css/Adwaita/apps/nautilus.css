@@ -1,0 +1,15 @@
+.pathbar {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 6px; }
+  .pathbar.entry {
+    background-color: white;
+    width: 720px;
+    max-width: 720px; }
+  .pathbar * {
+    display: inline-block;
+    top: 0 !important; }
+    .pathbar *.narrow {
+      top: -2px !important; }
+
+/*# sourceMappingURL=nautilus.css.map */

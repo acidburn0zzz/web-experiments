@@ -1,0 +1,169 @@
+---
+layout: mockup
+title: "Recent Calls"
+theme: Adwaita/Adwaita.css
+permalink: mobile/calls
+wallpaper: black
+---
+
+
+<div class="window mobile">
+	<div class="titlebar grouped">
+		<!-- <div class="button-group float-left"><a class="button text-button">New</a></div> -->
+		<div class="button-group float-left"></div>
+		<div class="title-group"><span class="title">Calls</span></div>
+		<div class="button-group float-right"><a class="button image-button">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a></div>
+	</div>
+	<div class="content">
+		<div class="view">
+			<div class="row">
+				<h5>Today</h5>
+				<ul class="listrow">
+					<li class="multiNumberPopover medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/pavel.jpg);"></div>
+						<div class="label-group">
+							<label>Pavel Litukov</label>
+							<label class="small-label dim-label"> 9:45</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-outgoing-symbolic.svg -%}</div>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/agata.jpg);"></div>
+						<div class="label-group">
+							<label>Agata Christy</label>
+							<!-- <label class="small-label dim-label">+1 (555) 455-9920</label> -->
+							<label class="small-label dim-label">22:10</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-incoming-symbolic.svg -%}</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/places/folder-videos-symbolic.svg -%}</div>
+						<!-- <label class="dim-label float-right">22:10</label> -->
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<h5>Yesterday</h5>
+				<ul class="listrow">
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/john.jpg);"></div>
+						<div class="label-group">
+							<label>John Smith</label>
+							<!-- <label class="small-label dim-label">+1 (555) 992-1291</label> -->
+							<label class="small-label dim-label">12:03</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-incoming-symbolic.svg -%}</div>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: none;"><div class="icon s16" style="margin-top:8px;opacity: 0.5">{%- include symbolic/status/avatar-default-symbolic.svg -%}</div></div>
+						<div class="label-group">
+							<label>+1 (555) 222-2450</label>
+							<label class="small-label dim-label">17:42</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-missed-symbolic.svg -%}</div>
+					</li>
+				</ul>
+			</div>
+			<div class="row">
+				<h5>Last Week</h5>
+				<ul class="listrow">
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/zamfira.jpg);"></div>
+						<div class="label-group">
+							<label>Zamfira Numastri</label>
+							<!-- <label class="small-label dim-label">+1 (222) 121-3835</label> -->
+							<label class="small-label dim-label">Dec 15</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-incoming-symbolic.svg -%}</div>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/pavel.jpg);"></div>
+						<div class="label-group">
+							<label>Pavel Litukov</label>
+							<!-- <label class="small-label dim-label">+1 (928) 729-2745</label> -->
+							<label class="small-label dim-label">Dec 12</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-outgoing-symbolic.svg -%}</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/places/folder-videos-symbolic.svg -%}</div>
+						<!-- <label class="dim-label float-right">12 Dec</label> -->
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/angela.jpg);"></div>
+						<div class="label-group">
+							<label>Angela Hendricks</label>
+							<!-- <label class="small-label dim-label">+1 (220) 854-8962</label> -->
+							<label class="small-label dim-label">Dec 10</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-missed-symbolic.svg -%}</div>
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/angela.jpg);"></div>
+						<div class="label-group">
+							<label>Angela Hendricks</label>
+							<!-- <label class="small-label dim-label">+1 (220) 854-8962</label> -->
+							<label class="small-label dim-label">Dec 10</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-outgoing-symbolic.svg -%}</div>
+						<!-- <label class="dim-label float-right">10 Dec</label> -->
+					</li>
+					<li class="medium">
+						<div class="avatar small float-left" style="background-image: url(/images/heads/people/zamfira.jpg);"></div>
+						<div class="label-group">
+							<label>Zamfira Numastri</label>
+							<!-- <label class="small-label dim-label">+1 (222) 121-3835</label> -->
+							<label class="small-label dim-label">Dec 9</label>
+						</div>
+						<div class="icon s16 dim-label float-right">{%- include symbolic/status/call-incoming-symbolic.svg -%}</div>
+					</li>
+				</ul>
+			</div>
+			<div class="view-switcher-padding"></div>
+		</div>
+		<ul class="view-switcher bottom">
+			<li class="active">
+				<div class="icon s16">{%- include symbolic/actions/document-open-recent-symbolic.svg -%}</div>
+				<label class="small-label">Recent</label>
+			</li><a href="{{ site.baseurl }}/mobile/contacts"><li>
+				<div class="icon s16">{%- include symbolic/apps/system-users-symbolic.svg -%}</div>
+				<label class="small-label">Contacts</label>
+			</li></a><a href="{{ site.baseurl }}/mobile/dialpad"><li>
+				<div class="icon s16">{%- include symbolic/devices/input-dialpad-symbolic.svg -%}</div>
+				<label class="small-label">Dialpad</label>
+			</li></a>
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+	
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li>Call Back</li>',
+			'<li>Contact Info...</li>',
+		'</ul>'].join('');
+
+	$(".callListPopover").popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li>+1 (928) 729-2745</li>',
+			'<li>+1 (928) 729-7211</li>',
+			'<li>@plitukov:matrix.org</li>',
+		'</ul>'].join('');
+
+	$(".multiNumberPopover").popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+</script>

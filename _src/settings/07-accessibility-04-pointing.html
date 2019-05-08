@@ -1,0 +1,103 @@
+---
+layout: mockup
+title: "Settings - Universal Access - Pointing & Clicking"
+theme: Adwaita/Adwaita.css
+permalink: settings/accessibility/pointing/
+wallpaper: triangles
+category: "Universal Access"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsAccessibilitySidebar" class="sidebar">
+		{%- for item in site.data.settings-accessibility-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<ul class="listrow">
+					<li>
+						<label>Double-Click Delay</label>
+						<label class="float-right">[ to-do: slider ]</label>
+					</li>
+				</ul>
+				<p>Other options can be adjusted in the <a href="{{ site.baseurl }}/settings/mouse-touchpad">Mouse & Touchpad</a> settings.</p>
+			</div>
+			<div class="row">
+				<h4>Mouse Keys</h4>
+				<p>Mouse keys allows the mouse to be controlled using the keyboard number pad.</p>
+				<ul class="listrow">
+					<li>
+						<label>Mouse Keys</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Click Assist -->
+			<div class="row">
+				<h5>Click Assist</h5>
+				<ul class="listrow">
+					<!-- Simulated Secondary Click -->
+					<li class="dropdown" data-toggle="collapse" data-target="#secondaryClickDropdown" id="secondaryClick" onclick="$('#secondaryClick svg').toggleClass('turn');">
+						<label>Simulated Secondary Click</label>
+						{%- include components/switch.html float = "right" -%}
+						<div class="separator float-right"></div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="secondaryClickDropdown" class="collapse" aria-expanded="false">
+						<ul class="listrow scrollbox borderless">
+							<li>
+								<label>Acceptance Delay</label>
+								<label class="float-right">[ to-do: slider ]</label>
+							</li>
+						</ul>
+					</div>
+					<!-- Hover Click -->
+					<li class="dropdown" data-toggle="collapse" data-target="#hoverClickDropdown" id="hoverClick" onclick="$('#hoverClick svg').toggleClass('turn');">
+						<label>Hover Click</label>
+						{%- include components/switch.html float = "right" -%}
+						<div class="separator float-right"></div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="hoverClickDropdown" class="collapse" aria-expanded="false">
+						<ul class="listrow scrollbox borderless">
+							<li>
+								<label>Delay</label>
+								<label class="float-right">[ to-do: slider ]</label>
+							</li>
+							<li>
+								<label>Motion Threshold</label>
+								<label class="float-right">[ to-do: slider ]</label>
+							</li>
+						</ul>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsAccessibilitySidebar a:nth-of-type(4) li').addClass("active");});
+</script>

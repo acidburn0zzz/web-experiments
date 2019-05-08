@@ -1,0 +1,35 @@
+- link: /accessibility/seeing
+  icon: devices/video-display
+  title: Display
+  has-submenu: false
+  has-separator: false
+
+- link: /accessibility/hearing
+  icon: apps/preferences-desktop-accessibility-hearing
+  title: Hearing
+  has-submenu: false
+  has-separator: false
+
+- link: /accessibility/typing
+  icon: devices/input-keyboard
+  title: Typing
+  has-submenu: false
+  has-separator: false
+
+- link: /accessibility/pointing
+  icon: apps/preferences-desktop-accessibility-pointing
+  title: Pointing & Clicking
+  has-submenu: false
+  has-separator: false
+
+- link: /accessibility/zoom
+  icon: actions/edit-find
+  title: Desktop Zoom
+  has-submenu: false
+  has-separator: false
+
+- link: /accessibility/screen-reader
+  icon: devices/audio-speakers
+  title: Screen Reader
+  has-submenu: false
+  has-separator: false

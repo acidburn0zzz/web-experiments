@@ -1,0 +1,145 @@
+---
+layout: mockup
+title: "Settings - Bluetooth"
+theme: Adwaita/Adwaita.css
+permalink: settings/bluetooth
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/switch.html checked = "checked" id = "bluetoothSwitch" -%}
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view" id="">
+			<!-- My Devices -->
+			<div class="row" id="bluetoothMyDevices">
+				<p>Now visible as "Computer" and available for Bluetooth file transfers. Transferred files are placed in the <u>Downloads</u> folder.</p>
+				<h5>My Devices</h5>
+				<ul class="listrow">
+					<li onclick="$('#bluetoothDeviceStatus1').text('Connected').removeClass('dim-label');">
+						<div class="icon s16 float-left">{%- include symbolic/devices/audio-speakers-symbolic.svg -%}</div>
+						<label>Speaker</label>
+						{%- include components/listrow-menu-button.html onclick = "$('#bluetoothDeviceDetailsDialog').show();" -%}
+						<label id="bluetoothDeviceStatus1" class="float-right dim-label">Disconnected</label>
+					</li>
+					<li>
+						<div class="icon s16 float-left">{%- include symbolic/devices/input-mouse-symbolic.svg -%}</div>
+						<label>Mouse</label>
+						{%- include components/listrow-menu-button.html -%}
+						<label id="bluetoothDeviceStatus2" class="float-right">Connected</label>
+					</li>
+					<li>
+						<div class="icon s16 float-left">{%- include symbolic/devices/input-keyboard-symbolic.svg -%}</div>
+						<label>Keyboard</label>
+						{%- include components/listrow-menu-button.html -%}
+						<label id="bluetoothDeviceStatus3" class="float-right">Connected</label>
+					</li>
+					<li onclick="$('#bluetoothDeviceStatus4').text('Connected').removeClass('dim-label');">
+						<div class="icon s16 float-left">{%- include symbolic/devices/smartphone-symbolic.svg -%}</div>
+						<label>Phone</label>
+						{%- include components/listrow-menu-button.html -%}
+						<label id="bluetoothDeviceStatus4" class="float-right dim-label">Disconnected</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Nearby Devices -->
+			<div class="row" id="bluetoothNearbyDevices">
+				<h5>Nearby Devices<div class="icon s16 spinner dim-label float-right">{%- include symbolic/status/process-working-symbolic.svg -%}</div></h5>
+				<ul class="listrow">
+					<li>
+						<label class="dim-label">Unknown</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<label class="dim-label">Unknown</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+				</ul>
+			</div>
+			{%- include components/empty-state.html
+				id = "bluetoothDisabled"
+				icon="devices/bluetooth" 
+				title = "Bluetooth is turned off" 
+				message= "Turn on to connect devices and recieve file transfers." 
+			-%}
+		</div>
+	</div>
+	<!-- Bluetooth Device Details Dialog -->
+	<div class="gtkdialog" id="bluetoothDeviceDetailsDialog">
+		<div class="gtkdialog-window narrow">
+			<div class="titlebar">
+				<label class="title">${Device Name}</label>
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
+			</div>
+			<div class="gtkdialog-content no-padding">
+				<ul class="listrow">
+					<li onclick="toggleChecked('#bluetoothDeviceConnectionSwitch');">
+						<label>Connection</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "bluetoothDeviceConnectionSwitch" -%}
+					</li>
+					<li>
+						<label>Paired</label>
+						<label class="float-right dim-label">Yes</label>
+					</li>
+					<li>
+						<label>Type</label>
+						<label class="float-right dim-label">Speaker</label>
+					</li>
+					<li>
+						<label>Address</label>
+						<label class="float-right dim-label">1A:2B:3C:4D:5E:6F</label>
+					</li>
+				</ul>
+				<a class="button text-button full-width destructive-action">Remove Device</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(2) li').addClass("active");});
+
+// bluetooth toggle
+$('#bluetoothSwitch').change(function(){
+	if($(this).is(":checked")) {
+		$('#bluetoothMyDevices').show();
+		$('#bluetoothNearbyDevices').show();
+		$('#bluetoothDisabled').hide();
+	} else {
+		$('#bluetoothMyDevices').hide();
+		$('#bluetoothNearbyDevices').hide();
+		$('#bluetoothDisabled').show();
+	}
+});
+
+$('#bluetoothDisabled').hide();
+</script>

@@ -1,0 +1,288 @@
+---
+layout: mockup
+title: "Settings - Power"
+theme: Adwaita/Adwaita.css
+permalink: settings/power
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Batteries -->
+			<div class="row wide" id="batteries">
+				<ul class="listrow">
+					<li onclick="toggleChecked('#batteryPercentageSwitch');batteryPercentageToggle();">
+						<label>Battery Percentage</label>
+						{%- include components/switch.html float = "right" id="batteryPercentageSwitch" onclick = "batteryPercentageToggle();"-%}
+					</li>
+				</ul>
+			</div>
+			<!-- Power Saving -->
+			<div class="row wide" id="powerSaving">
+				<h4>Power Saving</h4>
+				<p>Enabling Power-Saving mode will disable Wi-Fi, Bluetooth and other radios, and automatically manage screen brightness.</p>
+				<ul class="listrow">
+					<li class="medium" onclick="toggleChecked('#powerSavingSwitch');powerSavingToggle();">
+						<div class="label-group">
+							<label>Power-Saving Mode</label>
+							<label class="small-label dim-label">Disables Wi-Fi, Bluetooth and dims screen.</label>
+						</div>
+						{%- include components/switch.html float = "right" id = "powerSavingSwitch" onclick = "powerSavingToggle();" -%}
+					</li>
+					<li class="powerSavingOption">
+						<label>Screen Brightness</label>
+						<input class="float-right" type="range" min="1" max="100" value="50" id="screenBrightness">
+					</li>
+					<li class="powerSavingOption">
+						<label>Dim Screen</label>
+						{%- include components/switch.html float = "right" id="dimScreenSwitch" -%}
+					</li>
+					<li id="blankScreenPopover" >
+						<label>Blank Screen</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="blankScreenStatus">15 minutes</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Suspend & Power Buttons -->
+			<div class="row wide" id="batteries">
+				<h5>Suspend</h5>
+				<ul class="listrow">
+					<li class="dropdown medium" data-toggle="collapse" data-target="#automaticSuspend" id="automaticSuspendDropdown" onclick="$('#automaticSuspendDropdown svg').toggleClass('turn');">
+						<div class="label-group">
+							<label>Automatic Suspend</label>
+							<label id="suspendStatus" class="small-label dim-label"></label>
+						</div>
+						{%- include components/switch.html
+							float = "right"
+							checked = "checked"
+							id = "suspendSwitch"
+						-%}
+						<div class="separator float-right"></div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="automaticSuspend" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless">
+							<li id="suspendBatteryPopover" class="suspendOption" onclick="toggleChecked('#suspendOptionBattery');suspendStatusCheck();">
+								{%- include components/listrow-selection.html float = "left" id = "suspendOptionBattery" name = "suspendOptions" -%}
+								<label>On Battery</label>
+								<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+								<label class="float-right" id="suspendBatteryStatus">After 30 minutes</label>
+							</li>
+							<li id="suspendACPopover" class="suspendOption" onclick="toggleChecked('#suspendOptionAC');suspendStatusCheck();">
+								{%- include components/listrow-selection.html float = "left" id = "suspendOptionAC" name = "suspendOptions" -%}
+								<label>On AC Power</label>
+								<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+								<label class="float-right" id="suspendACStatus">After 1 hour</label>
+							</li>
+						</ul>
+					</div>
+					<li id="powerButtonPopover">
+						<label>When Power Button is pressed</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="powerButtonStatus">Suspend</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(12) li').addClass("active");});
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="powerButtonOption($(this).text());">Suspend</li>',
+			'<li onclick="powerButtonOption($(this).text());">Power Off</li>',
+			'<li onclick="powerButtonOption($(this).text());">Do Nothing</li>',
+		'</ul>'].join('');
+
+	$('#powerButtonPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function powerButtonOption() {
+	$('#powerButtonStatus').text(arguments[0]);
+	$("#powerButtonPopover").popover("hide");
+}
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="suspendACOption($(this).text());">After 15 minutes</li>',
+			'<li onclick="suspendACOption($(this).text());">After 30 minutes</li>',
+			'<li onclick="suspendACOption($(this).text());">After 45 minutes</li>',
+			'<li onclick="suspendACOption($(this).text());">After 1 hour</li>',
+			'<li onclick="suspendACOption($(this).text());">After 2 hours</li>',
+		'</ul>'].join('');
+
+	$('#suspendACPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function suspendACOption() {
+	$('#suspendACStatus').text(arguments[0]);
+	$("#suspendACPopover").popover("hide");
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="suspendBatteryOption($(this).text());">After 15 minutes</li>',
+			'<li onclick="suspendBatteryOption($(this).text());">After 30 minutes</li>',
+			'<li onclick="suspendBatteryOption($(this).text());">After 45 minutes</li>',
+			'<li onclick="suspendBatteryOption($(this).text());">After 1 hour</li>',
+			'<li onclick="suspendBatteryOption($(this).text());">After 2 hours</li>',
+		'</ul>'].join('');
+
+	$('#suspendBatteryPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function suspendBatteryOption() {
+	$('#suspendBatteryStatus').text(arguments[0]);
+	$("#suspendBatteryPopover").popover("hide");
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="blankScreenOption($(this).text());">After 1 minute</li>',
+			'<li onclick="blankScreenOption($(this).text());">After 2 minutes</li>',
+			'<li onclick="blankScreenOption($(this).text());">After 4 minutes</li>',
+			'<li onclick="blankScreenOption($(this).text());">After 8 minutes</li>',
+			'<li onclick="blankScreenOption($(this).text());">After 10 minutes</li>',
+			'<li onclick="blankScreenOption($(this).text());">After 15 minutes</li>',
+			'<li onclick="blankScreenOption($(this).text());">Never</li>',
+		'</ul>'].join('');
+
+	$('#blankScreenPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function blankScreenOption() {
+	$('#blankScreenStatus').text(arguments[0]);
+	$("#blankScreenPopover").popover("hide");
+}
+
+
+// power saving toggle
+function powerSavingToggle() {
+	if($('#powerSavingSwitch').is(":checked")) {
+		$('.powerSavingOption').addClass('insensitive');
+		$('#statusPowerSaving').removeClass('hidden');
+		$('#statusWireless').addClass('hidden');
+		$('#dimScreenSwitch').prop("checked", true);
+	} else {
+		$('#statusPowerSaving').addClass('hidden');
+		$('#statusWireless').removeClass('hidden');
+		$('.powerSavingOption').removeClass('insensitive');
+		$('#dimScreenSwitch').prop("checked", false);
+	}
+}
+
+// battery % toggle
+function batteryPercentageToggle() {
+	if($('#batteryPercentageSwitch').is(":checked")) {
+		$('#statusBatteryPercentage').removeClass('hidden');
+	} else {
+		$('#statusBatteryPercentage').addClass('hidden');
+	}
+}
+
+
+// suspend magic
+function suspendStatusCheck() {
+	if($('#suspendOptionAC').is(":checked") && $('#suspendOptionBattery').is(":checked")) {
+		$('#suspendStatus').text('While on battery and plugged in');
+		$('#suspendSwitch').prop("checked", true);
+	} else if($('#suspendOptionAC').is(":checked") && $('#suspendOptionBattery').not(":checked")) {
+		$('#suspendStatus').text('While plugged in');
+		$('#suspendSwitch').prop("checked", true);
+	} else if($('#suspendOptionAC').not(":checked") && $('#suspendOptionBattery').is(":checked")) {
+		$('#suspendStatus').text('While on battery');
+		$('#suspendSwitch').prop("checked", true);
+	} else if($('#suspendOptionAC').not(":checked") && $('#suspendOptionBattery').not(":checked")) {
+		$('#suspendStatus').text('Off');
+		$('#suspendSwitch').prop("checked", false);
+	}
+}
+
+$('#suspendSwitch').change(function(){
+	if($(this).is(":checked")) {
+		$('.suspendOption').removeClass('insensitive');
+		if($('#suspendOptionAC').is(":checked") && $('#suspendOptionBattery').is(":checked")) {
+			$('#suspendStatus').text('While on battery and plugged in');
+		} else if($('#suspendOptionAC').is(":checked") && $('#suspendOptionBattery').not(":checked")) {
+			$('#suspendStatus').text('While plugged in');
+		} else if($('#suspendOptionAC').not(":checked") && $('#suspendOptionBattery').is(":checked")) {
+			$('#suspendStatus').text('While on battery');
+		} else if($('#suspendOptionAC').not(":checked") && $('#suspendOptionBattery').not(":checked")) {
+			$('#suspendStatus').text('Off');
+		}
+		$(suspendStatusCheck());
+	} else {
+		$('.suspendOption').addClass('insensitive');
+		$('#suspendStatus').text('Off');
+	}
+});
+
+if($('#suspendSwitch').is(":checked")) {
+	$('.suspendOption').removeClass('insensitive');
+} else {
+	$('.suspendOption').addClass('insensitive');
+}
+
+$(document).ready($(suspendStatusCheck()));
+
+</script>

@@ -1,0 +1,117 @@
+---
+layout: mockup
+title: "Settings - Universal Access - Typing"
+theme: Adwaita/Adwaita.css
+permalink: settings/accessibility/typing/
+wallpaper: triangles
+category: "Universal Access"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a href="{{ site.baseurl }}/settings/wifi" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">{{ page.category }}</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsAccessibilitySidebar" class="sidebar">
+		{%- for item in site.data.settings-accessibility-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Typing -->
+			<div class="row">
+				<ul class="listrow">
+					<li>
+						<label>Screen Keyboard</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Cursor Blinking -->
+			<div class="row">
+				<h4>Typing Assist (AccessX)</h4>
+				<p></p>
+				<ul class="listrow">
+					<li>
+						<label>Cursor Blinking</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+					<li>
+						<label>Speed</label>
+						<label class="float-right">[ to-do: slider ]</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Cursor Blinking -->
+			<div class="row">
+				<h4>Cursor Blinking</h4>
+				<p>Blink rate of the cursor in text fields.</p>
+				<ul class="listrow">
+					<li>
+						<label>Cursor Blinking</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+					<li>
+						<label>Speed</label>
+						<label class="float-right">[ to-do: slider ]</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Sound Keys -->
+			<div class="row">
+				<h4>Sound Keys</h4>
+				<p>Play an audio alert when specific keys are pressed.</p>
+				<ul class="listrow">
+					<li>
+						<label>Num Lock alert</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+					<li>
+						<label>Caps Lock alert</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Repeat Keys -->
+			<div class="row">
+				<h4>Repeat Keys</h4>
+				<p>Key pressed repeat when the key is held down</p>
+				<ul class="listrow">
+					<li>
+						<label>Repeat Keys</label>
+						{%- include components/switch.html float = "right" -%}
+					</li>
+					<li>
+						<label>Speed</label>
+						<label class="float-right">[ to-do: slider ]</label>
+					</li>
+					<li>
+						<label>Delay</label>
+						<label class="float-right">[ to-do: slider ]</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsAccessibilitySidebar a:nth-of-type(3) li').addClass("active");});
+</script>

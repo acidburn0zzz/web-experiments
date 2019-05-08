@@ -1,0 +1,444 @@
+@charset "utf-8";
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing_unit / 2;
+//         padding-left: $spacing_unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+  "common",
+  "fonts",
+  "syntax-highlighting"
+;
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+// Basic styling
+body {
+    font: $base_font_weight #{$base_font_size}/#{$base_line_height} $base_font_family;
+    color: #fff;
+    background: $brand_color url(../../img/triangles.svg) no-repeat bottom left;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    min-height: 100vh;
+}
+
+.flexcontainer {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 10em);
+}
+
+// Set `margin-bottom` to maintain vertical rhythm
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+    margin-bottom: $spacing_unit / 2;
+}
+
+// Images
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+// Figures
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small_font_size;
+}
+
+// Lists
+ul, ol {
+    margin-left: $spacing_unit;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $base_font_weight;
+}
+
+// Links
+a {
+    color: $link_color;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:visited {
+    }
+
+    &:hover {
+        color: inherit;
+        text-decoration: underline;
+    }
+}
+
+// Blockquotes
+blockquote {
+    color: $grey_color;
+    border-left: 4px solid $grey_color_light;
+    padding-left: $spacing_unit / 2;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Code formatting
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid $grey_color_light;
+    border-radius: 3px;
+    background-color: #eef;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+
+    > code {
+        border: 0;
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+
+// Wrapper
+.wrapper {
+    max-width: -webkit-calc(#{$content_width} - (#{$spacing_unit} * 2));
+    max-width:         calc(#{$content_width} - (#{$spacing_unit} * 2));
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: $spacing_unit;
+    padding-left: $spacing_unit;
+
+    @include media-query($on_laptop) {
+        max-width: -webkit-calc(#{$content_width} - (#{$spacing_unit}));
+        max-width:         calc(#{$content_width} - (#{$spacing_unit}));
+        padding-right: $spacing_unit / 2;
+        padding-left: $spacing_unit / 2;
+    }
+}
+
+
+// Icons
+.icon {
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: $grey_color;
+        }
+    }
+}
+
+/**
+ * Site header
+ */
+.site-header {
+    padding: 4em 0 2em 0;
+    min-height: 56px;
+}
+
+.site-title {
+    font-size: 36px;
+    font-weight: 200;
+    line-height: 56px;
+    letter-spacing: -1px;
+    margin-bottom: 0;
+    float: left;
+
+    color: $selected_fg_color;
+    &,
+    &:visited {
+    }
+}
+
+.site-nav {
+    float: right;
+    line-height: 56px;
+
+    .menu-icon {
+        display: none;
+    }
+
+    .page-link {
+        color: $selected_fg_color;
+        line-height: $base_line_height;
+
+        // Gaps between nav items, but not on the last one
+        &:not(:last-child) {
+            margin-right: 20px;
+        }
+    }
+
+    @include media-query($on_palm) {
+        position: absolute;
+        top: 9px;
+        right: $spacing_unit / 2;
+        background-color: $background_color;
+        border: 1px solid $grey_color_light;
+        border-radius: 5px;
+        text-align: right;
+
+        .menu-icon {
+            display: block;
+            float: right;
+            width: 36px;
+            height: 26px;
+            line-height: 0;
+            padding-top: 10px;
+            text-align: center;
+
+            > svg {
+                width: 18px;
+                height: 15px;
+
+                path {
+                    fill: $grey_color_dark;
+                }
+            }
+        }
+
+        .trigger {
+            clear: both;
+            display: none;
+        }
+
+        &:hover .trigger {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .page-link {
+            color: $text_color;
+            display: block;
+            padding: 5px 10px;
+
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+            margin-left: 20px;
+        }
+    }
+}
+
+
+
+/**
+ * Site footer
+ */
+.site-footer {
+    margin-top: 4em;
+    padding: $spacing_unit 0;
+    font-size: 80%;
+}
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: $spacing_unit / 2;
+}
+
+.contact-list,
+.social-media-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.footer-col-wrapper {
+    font-size: 15px;
+    color: $grey_color;
+    margin-left: -$spacing_unit / 2;
+}
+
+.footer-col {
+    float: left;
+    margin-bottom: $spacing_unit / 2;
+    padding-left: $spacing_unit / 2;
+}
+
+.footer-col-1 {
+    width: -webkit-calc(35% - (#{$spacing_unit} / 2));
+    width:         calc(35% - (#{$spacing_unit} / 2));
+}
+
+.footer-col-2 {
+    width: -webkit-calc(20% - (#{$spacing_unit} / 2));
+    width:         calc(20% - (#{$spacing_unit} / 2));
+}
+
+.footer-col-3 {
+    width: -webkit-calc(45% - (#{$spacing_unit} / 2));
+    width:         calc(45% - (#{$spacing_unit} / 2));
+}
+
+@include media-query($on_laptop) {
+    .footer-col-1,
+    .footer-col-2 {
+        width: -webkit-calc(50% - (#{$spacing_unit} / 2));
+        width:         calc(50% - (#{$spacing_unit} / 2));
+    }
+
+    .footer-col-3 {
+        width: -webkit-calc(100% - (#{$spacing_unit} / 2));
+        width:         calc(100% - (#{$spacing_unit} / 2));
+    }
+}
+
+@include media-query($on_palm) {
+    .footer-col {
+        float: none;
+        width: -webkit-calc(100% - (#{$spacing_unit} / 2));
+        width:         calc(100% - (#{$spacing_unit} / 2));
+    }
+}
+
+
+
+/**
+ * Page content
+ */
+.page-content {
+    padding: $spacing_unit 0;
+}
+
+.page-heading {
+    font-size: 20px;
+}
+
+.post-list {
+    margin-left: 0;
+    list-style: none;
+
+    > li {
+        margin-bottom: $spacing_unit;
+    }
+}
+
+.post-meta {
+    font-size: $small-font-size;
+    color: $grey_color;
+}
+
+.post-link {
+    display: block;
+    font-size: 24px;
+}
+
+/**
+ * Posts
+ */
+.post-header {
+    margin-bottom: $spacing_unit;
+}
+
+.post-title {
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 1em;
+
+    @include media-query($on_laptop) {
+        font-size: 36px;
+    }
+}
+
+.post-content {
+    margin-bottom: $spacing_unit;
+
+    h2 {
+        font-size: 32px;
+
+        @include media-query($on_laptop) {
+            font-size: 28px;
+        }
+    }
+
+    h3 {
+        font-size: 26px;
+
+        @include media-query($on_laptop) {
+            font-size: 22px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+
+        @include media-query($on_laptop) {
+            font-size: 18px;
+        }
+    }
+}
+
+/* lists */
+
+ul {
+  background-color: #fff;
+  margin: 1em auto;
+  max-width: 100%;
+  border: 1px solid $borders_color;
+  display: block;
+  border-radius: 3px;
+  li {
+    display: block;
+    padding: 1em 2em;
+    background-color: $base_color;
+    color: $text_color;
+    border-bottom: 1px solid $borders_color;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    a {
+      color: $link_color;
+      
+      &:hover { color: lighten($link_color, 5%); }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+---
+layout: mockup
+title: "Unlock Veracrypt Dialog"
+theme: Adwaita/Adwaita.css
+permalink: unlock-veracrypt-dialog
+wallpaper: stripes
+---
+
+<!-- Open With Dialog -->
+<div class="gtkdialog-window message-dialog">
+	<div class="gtkdialog-content">
+		<p>Choose an application to open the file "this-is-an-image-file.jpg".</p>
+		<div class="row text-center">
+			<input type="checkbox" id="hcSwitch">Hidden Volume</input>
+			<input type="checkbox" id="hcSwitch">Windows System Volume</input>
+			<input type="checkbox" id="hcSwitch">Uses Keyfiles</input>
+		</div>
+		<a class="button text-button float-left" onclick="$('#locationServicesSwitch').prop('checked', true );$('#locationServicesDialog').hide();">Cancel</a>
+		<a class="button text-button float-right" onclick="$('#locationServicesSettings').hide();$('#locationServicesDisabled').show();$('#locationServicesDialog').hide();">Unlock</a>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() { $('.viewMoreApplications').hide(); });
+</script>

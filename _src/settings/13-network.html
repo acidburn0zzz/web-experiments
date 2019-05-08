@@ -1,0 +1,91 @@
+---
+layout: mockup
+title: "Settings - Network"
+theme: Adwaita/Adwaita.css
+permalink: settings/network
+wallpaper: triangles
+---
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Wired -->
+			<div class="row">
+				<h5>Wired</h5>
+				<ul class="listrow">
+					<li id="wiredRow">
+						<label>Cable Unplugged</label>
+						{%- include components/listrow-menu-button.html -%}
+						{%- include components/switch.html float = "right" id = "wiredSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- VPN -->
+			<div class="row">
+				<h5>VPN Connections</h5>
+				<ul class="listrow">
+					<li>
+						<label>VPN Provider</label>
+						{%- include components/listrow-menu-button.html -%}
+						{%- include components/switch.html float = "right" id = "vpnSwitch" -%}
+					</li>
+					<li class="text-center">
+						<label class="center">Add a VPN connection&hellip;</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Proxy -->
+			<div class="row">
+				<ul class="listrow">
+					<li>
+						<label>Network Proxy</label>
+						{%- include components/listrow-menu-button.html -%}
+						<label class="float-right dim-label">Off</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(13) li').addClass("active");});
+
+// toggle vpn icon in panel
+$('#vpnSwitch').change(function(){
+	if($(this).is(":checked")) {
+		$('#statusVPN').removeClass("hidden");
+	} else {
+		$('#statusVPN').addClass("hidden");
+	}
+});
+
+$('#wiredRow>.switch').addClass('insensitive');
+</script>

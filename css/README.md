@@ -1,0 +1,1 @@
+Common stylesheets are in the main folder, subfolders are "themes" for the site and mockup pages.

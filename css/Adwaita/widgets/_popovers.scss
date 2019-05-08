@@ -1,0 +1,123 @@
+$popover_width: 228px;
+$popover_padding: 12px;
+$popover_margin: $popover_padding;
+$popover_arrow_height: 12px;
+$popover_arrow_width: 24px;
+
+// $popover_borders_color: $borders_color;
+$popover_borders_color: rgba(0,0,0,0.2);
+
+.popover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	display: none;
+	max-width: $popover_width;
+	padding: 0;
+	background-color: $bg_color;
+	background-clip: padding-box;
+	border: 1px solid $popover_borders_color;
+	border-radius: 6px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+
+	> .arrow,
+	> .arrow:after {
+		position: absolute;
+		display: block;
+		width: 0;
+		height: 0;
+		border-color: transparent;
+		border-style: solid;
+	}
+
+	> .arrow {
+		border-width: $popover_padding;
+	}
+	> .arrow:after {
+		border-width: $popover_margin;
+		content: "";
+	}
+
+	// from top
+	&.top {
+		margin-top: $popover_margin * -1;
+		> .arrow {
+			left: 50%;
+			margin-left: $popover_margin * -1;
+			border-bottom-width: 0;
+			border-top-color: $popover_borders_color;
+			bottom: $popover_margin * -1;
+			&:after {
+				bottom: 1px;
+				margin-left: $popover_margin * -1;
+				border-bottom-width: 0;
+				border-top-color: $bg_color;
+			}
+		}
+	}
+	// from right
+	&.right {
+		margin-left: $popover_margin;
+		> .arrow {
+			top: 50%;
+			left: $popover_margin * -1;
+			margin-top: $popover_margin * -1;
+			border-left-width: 0;
+			border-right-color: $popover_borders_color;
+			&:after {
+				left: 1px;
+				bottom: $popover_margin * -1;
+				border-left-width: 0;
+				border-right-color: $bg_color;
+			}
+		}
+	}
+	// from bottom
+	&.bottom {
+		margin-top: $popover_margin;
+		> .arrow {
+			left: 50%;
+			margin-left: $popover_margin * -1;
+			border-top-width: 0;
+			border-bottom-color: $popover_borders_color;
+			top: $popover_margin * -1;
+			&:after {
+				top: 1px;
+				margin-left: $popover_margin * -1;
+				border-top-width: 0;
+				border-bottom-color: $bg_color;
+			}
+		}
+	}
+
+	// from left
+	&.left {
+		margin-left: $popover_margin * -1;
+		> .arrow {
+			top: 50%;
+			right: $popover_margin * -1;
+			margin-top: $popover_margin * -1;
+			border-right-width: 0;
+			border-left-color: $popover_borders_color;
+
+			&:after {
+				right: 1px;
+				border-right-width: 0;
+				border-left-color: $bg_color;
+				bottom: $popover_margin * -1;
+			}
+		}
+	}
+}
+.popover-title {
+	display: none;
+}
+
+.popover-content {
+	padding: $popover_padding;
+
+	> ul {
+		width: calc(#{$popover_width} - (#{$popover_padding} * 2));
+	}
+}

@@ -1,0 +1,504 @@
+---
+layout: mockup
+title: "Patterns - Lists"
+theme: Adwaita/Adwaita.css
+permalink: patterns/lists
+---
+
+<!-- Information Lists -->
+<div class="row" id="listsPreamble">
+	<h1>Lists</h1>
+</div>
+<!-- Information Lists -->
+<div class="row" id="informationLists">
+	<h5>Information Lists</h5>
+	<p>Lists that just display information. Right side contains the subject, the left side the value.</p>
+	<ul class="listrow nohover">
+		<li>
+			<label>Memory</label>
+			<label class="float-right dim-label">12.0 GiB</label>
+		</li>
+		<li>
+			<label>Processor</label>
+			<label class="float-right dim-label">Intel&reg; Core &trade; i7</label>
+		</li>
+		<li>
+			<label>Colours</label>
+			<label class="float-right dim-label">Red, Blue, Green</label>
+		</li>
+	</ul>
+	<p>Non interactive list with icons.</p>
+	<ul class="listrow nohover">
+		<li>
+			<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg">
+			<label>Calculator</label>
+			<label class="float-right dim-label">3.4 MiB</label>
+		</li>
+		<li>
+			<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Builder.svg">
+			<label>Builder</label>
+			<label class="float-right dim-label">1.3 MiB</label>
+		</li>
+		<li>
+			<img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Nautilus.svg">
+			<label>Files</label>
+			<label class="float-right dim-label">2.7 MiB</label>
+		</li>
+	</ul>
+</div>
+<!-- Options Lists -->
+<div class="row" id="selectionLists">
+	<h5>Option Lists</h5>
+	<p>Choosing one and only one option from a list of options. Clicking left of the separator selects the option in that row.</p>
+	<ul class="listrow">
+		<li onclick="$('#wifiOption1').prop('checked', true );">
+			{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "wifiOption1" name = "wifiNetworks" -%}
+			<label>Home Network</label>
+			{%- include components/listrow-menu-button.html -%}
+			<div class="icon s16 dim-label float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+			<div class="icon s16 dim-label float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+		</li>
+		<li onclick="$('#wifiOption2').prop('checked', true );">
+			{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption2" name = "wifiNetworks" -%}
+			<label>Coffee Shop</label>
+			{%- include components/listrow-menu-button.html -%}
+			<div class="icon s16 dim-label float-right">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
+		</li>
+		<li onclick="$('#wifiOption3').prop('checked', true );">
+			{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption3" name = "wifiNetworks" -%}
+			<label>FBI Surveillance Van</label>
+			{%- include components/listrow-menu-button.html -%}
+			<div class="icon s16 dim-label float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
+		</li>
+	</ul>
+	<p>The option indicator is always on the left hand side and non-pertinent info is on the right hand side.</p>
+	<h5>Selection Lists</h5>
+	<p>Selection list that can have multiple or no selections. Clicking on row toggles the selection.</p>
+	<ul class="listrow">
+		<li onclick="toggleChecked('#cheeseOption1');">
+			<label>Mozzarella</label>
+			{%- include components/listrow-selection.html float = "right" checked = "checked" id = "cheeseOption1" name = "cheeseOptions" -%}
+			<div class="icon s16 dim-label float-right">{%- include symbolic/apps/recipes-dairy-symbolic.svg -%}</div>
+		</li>
+		<li onclick="toggleChecked('#cheeseOption2');">
+			<label>Cheddar</label>
+			{%- include components/listrow-selection.html float = "right" id = "cheeseOption2" name = "cheeseOptions" -%}
+			<label class="float-right dim-label">Lactose-free</label>
+		</li>
+		<li onclick="toggleChecked('#cheeseOption3');">
+			<label>Tomato</label>
+			{%- include components/listrow-selection.html float = "right" id = "cheeseOption3" name = "cheeseOptions" -%}
+		</li>
+		<li onclick="toggleChecked('#cheeseOption4');">
+			<label>Peppers</label>
+			{%- include components/listrow-selection.html float = "right" id = "cheeseOption4" name = "cheeseOptions" -%}
+		</li>
+	</ul>
+	<p>In this case the selection indicator is always on the right hand side, supplemental info on the right is displaced.</p>
+</div>
+<!-- Switches Lists -->
+<div class="row" id="switchLists">
+	<h5>Switches</h5>
+	<p>Lists of options that have switches. Clicking on the row or to the left of the separator activates the switch</p>
+	<ul class="listrow switchlist">
+		<li onclick="toggleChecked('#listSwitch1');">
+			<label>Bubblegum</label>
+			{%- include components/switch.html float = "right" checked = "" id = "listSwitch1" -%}
+		</li>
+		<li onclick="toggleChecked('#listSwitch2');">
+			<label>Chocolate</label>
+			{%- include components/switch.html float = "right" checked = "" id = "listSwitch2" -%}
+		</li>
+		<li onclick="toggleChecked('#listSwitch3');">
+			<label>Mint</label>
+			{%- include components/listrow-menu-button.html -%}
+			{%- include components/switch.html float = "right" checked = "" id = "listSwitch3" -%}
+		</li>
+	</ul>
+</div>
+<!-- Buttons Lists -->
+<div class="row" id="buttonLists">
+	<h5>Buttons</h5>
+	<p>Lists that contain a button. Clicking on the row has no effect.</p>
+	<ul class="listrow nohover">
+		<li>
+			<label>Item 1</label>
+			<a class="button text-button float-right">Embrace</a>
+		</li>
+		<li>
+			<label>Item 2</label>
+			<a class="button text-button float-right">Extend</a>
+		</li>
+		<li>
+			<label>Item 3</label>
+			<a class="button text-button destructive-action float-right">Extinguish</a>
+		</li>
+	</ul>
+</div>
+<!-- Popovers Lists -->
+<div class="row" id="popoverLists">
+	<h5>Popovers</h5>
+	<p>Lists that display one of a number of options from a dropdown menu, the row displays the selected option on the right and indicates the menu with an icon.</p>
+	<ul class="listrow">
+		<li id="blankScreenDelayPopover">
+			<label>Blank Screen Delay</label>
+			<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+			<label class="float-right" id="blankScreenDelayStatus">30 minutes</label>
+		</li>
+		<li id="suspendDelayPopover">
+			<label>Suspend Delay</label>
+			<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+			<label class="float-right" id="suspendDelayStatus">30 minutes</label>
+		</li>
+	</ul>
+	<p>Clicking on the row triggers the popover menu.</p>
+</div>
+
+<!-- Buttons Lists -->
+<div class="row" id="addLists">
+	<h5>Adding items</h5>
+	<p>Clicking the <b>"Add&hellip;"</b> row triggers an action that adds a new item to the list, this may launch a dialog, etc.</p>
+	<ul class="listrow">
+		<li>
+			<label>Item 1</label>
+			<label class="float-right dim-label">Value</label>
+		</li>
+		<li>
+			<label>Item 2</label>
+			<label class="float-right dim-label">Value</label>
+		</li>
+		<li>
+			<label>Item 3</label>
+			<label class="float-right dim-label">Value</label>
+		</li>
+		<li id="hiddenRow" class="hidden">
+			<label>Item 4</label>
+			<label class="float-right dim-label">Value</label>
+		</li>
+		<li onclick="$('#hiddenRow').removeClass('hidden');" class="text-center">
+			<label class="center">Add a row&hellip;</label>
+		</li>
+	</ul>
+</div>
+<!-- Editable Lists -->
+<div class="row" id="editableLists">
+	<h5>Reordering and Removing Items</h5>
+	<p>Clicking the edit button exposes the selection targets and the the remove buttons, as well as the drag handle.</p>
+	<ul class="listrow" id="editableListRow">
+		<li id="editableListHeader">
+			<label>Editable List</label>
+			<a class="button text-button float-right flat link-label" id="editButton">Edit</a>
+			<a class="button text-button destructive-action insensitive flat hidden float-left" id="removeButton">Remove</a>
+			<a class="button text-button suggested-action hidden float-right" id="doneButton">Done</a>
+		</li>
+		<li id="removeItem1">
+			{%- include components/listrow-drag-handle.html -%}
+			<label>Item 1</label>
+			{%- include components/listrow-selection.html
+				float = "right"
+				id = "removeOption1"
+				name = "removeOptions"
+				onclick="$('#removeButton').removeClass('insensitive').removeClass('flat');"
+			-%}
+			<div class="separator float-right"></div>
+		</li>
+		<li id="removeItem2">
+			{%- include components/listrow-drag-handle.html -%}
+			<label>Item 2</label>
+			{%- include components/listrow-selection.html
+				float = "right"
+				id = "removeOption2"
+				name = "removeOptions"
+				onclick="$('#removeButton').removeClass('insensitive').removeClass('flat');"
+			-%}
+			<div class="separator float-right"></div>
+			<label class="float-right dim-label">Value</label>
+		</li>
+		<li id="removeItem3">
+			{%- include components/listrow-drag-handle.html -%}
+			<label>Item 3</label>
+			{%- include components/listrow-selection.html
+				float = "right"
+				id = "removeOption3"
+				name = "removeOptions"
+				onclick="$('#removeButton').removeClass('insensitive').removeClass('flat');"
+			-%}
+			<div class="separator float-right"></div>
+			<a class="button image-button float-right">{% include symbolic/{{ icon }}-symbolic.svg %}</a>
+		</li>
+		<li id="removeItem4">
+			{%- include components/listrow-drag-handle.html -%}
+			<label>Item 4</label>
+			{%- include components/listrow-selection.html
+				float = "right"
+				id = "removeOption4"
+				name = "removeOptions"
+				onclick="$('#removeButton').removeClass('insensitive').removeClass('flat');"
+			-%}
+			<div class="separator float-right"></div>
+			{%- include components/switch.html float = "right" -%}
+		</li>
+		<li id="removeItem5" class="hidden">
+			{%- include components/listrow-drag-handle.html -%}
+			<label>Item 5</label>
+			{%- include components/listrow-selection.html
+				float = "right"
+				id = "removeOption5"
+				name = "removeOptions"
+				onclick="$('#removeButton').removeClass('insensitive').removeClass('flat');"
+			-%}
+			<div class="separator float-right"></div>
+		</li>
+		<li onclick="$('#removeItem5').removeClass('hidden');" class="text-center">
+			<label class="center">Add a row&hellip;</label>
+		</li>
+	</ul>
+	<p class="float-right small-label">Note: drag and drop concept doesn't work on mobile.</p>
+	<p>To reorder list items click on the row (or to the left of the separator) and drag them to change their position.</p>
+</div>
+
+<!-- Dropdowns Lists -->
+<div class="row" id="expandingLists">
+	<h5>Expanding Lists</h5>
+	<p>Lists that contain sublists. Clicking on the row reveals more rows.</p>
+	<ul class="listrow">
+		<li class="dropdown" data-toggle="collapse" data-target="#dropdownListContent" id="dropdownList" onclick="$('#dropdownList svg').toggleClass('turn');">
+			<label>Option List</label>
+			{%- include components/listrow-expander-icon.html -%}
+		</li>
+		<div id="dropdownListContent" class="collapse" aria-expanded="false">
+			<ul class="listrow borderless">
+				<li onclick="toggleChecked('#hiddenRadioOption1');">
+					<label>Option 1</label>
+					<label class="float-right dim-label">Value</label>
+					{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "hiddenRadioOption1" name = "hiddenRadioOptions" -%}
+				</li>
+				<li onclick="toggleChecked('#hiddenRadioOption2');">
+					<label>Option 2</label>
+					{%- include components/listrow-selection.html float = "left" type = "radio" id = "hiddenRadioOption2" name = "hiddenRadioOptions" -%}
+				</li>
+				<li onclick="toggleChecked('#hiddenRadioOption3');">
+					<label>Option 3</label>
+					{%- include components/listrow-selection.html float = "left" type = "radio" id = "hiddenRadioOption3" name = "hiddenRadioOptions" -%}
+				</li>
+			</ul>
+		</div>
+		<li class="dropdown" data-toggle="collapse" data-target="#dropdownListContent2" id="dropdownList2" onclick="$('#dropdownList2 svg').toggleClass('turn');">
+			<label>Check List</label>
+			{%- include components/listrow-expander-icon.html -%}
+		</li>
+		<div id="dropdownListContent2" class="collapse" aria-expanded="false">
+			<ul class="listrow borderless">
+				<li onclick="toggleChecked('#toppingOption1');">
+					<label>Item 1</label>
+					{%- include components/listrow-selection.html float = "right" type = "checkbox" id = "toppingOption1" name = "toppingOptions" -%}
+				</li>
+				<li onclick="toggleChecked('#toppingOption2');">
+					<label>Item 2</label>
+					{%- include components/listrow-selection.html float = "right" type = "checkbox" id = "toppingOption2" name = "toppingOptions" -%}
+				</li>
+				<li onclick="toggleChecked('#toppingOption3');">
+					<label>Item 3</label>
+					{%- include components/listrow-selection.html float = "right" type = "checkbox" id = "toppingOption3" name = "toppingOptions" -%}
+				</li>
+			</ul>
+		</div>
+		<li class="dropdown" data-toggle="collapse" data-target="#dropdownListContent3" id="dropdownList3" onclick="$('#dropdownList3 svg').toggleClass('turn');">
+			<label>List with control</label>
+			{%- include components/switch.html float = "right" checked = "checked" id = "expanderSwitch" onclick = "$('#hideMeList').toggleClass('insensitive');" -%}
+			<div class="separator float-right"></div>
+			{%- include components/listrow-expander-icon.html -%}
+		</li>
+		<div id="dropdownListContent3" class="collapse" aria-expanded="false">
+			<ul class="listrow borderless" id="hideMeList">
+				<li id="hideMe1">
+					<label>Remove Me  1</label>
+					<a class="button text-button float-right" onclick="$('#hideMe1').hide();">Remove</a>
+				</li>
+				<li id="hideMe2">
+					<label>Remove Me 2</label>
+					<a class="button text-button float-right" onclick="$('#hideMe2').hide();">Remove</a>
+				</li>
+				<li id="hideMe3">
+					<label>Remove Me 3</label>
+					<a class="button text-button float-right" onclick="$('#hideMe3').hide();">Remove</a>
+				</li>
+			</ul>
+		</div>
+	</ul>
+	<p>The expand action is associated with the item name is therefore grouped with it before the separator.</p>
+</div>
+
+<!-- Links Lists -->
+<div class="row" id="linkLists">
+	<h5>Navigational Lists</h5>
+	<p>Lists of items that link you to another place or launch a dialog, each row has an icon to indicate navigation.</p>
+	<ul class="listrow">
+		<li>
+			<label class="float-left">Screen Lock</label>
+			{%- include components/listrow-link-icon.html -%}
+		</li>
+		<li>
+			<label class="float-left">Location Services</label>
+			{%- include components/listrow-link-icon.html -%}
+			<label class="float-right dim-label">On</label>
+		</li>
+		<li>
+			<label class="float-left">Usage & History</label>
+			{%- include components/listrow-link-icon.html -%}
+			<label class="float-right dim-label">Off</label>
+		</li>
+	</ul>
+	<p>Optionally a value can be shown on the right, which displays a key value from a key function found at the link target.</p>
+</div>
+<!-- Subtitles Lists -->
+<div class="row" id="subtitleLists">
+	<h5>Subtitles</h5>
+	<p>Optionally a bit of non-pertinent information can be shown on the left with the item name.</p>
+	<p>Subtitles should be reserved for short bits of information or explanations of the control to which the item is associated with.</p>
+	<ul class="listrow nohover">
+		<li class="medium">
+			<div class="label-group">
+				<label>SanDisk&reg; SDHC&trade; SDUNC-024</label>
+				<label class="small-label dim-label">SD Card</label>
+			</div>
+		</li>
+		<li class="medium">
+			<div class="label-group">
+				<label>Airplane Mode</label>
+				<label class="small-label dim-label">Disables Wi-Fi and Bluetooth.</label>
+			</div>
+			{%- include components/switch.html float = "right" checked = "" id = "airplaneModeSwitch" -%}
+		</li>
+		<li class="medium">
+			<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-google.png">
+			<div class="label-group">
+				<label>Google</label>
+				<label class="small-label dim-label">googleaccount@gmail.com</label>
+			</div>
+			<label class="float-right dim-label">Connected</label>
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+// ready popover
+$(document).ready(function(){
+	// $('[data-toggle="popover"]').popover();
+})
+
+// hide popovers on other clicks
+$('body').on('click', function (e) {
+	$('[data-toggle="popover"]').each(function () {
+		//the 'is' for buttons that trigger popups
+		//the 'has' for icons within a button that triggers a popup
+		if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
+			$(this).popover('hide');
+		}
+	});
+});
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="popoverBlankScreenDelay($(this).text());">Immediately</li>',
+			'<li onclick="popoverBlankScreenDelay($(this).text());">5 minutes</li>',
+			'<li onclick="popoverBlankScreenDelay($(this).text());">10 minutes</li>',
+			'<li onclick="popoverBlankScreenDelay($(this).text());">30 minutes</li>',
+			'<li onclick="popoverBlankScreenDelay($(this).text());">45 minutes</li>',
+			'<li onclick="popoverBlankScreenDelay($(this).text());">1 hour</li>',
+		'</ul>'].join('');
+
+	$("#blankScreenDelayPopover").popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function popoverBlankScreenDelay() {
+	$('#blankScreenDelayStatus').text(arguments[0]);
+	$("#blankScreenDelayPopover").popover("hide");
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="popoverSuspendDelay($(this).text());">Immediately</li>',
+			'<li onclick="popoverSuspendDelay($(this).text());">5 minutes</li>',
+			'<li onclick="popoverSuspendDelay($(this).text());">10 minutes</li>',
+			'<li onclick="popoverSuspendDelay($(this).text());">30 minutes</li>',
+			'<li onclick="popoverSuspendDelay($(this).text());">45 minutes</li>',
+			'<li onclick="popoverSuspendDelay($(this).text());">1 hour</li>',
+		'</ul>'].join('');
+
+	$('#suspendDelayPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function popoverSuspendDelay() {
+	$('#suspendDelayStatus').text(arguments[0]);
+	$("#suspendDelayPopover").popover("hide");
+}
+
+
+// editable list foo
+$('#editButton').click(function() {
+	$('.drag-handle').removeClass('hidden');
+	$('#editableListRow>li>.separator').css({'display':'inline-block'});
+	$('#editableListRow>li>.selection').css({'display':'inline-block'});
+	$('#editableListRow>li').addClass('drag-target');
+	$('#editButton').hide();
+	$('#doneButton').removeClass('hidden');
+	$('#removeButton').removeClass('hidden');
+	$('#editableListHeader>label').addClass('hidden');
+	$('#editableListHeader').addClass('edit-mode');
+	$('#editableListRow>li').addClass('drag-target').prop('draggable', true);
+	$('#editableListRow>li:first-child').removeClass('drag-target').removeProp('draggable', true);
+	$('#editableListRow').addClass('drag-parent');
+	$.getScript('/js/drag-n-drop.js');
+});
+
+$('#doneButton').click(function() {
+	$('.drag-handle').addClass('hidden');
+	$('#editableListRow>li>.separator').css({'display':'none'});
+	$('#editableListRow>li>.selection').css({'display':'none'});
+	$('#editableListRow>li>.selection>input').prop('checked', false);
+	$('#editButton').show();
+	$('#doneButton').addClass('hidden');
+	$('#removeButton').addClass('hidden').addClass('insensitive').addClass('flat');
+	$('#editableListHeader>label').removeClass('hidden');
+	$('#editableListRow>li').removeClass('drag-target').removeProp('draggable', true);
+	$('#editableListRow').removeClass('drag-parent');
+});
+
+$('#removeButton').click(function() {
+	if($('#removeOption1').is(':checked')) {
+		$('#removeItem1').addClass('hidden');
+	}
+	if($('#removeOption2').is(':checked')) {
+		$('#removeItem2').addClass('hidden');
+	}
+	if($('#removeOption3').is(':checked')) {
+		$('#removeItem3').addClass('hidden');
+	}
+	if($('#removeOption4').is(':checked')) {
+		$('#removeItem4').addClass('hidden');
+	}
+	if($('#removeOption5').is(':checked')) {
+		$('#removeItem5').addClass('hidden');
+	}
+	$('#removeButton').addClass('insensitive').addClass('flat');
+});
+
+$('#editableListRow>li>.separator').css({'display':'none'});
+$('#editableListRow>li>.selection').css({'display':'none'});
+</script>

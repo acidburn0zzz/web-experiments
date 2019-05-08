@@ -1,0 +1,83 @@
+@keyframes tickit {
+  0% { stroke-dashoffset: -103; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes transformpulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(.9); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fademove {
+  0% { margin-top: -20px; opacity: 0; }
+  100% { margin-top: 0; opacity: 1; }
+}
+
+svg {
+  animation-name: transformpulse;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+  animation-direction: forwards;
+
+  #checkmark {
+    stroke-dashoffset: -103;
+    stroke-dasharray: 103;
+    animation-name: tickit;
+    animation-delay: .3s;
+    animation-duration: .3s;
+    animation-timing-function: linear;
+    animation-direction: forwards;
+    animation-fill-mode: forwards;
+  }
+}
+
+.floating-icon {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  animation-name: fademove;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+  animation-direction: forwards;
+  animation-fill-mode: forwards;
+  margin-top: -200px;
+}
+
+#games { top: 172px; left: 148px; animation-delay: 0; }
+#gcolor { top: 60px; right: 62px; animation-delay: 300ms; }
+#podcasts { top: 42px; left: 22px; animation-delay: 1s; }
+
+.banner {
+  position: relative;
+  top: 0;
+  height: 200px;
+  width: 100%;
+  background: url(../../../img/adwaita.jpg) no-repeat top;
+  background-size: cover;
+  background-color: grey;
+}
+
+.content {
+  position: relative;
+  top: 0;
+  padding-top: 96px;
+}
+
+h1 {
+  line-height: 64px;
+}
+
+p {
+  line-height: 32x;
+}
+
+.button.large {
+  padding: 12px 18px;
+  line-height: 64px;
+}
+
+.title {
+  margin-top: 0 !important;
+}

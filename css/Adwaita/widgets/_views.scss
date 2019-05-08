@@ -1,0 +1,50 @@
+// window content
+.content {
+	height: calc(100% - 48px);
+	overflow: hidden;
+}
+
+// view within the content
+.view {
+	max-height: calc(100%);
+	width: calc(100%);
+	overflow: hidden;
+	overflow-y: scroll;
+
+	// hide the scrollbar
+	box-sizing: content-box;
+	padding-right: 24px; 
+}
+
+// rows within views
+.row {
+	display: table;
+	width: 100%;
+	margin:24px auto;
+	width: 66%;
+	max-width: 480px;
+	&.wide {
+		width: 75%;
+		max-width: 600px;
+	}
+	&.full {
+		width: 100%;
+		max-width: 95%;
+	}
+}
+
+.window.mobile {
+	.row {
+		width: calc(100% - 24px);
+		margin:12px auto;
+		max-width: 100%;
+	}
+}
+
+@media only screen and (max-width:600px) {
+	.row {
+		width: calc(100% - 36px);
+		margin:18px auto;
+		max-width: 100%;
+	}
+}

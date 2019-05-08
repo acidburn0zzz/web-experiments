@@ -1,0 +1,46 @@
+
+
+.infobar {
+  height: 48px;
+  display: inline-block;
+  width: 100%;
+  padding: 0 8px;
+
+  &.info,
+  &.question,
+  &.warning,
+  &.error {
+    * { 
+      color: $selected_fg_color !important;
+      
+    }
+    background-color: $selected_bg_color;
+    border-bottom: 1px solid darken($selected_bg_color, 10%);
+
+    text-shadow: 0 1px darken($selected_bg_color, 10%);
+
+    p {
+      margin:0;
+      max-width: 80%;
+      line-height: 48px;
+    }
+
+    &:backdrop { text-shadow: none; }
+
+    .button {
+      margin: 6px 0;
+      display: inline-block;
+      vertical-align: bottom;
+      // FIXME: extend selection mode buttons
+      @include button(normal, $selected_bg_color, $selected_fg_color, none);
+
+      &:hover { @include button(hover, $selected_bg_color, $selected_fg_color, none); }
+
+      &:active,
+      &:checked { @include button(active, $selected_bg_color, $selected_fg_color, none); }
+
+      &.insensitive { @include button(insensitive,$selected_bg_color,$selected_fg_color,none); }
+
+    }
+  }
+}

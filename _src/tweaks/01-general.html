@@ -1,0 +1,73 @@
+---
+layout: mockup
+title: "Tweaks - General"
+theme: Adwaita/Adwaita.css
+permalink: tweaks/general
+wallpaper: adwaita
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Tweaks</span>
+		</div>
+		<!-- Title -->
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="tweaksSidebar" class="sidebar">
+		{%- for item in site.data.tweaks-sidebar -%}
+			<a href="{{ site.baseurl }}/tweaks{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row wide" id="generalTweaks">
+				<ul class="listrow">
+					<li class="medium" onclick="toggleChecked('#animationsSwitch');">
+						<div class="label-group">
+							<label>Animations</label>
+							<label class="small-label dim-label">Toggles shell and window animations. May improve performance.</label>
+						</div>
+						{%- include components/switch.html float = "right" id="animationsSwitch" -%}
+					</li>
+					<li class="medium" onclick="toggleChecked('#lidSuspendSwitch');">
+						<div class="label-group">
+							<label>Suspend on Laptop Lid Close</label>
+							<label class="small-label dim-label">Toggles suspend when laptop lid is closed.<label>
+						</div>
+						{%- include components/switch.html float = "right" id="lidSuspendSwitch" -%}
+					</li>
+					<li class="medium" onclick="toggleChecked('#overamplificationSwitch');">
+						<div class="label-group">
+							<label>Overamplification</label>
+							<label class="small-label dim-label">Allow volume to exceed 100%. Will result in a loss of quality.</label>
+						</div>
+						{%- include components/switch.html float = "right" id="overamplificationSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#tweaksSidebar a:nth-of-type(1) li').addClass("active");});
+
+</script>

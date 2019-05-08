@@ -1,0 +1,52 @@
+// Tiles
+
+$tile_border_radius: 7px;
+$tile_height: 96px;
+$tile_icon_size: 64px;
+$tile_width: 192px;
+
+ul.tiles {
+	margin:0;
+	padding:0;
+	text-align: center;
+
+	li {
+		background-color:$base_color;
+		border-radius: $tile_border_radius;
+		border: 1px solid rgba(0,0,0,0.15);
+		box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+		color: $fg_color;
+		display: inline-block;
+		margin: 4px;
+		padding: 12px;
+		vertical-align: middle;
+		width: $tile_width;
+
+		&.long {
+			height:$tile_height - 48px;
+			line-height: $tile_height - 48px;
+			width: 46%;
+			font-size: $font_size - 4px;
+		}
+
+		.details {
+			margin:4px 12px;
+			text-align: left;
+		}
+
+		&:hover {
+
+			border: 1px solid rgba(0,0,0,0.2);
+			box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2);
+		}
+
+		// Image
+		> img {
+			height: $tile_icon_size;
+			width: $tile_icon_size;
+			display: block;
+			vertical-align: middle;
+			margin:0 auto;
+		}
+	}
+}

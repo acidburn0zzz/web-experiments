@@ -1,0 +1,200 @@
+---
+layout: mockup
+title: "Software - Home"
+theme: Adwaita/Adwaita.css
+permalink: software/home
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/software.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Software</span>
+		</div>
+		<!-- Title -->
+		<span class="title">Discover</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="softwareSidebar" class="sidebar">
+		{%- for item in site.data.software-sidebar -%}
+			<a href="{{ site.baseurl }}/software{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-value %}<span class="pillbox float-right">{{ item.has-value }}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row full">
+				<h3>Featured</h3>
+				<div class="banner" style="background-image: url(/images/gnome-software/featured-builder-bg.jpg);">
+					<div class="featured" style="background-image: url(/images/gnome-software/featured-builder.png);">
+						<div>
+							<h1>Builder</h1>
+							<p>Develop apps on GNOME</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row full">
+				<h3>Editor's Picks</h3>
+				<ul class="tiles">
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Geary.svg">
+						<div class="details float-left">
+							<h4>Geary</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.inkscape.Inkscape.svg">
+						<div class="details float-left">
+							<h4>Inkscape</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Maps.svg">
+						<div class="details float-left">
+							<h4>Maps</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/com.transmissionbt.Transmission.svg">
+						<div class="details float-left">
+							<h4>Transmission</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Wallet.svg">
+						<div class="details float-left">
+							<h4>Wallet</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Notes.svg">
+						<div class="details float-left">
+							<h4>Notes</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="row full">
+				<h3>Recent Releases</h3>
+				<ul class="tiles">
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.blender.Blender.svg">
+						<div class="details float-left">
+							<h4>Blender</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gimp.GIMP.svg">
+						<div class="details float-left">
+							<h4>GIMP</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Games.svg">
+						<div class="details float-left">
+							<h4>Games</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.DiskUtility.svg">
+						<div class="details float-left">
+							<h4>Disk Utility</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Fractal.svg">
+						<div class="details float-left">
+							<h4>Fractal</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Photos.svg">
+						<div class="details float-left">
+							<h4>Photos</h4>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/semi-starred-symbolic.svg -%}</div>
+							<div class="icon s12">{%- include symbolic/status/non-starred-symbolic.svg -%}</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#softwareSidebar a:nth-of-type(1) li').addClass("active");});
+</script>
