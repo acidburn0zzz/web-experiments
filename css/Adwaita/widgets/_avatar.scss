@@ -25,6 +25,7 @@ $avatar_bg_color: darken(white, 20%);
 	}
 
 	&.large {
+		display: block;
 		height: $avatar_size * 3;
 		width: $avatar_size * 3;
 	}

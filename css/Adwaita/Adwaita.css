@@ -95,6 +95,7 @@ ul.listrow li, .popover-content > ul > li,
     height: 48px;
     width: 48px; }
   .avatar.large {
+    display: block;
     height: 192px;
     width: 192px; }
   .avatar.shadowed {
