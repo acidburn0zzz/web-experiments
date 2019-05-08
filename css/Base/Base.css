@@ -209,15 +209,33 @@ li > ol {
   margin-bottom: 0; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400; }
+  font-weight: 400;
+  font-family: "cantarell_bold"; }
+
+h1 {
+  font-size: 48px; }
+
+h2 {
+  font-size: 36px; }
+
+h3 {
+  font-size: 28px; }
+
+h4 {
+  font-size: 24px; }
+
+h5 {
+  font-size: 20px; }
+
+h6 {
+  font-size: 18px; }
 
 a {
-  color: #4a86cf;
-  text-decoration: none;
-  font-weight: bold; }
+  color: #fff;
+  text-decoration: underline; }
   a:hover {
     color: inherit;
-    text-decoration: underline; }
+    text-decoration: none; }
 
 blockquote {
   color: #828282;
@@ -247,6 +265,27 @@ pre {
     padding-right: 0;
     padding-left: 0; }
 
+ul {
+  background-color: #fff;
+  margin: 1em auto;
+  max-width: 100%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  display: block;
+  border-radius: 3px;
+  background-color: #fff; }
+  ul li {
+    display: block;
+    padding: 1em 2em;
+    color: #444;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+    ul li:last-child {
+      border-bottom: none; }
+    ul li a {
+      color: #4a86cf;
+      font-family: "cantarell_bold"; }
+      ul li a:hover {
+        color: #5e93d4; }
+
 .wrapper {
   max-width: -webkit-calc(800px - (24px * 2));
   max-width: calc(800px - (24px * 2));
@@ -269,21 +308,20 @@ pre {
   .icon > svg path {
     fill: #828282; }
 
-/**
- * Site header
- */
 .site-header {
   padding: 4em 0 2em 0;
   min-height: 56px; }
 
 .site-title {
-  font-size: 36px;
-  font-weight: 200;
   line-height: 56px;
   letter-spacing: -1px;
   margin-bottom: 0;
   float: left;
+  font-family: "cantarell_bold";
+  text-decoration: none;
   color: #fff; }
+  .site-title:hover {
+    text-decoration: underline; }
 
 .site-nav {
   float: right;
@@ -292,16 +330,20 @@ pre {
     display: none; }
   .site-nav .page-link {
     color: #fff;
-    line-height: 1.5; }
+    line-height: 1.5;
+    text-decoration: none;
+    font-family: "cantarell_bold"; }
     .site-nav .page-link:not(:last-child) {
       margin-right: 20px; }
+    .site-nav .page-link:hover {
+      text-decoration: underline; }
   @media screen and (max-width: 600px) {
     .site-nav {
       position: absolute;
       top: 9px;
       right: 12px;
       background-color: #fdfdfd;
-      border: 1px solid #e8e8e8;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
       border-radius: 5px;
       text-align: right; }
       .site-nav .menu-icon {
@@ -327,13 +369,10 @@ pre {
         color: #444;
         display: block;
         padding: 5px 10px;
-        margin-left: 20px; }
+        margin-left: 2px; }
         .site-nav .page-link:not(:last-child) {
           margin-right: 0; } }
 
-/**
- * Site footer
- */
 .site-footer {
   margin-top: 4em;
   padding: 24px 0;
@@ -384,9 +423,6 @@ pre {
     float: none;
     width: -webkit-calc(100% - (24px / 2));
     width: calc(100% - (24px / 2)); } }
-/**
- * Page content
- */
 .page-content {
   padding: 24px 0; }
 
@@ -407,9 +443,6 @@ pre {
   display: block;
   font-size: 24px; }
 
-/**
- * Posts
- */
 .post-header {
   margin-bottom: 24px; }
 
@@ -422,43 +455,4 @@ pre {
     .post-title {
       font-size: 36px; } }
 
-.post-content {
-  margin-bottom: 24px; }
-  .post-content h2 {
-    font-size: 32px; }
-    @media screen and (max-width: 800px) {
-      .post-content h2 {
-        font-size: 28px; } }
-  .post-content h3 {
-    font-size: 26px; }
-    @media screen and (max-width: 800px) {
-      .post-content h3 {
-        font-size: 22px; } }
-  .post-content h4 {
-    font-size: 20px; }
-    @media screen and (max-width: 800px) {
-      .post-content h4 {
-        font-size: 18px; } }
-
-/* lists */
-ul {
-  background-color: #fff;
-  margin: 1em auto;
-  max-width: 100%;
-  border: 1px solid #cfcfcf;
-  display: block;
-  border-radius: 3px; }
-  ul li {
-    display: block;
-    padding: 1em 2em;
-    background-color: #fff;
-    color: #444;
-    border-bottom: 1px solid #cfcfcf; }
-    ul li:last-child {
-      border-bottom: none; }
-    ul li a {
-      color: #4a86cf; }
-      ul li a:hover {
-        color: #5e93d4; }
-
-/*# sourceMappingURL=base.css.map */
+/*# sourceMappingURL=Base.css.map */

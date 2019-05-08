@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-theme: Base/base.css
+theme: Base/Base.css
 permalink: about/
 ---
 
