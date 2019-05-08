@@ -15,7 +15,7 @@
   100% { margin-top: 0; opacity: 1; }
 }
 
-svg {
+#anim>svg {
   animation-name: transformpulse;
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
@@ -58,25 +58,28 @@ svg {
   background-color: grey;
 }
 
-.content {
-  position: relative;
-  top: 0;
-  padding-top: 96px;
-}
-
-h1 {
-  line-height: 64px;
-}
-
-p {
-  line-height: 32x;
-}
 
 .button.large {
   padding: 12px 18px;
   line-height: 64px;
 }
 
-.title {
-  margin-top: 0 !important;
+#initial-setup-dialog {
+  .content {
+    position: relative;
+    top: 0;
+    padding-top: 96px;
+  }
+
+  h1 {
+    line-height: 64px;
+  }
+
+  p {
+    line-height: 32px;
+  }
+
+  .title {
+    margin-top: 0 !important;
+  }
 }

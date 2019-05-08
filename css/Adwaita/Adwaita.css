@@ -885,6 +885,12 @@ svg,
   height: 64px;
   max-height: 64px; }
 
+.s96, .s96 > svg {
+  width: 96px;
+  max-width: 96px;
+  height: 96px;
+  max-height: 96px; }
+
 .s128, .s128 > svg {
   width: 128px;
   max-width: 128px;
@@ -1211,9 +1217,11 @@ ul.listrow {
     ul.listrow.unstyled > li {
       border: none;
       background: none;
-      padding: calc(12px - 8px) 0;
+      padding: 12px 0;
       width: calc(100% - 2px); }
+      ul.listrow.unstyled > li label,
       ul.listrow.unstyled > li > span {
+        padding: 0;
         margin: 0; }
 
 .collapsing > ul,

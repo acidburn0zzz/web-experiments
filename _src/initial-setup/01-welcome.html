@@ -1,0 +1,27 @@
+---
+layout: mockup
+title: "Initial Setup - Welcome"
+permalink: initial-setup/welcome
+theme: Adwaita/Adwaita.css
+wallpaper: flowerbed
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/initial-setup.css">
+
+<div class="window small" id="initial-setup-dialog">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<span class="title">Initial Setup</span>
+		<div class="button-group float-right">{%- include components/close-button.html close = "window" -%}</div>
+	</div>
+	<div class="banner">
+		<img class="floating-icon" id="gcolor" src="{{ site.baseurl }}/img/icons/scalable/apps/nl.hjdskes.Gcolor3.svg">
+		<img class="floating-icon" id="games" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Games.svg">
+		<img class="floating-icon" id="podcasts" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Podcasts.svg">
+	</div>
+	<div class="content text-center">
+		<h1>Welcome!</h1>
+		<a href="{{ site.baseurl }}/initial-setup/language" class="button large suggested-action">Start Setup</a>
+	</div>
+</div>

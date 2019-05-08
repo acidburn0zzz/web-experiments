@@ -257,8 +257,10 @@ ul.listrow  {
 		> li {
 			border:none;
 			background:none;
-			padding: calc(#{$listrow_padding} - 8px) 0;
+			padding: $listrow_padding 0;
+			label,
 			> span {
+				padding: 0;
 				margin: 0;
 			}
 			// 100% - padding - border width

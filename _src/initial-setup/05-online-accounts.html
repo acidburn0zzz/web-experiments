@@ -1,0 +1,59 @@
+---
+layout: mockup
+title: "Initial Setup - Online Accounts"
+permalink: initial-setup/online-accounts
+theme: Adwaita/Adwaita.css
+wallpaper: flowerbed
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/initial-setup.css">
+
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a href="{{ site.baseurl }}/initial-setup/privacy" class="button text-button" id="">Previous</a>
+		</div>
+		<div class="title-group float-center"><span class="title">Online Accounts</span></div>
+		<div class="button-group float-right">
+			<a href="{{ site.baseurl }}/initial-setup/done" class="button text-button" id="">Skip</a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="view">
+			<!-- Online Accounts -->
+			<div class="row text-center">
+				<div class="icon s128 large">{%- include symbolic/apps/goa-panel-symbolic.svg -%}</div>
+				<h2>Connect to your data in the cloud</h2>
+				<p>Connect your accounts to easily access your email, online calendars, contacts, documents and photos.</p>
+			</div>
+			<div class="row">
+				<ul class="listrow">
+					<li onclick="$('#googleAccount2').show();">
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-google.png">
+						<label>Google</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-owncloud.png">
+						<label>Nextcloud</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-facebook.png">
+						<label>Facebook</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+					<li>
+						<img class="icon float-left" src="{{ site.baseurl }}/img/icons/32x32/apps/goa-account-msn.png">
+						<label>Microsoft</label>
+						<label class="float-right dim-label">Not Set Up</label>
+					</li>
+				</ul>
+				<br><br>
+				<p class="dim-label">Online accounts can be added or removed at any time from the Settings application.</p>
+			</div>
+		</div>
+	</div>
+</div>

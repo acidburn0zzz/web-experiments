@@ -1,0 +1,52 @@
+---
+layout: mockup
+title: "Initial Setup - Privacy"
+permalink: initial-setup/privacy
+theme: Adwaita/Adwaita.css
+wallpaper: flowerbed
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/initial-setup.css">
+
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a href="{{ site.baseurl }}/initial-setup/keyboard" class="button text-button" id="">Previous</a>
+		</div>
+		<div class="title-group float-center"><span class="title">Privacy</span></div>
+		<div class="button-group float-right">
+			<a href="{{ site.baseurl }}/initial-setup/online-accounts" class="button text-button suggested-action" id="">Next</a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="view">
+			<div class="row text-center">
+				<div class="icon s96 large">{%- include symbolic/apps/preferences-system-privacy-symbolic.svg -%}</div>
+				<h2>Privacy</h2>
+				<p>Select your keyboard layout or an input method</p>
+			</div>
+			<div class="row">
+				<ul class="listrow unstyled">
+					<li>
+						<label><b>Location Services</b></label>
+						{%- include components/switch.html float = "right"  checked = "checked" id = "initialSetupLocationServicesSwitch" -%}
+					</li>
+				</ul>
+				<p>Allows applications to determine your geographical location. An indication is shown when location services are in use.</p>
+				<p>Uses Mozilla Location Service: <a href="https://location.services.mozilla.com/privacy">Privacy Policy</a></p>
+				<ul class="listrow unstyled">
+					<li>
+						<label><b>Automatic Problem Reporting</b></label>
+						{%- include components/switch.html float = "right"  checked = "checked" id = "initialSetupLocationServicesSwitch" -%}
+					</li>
+				</ul>
+				<p>Sending reports of technical problems helps us improve ${DISTRO}. Reports are sent anonymously and are scrubbed of personal data.</p>
+				<p>Problem report data will be collected by ${DISTRO}: <a href="#">Privacy Policy</a></p>
+				<br><br>
+				<p class="dim-label">Privacy controls can be changed at any time from the Settings application.</p>
+			</div>
+		</div>
+	</div>
+</div>
