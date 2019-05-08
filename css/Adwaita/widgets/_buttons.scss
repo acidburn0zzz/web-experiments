@@ -55,8 +55,7 @@ $button_transition: all 200ms $ease-out-quad;
 		&.image-text-button {
 			padding: 4px 12px;
 			line-height: $button_size;
-			.symbolic,
-			>.float-right>.symbolic {vertical-align: middle;margin:0;margin-left:12px;}
+			.symbolic {vertical-align: middle;margin:0 4px;}
 			* {display: inline-block;}
 		}
 	}

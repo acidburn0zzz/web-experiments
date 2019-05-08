@@ -11,7 +11,7 @@ wallpaper: black
 </style>
 
 <!-- Window -->
-<div class="window medium no-content">
+<div class="window large no-content">
 	<!-- Titlebar -->
 	<div id="titlebarPhotos" class="titlebar grouped">
 		<!-- left button group -->
@@ -22,9 +22,9 @@ wallpaper: black
 		<div class="title-group"><div class="title">Photos</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button" onclick="$('#selectionModePhotos').show();$('#titlebarPhotos').hide();">Select</a>
 			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<a class="button text-button" onclick="$('#selectionModePhotos').show();$('#titlebarPhotos').hide();">Select</a>
+			{%- include components/close-button.html -%}
 		</div>
 	</div>
 	<!-- Titlebar -->
@@ -39,19 +39,18 @@ wallpaper: black
 		<div class="title-group"><div class="title">7 Selected</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModePhotos').hide();$('#titlebarPhotos').show();">Cancel</a>
-			<div class="separator"></div>
-			<a class="button image-button">{%- include symbolic/status/non-starred-symbolic.svg -%}</a>
-			<a class="button image-button">{%- include symbolic/places/user-trash-symbolic.svg -%}</a>
-			<a class="button image-button">{%- include symbolic/actions/document-print-symbolic.svg -%}</a>
 			<a class="button image-button">{%- include symbolic/places/folder-publicshare-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/actions/document-print-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/places/user-trash-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/status/non-starred-symbolic.svg -%}</a>
+			<div class="separator"></div>
+			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModePhotos').hide();$('#titlebarPhotos').show();">Cancel</a>
 		</div>
 	</div>
 </div>
 
 <!-- Window -->
-<div class="window medium no-content">
+<div class="window large no-content">
 	<!-- Titlebar -->
 	<div id="titlebarDocuments" class="titlebar grouped">
 		<!-- left button group -->
@@ -62,10 +61,10 @@ wallpaper: black
 		<div class="title-group"><div class="title">Documents</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button" onclick="$('#selectionModeDocuments').show();$('#titlebarDocuments').hide();">Select</a>
-			<a class="button image-button">{%- include symbolic/actions/view-grid-symbolic.svg -%}</a>
 			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/actions/view-grid-symbolic.svg -%}</a>
+			<a class="button text-button" onclick="$('#selectionModeDocuments').show();$('#titlebarDocuments').hide();">Select</a>
+			{%- include components/close-button.html -%}
 		</div>
 	</div>
 	<!-- Titlebar -->
@@ -81,19 +80,18 @@ wallpaper: black
 		<div class="title-group"><div class="title">4 Selected</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeDocuments').hide();$('#titlebarDocuments').show();">Cancel</a>
-			<div class="separator"></div>
-			<a class="button image-button">{%- include symbolic/actions/document-properties-symbolic.svg -%}</a>
-			<a class="button image-button">{%- include symbolic/status/non-starred-symbolic.svg -%}</a>
-			<a class="button image-button">{%- include symbolic/places/user-trash-symbolic.svg -%}</a>
 			<a class="button image-button">{%- include symbolic/places/folder-publicshare-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/places/user-trash-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/status/non-starred-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/actions/document-properties-symbolic.svg -%}</a>
+			<div class="separator"></div>
+			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeDocuments').hide();$('#titlebarDocuments').show();">Cancel</a>
 		</div>
 	</div>
 </div>
 
 <!-- Window -->
-<div class="window medium no-content">
+<div class="window large no-content">
 	<!-- Titlebar -->
 	<div id="titlebarPlaylist" class="titlebar grouped">
 		<!-- left button group -->
@@ -105,8 +103,8 @@ wallpaper: black
 		<div class="title-group"><div class="title">Music Playlist</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
 			<a class="button text-button" onclick="$('#selectionModePlaylist').show();$('#titlebarPlaylist').hide();">Edit&hellip;</a>
+			{%- include components/close-button.html -%}
 		</div>
 	</div>
 	<!-- Titlebar -->
@@ -120,16 +118,15 @@ wallpaper: black
 		<div class="title-group"><div class="title">12 Selected</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button suggested-action" style="margin-left:0;" onclick="$('#selectionModePlaylist').hide();$('#titlebarPlaylist').show();">Done</a>
-			<div class="separator"></div>
 			<a class="button image-button">{%- include symbolic/places/user-trash-symbolic.svg -%}</a>
+			<div class="separator"></div>
+			<a class="button text-button suggested-action" style="margin-left:0;" onclick="$('#selectionModePlaylist').hide();$('#titlebarPlaylist').show();">Done</a>
 		</div>
 	</div>
 </div>
 
 <!-- Window -->
-<div class="window medium no-content">
+<div class="window large no-content">
 	<!-- Titlebar -->
 	<div id="titlebarFiles" class="titlebar grouped">
 		<!-- left button group -->
@@ -144,13 +141,10 @@ wallpaper: black
 		<div class="title-group"><div class="title">Files</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button" onclick="$('#selectionModeFiles').show();$('#titlebarFiles').hide();">Select</a>
-			<div class="linked">
-				<a class="button image-button narrow right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</a>
-				<a class="button image-button left">{%- include symbolic/actions/view-grid-symbolic.svg -%}</a>
-			</div>
 			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/actions/view-grid-symbolic.svg -%}</a>
+			<a class="button text-button" onclick="$('#selectionModeFiles').show();$('#titlebarFiles').hide();">Select</a>
+			{%- include components/close-button.html -%}
 		</div>
 	</div>
 	<!-- Titlebar -->
@@ -166,18 +160,17 @@ wallpaper: black
 		<div class="title-group"><div class="title">9 Selected</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeFiles').hide();$('#titlebarFiles').show();">Cancel</a>
-			<div class="separator"></div>
-			<a class="button image-button">{%- include symbolic/status/non-starred-symbolic.svg -%}</a>
-			<a class="button image-button">{%- include symbolic/places/user-trash-symbolic.svg -%}</a>
 			<a class="button image-button">{%- include symbolic/places/folder-publicshare-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/places/user-trash-symbolic.svg -%}</a>
+			<a class="button image-button">{%- include symbolic/status/non-starred-symbolic.svg -%}</a>
+			<div class="separator"></div>
+			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeFiles').hide();$('#titlebarFiles').show();">Cancel</a>
 		</div>
 	</div>
 </div>
 
 <!-- Window -->
-<div class="window medium no-content">
+<div class="window large no-content">
 	<!-- Titlebar -->
 	<div id="titlebarMail" class="titlebar grouped">
 		<!-- left button group -->
@@ -191,9 +184,9 @@ wallpaper: black
 		<div class="title-group"><div class="title">Mail</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button" onclick="$('#selectionModeMail').show();$('#titlebarMail').hide();">Select</a>
 			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<a class="button text-button" onclick="$('#selectionModeMail').show();$('#titlebarMail').hide();">Select</a>
+			{%- include components/close-button.html -%}
 		</div>
 	</div>
 	<!-- Titlebar -->
@@ -208,16 +201,15 @@ wallpaper: black
 		<div class="title-group"><div class="title">8 Selected</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
-			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeMail').hide();$('#titlebarMail').show();">Cancel</a>
-			<div class="separator"></div>
 			<a class="button image-button">{%- include symbolic/places/user-trash-symbolic.svg -%}</a>
+			<div class="separator"></div>
+			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeMail').hide();$('#titlebarMail').show();">Cancel</a>
 		</div>
 	</div>
 </div>
 
 <!-- Window -->
-<div class="window medium no-content">
+<div class="window large no-content">
 	<!-- Titlebar -->
 	<div id="titlebarClocks" class="titlebar grouped">
 		<!-- left button group -->
@@ -228,8 +220,8 @@ wallpaper: black
 		<div class="title-group"><div class="title">Clocks</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
 			<a class="button text-button" onclick="$('#selectionModeClocks').show();$('#titlebarClocks').hide();">Select</a>
+			{%- include components/close-button.html -%}
 		</div>
 	</div>
 	<!-- Titlebar -->
@@ -242,9 +234,7 @@ wallpaper: black
 		<div class="title-group"><div class="title">1 Selected</div></div>
 		<!-- right button group -->
 		<div class="button-group float-right">
-			<a class="button image-button flat">{%- include symbolic/actions/window-close-symbolic.svg -%}</a><div class="separator"></div>
 			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeClocks').hide();$('#titlebarClocks').show();">Cancel</a>
-			<div class="separator"></div>
 		</div>
 	</div>
 </div>

@@ -177,12 +177,9 @@ select,
     padding: 4px 12px;
     line-height: 24px; }
     select.image-text-button .symbolic,
-    select.image-text-button > .float-right > .symbolic,
-    .button.image-text-button .symbolic,
-    .button.image-text-button > .float-right > .symbolic {
+    .button.image-text-button .symbolic {
       vertical-align: middle;
-      margin: 0;
-      margin-left: 12px; }
+      margin: 0 4px; }
     select.image-text-button *,
     .button.image-text-button * {
       display: inline-block; }
