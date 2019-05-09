@@ -51,7 +51,7 @@ wallpaper: adwaita
 					</li>
 					<li>
 						<label>All-day</label>
-						{%- include components/switch.html float = "right" checked = "" id = "alarmSnoozingSwitch" -%}
+						{%- include components/switch.html float = "right" checked = "" -%}
 					</li>
 					<li id="addEventStarts">
 						<label>Starts</label>
@@ -64,32 +64,42 @@ wallpaper: adwaita
 						<label class="float-right" id="addEventEndStatus">05/09/2019</label>
 					</li>
 					<li id="addEventRepeats">
-						<label>Repeats</label>
+						<label>Repeat</label>
 						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
 						<label class="float-right" id="addEventRepeatStatus">No Repeat</label>
 					</li>
+					<li id="addEventReminder">
+						<label>Reminder</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="addEventRepeatStatus">No Reminder</label>
+					</li>
+					<li id="">
+						<label>Notes</label>
+						<textarea class="float-right" placeholder="Notes (Imagine it actually fits in this list row)"></textarea>
+					</li>
 				</ul>
-				<h3>Notes</h3>
-				<textarea class="full-width float-left" placeholder="Notes"></textarea>
 			</div>
 		</div>
 	</div>
 	<!-- New Event Dialog -->
 	<div class="gtkdialog" id="manageCalendarsDialog">
 		<div class="gtkdialog-window">
-			<div class="titlebar" title="Manage Calendars">
-				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
-				<a class="button text-button suggested-action float-right" id="addEventDone" onclick="$('.gtkdialog').hide();">Done</a>
+			<div class="titlebar grouped" title="Manage Calendars">
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
 			</div>
 			<div class="gtkdialog-content">
 				<ul class="listrow">
 					<li class="medium">
+						<div class="avatar small"></div>
 						<div class="label-group">
 							<label>Birthdays & Anniveraries</label>
 							<label class="small-label dim-label">Contacts</label>
 						</div>
 					</li>
 					<li class="medium">
+						<div class="avatar small"></div>
 						<div class="label-group">
 							<label>Personal</label>
 							<label class="small-label dim-label">On this Computer</label>

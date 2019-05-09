@@ -851,7 +851,8 @@ input.entry {
       background-color: #f57900; }
 
 textarea {
-  min-height: 160px; }
+  min-height: 160px;
+  padding: 8px; }
 
 .icon {
   vertical-align: top;
