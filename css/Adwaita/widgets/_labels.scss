@@ -97,14 +97,14 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-family:"cantarell_light", sans-serif;
 	font-size:$large_title_font_size;
-	line-height:$large_title_font_size + 12px;
+	line-height:2;
 }
 
 // Title
 h2 {
 	font-family:"cantarell_extrabold", sans-serif;
 	font-size:$title_font_size;
-	line-height:$title_font_size * 2;
+	line-height:2;
 	color: lighten($fg_color, 10%);
 	margin: 8px 0;
 }
