@@ -11,7 +11,7 @@ wallpaper: adwaita
 	<div class="titlebar grouped">
 		<!-- left button group -->
 		<div class="button-group float-left">
-			<a class="button text-button" id="newCalendar" onclick="$('#newCalendarsDialog').show();">New</a><a class="button image-button" id="addEvent" onclick="$('#newEventDialog').show();">{%- include symbolic/actions/list-add-symbolic.svg -%}</a>
+			<a class="button image-button" id="addEvent" onclick="$('#newEventDialog').show();">{%- include symbolic/actions/list-add-symbolic.svg -%}</a>
 		</div>
 		<!-- center button group -->
 		<div class="button-group float-center">
@@ -141,6 +141,9 @@ wallpaper: adwaita
 							<label class="small-label dim-label">On this Computer</label>
 						</div>
 						{%- include components/switch.html float = "right" checked = "checked" -%}
+					</li>
+					<li class="text-center" onclick="$('#newCalendarsDialog').show();$('#manageCalendarsDialog').hide();">,
+						<label>Add Calendar...</label>
 					</li>
 				</ul>
 			</div>
