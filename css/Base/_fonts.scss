@@ -1,30 +1,55 @@
 // Cantarell
 
+// Thin
+@font-face {
+	font-family: "cantarell_thin";
+	src: url(../../fonts/Cantarell-Thin.otf);
+	font-weight: 100;
+	font-style: normal;
+}
+
+// Light
+@font-face {
+	font-family: "cantarell_light";
+	src: url(../../fonts/Cantarell-Light.otf);
+	font-weight: 300;
+	font-style: normal;
+}
+
+// Regular
 @font-face {
 	font-family: "cantarell";
 	src: url(../../fonts/Cantarell-Regular.otf);
-	font-weight: normal;
+	font-weight: 500;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "cantarell_italic";
 	src: url(../../fonts/Cantarell-Oblique.otf);
-	font-weight: normal;
+	font-weight: 500;
 	font-style: italic;
 }
 
-
+// Bold
 @font-face {
 	font-family: "cantarell_bold";
 	src: url(../../fonts/Cantarell-Bold.otf);
-	font-weight: bold;
+	font-weight: 700;
 	font-style: normal;
 }
 
 @font-face {
 	font-family: "cantarell_bold_italic";
 	src: url(../../fonts/Cantarell-BoldOblique.otf);
-	font-weight: bold;
+	font-weight: 700;
 	font-style: italic;
+}
+
+// Extra Bold
+@font-face {
+	font-family: "cantarell_extrabold";
+	src: url(../../fonts/Cantarell-ExtraBold.otf);
+	font-weight: 1000;
+	font-style: normal;
 }
