@@ -746,6 +746,19 @@ select {
 .action-dialog {
   border-radius: 8px; }
 
+.options-dialog {
+  border-radius: 8px;
+  padding: 0; }
+  .options-dialog .gtkdialog-content {
+    margin: 0;
+    padding: 0; }
+    .options-dialog .gtkdialog-content ul {
+      margin: 0;
+      border: none;
+      border-radius: 8px; }
+  .options-dialog > .titlebar .button-group.float-right {
+    margin-right: 0 !important; }
+
 .message-dialog {
   padding: 0;
   margin-top: 18em;
