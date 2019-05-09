@@ -11,9 +11,7 @@ wallpaper: adwaita
 	<div class="titlebar grouped">
 		<!-- left button group -->
 		<div class="button-group float-left">
-			<a class="button image-button" id="addEvent" onclick="$('#newEventDialog').show();">{%- include symbolic/actions/list-add-symbolic.svg -%}</a><a class="button text-button">Today</a><div class="linked">
-				<a class="button image-button left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a><a class="button image-button right">{%- include symbolic/actions/go-next-symbolic.svg -%}</a>
-			</div>
+			<a class="button text-button" id="newCalendar" onclick="$('#newCalendarsDialog').show();">New</a><a class="button image-button" id="addEvent" onclick="$('#newEventDialog').show();">{%- include symbolic/actions/list-add-symbolic.svg -%}</a>
 		</div>
 		<!-- center button group -->
 		<div class="button-group float-center">
@@ -22,11 +20,18 @@ wallpaper: adwaita
 			</div>
 		</div>
 		<!-- right button group -->
-		<div class="button-group float-right"><a class="button text-button" id="calendarsPopover">Calendars &#9660;</a><a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a><a class="button image-button" id="calendarMenu">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>{%- include components/close-button.html close = "window" -%}
+
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a><a class="button image-button" id="calendarsPopover">{%- include symbolic/apps/office-calendar-symbolic.svg -%}</a><a class="button image-button" id="calendarMenu">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>{%- include components/close-button.html close = "window" -%}
 		</div>
 	</div>
 	<div class="content">
-		
+		<div class="row">
+			<a class="button text-button">Today</a>
+			<div class="linked">
+				<a class="button image-button left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a><a class="button image-button right">{%- include symbolic/actions/go-next-symbolic.svg -%}</a>
+			</div>
+		</div>
 	</div>
 	<!-- New Event Dialog -->
 	<div class="gtkdialog" id="newEventDialog">
@@ -81,6 +86,36 @@ wallpaper: adwaita
 			</div>
 		</div>
 	</div>
+	<!-- New Calendar Dialog -->
+	<div class="gtkdialog" id="newCalendarsDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar grouped">
+				<div class="button-group float-left"><a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a></div>
+				<!-- Title -->
+				<div class="title-group">
+					<span class="title">New Calandar</span>
+				</div>
+				<div class="button-group float-right"><a class="button text-button float-right" id="addEventDone" onclick="$('.gtkdialog').hide();">Done</a></div>
+			</div>
+			<div class="gtkdialog-content">
+				<ul class="listrow">
+					<li>
+						<label>Calendar Name</label>
+						<input class="entry float-right" placeholder="Unnamed Calendar"></input>
+					</li>
+					<li>
+						<label>Color</label>
+						<a class="button text-button float-right">Green</a>
+					</li>
+				</ul>
+				<br>
+				<h3>Import a Calendar</h3>
+				<p>Alternatively, enter the web address of an online calendar you want to import, or open a supported calendar file.</p>
+				<p><input class="entry full-width float-left" placeholder="https://example.com/calendar.ics" style="max-width: 77%"></input><a class="button text-button float-right">Open...</a></p>
+				<p>If the calendar belongs to one of your online accounts, you can connect Calendar to your account in the <a href="">online account settings</a>.</p>
+			</div>
+		</div>
+	</div>
 	<!-- New Event Dialog -->
 	<div class="gtkdialog" id="manageCalendarsDialog">
 		<div class="gtkdialog-window">
@@ -97,6 +132,7 @@ wallpaper: adwaita
 							<label>Birthdays & Anniveraries</label>
 							<label class="small-label dim-label">Contacts</label>
 						</div>
+						{%- include components/switch.html float = "right" checked = "checked" -%}
 					</li>
 					<li class="medium">
 						<div class="avatar small"></div>
@@ -104,6 +140,7 @@ wallpaper: adwaita
 							<label>Personal</label>
 							<label class="small-label dim-label">On this Computer</label>
 						</div>
+						{%- include components/switch.html float = "right" checked = "checked" -%}
 					</li>
 				</ul>
 			</div>
