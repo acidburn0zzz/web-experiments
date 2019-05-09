@@ -21,6 +21,15 @@ $popover_borders_color: rgba(0,0,0,0.2);
 	border-radius: 6px;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 
+	hr {
+		color: transparent;
+		height: 1px;
+		outline: none;
+		background:none;
+		width: 100%;
+		border-bottom:1px solid $borders_color;
+	}
+
 	> .arrow,
 	> .arrow:after {
 		position: absolute;

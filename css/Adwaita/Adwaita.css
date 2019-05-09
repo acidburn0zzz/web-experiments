@@ -785,6 +785,7 @@ select {
   margin: 0 auto;
   top: calc(50% - 120px); }
 
+textarea,
 input.entry {
   min-height: 32px;
   padding: 0 8px;
@@ -795,10 +796,17 @@ input.entry {
   border-color: #cdc7c2;
   background-color: #ffffff;
   box-shadow: inset 0 0 0 1px rgba(53, 132, 228, 0); }
+  textarea svg.left,
   input.entry svg.left {
     margin-right: 6px; }
+  textarea svg.right,
   input.entry svg.right {
     margin-left: 6px; }
+  textarea.flat:focus,
+  textarea.flat:backdrop,
+  textarea.flat:disabled,
+  textarea.flat:backdrop:disabled,
+  textarea.flat,
   input.entry.flat:focus,
   input.entry.flat:backdrop,
   input.entry.flat:disabled,
@@ -809,32 +817,44 @@ input.entry {
     background-color: transparent;
     border-color: transparent;
     border-radius: 0; }
+  textarea.full-width,
   input.entry.full-width {
     width: calc(100% -(16px)); }
+  textarea:focus,
   input.entry:focus {
     box-shadow: inset 0 0 0 1px #3584e4;
     border-color: #3584e4; }
+  textarea:disabled,
   input.entry:disabled {
     color: #929595;
     border-color: #cdc7c2;
     background-color: #faf9f8;
     box-shadow: none; }
+  textarea.error,
   input.entry.error {
     color: #cc0000;
     border-color: #cc0000; }
+    textarea.error:focus,
     input.entry.error:focus {
       box-shadow: inset 0 0 0 1px #cc0000;
       border-color: #cc0000; }
+    textarea.error selection,
     input.entry.error selection {
       background-color: #cc0000; }
+  textarea.warning,
   input.entry.warning {
     color: #f57900;
     border-color: #f57900; }
+    textarea.warning:focus,
     input.entry.warning:focus {
       box-shadow: inset 0 0 0 1px #f57900;
       border-color: #f57900; }
+    textarea.warning selection,
     input.entry.warning selection {
       background-color: #f57900; }
+
+textarea {
+  min-height: 160px; }
 
 .icon {
   vertical-align: top;
@@ -1414,6 +1434,13 @@ ul.listrow {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2); }
+  .popover hr {
+    color: transparent;
+    height: 1px;
+    outline: none;
+    background: none;
+    width: 100%;
+    border-bottom: 1px solid #cdc7c2; }
   .popover > .arrow,
   .popover > .arrow:after {
     position: absolute;

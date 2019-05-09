@@ -4,6 +4,7 @@ $entry_padding: 8px;
 
 
 %entry,
+textarea,
 input.entry {
 	%entry_basic, & {
 		min-height: $entry_height;
@@ -50,4 +51,9 @@ input.entry {
 			}
 		}
 	}
+}
+
+
+textarea {
+	min-height: $entry_height * 5;
 }

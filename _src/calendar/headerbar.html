@@ -11,7 +11,7 @@ wallpaper: adwaita
 	<div class="titlebar grouped">
 		<!-- left button group -->
 		<div class="button-group float-left">
-			<a class="button image-button" id="addCalendarMenu">{%- include symbolic/actions/list-add-symbolic.svg -%}</a><a class="button text-button">Today</a><div class="linked">
+			<a class="button image-button" id="addEvent" onclick="$('#newEventDialog').show();">{%- include symbolic/actions/list-add-symbolic.svg -%}</a><a class="button text-button">Today</a><div class="linked">
 				<a class="button image-button left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a><a class="button image-button right">{%- include symbolic/actions/go-next-symbolic.svg -%}</a>
 			</div>
 		</div>
@@ -27,6 +27,77 @@ wallpaper: adwaita
 	</div>
 	<div class="content">
 		
+	</div>
+	<!-- New Event Dialog -->
+	<div class="gtkdialog" id="newEventDialog">
+		<div class="gtkdialog-window action-dialog">
+			<div class="titlebar grouped">
+				<div class="button-group float-left"><a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a></div>
+				<!-- Title -->
+				<div class="title-group">
+					<span class="title">Unnamed Event</span><span class="subtitle">Personal Calandar</span>
+				</div>
+				<div class="button-group float-right"><a class="button text-button suggested-action float-right" id="addEventDone" onclick="$('.gtkdialog').hide();">Add</a></div>
+			</div>
+			<div class="gtkdialog-content">
+				<ul class="listrow">
+					<li>
+						<label>Event Title</label>
+						<input class="entry float-right" placeholder="Unnamed Event"></input>
+					</li>
+					<li>
+						<label>Location</label>
+						<input class="entry float-right" placeholder="Location"></input>
+					</li>
+					<li>
+						<label>All-day</label>
+						{%- include components/switch.html float = "right" checked = "" id = "alarmSnoozingSwitch" -%}
+					</li>
+					<li id="addEventStarts">
+						<label>Starts</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="addEventStartStatus">05/09/2019</label>
+					</li>
+					<li id="addEventEnds">
+						<label>Ends</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="addEventEndStatus">05/09/2019</label>
+					</li>
+					<li id="addEventRepeats">
+						<label>Repeats</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="addEventRepeatStatus">No Repeat</label>
+					</li>
+				</ul>
+				<h3>Notes</h3>
+				<textarea class="full-width float-left" placeholder="Notes"></textarea>
+			</div>
+		</div>
+	</div>
+	<!-- New Event Dialog -->
+	<div class="gtkdialog" id="manageCalendarsDialog">
+		<div class="gtkdialog-window">
+			<div class="titlebar" title="Manage Calendars">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="addEventDone" onclick="$('.gtkdialog').hide();">Done</a>
+			</div>
+			<div class="gtkdialog-content">
+				<ul class="listrow">
+					<li class="medium">
+						<div class="label-group">
+							<label>Birthdays & Anniveraries</label>
+							<label class="small-label dim-label">Contacts</label>
+						</div>
+					</li>
+					<li class="medium">
+						<div class="label-group">
+							<label>Personal</label>
+							<label class="small-label dim-label">On this Computer</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -77,7 +148,7 @@ $(document).ready(function() {
 		'<li>Sports <input type="checkbox" class="float-right" checked></li>',
 		'<li class="text-center insensitive"><i>[this bit is crude]</i></li>',
 		'<hr>',
-		'<li>Manage Calendars...</li>',
+		'<li onclick="$(&apos;#manageCalendarsDialog&apos;).show();">Manage Calendars...</li>',
 		'</ul>'].join('');
 
 	$('#calendarsPopover').popover({

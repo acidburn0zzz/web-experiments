@@ -1,0 +1,74 @@
+---
+layout: mockup
+title: "Patterns - Dialog Windows"
+theme: Adwaita/Adwaita.css
+permalink: patterns/dialogs
+---
+
+<div class="row wide">
+	<h1>Dialog Windows</h1>
+	<h2>Presentation Dialog</h2>
+	<p>Presentation dialogs present information or controls. Like action dialogs, they have a header bar and a subject. However, instead of prefixing an action, their content relates to an application or content item.</p>
+	<!-- <div class="gtkdialog"> -->
+		<div class="gtkdialog-window">
+			<div class="titlebar grouped">
+				<div class="button-group float-left"><a href="" class="hidden"></a></div>
+				<div class="title-group"><span class="title">Connect to Hotspot</span></div>
+				<div class="button-group float-right">
+					{%- include components/close-button.html close = "gtkdialog" -%}
+				</div>
+			</div>
+			<div class="gtkdialog-content">
+			</div>
+		</div>
+	<!-- </div> -->
+	<h2>Message Dialog</h2>
+	<p>Message dialogs are the simplest type of dialog. They present a message or question, along with 1-3 buttons with which to respond. They are always modal, meaning that they prevent access to their parent window. Message dialogs are an appropriate choice when it is essential that the user sees and responds to a message.</p>
+	<!-- <div class="gtkdialog"> -->
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h2>Authentication required</h2>
+					<p>A password or encryption key is required to connect to wireless network "$NETWORK".</p>
+					<ul class="listrow unstyled">
+						<li><input class="entry full-width" placeholder="Password" type="password" id="wifiPasswordEntry"></input></li>
+					</ul>
+				</div>
+				<a class="button text-button float-left" onclick="$('#connectToWifiDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" onclick="$('#connectToWifiDialog').hide();">Connect</a>
+			</div>
+		</div>
+	<!-- </div> -->
+	<h2>Action Dialog</h2>
+	<p>Action dialogs present options and information about a specific action before it is carried out. They have a heading (which typically describes the action) and two primary buttons — one which allows the action to be carried out and one which cancels it.</p>
+	<p>Sometimes, the user may be required to choose options before an action can be carried out. In these cases, the affirmative dialog button should be insensitive until the required options have been selected.</p>
+	<!-- <div class="gtkdialog"> -->
+		<div class="gtkdialog-window action-dialog">
+			<div class="titlebar" title="Device Name">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="deviceNameApply">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Choose a new device name. This is how it will appear to others and over the network.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<input class="entry full-width" placeholder="Computer" id="deviceNameEntry"></input>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<!-- </div> -->
+</div>
+
+<style type="text/css">
+	.gtkdialog-window {
+		margin: 24px auto;
+		box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+	}
+</style>
+
+
+<!-- js -->
+<script type="text/javascript">
+$('.gtkdialog').show();
+</script>
