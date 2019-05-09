@@ -1,15 +1,18 @@
 // changing width and height will scale all aspects of the switch
-$switch_width: 90px;
-$switch_height: 28px;
+$switch_width: 48px;
+$switch_height: 26px;
 
 $switch_margin: 12px;
-$switch_font_size: 12px;
+$switch_font_size: 11px;
+$switch_font_margin: 8px;
 
-$switch_padding: 3px;
-$switch_border_radius: 3px;
+$switch_padding: 4px;
+$switch_border_radius: 18px;
 
-$switch_slider_width: 44px;
-$switch_slider_height: 26px;
+$switch_slider_width: 24px;
+$switch_slider_height: 24px;
+$switch_slider_margin: 1px;
+
 $switch_slider_border_radius: $switch_border_radius;
 
 $switch_nolabel_width: $switch_width - 20px;
@@ -20,6 +23,8 @@ $switch_transition: all 100ms $ease-out-quad;
 %switch_font {
 	font-size: $switch_font_size;
 	font-family:"cantarell_bold", sans-serif;
+	// font-family:sans-serif;
+	font-weight: bold;
 	text-transform: uppercase;
 }
 
@@ -39,12 +44,13 @@ $switch_transition: all 100ms $ease-out-quad;
 		@extend %switch_font;
 		background-color: $dark_fill;
 		border-radius: $switch_border_radius;
-		box-shadow: inset 0 0 0 1px $borders_color; // draw border with box-shadow
-		color: $fg_color;
+		// draw border with box-shadow
+		box-shadow: inset 0 0 0 1px $borders_color; 
+		color: transparentize($fg_color, 0.4);
 		display: block;
 		height: inherit;
 		position: relative;
-		text-shadow: 0 1px transparentize(black, 0.9);
+		text-shadow: none;
 		padding: 0 !important;
 
 		// for the animation
@@ -55,21 +61,23 @@ $switch_transition: all 100ms $ease-out-quad;
 		&:before,
 		&:after {
 			position: absolute;
-			line-height: $switch_height + 1px;
+			line-height: $switch_height;
 			transition: inherit;
 		}
 
 		// "off" text
 		&:before {
-			content: attr(data-off);
-			right: 11px;
+			content: attr(data-off-intl);
+			// content: attr(data-off);
+			right: $switch_font_margin;
 			color: inherit;
 		}
 
 		// "on" text
 		&:after {
-			content: attr(data-on);
-			left: 13px;
+			content: attr(data-on-intl);
+			// content: attr(data-on);
+			left: $switch_font_margin;
 			color: inherit;
 			opacity: 0;
 		}
@@ -84,13 +92,20 @@ $switch_transition: all 100ms $ease-out-quad;
 		width: $switch_slider_width;
 		height: $switch_slider_height;
 		border-radius: $switch_slider_border_radius;
-		border: 1px solid $borders_color;
+		// border: 1px solid $borders_color;
 		transition: $switch_transition;
+		margin: $switch_slider_margin;
 
 		@include button(normal-alt, $edge: $shadow_color);
 
-		&:hover { @include button(hover-alt, $edge: $shadow_color); }
+		&:hover { 
+			@include button(hover-alt, $edge: $shadow_color); 
+			box-shadow: 0 2px 4px 0 rgba(0,0,0,0.4);
+		}
+
+		box-shadow: 0 1px 2px 0 rgba(0,0,0,0.4);
 	}
+
 
 	// the styled checkbox
 	.switch-input {
@@ -102,35 +117,33 @@ $switch_transition: all 100ms $ease-out-quad;
 		// Checked
 		&:checked ~ .switch-trough {
 			color: $selected_fg_color;
-			box-shadow: inset 0 0 0 1px $selected_borders_color; // draw border with box-shadow
+			// draw border with box-shadow
+			box-shadow: inset 0 0 0 1px $selected_borders_color; 
 			background-color: $selected_bg_color;
-			text-shadow: 0 1px transparentize($selected_borders_color, 0.5),0 0 2px transparentize(white, 0.4);
+			text-shadow: 0 0 2px transparentize(white, 0.4);
 
 			&:before {opacity: 0;}
 			&:after {opacity: 1;}
 		}
 
 		&:checked ~ .switch-slider {
-			border-color: $selected_borders_color;
-			left: $switch_width - ($switch_slider_width - 2px); // full width - slider width - border width on both sides
+			// full width - slider width - border width - margin * 2
+			left: $switch_width - ($switch_slider_width - 2px) - ($switch_slider_margin * 2) + 2px;
 		}
 	}
 
-		// intl switch
+	// intl switch
 	&.intl>.switch-trough{
 
 		// "off" text
 		&:before {
 			content: attr(data-off-intl);
-			font-size: $switch_font_size - 1px;
-			right: 17px;
 		}
 
 		// "on" text
 		&:after {
 			content: attr(data-on-intl);
 			font-size: $switch_font_size + 1px;
-			left: 18px;
 		}
 	}
 }

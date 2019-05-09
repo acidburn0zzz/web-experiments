@@ -1666,67 +1666,70 @@ ul.sidebar {
   vertical-align: middle !important; }
 
 .switch .switch-trough {
-  font-size: 12px;
+  font-size: 11px;
   font-family: "cantarell_bold", sans-serif;
+  font-weight: bold;
   text-transform: uppercase; }
 
 .switch {
   background-color: transparent;
-  border-radius: 3px;
+  border-radius: 18px;
   cursor: pointer;
   display: inline-block;
-  height: 28px;
-  padding: 3px !important;
+  height: 26px;
+  padding: 4px !important;
   position: relative;
-  width: 90px; }
+  width: 48px; }
   .switch .switch-trough {
     background-color: #282828;
-    border-radius: 3px;
+    border-radius: 18px;
     box-shadow: inset 0 0 0 1px #1b1b1b;
-    color: #eeeeec;
+    color: rgba(238, 238, 236, 0.6);
     display: block;
     height: inherit;
     position: relative;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+    text-shadow: none;
     padding: 0 !important;
     transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition-property: opacity background; }
     .switch .switch-trough:before, .switch .switch-trough:after {
       position: absolute;
-      line-height: 29px;
+      line-height: 26px;
       transition: inherit; }
     .switch .switch-trough:before {
-      content: attr(data-off);
-      right: 11px;
+      content: attr(data-off-intl);
+      right: 8px;
       color: inherit; }
     .switch .switch-trough:after {
-      content: attr(data-on);
-      left: 13px;
+      content: attr(data-on-intl);
+      left: 8px;
       color: inherit;
       opacity: 0; }
   .switch .switch-slider {
     position: absolute;
     padding: 0 !important;
-    top: 3px;
-    left: 3px;
-    width: 44px;
-    height: 26px;
-    border-radius: 3px;
-    border: 1px solid #1b1b1b;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 18px;
     transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin: 1px;
     color: #eeeeec;
     outline-color: rgba(238, 238, 236, 0.3);
     border-color: #070707;
     text-shadow: 0 -1px rgba(0, 0, 0, 0.8343529412);
     -gtk-icon-shadow: 0 -1px rgba(0, 0, 0, 0.8343529412);
     background-image: linear-gradient(to bottom, #2d2d2d 20%, #262626 90%);
-    box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.07); }
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4); }
     .switch .switch-slider:hover {
       color: #eeeeec;
       outline-color: rgba(238, 238, 236, 0.3);
       border-color: #070707;
       box-shadow: inset 0 1px rgba(255, 255, 255, 0.02), 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.07);
-      background-image: linear-gradient(to bottom, #353535 20%, #2b2b2b 90%); }
+      background-image: linear-gradient(to bottom, #353535 20%, #2b2b2b 90%);
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.4); }
   .switch .switch-input {
     position: absolute;
     top: 0;
@@ -1736,22 +1739,18 @@ ul.sidebar {
       color: #ffffff;
       box-shadow: inset 0 0 0 1px #030c17;
       background-color: #15539e;
-      text-shadow: 0 1px rgba(3, 12, 23, 0.5), 0 0 2px rgba(255, 255, 255, 0.6); }
+      text-shadow: 0 0 2px rgba(255, 255, 255, 0.6); }
       .switch .switch-input:checked ~ .switch-trough:before {
         opacity: 0; }
       .switch .switch-input:checked ~ .switch-trough:after {
         opacity: 1; }
     .switch .switch-input:checked ~ .switch-slider {
-      border-color: #030c17;
-      left: 48px; }
+      left: 26px; }
   .switch.intl > .switch-trough:before {
-    content: attr(data-off-intl);
-    font-size: 11px;
-    right: 17px; }
+    content: attr(data-off-intl); }
   .switch.intl > .switch-trough:after {
     content: attr(data-on-intl);
-    font-size: 13px;
-    left: 18px; }
+    font-size: 12px; }
 
 ul.tiles {
   margin: 0;
