@@ -6,25 +6,40 @@
   appearance: none; }
 
 @font-face {
+  font-family: "cantarell_thin";
+  src: url(../../fonts/Cantarell-Thin.otf);
+  font-weight: 100;
+  font-style: normal; }
+@font-face {
+  font-family: "cantarell_light";
+  src: url(../../fonts/Cantarell-Light.otf);
+  font-weight: 300;
+  font-style: normal; }
+@font-face {
   font-family: "cantarell";
   src: url(../../fonts/Cantarell-Regular.otf);
-  font-weight: normal;
+  font-weight: 500;
   font-style: normal; }
 @font-face {
   font-family: "cantarell_italic";
   src: url(../../fonts/Cantarell-Oblique.otf);
-  font-weight: normal;
+  font-weight: 500;
   font-style: italic; }
 @font-face {
   font-family: "cantarell_bold";
   src: url(../../fonts/Cantarell-Bold.otf);
-  font-weight: bold;
+  font-weight: 700;
   font-style: normal; }
 @font-face {
   font-family: "cantarell_bold_italic";
   src: url(../../fonts/Cantarell-BoldOblique.otf);
-  font-weight: bold;
+  font-weight: 700;
   font-style: italic; }
+@font-face {
+  font-family: "cantarell_extrabold";
+  src: url(../../fonts/Cantarell-ExtraBold.otf);
+  font-weight: 1000;
+  font-style: normal; }
 html {
   padding: 0;
   margin: 0;
@@ -972,8 +987,8 @@ path.warning {
         .infobar.info .button.insensitive label, .infobar.info .button.insensitive, .infobar.question .button.insensitive label, .infobar.question .button.insensitive, .infobar.warning .button.insensitive label, .infobar.warning .button.insensitive, .infobar.error .button.insensitive label, .infobar.error .button.insensitive {
           color: #a9cbf4; }
 
-select option, p,
-.gtklabel, .monospace-label,
+select option, p, .small-label,
+.caption, .monospace-label,
 code, a, .bold-label,
 b, h1, h2, h3, h4, h5, h6 {
   color: #2e3436;
@@ -983,15 +998,16 @@ b, h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   text-rendering: optimizelegibility; }
 
-p,
-.gtklabel {
+p {
+  width: 100%;
   margin: 6px 0;
   display: inline-block;
-  color: #5d696d; }
+  color: #2e3436; }
 
-.small-label {
-  line-height: 13px;
-  font-size: 13px; }
+.small-label,
+.caption {
+  font-size: 12px;
+  line-height: 15px; }
 
 .larger-label {
   line-height: 18px;
@@ -1000,15 +1016,21 @@ p,
 .dark-label {
   color: black; }
 
-.titlebar .subtitle,
+.small-label,
+.caption, .titlebar .subtitle,
 .dim-label {
-  opacity: 0.4; }
-  .titlebar .subtitle b, .titlebar .subtitle u, .titlebar .subtitle i,
+  color: #989898; }
+  .small-label b,
+  .caption b, .titlebar .subtitle b, .small-label u,
+  .caption u, .titlebar .subtitle u, .small-label i,
+  .caption i, .titlebar .subtitle i,
   .dim-label b,
   .dim-label u,
   .dim-label i {
     color: inherit; }
-  .titlebar .subtitle svg > path, .titlebar .subtitle svg > g,
+  .small-label svg > path,
+  .caption svg > path, .titlebar .subtitle svg > path, .small-label svg > g,
+  .caption svg > g, .titlebar .subtitle svg > g,
   .dim-label svg > path,
   .dim-label svg > g {
     fill: #7f7f7f; }
@@ -1051,17 +1073,19 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align: middle; }
 
 h1 {
-  font-size: 30px;
-  line-height: 42px; }
+  font-family: "cantarell_light", sans-serif;
+  font-size: 32px;
+  line-height: 44px; }
 
 h2 {
-  font-size: 22.5px;
-  line-height: 34.5px;
+  font-family: "cantarell_extrabold", sans-serif;
+  font-size: 22px;
+  line-height: 44px;
   color: #454f52;
   margin: 8px 0; }
 
 h3 {
-  font-size: 18px;
+  font-size: 15px;
   line-height: 21px;
   color: #454f52;
   margin: 4px 0; }

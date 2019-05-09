@@ -6,9 +6,14 @@ $font_family: "cantarell", sans-serif !default;
 $font_size: 15px;
 $font_weight: 400;
 
+$large_title_font_size:32px;
+$title_font_size:22px;
+$caption_font_size:12px;
+
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant=='dark', '-dark', '');
 $backdrop_transition: 200ms ease-out;
+
 
 // HTML
 html {

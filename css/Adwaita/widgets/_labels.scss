@@ -9,17 +9,20 @@
 }
 
 // label
-p,
-.gtklabel {
+p {
 	@extend %text;
+	width: 100%;
 	margin:6px 0;
 	display: inline-block;
-	color: lighten($fg_color, 20%);
+	color: $fg_color;
 }
 
-.small-label {
-	line-height: $font_size - 2px;
-	font-size: $font_size - 2px;
+.small-label,
+.caption {
+	@extend %text;
+	@extend %dim_label;
+	font-size:$font_size - 3px;
+	line-height:$font_size;
 }
 
 .larger-label {
@@ -33,8 +36,8 @@ p,
 
 %dim_label,
 .dim-label {
-	// color: desaturate(lighten($fg_color, 40%), 20%);
-	opacity: 0.4;
+	color: desaturate(lighten($fg_color, 40%), 20%);
+	// opacity: 0.4;
 	b,u,i {color: inherit;}
 	svg>path, svg>g {fill: desaturate(lighten($fg_color, 30%), 20%);}
 }
@@ -89,20 +92,26 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+
+// Large Title
 h1 {
-	font-size:$font_size * 2;
-	line-height:$font_size * 2 + 12px;
+	font-family:"cantarell_light", sans-serif;
+	font-size:$large_title_font_size;
+	line-height:$large_title_font_size + 12px;
 }
 
+// Title
 h2 {
-	font-size:$font_size * 1.5;
-	line-height:$font_size * 1.5 + 12px;
+	font-family:"cantarell_extrabold", sans-serif;
+	font-size:$title_font_size;
+	line-height:$title_font_size * 2;
 	color: lighten($fg_color, 10%);
 	margin: 8px 0;
 }
 
+// Heading
 h3 {
-	font-size:$font_size + 3px;
+	font-size:$font_size;
 	line-height:$font_size + 6px;
 	color: lighten($fg_color, 10%);
 	margin: 4px 0;

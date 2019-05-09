@@ -2123,8 +2123,7 @@ svg,
   height: 256px;
   max-height: 256px; }
 
-p,
-.gtklabel, .monospace-label,
+p, .monospace-label,
 code, a, .bold-label,
 b, h1, h2, h3, h4, h5, h6 {
   color: #eeeeec;
@@ -2134,8 +2133,7 @@ b, h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   text-rendering: optimizelegibility; }
 
-p,
-.gtklabel {
+p {
   margin: 6px 0;
   display: inline-block;
   color: white; }

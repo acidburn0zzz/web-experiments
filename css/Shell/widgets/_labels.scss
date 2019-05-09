@@ -9,8 +9,7 @@
 }
 
 // label
-p,
-.gtklabel {
+p {
 	@extend %text;
 	margin:6px 0;
 	display: inline-block;
