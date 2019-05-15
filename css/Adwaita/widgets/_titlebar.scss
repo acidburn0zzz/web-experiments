@@ -238,18 +238,21 @@ $pane_width:270px;
 	}
 
 	>.button-group {
+		display: inline-block;
 		padding:0;
 		a {
 			display: inline-block;
 		}
 
 		&.float-center {
-			width: calc(40%);
+			width: calc(70% - 12px);
 			text-align: center;
+			margin-left: $pane_width;
 		}
 
 		&.float-left {
 			width: calc(30%);
+			margin-left: $pane_width;
 			> .button:not(.flat):not(.left):not(.right):not(.middle) { margin-right:6px;}
 			> .linked {
 				margin-right:6px;

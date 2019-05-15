@@ -1,0 +1,150 @@
+---
+layout: mockup
+title: "Lockscreen"
+theme: Adwaita/Adwaita.css
+permalink: settings/background/lockscreen/
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<div class="button-group float-center">
+			<div class="linked stack-switcher">
+				<a class="button text-button left" href="{{ site.baseurl }}/settings/background">Desktop</a><a class="button text-button pressed right" href="#">Lock Screen</a>
+			</div>
+		</div>
+		<!-- center button group -->
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<div class="backgroundPreview">
+					<div class="backgroundPreviewImage backgroundPreviewLockscreen triangles">
+						<span class="bold-label"><script> document.write(new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",minute: "numeric"})); </script></span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<ul class="listrow">
+					<li>
+						<label>Same as Desktop</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundSameAsLockscreenSwitch" onclick = "$('#backgroundTypePopover').toggleClass('insensitive');$('#backgroundFitPopover').toggleClass('insensitive');" -%}
+					</li>
+					<li id="backgroundTypePopover" class="insensitive">
+						<label>Background</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundTypeStatus">Image</label>
+					</li>
+					<li id="backgroundFitPopover" class="insensitive">
+						<label>Background Fit</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundFitStatus">Fill</label>
+					</li>
+				</ul>
+			</div>
+			<div class="row" id="backgroundImages">
+				<h3>Images</h3>
+				<ul class="listrow">
+					<li class="text-center">[ Grid of Wallpapers Goes here]</li>
+				</ul>
+			</div>
+			<div class="row hidden" id="backgroundColors">
+				<h3>Colors</h3>
+				<ul class="listrow">
+					<a class="backgroundColorSquare" style="background-color: red" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'red');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: orange" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'orange');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: yellow" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'yellow');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: green" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'green');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: blue" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'blue');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: indigo" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'indigo');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: purple" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'purple');">
+						
+					</a></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(3) li').addClass("active");});
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="backgroundTypeOption($(this).text());$(&apos;#backgroundImages&apos;).removeClass(&apos;hidden&apos;);$(&apos;#backgroundColors&apos;).addClass(&apos;hidden&apos;);">Image</li>',
+			'<li onclick="backgroundTypeOption($(this).text());$(&apos;#backgroundColors&apos;).removeClass(&apos;hidden&apos;);$(&apos;#backgroundImages&apos;).addClass(&apos;hidden&apos;);">Color</li>',
+			'<li onclick="backgroundTypeOption($(this).text());">Slideshow</li>',
+		'</ul>'].join('');
+
+	$('#backgroundTypePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function backgroundTypeOption() {
+	$('#backgroundTypeStatus').text(arguments[0]);
+	$("#backgroundTypePopover").popover("hide");
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="backgroundFitOption($(this).text());">Fill</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Fit</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Stretch</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Tile</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Center</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Span</li>',
+		'</ul>'].join('');
+
+	$('#backgroundFitPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function backgroundFitOption() {
+	$('#backgroundFitStatus').text(arguments[0]);
+	$("#backgroundFitPopover").popover("hide");
+}
+</script>

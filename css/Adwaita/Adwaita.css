@@ -1993,14 +1993,17 @@ ul.tiles {
   width: calc(100% - 270px);
   left: 270px; }
 .titlebar.paned > .button-group {
+  display: inline-block;
   padding: 0; }
   .titlebar.paned > .button-group a {
     display: inline-block; }
   .titlebar.paned > .button-group.float-center {
-    width: calc(40%);
-    text-align: center; }
+    width: calc(70% - 12px);
+    text-align: center;
+    margin-left: 270px; }
   .titlebar.paned > .button-group.float-left {
-    width: calc(30%); }
+    width: calc(30%);
+    margin-left: 270px; }
     .titlebar.paned > .button-group.float-left > .button:not(.flat):not(.left):not(.right):not(.middle) {
       margin-right: 6px; }
     .titlebar.paned > .button-group.float-left > .linked {

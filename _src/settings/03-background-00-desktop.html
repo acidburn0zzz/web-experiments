@@ -19,7 +19,12 @@ wallpaper: triangles
 			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
 			<span class="title">Settings</span>
 		</div>
-		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-center">
+			<div class="linked stack-switcher">
+				<a class="button text-button pressed left" href="#">Desktop</a><a class="button text-button right" href="{{ site.baseurl }}/settings/background/lockscreen/">Lock Screen</a>
+			</div>
+		</div>
+		<!-- center button group -->
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>
@@ -35,9 +40,12 @@ wallpaper: triangles
 		</ul>
 		<!-- View -->
 		<div class="view">
-			<!-- File Sharing -->
-			<div class="row sharingSettings">
-				<p><i>[this page is very crude at the moment]</i></p>
+			<div class="row">
+				<div class="backgroundPreview">
+					<div class="backgroundPreviewImage backgroundPreviewDesktop triangles"></div>
+				</div>
+			</div>
+			<div class="row">
 				<ul class="listrow">
 					<li id="backgroundTypePopover">
 						<label>Background</label>
@@ -49,17 +57,12 @@ wallpaper: triangles
 						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
 						<label class="float-right" id="backgroundFitStatus">Fill</label>
 					</li>
-					<li onclick="toggleChecked('#backgroundSameAsLockscreenSwitch');">
-						<label>Share with Lockscreen</label>
-						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundSameAsLockscreenSwitch" -%}
-					</li>
 				</ul>
 			</div>
 			<div class="row" id="backgroundImages">
 				<h3>Images</h3>
 				<ul class="listrow">
-					<li>[ Grid of Wallpapers Goes here]</li>
-					<li></li>
+					<li class="text-center">[ Grid of Wallpapers Goes here]</li>
 				</ul>
 			</div>
 			<div class="row hidden" id="backgroundColors">
