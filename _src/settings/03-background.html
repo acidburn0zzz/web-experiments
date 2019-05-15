@@ -35,6 +35,53 @@ wallpaper: triangles
 		</ul>
 		<!-- View -->
 		<div class="view">
+			<!-- File Sharing -->
+			<div class="row sharingSettings">
+				<p><i>[this page is very crude at the moment]</i></p>
+				<ul class="listrow">
+					<li id="backgroundTypePopover">
+						<label>Background</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundTypeStatus">Image</label>
+					</li>
+					<li id="backgroundFitPopover">
+						<label>Background Fit</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundFitStatus">Fill</label>
+					</li>
+					<li onclick="toggleChecked('#backgroundSameAsLockscreenSwitch');">
+						<label>Share with Lockscreen</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundSameAsLockscreenSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<div class="row" id="backgroundImages">
+				<h3>Images</h3>
+				<ul class="listrow">
+					<li>[ Grid of Wallpapers Goes here]</li>
+					<li></li>
+				</ul>
+			</div>
+			<div class="row hidden" id="backgroundColors">
+				<h3>Colors</h3>
+				<ul class="listrow">
+					<a class="backgroundColorSquare" style="background-color: red" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'red');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: orange" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'orange');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: yellow" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'yellow');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: green" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'green');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: blue" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'blue');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: indigo" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'indigo');">
+						
+					</a><a class="backgroundColorSquare" style="background-color: purple" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'purple');">
+						
+					</a></ul>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -43,4 +90,52 @@ wallpaper: triangles
 <script type="text/javascript">
 // highlight sidebar
 $(document).ready(function() {$('#settingsSidebar a:nth-of-type(3) li').addClass("active");});
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="backgroundTypeOption($(this).text());$(&apos;#backgroundImages&apos;).removeClass(&apos;hidden&apos;);$(&apos;#backgroundColors&apos;).addClass(&apos;hidden&apos;);">Image</li>',
+			'<li onclick="backgroundTypeOption($(this).text());$(&apos;#backgroundColors&apos;).removeClass(&apos;hidden&apos;);$(&apos;#backgroundImages&apos;).addClass(&apos;hidden&apos;);">Color</li>',
+			'<li onclick="backgroundTypeOption($(this).text());">Slideshow</li>',
+		'</ul>'].join('');
+
+	$('#backgroundTypePopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function backgroundTypeOption() {
+	$('#backgroundTypeStatus').text(arguments[0]);
+	$("#backgroundTypePopover").popover("hide");
+}
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="backgroundFitOption($(this).text());">Fill</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Fit</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Stretch</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Tile</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Center</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Span</li>',
+		'</ul>'].join('');
+
+	$('#backgroundFitPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function backgroundFitOption() {
+	$('#backgroundFitStatus').text(arguments[0]);
+	$("#backgroundFitPopover").popover("hide");
+}
 </script>

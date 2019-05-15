@@ -3,4 +3,11 @@
   grid-template-columns: fit-content(270px) 1fr;
   grid-gap: 0; }
 
+.backgroundColorSquare {
+  height: 48px;
+  width: 48px;
+  margin: 2px;
+  padding: 0;
+  display: inline-block; }
+
 /*# sourceMappingURL=settings.css.map */
