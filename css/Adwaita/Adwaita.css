@@ -2225,6 +2225,42 @@ ul.tiles {
   transition: background-image 1s ease-in-out;
   overflow-y: hidden; }
 
+.coldwarm {
+  background-image: url(../../img/wallpapers/ColdWarm.jpg) !important;
+  -moz-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  overflow-y: hidden; }
+
+.darkivy {
+  background-image: url(../../img/wallpapers/Dark_Ivy.jpg) !important;
+  -moz-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  overflow-y: hidden; }
+
+.fabric {
+  background-image: url(../../img/wallpapers/Fabric.jpg) !important;
+  -moz-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  overflow-y: hidden; }
+
+.icescape {
+  background-image: url(../../img/wallpapers/Icescape.jpg) !important;
+  -moz-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  overflow-y: hidden; }
+
+.raindrops {
+  background-image: url(../../img/wallpapers/RainDrops.jpg) !important;
+  -moz-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  overflow-y: hidden; }
+
+.wood {
+  background-image: url(../../img/wallpapers/Wood.jpg) !important;
+  -moz-transition: background-image 1s ease-in-out;
+  transition: background-image 1s ease-in-out;
+  overflow-y: hidden; }
+
 .black {
   background-image: none;
   background-color: #222; }

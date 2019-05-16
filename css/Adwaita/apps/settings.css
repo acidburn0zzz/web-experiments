@@ -14,14 +14,16 @@
   border: 2px solid #fff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
   margin: 2px; }
-  .backgroundPreview .backgroundPreviewImage {
+  .backgroundPreview #backgroundPreviewImage {
     display: block;
-    height: 300px; }
-    .backgroundPreview .backgroundPreviewImage.backgroundPreviewDesktop {
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat; }
+    .backgroundPreview #backgroundPreviewImage.backgroundPreviewDesktop {
       box-shadow: inset 0 12px 0 0 rgba(0, 0, 0, 0.8); }
-    .backgroundPreview .backgroundPreviewImage.backgroundPreviewLockscreen {
+    .backgroundPreview #backgroundPreviewImage.backgroundPreviewLockscreen {
       box-shadow: inset 0 12px 0 0 rgba(0, 0, 0, 0.2); }
-      .backgroundPreview .backgroundPreviewImage.backgroundPreviewLockscreen > span {
+      .backgroundPreview #backgroundPreviewImage.backgroundPreviewLockscreen > span {
         display: block;
         width: 100%;
         line-height: 300px;
@@ -30,5 +32,28 @@
         font-size: 300%;
         color: #fff;
         text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); }
+
+#backgroundPreviewGrid {
+  text-align: center; }
+  #backgroundPreviewGrid li.backgroundPreviewGridImage {
+    border: none;
+    display: inline-block;
+    margin: 4px;
+    height: 96px;
+    width: calc(33% - 38px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    vertical-align: top; }
+    #backgroundPreviewGrid li.backgroundPreviewGridImage > svg {
+      height: 48px;
+      width: 48px;
+      margin-top: 24px;
+      opacity: 0.5; }
+    #backgroundPreviewGrid li.backgroundPreviewGridImage.backgroundPreviewGridAddImage {
+      background-color: #ececec; }
+    #backgroundPreviewGrid li.backgroundPreviewGridImage:hover {
+      border-color: #3584e4; }
 
 /*# sourceMappingURL=settings.css.map */

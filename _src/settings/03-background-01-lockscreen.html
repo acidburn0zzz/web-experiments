@@ -40,56 +40,44 @@ wallpaper: triangles
 		</ul>
 		<!-- View -->
 		<div class="view">
+			<div class="infobar info hidden">
+				<p>Set selected wallpaper as lockscreen background</p>
+				<a class="button text-button float-right" id="applyBackgroundImage" onclick="" href="#">Apply</a>
+			</div>
 			<div class="row">
 				<div class="backgroundPreview">
-					<div class="backgroundPreviewImage backgroundPreviewLockscreen triangles">
+					<div id="backgroundPreviewImage" class="backgroundPreviewLockscreen triangles">
 						<span class="bold-label"><script> document.write(new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",minute: "numeric"})); </script></span>
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row wide">
 				<ul class="listrow">
 					<li>
 						<label>Same as Desktop</label>
-						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundSameAsLockscreenSwitch" onclick = "$('#backgroundTypePopover').toggleClass('insensitive');$('#backgroundFitPopover').toggleClass('insensitive');" -%}
-					</li>
-					<li id="backgroundTypePopover" class="insensitive">
-						<label>Background</label>
-						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
-						<label class="float-right" id="backgroundTypeStatus">Image</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "backgroundSameAsLockscreenSwitch" onclick = "$('#backgroundPreviewGrid').toggleClass('insensitive');$('#backgroundFitPopover').toggleClass('insensitive');" -%}
 					</li>
 					<li id="backgroundFitPopover" class="insensitive">
-						<label>Background Fit</label>
+						<label>Image Fit</label>
 						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
 						<label class="float-right" id="backgroundFitStatus">Fill</label>
 					</li>
 				</ul>
-			</div>
-			<div class="row" id="backgroundImages">
-				<h3>Images</h3>
-				<ul class="listrow">
-					<li class="text-center">[ Grid of Wallpapers Goes here]</li>
+				<ul id="backgroundPreviewGrid" class="listrow scrollbox insensitive">
+					<li class="backgroundPreviewGridImage stripes" onclick="changeBackgroundImage('stripes');">
+					</li><li class="backgroundPreviewGridImage adwaita" onclick="changeBackgroundImage('adwaita');">
+					</li><li class="backgroundPreviewGridImage flowerbed" onclick="changeBackgroundImage('flowerbed');">
+					</li><li class="backgroundPreviewGridImage triangles" onclick="changeBackgroundImage('triangles');">
+					</li><li class="backgroundPreviewGridImage road" onclick="changeBackgroundImage('road');">
+					</li><li class="backgroundPreviewGridImage coldwarm" onclick="changeBackgroundImage('coldwarm');">
+					</li><li class="backgroundPreviewGridImage darkivy" onclick="changeBackgroundImage('darkivy');">
+					</li><li class="backgroundPreviewGridImage fabric" onclick="changeBackgroundImage('fabric');">
+					</li><li class="backgroundPreviewGridImage icescape" onclick="changeBackgroundImage('icescape');">
+					</li><li class="backgroundPreviewGridImage raindrops" onclick="changeBackgroundImage('raindrops');">
+					</li><li class="backgroundPreviewGridImage wood" onclick="changeBackgroundImage('wood');">
+					</li><li class="backgroundPreviewGridImage backgroundPreviewGridAddImage">{%- include symbolic/actions/list-add-symbolic.svg -%}
+					</li>
 				</ul>
-			</div>
-			<div class="row hidden" id="backgroundColors">
-				<h3>Colors</h3>
-				<ul class="listrow">
-					<a class="backgroundColorSquare" style="background-color: red" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'red');">
-						
-					</a><a class="backgroundColorSquare" style="background-color: orange" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'orange');">
-						
-					</a><a class="backgroundColorSquare" style="background-color: yellow" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'yellow');">
-						
-					</a><a class="backgroundColorSquare" style="background-color: green" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'green');">
-						
-					</a><a class="backgroundColorSquare" style="background-color: blue" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'blue');">
-						
-					</a><a class="backgroundColorSquare" style="background-color: indigo" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'indigo');">
-						
-					</a><a class="backgroundColorSquare" style="background-color: purple" onclick="$('body').removeClass().css('background-image', 'none').css('background-color', 'purple');">
-						
-					</a></ul>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -99,6 +87,16 @@ wallpaper: triangles
 <script type="text/javascript">
 // highlight sidebar
 $(document).ready(function() {$('#settingsSidebar a:nth-of-type(3) li').addClass("active");});
+
+
+// change background
+function changeBackgroundImage(wallpaper) {
+	$('.infobar').removeClass('hidden');
+	$('#backgroundPreviewImage').attr('class', 'backgroundPreviewLockscreen').addClass(wallpaper);
+	var bodyClass = "$('.infobar').addClass('hidden');";
+	$('#applyBackgroundImage').attr('onclick', bodyClass);
+}
+
 
 
 // fill popover use &apos; to quote escape
