@@ -34,7 +34,8 @@
         text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); }
 
 #backgroundPreviewGrid {
-  text-align: center; }
+  text-align: center;
+  padding: 2px 0; }
   #backgroundPreviewGrid li.backgroundPreviewGridImage {
     border: none;
     display: inline-block;

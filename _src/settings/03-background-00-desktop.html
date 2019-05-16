@@ -50,13 +50,13 @@ wallpaper: triangles
 				</div>
 			</div>
 			<div class="row wide">
-				<ul class="listrow">
+				<!-- <ul class="listrow">
 					<li id="backgroundFitPopover">
 						<label>Background Fit</label>
 						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
 						<label class="float-right" id="backgroundFitStatus">Fill</label>
 					</li>
-				</ul>
+				</ul> -->
 				<h5>Choose a New Background</h5>
 				<ul id="backgroundPreviewGrid" class="listrow scrollbox">
 					<li class="backgroundPreviewGridImage stripes" onclick="changeBackgroundImage('stripes');">
@@ -119,12 +119,12 @@ function backgroundTypeOption() {
 $(document).ready(function() {
 	var label = "";
 	var popoverContent = ['<ul>',
-			'<li onclick="backgroundFitOption($(this).text());">Fill</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Centered</li>',
 			'<li onclick="backgroundFitOption($(this).text());">Fit</li>',
-			'<li onclick="backgroundFitOption($(this).text());">Stretch</li>',
-			'<li onclick="backgroundFitOption($(this).text());">Tile</li>',
-			'<li onclick="backgroundFitOption($(this).text());">Center</li>',
-			'<li onclick="backgroundFitOption($(this).text());">Span</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Spanned</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Scaled</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Centered</li>',
+			'<li onclick="backgroundFitOption($(this).text());">Zoom</li>',
 		'</ul>'].join('');
 
 	$('#backgroundFitPopover').popover({
