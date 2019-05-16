@@ -1,10 +1,10 @@
 ---
 layout: mockup
-title: "Removable Media"
+title: "Wired"
 theme: Adwaita/Adwaita.css
-permalink: settings/devices/removable-media
+permalink: settings/network/wired/
 wallpaper: triangles
-category: "Devices"
+category: "Network"
 ---
 
 <!-- css -->
@@ -28,16 +28,28 @@ category: "Devices"
 	<!-- Content -->
 	<div class="content">
 		<!-- Sidebar -->
-		<ul id="settingsDevicesSidebar" class="sidebar">
-		{%- for item in site.data.settings-devices-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
+		<ul id="settingsNetworkSidebar" class="sidebar">
+		{%- for item in site.data.settings-network-sidebar -%}<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span></li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}{%- endfor -%}
 		</ul>
 		<!-- View -->
 		<div class="view">
+			<!-- Ethernet -->
+			<div class="row">
+				<h5>Ethernet</h5>
+				<ul class="listrow">
+					<li id="wiredRow">
+						<label>Cable Unplugged</label>
+						{%- include components/listrow-menu-button.html -%}
+						{%- include components/switch.html float = "right" id = "wiredSwitch" -%}
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
 
+
 <!-- js -->
 <script type="text/javascript">
-$(document).ready(function() {$('#settingsDevicesSidebar a:nth-of-type(5) li').addClass("active");});
+$(document).ready(function() {$('#settingsNetworkSidebar a:nth-of-type(2) li').addClass("active");});
 </script>
