@@ -1256,7 +1256,7 @@ ul.listrow {
       ul.listrow li.large .label-group {
         margin-top: 12px;
         margin-left: 4px; }
-  ul.listrow a li label {
+  ul.listrow a li label:nth-child(2) {
     color: #eeeeec; }
   ul.listrow.nohover li:hover {
     background-color: #2d2d2d; }

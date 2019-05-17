@@ -1,29 +1,24 @@
 - link: /network/wifi
   icon: devices/network-wireless
   title: Wi-Fi
-  has-submenu: false
-  has-separator: false
+  status: Connected
 
 - link: /network/wired
   icon: devices/network-wired
   title: Wired
-  has-submenu: false
-  has-separator: false
+  status: Cable Unplugged
 
 - link: /network/vpn
   icon: status/network-vpn
   title: VPN
-  has-submenu: false
-  has-separator: false
+  status: Not Set Up
 
 - link: /network/proxy
   icon: apps/preferences-system-network-proxy
   title: Proxy
-  has-submenu: false
-  has-separator: false
+  status: Disabled
 
 - link: /network/airplane-mode
   icon: status/airplane-mode
   title: Airplane Mode
-  has-submenu: false
-  has-separator: false
+  status: "Off"
