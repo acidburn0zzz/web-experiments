@@ -1,0 +1,113 @@
+---
+layout: mockup
+title: "Proxy"
+theme: Adwaita/Adwaita.css
+permalink: settings-alt/network/proxy/
+wallpaper: triangles
+category: "Network"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<div class="button-group float-left">
+			<a href="{{ site.baseurl }}/settings-alt/network" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar large">
+		{%- for item in site.data.settings-alt-sidebar -%}<a href="{{ site.baseurl }}/settings-alt{{ item.link }}"><li><span class="icon">{%- include symbolic/{{ item.icon }}-symbolic.svg -%}</span><div class="category-labels"><span class="title">{{ item.title }}</span><span class="subtitle small-label">{{ item.subtitle }}</span></div></li></a>{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Proxy -->
+			<div class="row">
+				<ul class="listrow">
+					<li id="proxyStatusPopover">
+						<label>Proxy Configuration</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="proxyConfigStatus">Automatic</label>
+					</li>
+				</ul>
+				<div id="automaticProxy" class="">
+					<h5>Automatic Proxy Configuration</h5>
+					<ul class="listrow">
+						<li onclick="$('#deviceNameDialog').show();">
+							<label>Configuration URL</label>
+							<input class="entry float-right">
+						</li>
+					</ul>
+					<p>Web proxy autodiscovery is used when a configuration URL is not provided. This is not recommended when connected to untrusted, public networks.</p>
+				</div>
+				<div id="manualProxy" class="hidden">
+					<h5>Manual Proxy Configuration</h5>
+					<ul class="listrow">
+						<li onclick="$('#deviceNameDialog').show();">
+							<label>HTTP Proxy</label>
+							<label class="float-right">:8080</label>
+						</li>
+						<li onclick="$('#deviceNameDialog').show();">
+							<label>HTTPS Proxy</label>
+							<label class="float-right">:0</label>
+						</li>
+						<li onclick="$('#deviceNameDialog').show();">
+							<label>FTP Proxy</label>
+							<label class="float-right">:0</label>
+						</li>
+						<li onclick="$('#deviceNameDialog').show();">
+							<label>SOCKS Host</label>
+							<label class="float-right">:0</label>
+						</li>
+						<li onclick="$('#deviceNameDialog').show();">
+							<label>Ignore</label>
+							<label class="float-right">localhost, 127.0.0.0/8, ::1</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="proxyState($(this).text());$(&apos;#automaticProxy&apos;).removeClass(&apos;hidden&apos;);$(&apos;#manualProxy&apos;).addClass(&apos;hidden&apos;);"">Automatic</li>',
+			'<li onclick="proxyState($(this).text());$(&apos;#manualProxy&apos;).removeClass(&apos;hidden&apos;);$(&apos;#automaticProxy&apos;).addClass(&apos;hidden&apos;);">Manual</li>',
+		'</ul>'].join('');
+
+	$('#proxyStatusPopover').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function proxyState() {
+	$('#proxyConfigStatus').text(arguments[0]);
+	$("#proxyStatusPopover").popover("hide");
+}
+</script>

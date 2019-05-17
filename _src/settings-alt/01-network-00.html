@@ -1,0 +1,49 @@
+---
+layout: mockup
+title: "Network & Internet"
+theme: Adwaita/Adwaita.css
+permalink: settings-alt/network
+wallpaper: adwaita
+published: true
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar large">
+		{%- for item in site.data.settings-alt-sidebar -%}<a href="{{ site.baseurl }}/settings-alt{{ item.link }}"><li><span class="icon">{%- include symbolic/{{ item.icon }}-symbolic.svg -%}</span><div class="category-labels"><span class="title">{{ item.title }}</span><span class="subtitle small-label">{{ item.subtitle }}</span></div></li></a>{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<ul class="listrow">
+					{%- for item in site.data.settings-network-sidebar -%}<a href="{{ site.baseurl }}/settings-alt{{ item.link }}"><li><span class="icon s16 float-left">{%- include symbolic/{{ item.icon }}-symbolic.svg -%}</span><label class="float-left">{{ item.title }}</label>{%- include components/listrow-link-icon.html -%}</li></a>{%- endfor -%}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+</script>

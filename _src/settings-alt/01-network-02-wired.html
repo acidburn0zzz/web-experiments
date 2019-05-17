@@ -1,0 +1,58 @@
+---
+layout: mockup
+title: "Wired"
+theme: Adwaita/Adwaita.css
+permalink: settings-alt/network/wired/
+wallpaper: triangles
+category: "Network"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<div class="button-group float-left">
+			<a href="{{ site.baseurl }}/settings-alt/network" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar large">
+		{%- for item in site.data.settings-alt-sidebar -%}<a href="{{ site.baseurl }}/settings-alt{{ item.link }}"><li><span class="icon">{%- include symbolic/{{ item.icon }}-symbolic.svg -%}</span><div class="category-labels"><span class="title">{{ item.title }}</span><span class="subtitle small-label">{{ item.subtitle }}</span></div></li></a>{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Ethernet -->
+			<div class="row">
+				<h5>Ethernet</h5>
+				<ul class="listrow">
+					<li id="wiredRow">
+						<label>Cable Unplugged</label>
+						{%- include components/listrow-menu-button.html -%}
+						{%- include components/switch.html float = "right" id = "wiredSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+</script>

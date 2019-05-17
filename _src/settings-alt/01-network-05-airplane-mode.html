@@ -1,0 +1,87 @@
+---
+layout: mockup
+title: "Airplane Mode"
+theme: Adwaita/Adwaita.css
+permalink: settings-alt/network/airplane-mode/
+wallpaper: triangles
+category: "Network"
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<div class="button-group float-left">
+			<a href="{{ site.baseurl }}/settings-alt/network" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar large">
+		{%- for item in site.data.settings-alt-sidebar -%}<a href="{{ site.baseurl }}/settings-alt{{ item.link }}"><li><span class="icon">{%- include symbolic/{{ item.icon }}-symbolic.svg -%}</span><div class="category-labels"><span class="title">{{ item.title }}</span><span class="subtitle small-label">{{ item.subtitle }}</span></div></li></a>{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<!-- Airplane mode -->
+			<div class="row">
+				<p>Turning on Airplane Mode stops all wireless communication and disables Wi-Fi, Bluetooth and mobile broadband.</p>
+				<h5>Wireless Devices</h5>
+				<ul class="listrow" id="airplaneModeToggles">
+					<li>
+						<label>Wi-Fi</label>
+						{%- include components/switch.html checked = "checked" float = "right" id = "airplaneModeWifiSwitch" -%}
+					</li>
+					<li>
+						<label>Bluetooth</label>
+						{%- include components/switch.html checked = "checked" float = "right" id = "airplaneModeBluetoothSwitch" -%}
+					</li>
+					<li>
+						<label>Mobile Broadband</label>
+						{%- include components/switch.html checked = "checked" float = "right" id = "airplaneModeCellularSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+
+// airplane mode
+$(document).ready(function(){
+	$('#airplaneModeSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#statusAirplaneMode').removeClass('hidden');
+			$('#statusWireless').hide();
+			$('#airplaneModeWifiSwitch').prop('checked', false );
+			$('#airplaneModeBluetoothSwitch').prop('checked', false );
+			$('#airplaneModeCellularSwitch').prop('checked', false );
+			$('#airplaneModeToggles').addClass('insensitive');
+		} else {
+			$('#statusAirplaneMode').addClass('hidden');
+			$('#statusWireless').show();
+			$('#airplaneModeWifiSwitch').prop('checked', true );
+			$('#airplaneModeBluetoothSwitch').prop('checked', true );
+			$('#airplaneModeCellularSwitch').prop('checked', true );
+			$('#airplaneModeToggles').removeClass('insensitive');
+		}
+	});
+});
+</script>

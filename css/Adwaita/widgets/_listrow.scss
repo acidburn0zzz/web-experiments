@@ -236,6 +236,10 @@ ul.listrow  {
 
 	}
 
+	a li label {
+		color: $fg_color;
+	}
+
 	&.nohover {
 		li:hover {background-color:$base_color;}
 	}

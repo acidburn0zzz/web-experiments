@@ -1,0 +1,49 @@
+- link: /network
+  icon: devices/network-wireless
+  title: Network & Internet
+  subtitle: Wi-Fi, Hotspot, Wired, VPN
+
+- link: /#
+  icon: apps/preferences-system-devices
+  title: Devices
+  subtitle: Bluetooth, Printers, Thunderbolt
+
+- link: /#
+  icon: apps/preferences-desktop-wallpaper
+  title: Personalization
+  subtitle: Background, Font Size
+
+- link: /#
+  icon: apps/preferences-system-applications
+  title: Applications
+  subtitle: Defaults, Notifications, Search
+
+- link: /#
+  icon: apps/preferences-system-privacy
+  title: Privacy
+  subtitle: Permissions, Usage, Screen Lock
+
+- link: /#
+  icon: status/audio-volume-high
+  title: Power
+  subtitle: Volume, Microphone, Alerts
+
+- link: /#
+  icon: apps/gnome-power-manager
+  title: Power
+  subtitle: Battery, Power Saving
+
+- link: /#
+  icon: apps/preferences-desktop-accessibility
+  title: Universal Access
+  subtitle: Ease of Access, Zoom, Screen Reader
+
+- link: /#
+  icon: apps/preferences-desktop-locale
+  title: Region & Language
+  subtitle: Language, Region, Input Method
+
+- link: /#
+  icon: apps/preferences-system-details
+  title: System
+  subtitle: About, Date & Time

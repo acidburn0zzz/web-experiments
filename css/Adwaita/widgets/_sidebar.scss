@@ -38,6 +38,7 @@ ul.sidebar {
 			height: $sidebar_listitem_height;
 			line-height: $sidebar_listitem_height;
 			vertical-align: top;
+			color: inherit !important;
 		}
 
 		.symbolic {
@@ -70,7 +71,6 @@ ul.sidebar {
 				background-color:$selected_fg_color;
 				color:$selected_bg_color;
 			}
-
 		}
 	}
 
@@ -78,5 +78,62 @@ ul.sidebar {
 		height: 1px;
 		width: $sidebar_width;
 		background-color: lighten($borders_color, 7%);
+	}
+
+	&.large {
+		li {
+			padding: $sidebar_listitem_padding * 1 !important;
+			height: $sidebar_listitem_height * 1.5 !important;
+
+			.icon {
+				vertical-align: top;
+				margin: 2px;
+				background-color:$bg_color;
+				box-shadow: inset 0 0 0 1px $borders_color;
+				border-radius: 50%;
+				height: 32px;
+			}
+
+
+			.symbolic {
+				margin: 0;
+				padding: 8px;
+			}
+
+			> div.category-labels {
+				height: $sidebar_listitem_height * 1.5 !important;
+				// background-color: red;
+				display: inline-block;
+				width: calc(#{$sidebar_listitem_width} - (#{$sidebar_listitem_padding} * 8)) !important;
+				margin-left: 8px;
+				>.title {
+					display: block;
+					float: left;
+					color: inherit;
+					width: 100%;
+				}
+				>.subtitle {
+					display: block;
+					float: left;
+					color: inherit;
+					width: 100%;
+					margin: 2px 0;
+				}
+			}
+
+			&.active {
+				.icon {
+					opacity: 1;
+					background-color:$selected_fg_color;
+					box-shadow: none;
+					>.symbolic { g, path {fill:$selected_bg_color;}}
+				}
+
+				.pillbox {
+					background-color:$selected_fg_color;
+					color:$selected_bg_color;
+				}
+			}
+		}
 	}
 }
