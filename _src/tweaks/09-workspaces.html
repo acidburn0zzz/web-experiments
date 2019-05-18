@@ -20,7 +20,7 @@ wallpaper: adwaita
 			<span class="title">Tweaks</span>
 		</div>
 		<!-- Title -->
-		<span class="title">{{ page.title }}</span>
+		<span class="title">Workspaces</span>
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>
@@ -40,19 +40,22 @@ wallpaper: adwaita
 				<h4>Workspace Layout</h4>
 				<p>Choose between dynamic and a set number of workspaces.</p>
 				<ul class="listrow">
-					<li class="medium" onclick="$('#wsLayoutOption1').prop('checked', true );">
+					<li class="medium" onclick="$('#wsLayoutOption1').prop('checked', true );$('#tweaksNumberOfWorkspaces').addClass('insensitive');">
 						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "wsLayoutOption1" name = "wsLayoutOptions" -%}
 						<div class="label-group">
 							<label>Dynamic</label>
 							<label class="small-label dim-label">Workspaces created on demand and are automatically removed when empty.<label>
 						</div>
 					</li>
-					<li class="medium" onclick="$('#wsLayoutOption2').prop('checked', true );">
+					<li class="medium" onclick="$('#wsLayoutOption2').prop('checked', true );$('#tweaksNumberOfWorkspaces').removeClass('insensitive');">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "wsLayoutOption2" name = "wsLayoutOptions" -%}
 						<div class="label-group">
 							<label>Static</label>
 							<label class="small-label dim-label">Fixed number of workspaces.<label>
 						</div>
+					</li>
+					<li id="tweaksNumberOfWorkspaces" class="insensitive">
+						<label>Number of Workspaces</label>
 						<label class="float-right dim-label">4<label>
 					</li>
 				</ul>

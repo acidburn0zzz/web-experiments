@@ -20,7 +20,7 @@ wallpaper: adwaita
 			<span class="title">Tweaks</span>
 		</div>
 		<!-- Title -->
-		<span class="title">{{ page.title }}</span>
+		<span class="title">Keyboard & Mouse</span>
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>
@@ -36,6 +36,93 @@ wallpaper: adwaita
 		</ul>
 		<!-- View -->
 		<div class="view">
+			<div class="row wide" id="tweaksKeyboard">
+				<h4>Keyboard</h4>
+				<ul class="listrow">
+					<li class="medium" onclick="toggleChecked('#extendedInputSourcesSwitch');">
+						<div class="label-group">
+							<label>Show Extended Input Sources</label>
+							<label class="small-label dim-label">Increases the choice of input methods in the Settings application.</label>
+						</div>
+						{%- include components/switch.html float = "right" id="extendedInputSourcesSwitch" -%}
+					</li>
+					<li class="medium" onclick="toggleChecked('#emacsLayoutSwitch');">
+						<div class="label-group">
+							<label>Emacs Input</label>
+							<label class="small-label dim-label">Overrides shortcuts to use keybindings from the Emacs editor.</label>
+						</div>
+						{%- include components/switch.html float = "right" id="emacsLayoutSwitch" -%}
+					</li>
+					<li class="medium" onclick="toggleChecked('#composeKeySwitch');">
+						<div class="label-group">
+							<label>Compose Key</label>
+							<label class="small-label dim-label">Allows entering additional characters<label>
+						</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundFitStatus">Disabled</label>
+					</li>
+					<li onclick="toggleChecked('#lidSuspendSwitch');">
+						<label>Keyboard Layout Shortcut</label>
+						{%- include components/switch.html float = "right" id="lidSuspendSwitch" -%}
+					</li>
+					<li>
+						<label>Overview Shortcut</label>
+						<div class="linked float-right">
+							<a id="scale100" class="button text-button pressed left">Left Super</a><a id="scale200" class="button text-button right">Right Super</a>
+						</div>
+					</li>
+				</ul>
+				<a class="button text-button float-right">Additional Layout Options...</a>
+			</div>
+			<div class="row wide" id="tweaksMouse">
+				<h4>Mouse & Touchpad</h4>
+				<ul class="listrow">
+					<li class="medium" onclick="toggleChecked('#pointerLocationSwitch');">
+						<div class="label-group">
+							<label>Pointer Location</label>
+							<label class="small-label dim-label">Press the Ctrl key to highlight the pointer.</label>
+						</div>
+						{%- include components/switch.html float = "right" id="pointerLocationSwitch" -%}
+					</li>
+					<li>
+						<label>Acceleration Profile</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundFitStatus">Default</label>
+					</li>
+					<li onclick="toggleChecked('#middleClickPasteSwitch');">
+						<label>Middle Click Paste</label>
+						{%- include components/switch.html float = "right" id="middleClickPasteSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#disableTouchpadTypingSwitch');">
+						<label>Disable Touchpad While Typing</label>
+						{%- include components/switch.html float = "right" id="disableTouchpadTypingSwitch" -%}
+					</li>
+				</ul>
+				<h5>Mouse Click Emulation</h5>
+				<ul class="listrow">
+					<li class="medium" onclick="$('#mouseClickEmuOption1').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "mouseClickEmuOption1" name = "mouseClickEmulationOptions" -%}
+						<div class="label-group">
+							<label>Fingers</label>
+							<label class="small-label dim-label">Click with two fingers for right-click and three fingers for middle click.</label>
+						</div>
+					</li>
+					<li class="medium" onclick="$('#mouseClickEmuOption2').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" id = "mouseClickEmuOption2" name = "mouseClickEmulationOptions" -%}
+						<div class="label-group">
+							<label>Area</label>
+							<label class="small-label dim-label">Click the bottom of the right for right-click and the bottom middle for middle-click.</label>
+						</div>
+					</li>
+					<li class="medium" onclick="$('#mouseClickEmuOption3').prop('checked', true );">
+						{%- include components/listrow-selection.html float = "left" type = "radio" id = "mouseClickEmuOption3" name = "mouseClickEmulationOptions" -%}
+						<div class="label-group">
+							<label>Disabled</label>
+							<label class="small-label dim-label">Don't use mouse click emulation.</label>
+						</div>
+					</li>
+				</ul
+			</div>
 		</div>
 	</div>
 </div>

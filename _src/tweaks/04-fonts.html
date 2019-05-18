@@ -20,7 +20,7 @@ wallpaper: adwaita
 			<span class="title">Tweaks</span>
 		</div>
 		<!-- Title -->
-		<span class="title">{{ page.title }}</span>
+		<span class="title">Fonts</span>
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>
@@ -36,6 +36,50 @@ wallpaper: adwaita
 		</ul>
 		<!-- View -->
 		<div class="view">
+			<div class="row wide" id="windowTweaks">
+				<ul class="listrow">
+					<li>
+						<label>Interface Text</label>
+						<label class="float-right">11 pt</label>
+						<label class="float-right">Cantarell Regular</label>
+					</li>
+					<li>
+						<label>Window Titles</label>
+						<label class="float-right"><b>11 pt</b></label>
+						<label class="float-right"><b>Cantarell Bold</b></label>
+					</li>
+					<li>
+						<label>Monospace Text</label>
+						<label class="float-right monospace-label">10 pt</label>
+						<label class="float-right monospace-label">Monospace</label>
+					</li>
+					<li>
+						<label>Document Text</label>
+						<label class="float-right">11 pt</label>
+						<label class="float-right">Cantarell Regular</label>
+					</li>
+				</ul>
+			</div>
+			<div class="row wide" id="windowTweaks">
+				<ul class="listrow">
+					<li>
+						<label>Hinting</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right">Slight</label>
+					</li>
+					<li>
+						<label>Antialiasing</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right">Subpixel</label>
+					</li>
+					<li>
+						<label>Scaling Factor</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/list-remove-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/actions/list-add-symbolic.svg -%}</div>
+						<label class="float-right">1.00</label>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

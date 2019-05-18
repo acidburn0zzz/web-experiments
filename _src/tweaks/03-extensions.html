@@ -20,7 +20,7 @@ wallpaper: adwaita
 			<span class="title">Tweaks</span>
 		</div>
 		<!-- Title -->
-		<span class="title">{{ page.title }}</span>
+		<span class="title">Extensions</span>
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>
@@ -36,6 +36,12 @@ wallpaper: adwaita
 		</ul>
 		<!-- View -->
 		<div class="view">
+			{%- include components/empty-state.html
+				id = "tweaksNoExtensions"
+				icon="mimetypes/application-x-addon" 
+				title = "No Extensions Installed" 
+				message= "Installed extensions will appear here. Browse Software to find extensions." 
+			-%}
 		</div>
 	</div>
 </div>

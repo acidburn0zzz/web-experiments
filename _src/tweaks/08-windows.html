@@ -20,7 +20,7 @@ wallpaper: adwaita
 			<span class="title">Tweaks</span>
 		</div>
 		<!-- Title -->
-		<span class="title">{{ page.title }}</span>
+		<span class="title">Windows</span>
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>
@@ -72,37 +72,37 @@ wallpaper: adwaita
 				</ul>
 			</div>
 			<div class="row wide" id="focusTweaks">
-				<h4>Focus</h4>
+				<h4>Window Focus</h4>
 				<ul class="listrow">
-					<li class="medium" onclick="$('#focusOption1').prop('checked', true );">
+					<li class="medium" onclick="$('#focusOption1').prop('checked', true );$('#raiseWindows').addClass('insensitive');">
 						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "focusOption1" name = "focusOptions" -%}
 						<div class="label-group">
 							<label>Click to Focus</label>
 							<label class="small-label dim-label">Focus windows when they are clicked.<label>
 						</div>
 					</li>
-					<li class="medium" onclick="$('#focusOption2').prop('checked', true );">
+					<li class="medium" onclick="$('#focusOption2').prop('checked', true );$('#raiseWindows').removeClass('insensitive');">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "focusOption2" name = "focusOptions" -%}
 						<div class="label-group">
 							<label>Focus on Hover</label>
 							<label class="small-label dim-label">Focus windows on hover with the pointer. Desktop hover preserves focus.<label>
 						</div>
 					</li>
-					<li class="medium" onclick="$('#focusOption3').prop('checked', true );">
+					<li class="medium" onclick="$('#focusOption3').prop('checked', true );$('#raiseWindows').removeClass('insensitive');">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "focusOption3" name = "focusOptions" -%}
 						<div class="label-group">
 							<label>Secondary Click</label>
 							<label class="small-label dim-label">Focus windows on hover with the pointer. Desktop hover removes focus.<label>
 						</div>
 					</li>
-					<li onclick="toggleChecked('#raiseWindowSwitch');">
+					<li onclick="toggleChecked('#raiseWindowSwitch');" class="insensitive" id="raiseWindows">
 						<label>Raise Windows on Focus</label>
 						{%- include components/switch.html float = "right" id="raiseWindowSwitch" -%}
 					</li>
 				</ul>
 			</div>
-			<div class="row wide" id="titlebarTweaks">
-				<h4>Titlebars</h4>
+			<div class="row wide" id="titlebarActionTweaks">
+				<h4>Titlebar Actions</h4>
 				<ul class="listrow">
 					<li id="doubleClickPopover">
 						<label>Double-click Action</label>
@@ -119,6 +119,11 @@ wallpaper: adwaita
 						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
 						<label class="float-right" id="secondaryClickStatus">None</label>
 					</li>
+				</ul>
+			</div>
+			<div class="row wide" id="titlebarButtonTweaks">
+				<h4>Titlebar Buttons</h4>
+				<ul class="listrow">
 					<li>
 						<label>Button Alignment</label>
 						<div class="linked float-right">

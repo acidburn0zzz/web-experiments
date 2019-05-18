@@ -20,7 +20,7 @@ wallpaper: adwaita
 			<span class="title">Tweaks</span>
 		</div>
 		<!-- Title -->
-		<span class="title">{{ page.title }}</span>
+		<span class="title">Appearance</span>
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>
@@ -41,8 +41,7 @@ wallpaper: adwaita
 				<a class="button text-button float-right insensitive" id="resetThemesButton" onclick="resetThemes();$(this).addClass('insensitive');">Reset</a>
 			</div>
 			<div class="row wide" id="themeTweaks">
-				<h4>Themes</h4>
-				<p>Tweak the look and feel of your computer with different themes.</p>
+				<p>Tweak the look and feel of your computer with different themes and wallpapers.</p>
 				<ul class="listrow">
 					<li id="gtkThemePopover" class="medium">
 						<div class="label-group">
@@ -87,20 +86,30 @@ wallpaper: adwaita
 				</ul>
 			</div>
 			<div class="row wide" id="themeTweaks">
-				<h4>Wallpapers</h4>
-				<p>Change the background images for your desktop and lock screen.</p>
+				<h5>Desktop Wallpapers</h5>
 				<ul class="listrow">
 					<li>
-						<label>Desktop</label>
-						<a class="button image-text-button float-right">image_22.png<div class="float-right">{%- include symbolic/actions/document-open-symbolic.svg -%}</div></a>
-						<div class="separator float-right"></div>
-						<a class="button text-button float-right">Zoom</a>
+						<label>Background Image</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundFitStatus">image_22.png</label>
 					</li>
+					<li id="backgroundFitPopover">
+						<label>Background Fit</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundFitStatus">Stretched</label>
+					</li>
+				</ul>
+				<h5>Lockscreen Wallpaper</h5>
+				<ul class="listrow">
 					<li>
-						<label>Lockscreen</label>
-						<a class="button image-text-button float-right">wallpaper001.png<div class="float-right">{%- include symbolic/actions/document-open-symbolic.svg -%}</div></a>
-						<div class="separator float-right"></div>
-						<a class="button text-button float-right">Stretched</a>
+						<label>Background Image</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundFitStatus">image_22.png</label>
+					</li>
+					<li id="backgroundFitPopover">
+						<label>Background Fit</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="backgroundFitStatus">Zoom</label>
 					</li>
 				</ul>
 			</div>
