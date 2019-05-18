@@ -187,7 +187,7 @@ $button_transition: all 200ms $ease-out-quad;
 
 	&.stack-switcher {
 		.button {
-			width: 80px;
+			width: $button_size * 4;
 			text-align: center;
 		}
 	}

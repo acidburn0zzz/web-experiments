@@ -656,7 +656,7 @@ select.destructive-action, .button.destructive-action {
   margin: 0;
   padding: 0; }
   .linked.stack-switcher .button {
-    width: 80px;
+    width: 96px;
     text-align: center; }
   .linked .button {
     position: relative;
@@ -1990,7 +1990,7 @@ ul.tiles {
   top: 0 !important;
   margin-top: 0 !important; }
 .titlebar.grouped .title-group {
-  width: calc(40%) !important;
+  width: calc(60%) !important;
   margin: 0 auto; }
   .titlebar.grouped .title-group .title {
     margin-top: 0; }
@@ -2000,10 +2000,10 @@ ul.tiles {
   .titlebar.grouped > .button-group * {
     display: inline-block; }
   .titlebar.grouped > .button-group.float-center {
-    width: calc(40%);
+    width: calc(60%);
     text-align: center; }
   .titlebar.grouped > .button-group.float-left {
-    width: calc(30%); }
+    width: calc(20%); }
     .titlebar.grouped > .button-group.float-left > .button:not(.flat):not(.left):not(.right):not(.middle) {
       margin-right: 6px; }
     .titlebar.grouped > .button-group.float-left > .linked {

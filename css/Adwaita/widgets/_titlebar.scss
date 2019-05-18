@@ -176,7 +176,7 @@ $pane_width:270px;
 	}
 
 	.title-group {
-		width: calc(40%) !important;
+		width: calc(60%) !important;
 		margin: 0 auto;
 		.title {
 			margin-top: 0; // hardcode in position
@@ -191,12 +191,12 @@ $pane_width:270px;
 		}
 
 		&.float-center {
-			width: calc(40%);
+			width: calc(60%);
 			text-align: center;
 		}
 
 		&.float-left {
-			width: calc(30%);
+			width: calc(20%);
 			> .button:not(.flat):not(.left):not(.right):not(.middle) { margin-right:6px;}
 			> .linked {
 				margin-right:6px;

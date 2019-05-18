@@ -1,0 +1,38 @@
+---
+layout: mockup
+title: "Music - Songs"
+theme: Adwaita/Adwaita.css
+permalink: music/songs
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/photos.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+		</div>
+		<!-- Title -->
+		<div class="button-group float-center linked stack-switcher">
+			<a href="{{ site.baseurl }}/music/albums" class="button text-button left">Albums</a><a href="{{ site.baseurl }}/music/artists" class="button text-button middle">Artists</a><a class="button text-button middle pressed">Songs</a><a href="{{ site.baseurl }}/music/playlists" class="button text-button right">Playlists</a>
+		</div>
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a><a class="button image-button">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<div class="view">
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+</script>

@@ -1,0 +1,27 @@
+.view {
+  padding: 0 24px;
+  width: calc(100% - 48px); }
+
+ul.albums-grid {
+  list-style: none;
+  margin: 12px auto;
+  padding: 0; }
+  ul.albums-grid li {
+    width: 192px;
+    height: 256px;
+    display: inline-block;
+    margin: 6px; }
+    ul.albums-grid li > .album-cover {
+      background-color: grey;
+      width: 192px;
+      height: 192px;
+      border-radius: 4px; }
+    ul.albums-grid li > .album-title {
+      margin: 0 4px;
+      margin-top: 8px; }
+    ul.albums-grid li > .album-subtitle {
+      margin: 0 4px;
+      font-size: 80%;
+      line-height: 0.5; }
+
+/*# sourceMappingURL=music.css.map */
