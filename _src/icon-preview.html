@@ -1,0 +1,130 @@
+---
+layout: mockup
+title: "Icon Preview"
+theme: Adwaita/Adwaita.css
+permalink: icon-preview/
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/icon-preview.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<div class="linked"><a class="button text-button left">Open</a><a class="button image-button right">{%- include symbolic/actions/pan-down-symbolic.svg -%}</a></div>
+			<a class="button image-button" onclick="$('#notebookGearyTab').show();">{%- include symbolic/actions/tab-new-symbolic.svg -%}</a>
+		</div>
+		<!-- Title -->
+		<div class="title-group"><span class="title">Icon Preview</span></div>
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/view-refresh-symbolic.svg -%}</a>
+			<a class="button image-button" id="iconPreviewMenu">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content view">
+		<ul class="notebook top">
+			<li class="active" onclick="$('.notebook > li').removeClass('active');$(this).addClass('active');$('#iconPreviewCalculator').removeClass('hidden');$('#iconPreviewCalendar').addClass('hidden');$('#iconPreviewGeary').addClass('hidden');"><span>org.gnome.Calculator</span></li>
+			<li onclick="$('.notebook > li').removeClass('active');$(this).addClass('active');$('#iconPreviewCalendar').removeClass('hidden');$('#iconPreviewCalculator').addClass('hidden');$('#iconPreviewGeary').addClass('hidden');"><span>org.gnome.Calendar</span></li>
+			<li onclick="$('.notebook > li').removeClass('active');$(this).addClass('active');$('#iconPreviewGeary').removeClass('hidden');$('#iconPreviewCalculator').addClass('hidden');$('#iconPreviewCalendar').addClass('hidden');" id="notebookGearyTab"><span>org.gnome.Geary</span></li>
+		</ul>
+		<div class="view">
+			<div class="row">
+				<div class="text-center linked stack-switcher">
+					<a onclick="$('.linked > .button').removeClass('pressed');$(this).addClass('pressed');$('.iconPreviews').addClass('white').removeClass('black').removeClass('adwaita');"class="button text-button left pressed">Light
+					</a><a onclick="$('.linked > .button').removeClass('pressed');$(this).addClass('pressed');$('.iconPreviews').removeClass('white').addClass('black').removeClass('adwaita');" class="button text-button middle">Dark
+					</a><a onclick="$('.linked > .button').removeClass('pressed');$(this).addClass('pressed');$('.iconPreviews').removeClass('white').removeClass('black').addClass('adwaita');" class="button text-button right">Wallpaper</a>
+				</div>
+			</div>
+			<div class="row iconPreviews white" id="iconPreviewCalculator">
+				<ul class="iconPreviewGrid" style="border:none;padding-left:32px;">
+					<li><img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg"><span>32</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg"><span>64</span></li>
+					<li><img class="icon s128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg"><span>128</span></li>
+				</ul>
+				<ul class="iconPreviewGrid">
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Books.svg"><span>Books</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Builder.svg"><span>Builder</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg"><span>Calculator</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Dictionary.svg"><span>Dictionary</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Epiphany.svg"><span>Web</span></li>
+				</ul>
+				<ul class="iconPreviewGrid">
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Podcasts.svg"><span>Podcasts</span></li>
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calculator.svg"><span>Calculator</span></li>
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Totem.svg"><span>Totem</span></li>
+				</ul>
+			</div>
+			<div class="row iconPreviews white hidden" id="iconPreviewCalendar">
+				<ul class="iconPreviewGrid" style="border:none;padding-left:32px;">
+					<li><img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calendar.svg"><span>32</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calendar.svg"><span>64</span></li>
+					<li><img class="icon s128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calendar.svg"><span>128</span></li>
+				</ul>
+				<ul class="iconPreviewGrid">
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Books.svg"><span>Books</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Builder.svg"><span>Builder</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calendar.svg"><span>Calendar</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Dictionary.svg"><span>Dictionary</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Epiphany.svg"><span>Web</span></li>
+				</ul>
+				<ul class="iconPreviewGrid">
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Podcasts.svg"><span>Podcasts</span></li>
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Calendar.svg"><span>Calendar</span></li>
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Totem.svg"><span>Totem</span></li>
+				</ul>
+			</div>
+			<div class="row iconPreviews white hidden" id="iconPreviewGeary">
+				<ul class="iconPreviewGrid" style="border:none;padding-left:32px;">
+					<li><img class="icon s32 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Geary.svg"><span>32</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Geary.svg"><span>64</span></li>
+					<li><img class="icon s128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Geary.svg"><span>128</span></li>
+				</ul>
+				<ul class="iconPreviewGrid">
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Books.svg"><span>Books</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Builder.svg"><span>Builder</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Geary.svg"><span>Geary</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Dictionary.svg"><span>Dictionary</span></li>
+					<li><img class="icon s64 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Epiphany.svg"><span>Web</span></li>
+				</ul>
+				<ul class="iconPreviewGrid">
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Podcasts.svg"><span>Podcasts</span></li>
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Geary.svg"><span>Geary</span></li>
+					<li><img class="icon 128 vector" src="{{ site.baseurl }}/img/icons/scalable/apps/org.gnome.Totem.svg"><span>Totem</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$('#notebookGearyTab').hide();
+
+
+// fill popover use &apos; to quote escape
+$(document).ready(function () {
+	var popoverContent = ['<ul>',
+			'<li>Colour Palette</li>',
+			'<hr>',
+			'<li>Take Screenshot</li>',
+			'<li>Shuffle Example Icons</li>',
+			'<hr>',
+			'<li>Keyboard Shortcuts</li>',
+			'<li>About Icon Preview</li>',
+		'</ul>'].join('');
+
+	$('#iconPreviewMenu').popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+</script>

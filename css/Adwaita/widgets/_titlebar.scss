@@ -21,7 +21,7 @@ $pane_width:270px;
 	// overflow: hidden;
 
 
-	@include headerbar_fill;
+	@include headerbar_fill(darken($bg_color, 10%));
 
 	&.backdrop {
 		border-color: $backdrop_borders_color;
@@ -183,10 +183,10 @@ $pane_width:270px;
 		}
 	}
 
-	>.button-group {
+	.button-group {
 		padding:0;
-		z-index: 1;
-		* {
+
+		div, a {
 			display: inline-block;
 		}
 

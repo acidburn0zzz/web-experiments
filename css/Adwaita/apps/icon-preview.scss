@@ -1,0 +1,31 @@
+// css overrides and hardcodes for the dialpad
+
+.iconPreviews {
+	box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+
+	&.adwaita,
+	&.black {
+		ul > li > span {
+			color: #fff;
+		}
+	}
+}
+
+.iconPreviewGrid {
+	display: block;
+	list-style: none;
+	padding: 0;
+	margin:0;
+	text-align: center;
+	border-top: 1px solid rgba(0,0,0,0.15);
+	> li {
+		margin: 12px;
+		text-align: center;
+		display: inline-block;
+		> span {
+			margin: 12px 0;
+			display: block;
+			width: 100%;
+		}
+	}
+}

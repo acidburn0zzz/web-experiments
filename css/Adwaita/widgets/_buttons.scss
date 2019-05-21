@@ -10,7 +10,7 @@ $button_transition: all 200ms $ease-out-quad;
 .button {
 	@at-root %button_basic, & {
 
-		min-height: $button_size;
+		height: $button_size;
 		min-width: 16px;
 		padding: 4px 8px;
 		border: 1px solid;
@@ -36,7 +36,7 @@ $button_transition: all 200ms $ease-out-quad;
 
 		// button with icon
 		&.image-button {
-			min-width: $button_size;
+			width: $button_size;
 			max-height: $button_size;
 			padding: 4px;
 			>.symbolic {margin: 4px;}
@@ -45,6 +45,7 @@ $button_transition: all 200ms $ease-out-quad;
 
 		// text-only button
 		&.text-button {
+			min-width: $button_size;
 			padding-left: 12px;
 			padding-right: 12px;
 			line-height: $button_size;
@@ -193,11 +194,9 @@ $button_transition: all 200ms $ease-out-quad;
 	}
 
 	.button {
-		position: relative;
-		top: 0;
-		margin: 0;
 		display:inline-block;
 		border-radius: 0;
+
 		&.left {
 			float:none;
 			border-top-left-radius: $button_corner_radius;
