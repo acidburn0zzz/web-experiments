@@ -195,7 +195,8 @@ select,
     select.image-text-button .symbolic,
     .button.image-text-button .symbolic {
       vertical-align: middle;
-      margin: 0 4px; }
+      margin: 0;
+      margin-right: 6px; }
     select.image-text-button *,
     .button.image-text-button * {
       display: inline-block; }

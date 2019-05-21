@@ -1,0 +1,33 @@
+---
+layout: mockup
+title: "Patterns - Unlock/Lock"
+theme: Adwaita/Adwaita.css
+permalink: patterns/unlock-lock
+wallpaper: white
+---
+
+<style type="text/css">
+.window {margin-top: 5em;}
+</style>
+
+<!-- Window -->
+<div class="window small no-content">
+	<!-- Titlebar -->
+	<div id="titlebarPhotos" class="titlebar grouped">
+		<!-- left button group -->
+		<div class="button-group float-left">
+			<a class="button text-button insensitive" id="lockedButton">Add...</a>
+		</div>
+		<!-- title group -->
+		<!-- right button group -->
+		<div class="button-group float-right">
+			<a class="button image-text-button" id="unlockButton" onclick="$('#lockedButton').removeClass('insensitive');$(this).hide();$('#lockButton').show();">{%- include symbolic/status/changes-allow-symbolic.svg -%}Unlock</a>
+			<a class="button image-text-button" id="lockButton" onclick="$('#lockedButton').addClass('insensitive');$(this).hide();$('#unlockButton').show();">{%- include symbolic/status/changes-prevent-symbolic.svg -%}Lock</a>
+			{%- include components/close-button.html -%}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$('#lockButton').hide();
+</script>
