@@ -28,6 +28,14 @@ permalink: patterns/empty-states
 </div>
 <div class="row wide">
 	{%- include components/empty-state.html
+		id = "noThunderBolt"
+		icon="devices/thunderbolt" 
+		title = "No Thunderbolt Support"
+		message= "No Thunderbolt could be detected. Either the system lacks Thunderbolt support, or it has been disabled at the system-level." 
+	-%}
+</div>
+<div class="row wide">
+	{%- include components/empty-state.html
 		id = "noMusic"
 		icon="emblems/emblem-music" 
 		title = "No Music Found"
