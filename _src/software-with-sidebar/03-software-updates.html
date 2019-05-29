@@ -33,7 +33,7 @@ wallpaper: triangles
 		<!-- Sidebar -->
 		<ul id="softwareSidebar" class="sidebar">
 		{%- for item in site.data.software-sidebar -%}
-			<a href="{{ site.baseurl }}/software{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-value %}<span class="pillbox float-right">{{ item.has-value }}</span>{%- endif -%}
+			<a href="{{ site.baseurl }}/software-with-sidebar{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-value %}<span class="pillbox float-right">{{ item.has-value }}</span>{%- endif -%}
 			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
 		{%- endfor -%}
 		</ul>
