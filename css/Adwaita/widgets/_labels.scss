@@ -82,6 +82,14 @@ b {
 	color:inherit;
 }
 
+.ultrabold-label {
+	@extend %text;
+	font-family:"cantarell_extrabold", sans-serif;
+	font-size: inherit;
+	font-weight: 1000;
+	color:inherit;
+}
+
 // underlined aka links
 u { color: $selected_bg_color }
 

@@ -1,0 +1,39 @@
+---
+layout: mockup
+title: "Patterns - Empty States"
+theme: Adwaita/Adwaita.css
+permalink: patterns/empty-states
+---
+
+<div class="row wide">
+	<h2>Empty or Disabled States</h2>
+	<p>These are cases when a view is empty or the entire state of a view is changed, rather than show an empty window or the entire view in a disabled or insensitive fashion we display a message. Changing the view requires further action from a header bar item, such as re-enabling a setting to change overall state or importing items to fill the view, e.g. adding music.</p>
+	<p>Empty states have a <code>128x128</code> pixel version of a relevant symbolic icon (with <code>.dim-label</code>), display a primary message as a <code>.type-title-1</code> and provide some body text explaining the state, as in the following examples.</p>
+</div>
+<div class="row wide">
+	{%- include components/empty-state.html
+		id = "wifiDisabled"
+		icon="status/network-wireless-no-route" 
+		title = "No Wi-Fi adapter found" 
+		message= "Make sure you have a Wi-Fi adapter plugged in and turned on." 
+	-%}
+</div>
+<div class="row wide">
+	{%- include components/empty-state.html
+		id = "bluetoothDisabled"
+		icon="devices/bluetooth" 
+		title = "Bluetooth is turned off" 
+		message= "Turn on to connect devices and recieve file transfers." 
+	-%}
+</div>
+<div class="row wide">
+	{%- include components/empty-state.html
+		id = "noMusic"
+		icon="emblems/emblem-music" 
+		title = "No Music Found"
+		message= "Add some tunes to your Music folder to get listening."
+	-%}
+</div>
+<br>
+<br>
+<br>

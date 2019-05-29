@@ -1020,7 +1020,7 @@ path.warning {
 select option, p, .small-label, caption,
 .caption, .monospace-label,
 code, a, .bold-label,
-b, h1, h2, h3, h4, h5, h6 {
+b, .ultrabold-label, h1, h2, h3, h4, h5, h6 {
   color: #eeeeec;
   font-family: "cantarell", sans-serif;
   font-kerning: initial;
@@ -1088,6 +1088,12 @@ b {
   font-family: "cantarell_bold", sans-serif;
   font-size: inherit;
   font-weight: 700;
+  color: inherit; }
+
+.ultrabold-label {
+  font-family: "cantarell_extrabold", sans-serif;
+  font-size: inherit;
+  font-weight: 1000;
   color: inherit; }
 
 u {
