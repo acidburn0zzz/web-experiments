@@ -7,9 +7,11 @@ $bold_font_family: "cantarell_bold", sans-serif !default;
 $font_size: 15px;
 $font_weight: 400;
 
-$large_title_font_size:32px;
-$title_font_size:22px;
-$caption_font_size:12px;
+// $large_title_font_size:32px;
+$large_title_font_size:24pt;
+// $title_font_size:22px;
+$title_font_size:16pt;
+$caption_font_size:9pt;
 
 $ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 $asset_suffix: if($variant=='dark', '-dark', '');

@@ -1020,7 +1020,7 @@ path.warning {
         .infobar.info .button.insensitive label, .infobar.info .button.insensitive, .infobar.question .button.insensitive label, .infobar.question .button.insensitive, .infobar.warning .button.insensitive label, .infobar.warning .button.insensitive, .infobar.error .button.insensitive label, .infobar.error .button.insensitive {
           color: #a9cbf4; }
 
-select option, p, .small-label,
+select option, p, .small-label, caption,
 .caption, .monospace-label,
 code, a, .bold-label,
 b, h1, h2, h3, h4, h5, h6 {
@@ -1037,10 +1037,13 @@ p {
   display: inline-block;
   color: #2e3436; }
 
-.small-label,
-.caption {
+.small-label {
   font-size: 12px;
   line-height: 15px; }
+
+caption,
+.caption {
+  font-size: 9pt; }
 
 .larger-label {
   line-height: 18px;
@@ -1049,21 +1052,15 @@ p {
 .dark-label {
   color: black; }
 
-.small-label,
-.caption, .titlebar .subtitle,
+.small-label, .titlebar .subtitle,
 .dim-label {
   color: #989898; }
-  .small-label b,
-  .caption b, .titlebar .subtitle b, .small-label u,
-  .caption u, .titlebar .subtitle u, .small-label i,
-  .caption i, .titlebar .subtitle i,
+  .small-label b, .titlebar .subtitle b, .small-label u, .titlebar .subtitle u, .small-label i, .titlebar .subtitle i,
   .dim-label b,
   .dim-label u,
   .dim-label i {
     color: inherit; }
-  .small-label svg > path,
-  .caption svg > path, .titlebar .subtitle svg > path, .small-label svg > g,
-  .caption svg > g, .titlebar .subtitle svg > g,
+  .small-label svg > path, .titlebar .subtitle svg > path, .small-label svg > g, .titlebar .subtitle svg > g,
   .dim-label svg > path,
   .dim-label svg > g {
     fill: #7f7f7f; }
@@ -1107,18 +1104,19 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-family: "cantarell_light", sans-serif;
-  font-size: 32px;
+  font-size: 24pt;
+  letter-spacing: 0.2rem;
   line-height: 2; }
 
 h2 {
   font-family: "cantarell_extrabold", sans-serif;
-  font-size: 22px;
+  font-size: 16pt;
   line-height: 2;
   color: #454f52;
   margin: 8px 0; }
 
 h3 {
-  font-size: 15px;
+  font-size: 13pt;
   line-height: 21px;
   color: #454f52;
   margin: 4px 0; }

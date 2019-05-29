@@ -17,13 +17,17 @@ p {
 	color: $fg_color;
 }
 
-.small-label,
-.caption {
+.small-label {
 	@extend %text;
 	@extend %dim_label;
 	font-size:$font_size - 3px;
 	line-height:$font_size;
 }
+
+caption,
+.caption {
+	@extend %text;
+	font-size: $caption_font_size;}
 
 .larger-label {
 	line-height: $font_size + 3px;
@@ -97,6 +101,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-family:"cantarell_light", sans-serif;
 	font-size:$large_title_font_size;
+	letter-spacing: 0.2rem;
 	line-height:2;
 }
 
@@ -111,7 +116,7 @@ h2 {
 
 // Heading
 h3 {
-	font-size:$font_size;
+	font-size:$title_font_size - 3pt;
 	line-height:$font_size + 6px;
 	color: lighten($fg_color, 10%);
 	margin: 4px 0;
