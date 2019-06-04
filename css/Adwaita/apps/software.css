@@ -51,9 +51,15 @@
       position: absolute;
       left: 12px;
       top: 14px;
-      opacity: 0.5; }
+      opacity: 0.5;
+      transition: all 100ms ease-in-out; }
     .category-grid .cat:hover img {
       opacity: 1; }
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 12px; }
 
 .app-grid {
   display: grid;

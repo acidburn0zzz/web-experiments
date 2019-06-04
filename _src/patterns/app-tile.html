@@ -1,16 +1,19 @@
 ---
 layout: mockup
-title: "Application Tile"
+title: "Software: Banners & Tiles"
 permalink: app-tile
 theme: Adwaita/Adwaita.css
 published: true
-issue: https://gitlab.gnome.org/GNOME/gnome-initial-setup/issues/8
+issue: https://gitlab.gnome.org/GNOME/gnome-software/issues/688
 ---
 
 <!-- css -->
 <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/software.css">
 <div class="container">
 <h1 class="type-large-title">Featured Applications</h1>
+<div class="featured-grid">
+</div>
+
 <h1 class="type-large-title">Categories</h1>
 <div class="category-grid">
 {% for cat in site.data.software-categories %}
