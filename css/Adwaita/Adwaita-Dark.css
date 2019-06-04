@@ -1134,6 +1134,49 @@ h5 {
   line-height: 15px;
   margin: 16px 0; }
 
+/***********************
+* Text styles (headings)
+************************/
+.type-large-title {
+  font-weight: 300;
+  font-size: 24pt;
+  letter-spacing: 0.2rem;
+  margin-top: 1em; }
+  .type-large-title:first-child {
+    margin-top: 0; }
+
+.type-title-1 {
+  font-weight: 800;
+  font-size: 20pt; }
+
+.type-title-2 {
+  font-weight: 800;
+  font-size: 15pt; }
+
+.type-title-3 {
+  font-weight: 700;
+  font-size: 15pt; }
+
+.type-title-4 {
+  font-weight: 700;
+  font-size: 13pt; }
+
+.type-heading {
+  font-weight: 700;
+  font-size: 11pt; }
+
+.type-body {
+  font-weight: 400;
+  font-size: 11pt; }
+
+.type-caption-heading {
+  font-weight: 700;
+  font-size: 9pt; }
+
+.type-caption {
+  font-weight: 400;
+  font-size: 9pt; }
+
 ul.listrow {
   margin: 6px 0;
   padding: 0;

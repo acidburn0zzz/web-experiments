@@ -1,0 +1,32 @@
+---
+layout: mockup
+title: "Application Tile"
+permalink: app-tile
+theme: Adwaita/Adwaita.css
+published: true
+issue: https://gitlab.gnome.org/GNOME/gnome-initial-setup/issues/8
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/software.css">
+<div class="container">
+<h1 class="type-large-title">Featured Applications</h1>
+<h1 class="type-large-title">Categories</h1>
+<div class="category-grid">
+{% for cat in site.data.software-categories %}
+  <div class="cat" id="{{ cat.name }}">
+    <img alt="" src="img/icons/symbolic/{{cat.icon}}-symbolic.svg">
+    <div class="type-heading title">{{cat.name}}</div>
+  </div>
+{% endfor %}
+</div>
+<h1 class="type-large-title">Editor's Picks</h1>
+<div class="app-grid">
+{% for app in site.data.software-app-list %}
+  <div class="app" id="{{ app.id }}">
+    <img alt="" src="img/icons/scalable/apps/{{app.id}}.svg">
+    <div class="type-heading title">{{app.title}}</div>
+    <description class="type-caption">{{app.description}}</description>
+  </div>
+{% endfor %}
+</div>

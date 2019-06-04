@@ -1,0 +1,18 @@
+ - name: Audio &amp; Video
+   icon: folder-music
+ - name: Communication &amp; News
+   icon: user-available
+ - name: Productivity
+   icon: text-editor
+ - name: Games
+   icon: applications-games
+ - name: Graphics & Photography
+   icon: applications-graphics
+ - name: Addons
+   icon: application-x-addon
+ - name: Developer Tools
+   icon: applications-engineering
+ - name: Education &amp; Science
+   icon: applications-science
+ - name: Utilities
+   icon: applications-utilities

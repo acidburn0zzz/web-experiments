@@ -24,9 +24,9 @@ sass:
 permalink: :title/
 
 # Exclude list
-exclude:
-  - '*.css.map'
-  - '*.scss'
+#exclude:
+#  - '*.css.map'
+#  - '*.scss'
 
 # Include list
 include: 
