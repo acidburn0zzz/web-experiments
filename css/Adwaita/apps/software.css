@@ -97,7 +97,7 @@
   grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
   grid-gap: 12px;
   overflow: hidden;
-  max-height: 164px; }
+  max-height: 168px; }
   .app-grid .app {
     display: flex;
     min-height: 110px;
@@ -119,7 +119,7 @@
 .category-grid .cat, .featured-grid .banner, .app-grid .app {
   background-color: #ffffff;
   margin: 2px;
-  border: 2px solid #ffffff;
+  /* border: 2px solid $base_color; */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   user-select: none;
@@ -127,12 +127,13 @@
   -moz-user-select: none;
   transition: all 200ms ease-in-out; }
   .category-grid .cat:hover, .featured-grid .banner:hover, .app-grid .app:hover, .category-grid .cat:focus, .featured-grid .banner:focus, .app-grid .app:focus {
-    border: 2px solid #3584e4;
+    /* border: 2px solid $selected_bg_color; */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     cursor: pointer; }
   .category-grid .cat:active, .featured-grid .banner:active, .app-grid .app:active {
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     background-color: #c8c2bc;
-    border: 2px solid #cdc7c2; }
+    /* border: 2px solid $borders_color; */ }
 
 .rating {
   margin-top: 6px; }
