@@ -58,7 +58,7 @@
 
 .featured-grid {
   display: grid;
-  grid-template-columns: minmax(200px, 2fr) minmax(100px, 1fr);
+  grid-template-columns: 2fr 1fr;
   grid-gap: 12px; }
   .featured-grid .banner {
     background-size: cover;
@@ -70,15 +70,16 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 80px;
+      height: 74px;
       background-color: rgba(255, 255, 255, 0.9);
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: flex-start;
       align-content: flex-start;
-      padding: 12px; }
+      padding: 6px;
+      overflow: hidden; }
       .featured-grid .banner .stripe * {
-        margin: 12px; }
+        margin: 6px; }
       .featured-grid .banner .stripe img {
         display: block;
         width: 64px;
