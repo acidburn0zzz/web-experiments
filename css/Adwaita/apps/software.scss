@@ -109,7 +109,18 @@ $variant: 'light';
         height: 64px;
         filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4)) drop-shadow(0 1px 10px rgba(0,0,0,0.1));
       }
+      
+      description {
+        display: block;
+      }
     }
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  .featured-grid .banner .stripe description,
+  .featured-grid .banner .stripe img {
+    display: none;
   }
 }
 

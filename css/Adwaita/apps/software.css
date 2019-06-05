@@ -85,7 +85,13 @@
         width: 64px;
         height: 64px;
         filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4)) drop-shadow(0 1px 10px rgba(0, 0, 0, 0.1)); }
+      .featured-grid .banner .stripe description {
+        display: block; }
 
+@media only screen and (max-width: 600px) {
+  .featured-grid .banner .stripe description,
+  .featured-grid .banner .stripe img {
+    display: none; } }
 .app-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
