@@ -64,7 +64,8 @@
     background-size: cover;
     background-position: center;
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+    border: 2px solid #ffffff; }
     .featured-grid .banner .stripe {
       position: absolute;
       bottom: 0;
@@ -132,8 +133,7 @@
     cursor: pointer; }
   .category-grid .cat:active, .featured-grid .banner:active, .app-grid .app:active {
     box-shadow: none;
-    background-color: #c8c2bc;
-    /* border: 2px solid $borders_color; */ }
+    background-color: #c8c2bc; }
 
 .rating {
   margin-top: 6px; }

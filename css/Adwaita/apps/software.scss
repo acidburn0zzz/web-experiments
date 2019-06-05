@@ -87,6 +87,7 @@ $variant: 'light';
     background-position: center;
     position: relative;
     overflow: hidden;
+    border: 2px solid $base_color;
     
     .stripe {
       position: absolute;
@@ -176,7 +177,6 @@ $variant: 'light';
     &:active {
       box-shadow: none;
       background-color: darken($bg-color, 20%);
-      /* border: 2px solid $borders_color; */
     }
 }
 
