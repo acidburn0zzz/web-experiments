@@ -2,6 +2,7 @@
    name: Mypaint
    description: Digital painting with infinite canvas
    color: '#813d9c'
+   background: featured-mypaint2.png
  - appid: org.gnome.Builder
    name: Builder
    description: Build some software
