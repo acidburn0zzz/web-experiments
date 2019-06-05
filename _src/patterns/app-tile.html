@@ -14,7 +14,7 @@ issue: https://gitlab.gnome.org/GNOME/gnome-software/issues/688
 <div class="featured-grid">
 {% for banner in site.data.software-banner %}
   <div class="banner" id="{{ banner.appid }}" style="
-  {% if (banner.background) %}
+  {% if banner.background %}
     background-image: url('img/gnome-software/{{banner.background}}')
   {% else %}
     background-color: {{banner.color}}
@@ -46,7 +46,15 @@ issue: https://gitlab.gnome.org/GNOME/gnome-software/issues/688
   <div class="app" id="{{ app.id }}">
     <img alt="" src="img/icons/scalable/apps/{{app.id}}.svg">
     <div class="type-heading title">{{app.title}}</div>
-    <description class="type-caption">{{app.description}}</description>
+    <div class="rating">
+      {% for i in (1..5) %}
+        {% if i<=app.rating %}
+          <span class="starfull"></span>
+        {% else %}
+          <span class="starempty"></span>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 {% endfor %}
 </div>

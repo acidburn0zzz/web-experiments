@@ -118,12 +118,12 @@ $variant: 'light';
   grid-template-columns: repeat(auto-fill, minmax(128px,1fr)); 
   grid-gap: 12px;
   overflow: hidden;
-  max-height: 180px;
+  max-height: 164px;
   
   .app {
     @extend %tile;
     display: flex;  
-    min-height: 140px;
+    min-height: 110px;
     flex-direction: column;
     align-items: center;
     padding: 12px;
@@ -166,4 +166,25 @@ $variant: 'light';
       background-color: darken($bg-color, 20%);
       border: 2px solid $borders_color;
     }
+}
+
+.rating {
+  margin-top: 6px;
+}
+
+.starempty {
+  @extend %star;
+  background-image: url('../../../img/icons/symbolic/star-thin-symbolic.svg');
+}
+
+.starfull {
+  @extend %star;
+  background-image: url('../../../img/icons/symbolic/star-filled-symbolic.svg');
+}
+
+%star {
+  display: inline-block;
+  width: 16px; height: 16px;
+  margin: 0 1px;
+  opacity: 0.3;
 }

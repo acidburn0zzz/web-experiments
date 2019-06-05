@@ -1,21 +1,28 @@
  - id: org.gimp.GIMP
    title: GIMP
    description: Image editing at its best.
+   rating: 4
  - id: org.gnome.Aisleriot
    title: Aisleriot
    description: Card Game, really good.
+   rating: 2
  - id: org.gnome.Boxes
    title: Boxes
    description: Easy Virtualization
+   rating: 5
  - id: com.transmissionbt.Transmission
    title: Transmission
    description: Copyright has just run out
+   rating: 3
  - id: org.gnome.Builder
    title: Builder
    description: Build Some Software
+   rating: 5
  - id: org.gnome.Podcasts
    title: Podcasts
    description: Podcasts killed a radio star
+   rating: 4
  - id: org.gnome.Boxes
    title: Boxes
    description: Easy Virtualization
+   rating: 4
