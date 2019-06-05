@@ -69,10 +69,8 @@ $variant: 'light';
       left: 12px;
       top: 14px;
       opacity: 0.5;
-      transition: all 100ms ease-in-out;
     }
     
-    &:hover img { opacity: 1; }
   }
 }
 
@@ -167,11 +165,11 @@ $variant: 'light';
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
-    transition: all 200ms ease-in-out;
+    transition: all 100ms ease-in-out;
 
     &:hover, &:focus {
       /* border: 2px solid $selected_bg_color; */
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      box-shadow: 0 1px 3px darken($selected_bg_color, 10%);
       cursor: pointer;
     }
     &:active {

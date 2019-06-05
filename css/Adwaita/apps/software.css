@@ -51,10 +51,7 @@
       position: absolute;
       left: 12px;
       top: 14px;
-      opacity: 0.5;
-      transition: all 100ms ease-in-out; }
-    .category-grid .cat:hover img {
-      opacity: 1; }
+      opacity: 0.5; }
 
 .featured-grid {
   display: grid;
@@ -126,10 +123,10 @@
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
-  transition: all 200ms ease-in-out; }
+  transition: all 100ms ease-in-out; }
   .category-grid .cat:hover, .featured-grid .banner:hover, .app-grid .app:hover, .category-grid .cat:focus, .featured-grid .banner:focus, .app-grid .app:focus {
     /* border: 2px solid $selected_bg_color; */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 3px #1b6acb;
     cursor: pointer; }
   .category-grid .cat:active, .featured-grid .banner:active, .app-grid .app:active {
     box-shadow: none;
