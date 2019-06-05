@@ -22,7 +22,7 @@
    title: Podcasts
    description: Podcasts killed a radio star
    rating: 4
- - id: org.gnome.Boxes
-   title: Boxes
-   description: Easy Virtualization
+ - id: org.gnome.Wallet
+   title: Wallet
+   description: Cryptomaniacs
    rating: 4
