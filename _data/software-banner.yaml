@@ -1,0 +1,8 @@
+ - appid: org.mypaint.Mypaint
+   name: Mypaint
+   description: Digital painting with infinite canvas
+   color: '#813d9c'
+ - appid: org.gnome.Builder
+   name: Builder
+   description: Build some software
+   background: featured-builder-bg.jpg

@@ -12,6 +12,23 @@ issue: https://gitlab.gnome.org/GNOME/gnome-software/issues/688
 <div class="container">
 <h1 class="type-large-title">Featured Applications</h1>
 <div class="featured-grid">
+{% for banner in site.data.software-banner %}
+  <div class="banner" id="{{ banner.appid }}" style="
+  {% if (banner.background) %}
+    background-image: url('img/gnome-software/{{banner.background}}')
+  {% else %}
+    background-color: {{banner.color}}
+  {% endif %}">
+    <div class="stripe">
+    <img alt="" src="img/icons/scalable/apps/{{banner.appid}}.svg">
+      <div class="meta">
+        <div class="type-heading title">{{banner.name}}</div>
+        <description class="type-caption">{{banner.description}}</description>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
 </div>
 
 <h1 class="type-large-title">Categories</h1>

@@ -58,8 +58,32 @@
 
 .featured-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(200px, 2fr) minmax(100px, 1fr);
   grid-gap: 12px; }
+  .featured-grid .banner {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden; }
+    .featured-grid .banner .stripe {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background-color: rgba(255, 255, 255, 0.9);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: flex-start;
+      padding: 12px; }
+      .featured-grid .banner .stripe * {
+        margin: 12px; }
+      .featured-grid .banner .stripe img {
+        display: block;
+        width: 64px;
+        height: 64px;
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.4)) drop-shadow(0 1px 10px rgba(0, 0, 0, 0.1)); }
 
 .app-grid {
   display: grid;
@@ -85,7 +109,7 @@
     .app-grid .app description {
       text-align: center; }
 
-.category-grid .cat, .app-grid .app {
+.category-grid .cat, .featured-grid .banner, .app-grid .app {
   background-color: #ffffff;
   margin: 2px;
   border: 2px solid #ffffff;
@@ -95,10 +119,10 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   transition: all 200ms ease-in-out; }
-  .category-grid .cat:hover, .app-grid .app:hover, .category-grid .cat:focus, .app-grid .app:focus {
+  .category-grid .cat:hover, .featured-grid .banner:hover, .app-grid .app:hover, .category-grid .cat:focus, .featured-grid .banner:focus, .app-grid .app:focus {
     border: 2px solid #3584e4;
     cursor: pointer; }
-  .category-grid .cat:active, .app-grid .app:active {
+  .category-grid .cat:active, .featured-grid .banner:active, .app-grid .app:active {
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
     background-color: #c8c2bc;
     border: 2px solid #cdc7c2; }
