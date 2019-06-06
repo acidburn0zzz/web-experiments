@@ -48,12 +48,6 @@ $variant: 'light';
   padding: 16px;
 }
 
-.featured-splash {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-gap: 12px;
-}
-
 .category-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(256px,1fr)); 
@@ -76,7 +70,7 @@ $variant: 'light';
 
 .featured-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: repeat(3,1fr);
   grid-gap: 12px;
   
   .banneryea {
@@ -116,6 +110,10 @@ $variant: 'light';
         display: block;
       }
     }
+  }
+  .banneryea:first-child {
+
+    grid-column-end: span 2;
   }
 }
 
