@@ -90,7 +90,15 @@
 @media only screen and (max-width: 600px) {
   .featured-grid .banneryea .stripe description,
   .featured-grid .banneryea .stripe img {
-    display: none; } }
+    display: none; }
+
+  .featured-grid .banneryea .stripe {
+    height: 48px;
+    align-items: flex-end; }
+
+  .featured-grid .banneryea .stripe .title {
+    font-size: 120%;
+    font-weight: normal; } }
 .app-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));

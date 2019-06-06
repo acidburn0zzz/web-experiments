@@ -124,6 +124,14 @@ $variant: 'light';
   .featured-grid .banneryea .stripe img {
     display: none;
   }
+  .featured-grid .banneryea .stripe {
+    height: 48px;
+    align-items: flex-end;
+  }
+  .featured-grid .banneryea .stripe .title {
+    font-size: 120%;
+    font-weight: normal;
+  }
 }
 
 .app-grid {
