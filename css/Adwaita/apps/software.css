@@ -85,8 +85,15 @@
     grid-column-end: span 2; }
 
 @media only screen and (max-width: 600px) {
-  .featured-grid .banneryea .stripe description,
+  .featured-grid .banneryea, .featured-grid .banneryea:first-child {
+    grid-column-end: span 3;
+    /*span whole width */ }
+
   .featured-grid .banneryea .stripe img {
+    width: 32px;
+    height: 32px; }
+
+  .featured-grid .banneryea .stripe description {
     display: none; }
 
   .featured-grid .banneryea .stripe {
