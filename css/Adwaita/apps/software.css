@@ -132,7 +132,7 @@
   background-color: #ffffff;
   margin: 3px;
   /* border: 2px solid $base_color; */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   user-select: none;
   -webkit-user-select: none;
@@ -140,7 +140,7 @@
   transition: all 100ms ease-in-out; }
   .category-grid .cat:hover, .featured-grid .banneryea:hover, .app-grid .app:hover, .category-grid .cat:focus, .featured-grid .banneryea:focus, .app-grid .app:focus {
     /* border: 2px solid $selected_bg_color; */
-    box-shadow: 0 1px 3px #1b6acb;
+    box-shadow: 0 1px 2px #3584e4;
     cursor: pointer; }
   .category-grid .cat:active, .featured-grid .banneryea:active, .app-grid .app:active {
     box-shadow: none;
