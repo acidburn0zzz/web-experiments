@@ -50,7 +50,7 @@
 
 .featured-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 12px; }
   .featured-grid .banneryea {
     min-height: 180px;
@@ -84,11 +84,11 @@
   .featured-grid .banneryea:first-child {
     grid-column-end: span 2; }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
   .featured-grid .banneryea, .featured-grid .banneryea:first-child {
     min-height: 120px;
-    grid-column-end: span 3;
-    /*span whole width */ }
+    grid-column: 1 / -1;
+    /* span whole width */ }
 
   .featured-grid .banneryea .stripe img {
     width: 32px;
