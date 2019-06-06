@@ -119,6 +119,7 @@ $variant: 'light';
 
 @media only screen and (max-width : 600px) {
   .featured-grid .banneryea, .featured-grid .banneryea:first-child {
+    min-height: 120px;
     grid-column-end: span 3; /*span whole width */
   }
   .featured-grid .banneryea .stripe img {
@@ -129,8 +130,8 @@ $variant: 'light';
     display: none;
   }
   .featured-grid .banneryea .stripe {
-    height: 48px;
-    align-items: flex-end;
+    height: 42px;
+    align-items: center;
   }
   .featured-grid .banneryea .stripe .title {
     font-size: 120%;
