@@ -9,5 +9,5 @@
    background: featured-builder-bg.jpg
  - appid: org.gnome.Maps
    name: Maps
-   description: Going soewhere?
+   description: Going somewhere?
    color: '#813d9c'
