@@ -1,14 +1,14 @@
 ---
 layout: mockup
-title: "Software: Banners & Tiles (variant 2)"
-permalink: app-tile2
+title: "Software: Banners & Tiles (Variant 3)"
+permalink: app-tile3
 theme: Adwaita/Adwaita.css
 published: true
 issue: https://gitlab.gnome.org/GNOME/gnome-software/issues/688
 ---
 
 <!-- css -->
-<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/software2.css">
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/software3.css">
 <div class="container">
 <h1 class="type-large-title">Featured Applications</h1>
 <div class="featured-grid">
@@ -57,11 +57,11 @@ $(document).ready(function() {
       } else {
         bannerhtml += " style='background-color:" + banner.color + "'>";
       }
-    bannerhtml += "<div class='stripe'>";
-    bannerhtml += "<img src='img/icons/scalable/apps/" + banner.appid + ".svg'>";
-    bannerhtml += "<div class='meta'><div class='type-heading title'>" + banner.name + "</div>";
-    bannerhtml += "<div class='type-caption'>" + banner.description + "</div></div>";
-    bannerhtml += "</div></div>"
+
+    //bannerhtml += "<img src='img/icons/scalable/apps/" + banner.appid + ".svg'>";
+    bannerhtml += "<div class='type-heading title'>" + banner.name + "</div>";
+    bannerhtml += "<div class='type-caption'>" + banner.description + "</div>";
+    bannerhtml += "</div>"
     $(".featured-grid").append(bannerhtml);
 
   });

@@ -1,0 +1,163 @@
+
+$variant: 'light';
+@import 'Adwaita/_colors.scss';
+
+/* Don't wanna mess up the styles above, starting from scratch ;) */
+
+.container {
+  max-width: 1024px;
+  margin: auto;
+  padding: 16px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(256px,1fr)); 
+  grid-gap: 12px;
+
+  .cat {
+    @extend %tile;
+    position: relative;
+    padding: 12px 12px 12px 36px;
+    
+    img {
+      position: absolute;
+      left: 12px;
+      top: 14px;
+      opacity: 0.5;
+    }
+    
+  }
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  grid-gap: 12px;
+  
+  .banneryea {
+    @extend %tile;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+    color: $selected_fg_color;
+    justify-content: flex-end;
+    padding: 24px;
+    overflow: hidden;
+    border: 2px solid $base_color;
+       
+    div {
+      display: block;
+      margin: 6px;
+      text-shadow: 0 2px 2px rgba(0,0,0,0.5);
+    }
+    
+    .type-heading {
+      font-size: 400%;
+      font-weight: 800;
+    }
+  }
+  .banneryea:first-child {
+    grid-column-end: span 2;
+  }
+}
+
+@media only screen and (max-width : 650px) {
+  .featured-grid .banneryea, .featured-grid .banneryea:first-child {
+    min-height: 120px;
+    grid-column: 1 / -1; /* span whole width */
+  }
+  .featured-grid .banneryea .stripe img {
+    width: 32px;
+    height: 32px;
+  }
+  .featured-grid .banneryea .stripe description {
+    display: none;
+  }
+  .featured-grid .banneryea .stripe {
+    height: 42px;
+    align-items: center;
+  }
+  .featured-grid .banneryea .stripe .title {
+    font-size: 120%;
+    font-weight: normal;
+  }
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(128px,1fr)); 
+  grid-gap: 12px;
+  overflow: hidden;
+  max-height: 168px;
+  
+  .app {
+    @extend %tile;
+    display: flex;  
+    min-height: 110px;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px;
+ 
+    .title {
+      margin: 0.2em 0;
+      color: lighten($fg_color, 10%);
+    }
+    img {
+      display: block;
+      width: 64px; height: 64px;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.4)) drop-shadow(0 1px 10px rgba(0,0,0,0.1));
+      margin: 6px;
+    }
+    
+    description {
+      text-align: center;
+      
+    }
+  }
+}
+
+%tile {
+    background-color: $base_color;
+    margin: 3px;
+    /* border: 2px solid $base_color; */
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    transition: all 100ms ease-in-out;
+
+    &:hover, &:focus {
+      /* border: 2px solid $selected_bg_color; */
+      box-shadow: 0 1px 2px $selected_bg_color;
+      cursor: pointer;
+    }
+    &:active {
+      box-shadow: none;
+      background-color: darken($bg-color, 10%);
+    }
+}
+
+.rating {
+  margin-top: 6px;
+}
+
+.starempty {
+  @extend %star;
+  background-image: url('../../../img/icons/symbolic/star-thin-symbolic.svg');
+}
+
+.starfull {
+  @extend %star;
+  background-image: url('../../../img/icons/symbolic/star-filled-symbolic.svg');
+}
+
+%star {
+  display: inline-block;
+  width: 16px; height: 16px;
+  margin: 0;
+  opacity: 0.3;
+}
