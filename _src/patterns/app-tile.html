@@ -53,7 +53,7 @@ $(document).ready(function() {
 
     var bannerhtml = "<div class='banneryea' id='" + banner.appid + "'";
     if (banner.background) {
-        bannerhtml += " style='background: url('img/gnome-software/" + banner.background +")'>";
+        bannerhtml += " style='background-image: url(img/gnome-software/" + banner.background.toString() +")'>";
       } else {
         bannerhtml += " style='background-color:" + banner.color + "'>";
       }
@@ -62,7 +62,6 @@ $(document).ready(function() {
     bannerhtml += "<div class='meta'><div class='type-heading title'>" + banner.name + "</div>";
     bannerhtml += "<div class='type-caption'>" + banner.description + "</div></div>";
     bannerhtml += "</div></div>"
-
     $(".featured-grid").append(bannerhtml);
 
   });
