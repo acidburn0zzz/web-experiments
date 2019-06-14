@@ -10,7 +10,7 @@
  - appid: org.gnome.Maps
    name: Maps
    description: Going somewhere?
-   color: '#e1f3e0'
+   background: featured-map.png
  - appid: org.gnome.Podcasts
    name: Podcasts
    description: Listen to your favorite shows
