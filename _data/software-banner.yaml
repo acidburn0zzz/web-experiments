@@ -7,3 +7,7 @@
    name: Builder
    description: Build some software
    background: featured-builder-bg.jpg
+ - appid: org.gnome.Maps
+   name: Maps
+   description: Going soewhere?
+   color: '#813d9c'
