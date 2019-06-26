@@ -1,0 +1,34 @@
+---
+layout: mockup
+title: "Builder - Headerbar"
+theme: Adwaita/Adwaita.css
+permalink: builder/headerbar
+wallpaper: adwaita
+---
+<!-- Window -->
+<div class="window large">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<!-- left button group -->
+		<div class="button-group float-left">
+			<a class="button image-button" id="addEvent">{%- include symbolic/actions/list-add-symbolic.svg -%}{%- include symbolic/actions/pan-down-symbolic.svg -%}</a><a class="button text-button">Today</a><div class="linked">
+				<a class="button image-button left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a><a class="button image-button right">{%- include symbolic/actions/go-next-symbolic.svg -%}</a>
+			</div>
+		</div>
+		<!-- center button group -->
+		<div class="button-group float-center">
+			<div class="linked stack-switcher">
+				<a class="button text-button left">Week</a><a class="button text-button middle">Month</a><a class="button text-button right">Year</a>
+			</div>
+		</div>
+		<!-- right button group -->
+
+		<div class="button-group float-right">
+			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a><a class="button image-button" id="calendarsSynchronizing"><div class="icon s16 spinner">{%- include symbolic/status/process-working-symbolic.svg -%}</div></a><a class="button image-button" id="calendarsPopover">{%- include symbolic/apps/office-calendar-symbolic.svg -%}</a><a class="button image-button" id="calendarMenu">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<div class="content">
+		<div class="row">
+		</div>
+	</div>
+</div>

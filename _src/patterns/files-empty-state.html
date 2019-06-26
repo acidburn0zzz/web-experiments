@@ -1,0 +1,63 @@
+---
+layout: mockup
+title: "Icon Preview"
+theme: Adwaita/Adwaita.css
+permalink: files-empty-state/
+wallpaper: triangles
+---
+
+<!-- css -->
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<div class="linked"><a class="button image-button left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a><a class="button image-button right">{%- include symbolic/actions/go-next-symbolic.svg -%}</a></div>
+		</div>
+		<!-- Title -->
+		<div class="title-group"><span class="title">Files</span></div>
+		<div class="button-group float-right">
+			<a class="button image-button" id="folderTabMenu">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content view white">
+		<ul class="notebook top">
+			<li class="active" onclick="$('.notebook > li').removeClass('active');$(this).addClass('active');$('#folderTabFolder1').removeClass('hidden');$('#folderTabFolder2').addClass('hidden');$('#folderTabFolder3	').addClass('hidden');"><span>Folder1</span></li>
+			<li onclick="$('.notebook > li').removeClass('active');$(this).addClass('active');$('#folderTabFolder2').removeClass('hidden');$('#folderTabFolder1').addClass('hidden');$('#folderTabFolder3	').addClass('hidden');"><span>Folder2</span></li>
+			<li onclick="$('.notebook > li').removeClass('active');$(this).addClass('active');$('#folderTabFolder3	').removeClass('hidden');$('#folderTabFolder1').addClass('hidden');$('#folderTabFolder2').addClass('hidden');" id="notebookFolder3	Tab"><span>Folder3	</span></li>
+		</ul>
+		<div class="row" id="folderTabFolder1" style="margin-top:23%;opacity: 0.3;">
+			{%- include components/empty-state.html
+				id = "emptyFolder"
+				icon="places/folder" 
+				title = "Folder is Empty"
+				message= " "
+			-%}
+		</div>
+		<div class="row hidden" id="folderTabFolder2" style="margin-top:23%;opacity: 0.3;">
+			{%- include components/empty-state.html
+				id = "emptyFolder"
+				icon="places/folder" 
+				title = "Folder is Empty"
+				message= " "
+			-%}
+		</div>
+		<div class="row hidden" id="folderTabFolder3" style="margin-top:23%;opacity: 0.3;">
+			{%- include components/empty-state.html
+				id = "emptyFolder"
+				icon="places/folder" 
+				title = "Folder is Empty"
+				message= " "
+			-%}
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+</script>

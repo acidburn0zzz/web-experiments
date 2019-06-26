@@ -110,6 +110,17 @@ wallpaper: adwaita
 				<h3>Import a Calendar</h3>
 				<p>Alternatively, enter the web address of an online calendar you want to import, or open a supported calendar file.</p>
 				<p><input class="entry full-width float-left" placeholder="https://example.com/calendar.ics" style="max-width: 77%"></input><a class="button text-button float-right">Open...</a></p>
+				<p><input type="checkbox" class="switch-input" onclick="$('#calendarAuthenticate').toggleClass('hidden');"> Requires Authentication</p>
+				<ul id="calendarAuthenticate" class="listrow hidden">
+					<li>
+						<label>Username</label>
+						<input class="entry float-right" placeholder="username" style="width:256px;"></input>
+					</li>
+					<li>
+						<label>Password</label>
+						<input class="entry float-right" placeholder="password" style="width:256px;"></input>
+					</li>
+				</ul>
 				<p>If the calendar belongs to one of your online accounts, you can connect Calendar to your account in the <a href="">online account settings</a>.</p>
 			</div>
 		</div>
