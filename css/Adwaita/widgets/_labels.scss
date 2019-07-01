@@ -58,6 +58,15 @@ caption,
 	svg>path, svg>g {fill: $success_color;}
 }
 
+.error-label {
+	color: $error_color;
+	svg>path, svg>g {fill: $error_color;}
+}
+.warning-label {
+	color: $warning_color;
+	svg>path, svg>g {fill: $warning_color;}
+}
+
 .monospace-label,
 code {
 	@extend %text;

@@ -37,18 +37,24 @@ wallpaper: triangles
 		<div class="view">
 			<div class="row">
 				<ul class="listrow">
-					<li class="medium dropdown" data-toggle="collapse" data-target="#configurationProfile1" aria-controls="configurationProfile1" aria-expanded="false" id="configurationProfileDropdown1" onclick="$('#configurationProfileDropdown1 svg').toggleClass('turn');">
-						<div class="icon s32">{%- include symbolic/apps/org.gnome.Settings-symbolic.svg -%}</div>
+					<li class="medium dropdown" data-toggle="collapse" data-target="#configurationProfile1" aria-controls="configurationProfile1" aria-expanded="false" id="configurationProfileDropdown1" onclick="$('#configurationProfileDropdown1 .expander > svg').toggleClass('turn');">
+						<!-- <div class="icon s32">{%- include symbolic/mimetypes/application-certificate-symbolic.svg -%}</div> -->
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/mimetypes/application-certificate.png">
 						<div class="label-group">
 							<label>GoodEmail</label>
 							<label class="small-label dim-label">GoodEmail LLC.</label>
 						</div>
 						{%- include components/listrow-expander-icon.html -%}
+						<!-- <label class="float-right dim-label">56 Settings</label> -->
 					</li>
 					<div id="configurationProfile1" class="collapse" data-parent="#defaultHandlersAccordion">
 						<ul class="listrow scrollbox borderless">
 							<li>
-								<label>Signed by</label>
+								<label>Installed</label>
+								<label class="float-right dim-label">Nov 05, 2018, 7:12 PM</label>
+							</li>
+							<li>
+								<label>Verification</label>
 								<div class="icon s16 float-right success-label">{%- include symbolic/emblems/emblem-default-symbolic.svg -%}</div>
 								<label class="float-right dim-label">GoodEmail LLC.</label>
 							</li>
@@ -85,20 +91,26 @@ wallpaper: triangles
 							</li>
 						</ul>
 					</div>
-					<li class="medium dropdown" data-toggle="collapse" data-target="#configurationProfile2" aria-controls="configurationProfile2" aria-expanded="false" id="configurationProfileDropdown2" onclick="$('#configurationProfileDropdown2 svg').toggleClass('turn');">
-						<div class="icon s32">{%- include symbolic/apps/org.gnome.Settings-symbolic.svg -%}</div>
+					<li class="medium dropdown" data-toggle="collapse" data-target="#configurationProfile2" aria-controls="configurationProfile2" aria-expanded="false" id="configurationProfileDropdown2" onclick="$('#configurationProfileDropdown2 .expander > svg').toggleClass('turn');">
+						<!-- <div class="icon s32">{%- include symbolic/mimetypes/application-certificate-symbolic.svg -%}</div> -->
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/mimetypes/application-certificate.png">
 						<div class="label-group">
 							<label>FastVPN</label>
 							<label class="small-label dim-label">FastVPN Ltd.</label>
 						</div>
 						{%- include components/listrow-expander-icon.html -%}
+						<!-- <label class="float-right dim-label">13 Settings</label> -->
 					</li>
 					<div id="configurationProfile2" class="collapse" data-parent="#defaultHandlersAccordion">
 						<ul class="listrow scrollbox borderless">
 							<li>
-								<label>Signed by</label>
+								<label>Installed</label>
+								<label class="float-right dim-label">May 18, 2019, 10:08 AM</label>
+							</li>
+							<li>
+								<label>Verification</label>
 								<div class="icon s16 float-right success-label">{%- include symbolic/emblems/emblem-default-symbolic.svg -%}</div>
-								<label class="float-right dim-label">FastVPN Ltd.</label>
+								<label class="float-right dim-label">GoodEmail LLC.</label>
 							</li>
 							<li>
 								<label>Signing Certificates</label>
@@ -111,6 +123,37 @@ wallpaper: triangles
 								</div>
 								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
 								<label class="float-right dim-label">OpenVPN</label>
+							</li>
+							<li class="text-center">
+								<label class="destructive-action">Remove Profile</label>
+							</li>
+						</ul>
+					</div>
+					<li class="medium dropdown" data-toggle="collapse" data-target="#configurationProfile3" aria-controls="configurationProfile3" aria-expanded="false" id="configurationProfileDropdown3" onclick="$('#configurationProfileDropdown3 .expander > svg').toggleClass('turn');">
+						<!-- <div class="icon s32">{%- include symbolic/mimetypes/application-certificate-symbolic.svg -%}</div> -->
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/mimetypes/application-certificate.png">
+						<div class="label-group">
+							<label>MyPrefs</label>
+							<label class="small-label warning-label">Unsigned</label>
+						</div>
+						{%- include components/listrow-expander-icon.html -%}
+						<!-- <label class="float-right dim-label">3 Settings</label> -->
+					</li>
+					<div id="configurationProfile3" class="collapse" data-parent="#defaultHandlersAccordion">
+						<ul class="listrow scrollbox borderless">
+							<li>
+								<label>Installed</label>
+								<label class="float-right dim-label">Sept 26, 2018, 12:12 PM</label>
+							</li>
+							<li>
+								<label>Verification</label>
+								<div class="icon s16 float-right warning-label">{%- include symbolic/status/dialog-warning-symbolic.svg -%}</div>
+								<label class="float-right warning-label">Unsigned</label>
+							</li>
+							<li onclick="$('#configurationProfileDialog5').show();">
+								<label>Desktop Preferences</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">GSettings</label>
 							</li>
 							<li class="text-center">
 								<label class="destructive-action">Remove Profile</label>
@@ -202,6 +245,36 @@ wallpaper: triangles
 		</div>
 	</div>
 	<!-- Configuration Profile Dialog -->
+	<div class="gtkdialog" id="configurationProfileDialog2">
+		<div class="gtkdialog-window">
+			<div class="titlebar grouped">
+				<div class="button-group float-left"></div>
+				<div class="title-group"><span class="title">Contacts Account</span></div>
+				<div class="button-group float-right">{%- include components/close-button.html close = "gtkdialog" -%}</div>
+			</div>
+			<div class="gtkdialog-content">
+				<ul class="listrow">
+					<li>
+						<label>Description</label>
+						<label class="dim-label float-right">GoodMail contacts</label>
+					</li>
+					<li>
+						<label>Host Name</label>
+						<label class="dim-label float-right">carddav.goodemail.com</label>
+					</li>
+					<li>
+						<label>User Name</label>
+						<label class="dim-label float-right">accountholder@goodemail.com</label>
+					</li>
+					<li>
+						<label>SSL</label>
+						<label class="dim-label float-right">Yes</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Configuration Profile Dialog -->
 	<div class="gtkdialog" id="configurationProfileDialog3">
 		<div class="gtkdialog-window">
 			<div class="titlebar grouped">
@@ -232,29 +305,17 @@ wallpaper: triangles
 		</div>
 	</div>
 	<!-- Configuration Profile Dialog -->
-	<div class="gtkdialog" id="configurationProfileDialog2">
+	<div class="gtkdialog" id="configurationProfileDialog5">
 		<div class="gtkdialog-window">
 			<div class="titlebar grouped">
 				<div class="button-group float-left"></div>
-				<div class="title-group"><span class="title">Contacts Account</span></div>
+				<div class="title-group"><span class="title">Desktop Preferences</span></div>
 				<div class="button-group float-right">{%- include components/close-button.html close = "gtkdialog" -%}</div>
 			</div>
 			<div class="gtkdialog-content">
 				<ul class="listrow">
 					<li>
-						<label>Description</label>
-						<label class="dim-label float-right">GoodMail contacts</label>
-					</li>
-					<li>
-						<label>Host Name</label>
-						<label class="dim-label float-right">carddav.goodemail.com</label>
-					</li>
-					<li>
-						<label>User Name</label>
-						<label class="dim-label float-right">accountholder@goodemail.com</label>
-					</li>
-					<li>
-						<label>SSL</label>
+						<label>Show the week date in the calendar</label>
 						<label class="dim-label float-right">Yes</label>
 					</li>
 				</ul>

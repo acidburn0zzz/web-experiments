@@ -1078,6 +1078,16 @@ caption,
   .success-label svg > path, .success-label svg > g {
     fill: #26ab62; }
 
+.error-label {
+  color: #cc0000; }
+  .error-label svg > path, .error-label svg > g {
+    fill: #cc0000; }
+
+.warning-label {
+  color: #f57900; }
+  .warning-label svg > path, .warning-label svg > g {
+    fill: #f57900; }
+
 .monospace-label,
 code {
   font-size: 13px;
