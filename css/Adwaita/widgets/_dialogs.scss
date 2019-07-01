@@ -32,6 +32,11 @@ $message_button_height: 44px;
 		max-width: 100%;
 	}
 
+	&.scrollbox {
+		overflow-y: scroll;
+		max-height: $dialog_width;
+	}
+
 	// listrow
 	ul.listrow.scrollbox {
 		width: 100%;

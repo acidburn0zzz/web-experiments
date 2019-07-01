@@ -723,6 +723,9 @@ select {
     margin: 0;
     width: 100%;
     max-width: 100%; }
+  .gtkdialog-content.scrollbox {
+    overflow-y: scroll;
+    max-height: 480px; }
   .gtkdialog-content ul.listrow.scrollbox {
     width: 100%;
     max-height: 400px;
@@ -1072,6 +1075,8 @@ caption,
 
 .success-label {
   color: #26ab62; }
+  .success-label svg > path, .success-label svg > g {
+    fill: #26ab62; }
 
 .monospace-label,
 code {
@@ -1331,22 +1336,15 @@ ul.listrow {
 .collapsing > ul,
 .collapse > ul,
 .collapse.in > ul {
-  padding-left: 24px;
-  width: calc(100% - 24px);
   border-bottom-color: #282828; }
-  .collapsing > ul > li,
-  .collapse > ul > li,
-  .collapse.in > ul > li {
-    height: 24px;
-    line-height: 24px; }
-    .collapsing > ul > li > .button,
-    .collapse > ul > li > .button,
-    .collapse.in > ul > li > .button {
-      margin-top: -5px; }
-    .collapsing > ul > li > .selection,
-    .collapse > ul > li > .selection,
-    .collapse.in > ul > li > .selection {
-      margin: 4px; }
+  .collapsing > ul > li > .button,
+  .collapse > ul > li > .button,
+  .collapse.in > ul > li > .button {
+    margin-top: -5px; }
+  .collapsing > ul > li > .selection,
+  .collapse > ul > li > .selection,
+  .collapse.in > ul > li > .selection {
+    margin: 4px; }
 
 .popover-content > ul {
   width: 100%;

@@ -277,14 +277,14 @@ ul.listrow  {
 .collapsing > ul,
 .collapse > ul,
 .collapse.in > ul {
-	padding-left: 24px;
-	width: calc(100% - 24px);
+	// padding-left: 24px;
+	// width: calc(100% - 24px);
 	border-bottom-color: lighten($borders_color, 5%);
 
 
 	> li {
-		height: $listrow_item_height - 8px;
-		line-height: $listrow_item_height - 8px;
+		// height: $listrow_item_height - 8px;
+		// line-height: $listrow_item_height - 8px;
 		> .button {margin-top:-5px;}
 		> .selection {
 			margin: 4px;

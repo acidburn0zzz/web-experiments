@@ -55,6 +55,7 @@ caption,
 
 .success-label {
 	color: $success_color;
+	svg>path, svg>g {fill: $success_color;}
 }
 
 .monospace-label,

@@ -1,0 +1,269 @@
+---
+layout: mockup
+title: "Configuration Profiles"
+theme: Adwaita/Adwaita.css
+permalink: settings/profiles
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="pane">
+			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<span class="title">{{ page.title }}</span>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- Sidebar -->
+		<ul id="settingsSidebar" class="sidebar">
+		{%- for item in site.data.settings-sidebar -%}
+			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+		{%- endfor -%}
+		</ul>
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<ul class="listrow">
+					<li class="medium dropdown" data-toggle="collapse" data-target="#configurationProfile1" aria-controls="configurationProfile1" aria-expanded="false" id="configurationProfileDropdown1" onclick="$('#configurationProfileDropdown1 svg').toggleClass('turn');">
+						<div class="icon s32">{%- include symbolic/apps/org.gnome.Settings-symbolic.svg -%}</div>
+						<div class="label-group">
+							<label>GoodEmail</label>
+							<label class="small-label dim-label">GoodEmail LLC.</label>
+						</div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="configurationProfile1" class="collapse" data-parent="#defaultHandlersAccordion">
+						<ul class="listrow scrollbox borderless">
+							<li>
+								<label>Signed by</label>
+								<div class="icon s16 float-right success-label">{%- include symbolic/emblems/emblem-default-symbolic.svg -%}</div>
+								<label class="float-right dim-label">GoodEmail LLC.</label>
+							</li>
+							<li>
+								<label>Signing Certificates</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+							</li>
+							<li class="medium" onclick="$('#configurationProfileDialog1').show();">
+								<div class="label-group">
+									<label>Email Account</label>
+									<label class="small-label dim-label">GoodMail mail</label>
+								</div>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">IMAP</label>
+							</li>
+							<li class="medium" onclick="$('#configurationProfileDialog2').show();">
+								<div class="label-group">
+									<label>Contacts Account</label>
+									<label class="small-label dim-label">GoodMail contacts</label>
+								</div>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">CardDav</label>
+							</li>
+							<li class="medium" onclick="$('#configurationProfileDialog3').show();">
+								<div class="label-group">
+									<label>Calendars Account</label>
+									<label class="small-label dim-label">GoodMail calendar</label>
+								</div>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">CalDav</label>
+							</li>
+							<li class="text-center">
+								<label class="destructive-action">Remove Profile</label>
+							</li>
+						</ul>
+					</div>
+					<li class="medium dropdown" data-toggle="collapse" data-target="#configurationProfile2" aria-controls="configurationProfile2" aria-expanded="false" id="configurationProfileDropdown2" onclick="$('#configurationProfileDropdown2 svg').toggleClass('turn');">
+						<div class="icon s32">{%- include symbolic/apps/org.gnome.Settings-symbolic.svg -%}</div>
+						<div class="label-group">
+							<label>FastVPN</label>
+							<label class="small-label dim-label">FastVPN Ltd.</label>
+						</div>
+						{%- include components/listrow-expander-icon.html -%}
+					</li>
+					<div id="configurationProfile2" class="collapse" data-parent="#defaultHandlersAccordion">
+						<ul class="listrow scrollbox borderless">
+							<li>
+								<label>Signed by</label>
+								<div class="icon s16 float-right success-label">{%- include symbolic/emblems/emblem-default-symbolic.svg -%}</div>
+								<label class="float-right dim-label">FastVPN Ltd.</label>
+							</li>
+							<li>
+								<label>Signing Certificates</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+							</li>
+							<li class="medium" onclick="$('#configurationProfileDialog4').show();">
+								<div class="label-group">
+									<label>VPN Account</label>
+									<label class="small-label dim-label">FastVPN VPN</label>
+								</div>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">OpenVPN</label>
+							</li>
+							<li class="text-center">
+								<label class="destructive-action">Remove Profile</label>
+							</li>
+						</ul>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Configuration Profile Dialog -->
+	<div class="gtkdialog" id="configurationProfileDialog1">
+		<div class="gtkdialog-window">
+			<div class="titlebar grouped">
+				<div class="button-group float-left"></div>
+				<div class="title-group"><span class="title">Email Account</span></div>
+				<div class="button-group float-right">{%- include components/close-button.html close = "gtkdialog" -%}</div>
+			</div>
+			<div class="gtkdialog-content scrollbox">
+				<ul class="listrow">
+					<li>
+						<label>Description</label>
+						<label class="dim-label float-right">GoodMail mail</label>
+					</li>
+					<li>
+						<label>Name</label>
+						<label class="dim-label float-right">Accountholder's Name</label>
+					</li>
+					<li>
+						<label>Type</label>
+						<label class="dim-label float-right">IMAP</label>
+					</li>
+					<li>
+						<label>Address</label>
+						<label class="dim-label float-right">accountholder@goodemail.com</label>
+					</li>
+				</ul>
+				<h5>Incoming Mail Server</h5>
+				<ul class="listrow">
+					<li>
+						<label>Host Name</label>
+						<label class="float-right dim-label">imap.goodemail.com</label>
+					</li>
+					<li>
+						<label>User Name</label>
+						<label class="dim-label float-right">accountholder@goodemail.com</label>
+					</li>
+					<li>
+						<label>Authentication</label>
+						<label class="dim-label float-right">Password</label>
+					</li>
+					<li>
+						<label>Uses SSL</label>
+						<label class="dim-label float-right">Yes</label>
+					</li>
+					<li>
+						<label>Port</label>
+						<label class="dim-label float-right">993</label>
+					</li>
+				</ul>
+				<h5>Outgoing Mail Server</h5>
+				<ul class="listrow">
+					<li>
+						<label>Host Name</label>
+						<label class="float-right dim-label">smtp.goodemail.com</label>
+					</li>
+					<li>
+						<label>User Name</label>
+						<label class="dim-label float-right">accountholder@goodemail.com</label>
+					</li>
+					<li>
+						<label>Authentication</label>
+						<label class="dim-label float-right">Password</label>
+					</li>
+					<li>
+						<label>Uses Same Password as Incoming</label>
+						<label class="dim-label float-right">Yes</label>
+					</li>
+					<li>
+						<label>Uses SSL</label>
+						<label class="dim-label float-right">Yes</label>
+					</li>
+					<li>
+						<label>Port</label>
+						<label class="dim-label float-right">465</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Configuration Profile Dialog -->
+	<div class="gtkdialog" id="configurationProfileDialog3">
+		<div class="gtkdialog-window">
+			<div class="titlebar grouped">
+				<div class="button-group float-left"></div>
+				<div class="title-group"><span class="title">Calendars Account</span></div>
+				<div class="button-group float-right">{%- include components/close-button.html close = "gtkdialog" -%}</div>
+			</div>
+			<div class="gtkdialog-content">
+				<ul class="listrow">
+					<li>
+						<label>Description</label>
+						<label class="dim-label float-right">GoodMail calendars</label>
+					</li>
+					<li>
+						<label>Host Name</label>
+						<label class="dim-label float-right">caldav.goodemail.com</label>
+					</li>
+					<li>
+						<label>User Name</label>
+						<label class="dim-label float-right">accountholder@goodemail.com</label>
+					</li>
+					<li>
+						<label>SSL</label>
+						<label class="dim-label float-right">Yes</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Configuration Profile Dialog -->
+	<div class="gtkdialog" id="configurationProfileDialog2">
+		<div class="gtkdialog-window">
+			<div class="titlebar grouped">
+				<div class="button-group float-left"></div>
+				<div class="title-group"><span class="title">Contacts Account</span></div>
+				<div class="button-group float-right">{%- include components/close-button.html close = "gtkdialog" -%}</div>
+			</div>
+			<div class="gtkdialog-content">
+				<ul class="listrow">
+					<li>
+						<label>Description</label>
+						<label class="dim-label float-right">GoodMail contacts</label>
+					</li>
+					<li>
+						<label>Host Name</label>
+						<label class="dim-label float-right">carddav.goodemail.com</label>
+					</li>
+					<li>
+						<label>User Name</label>
+						<label class="dim-label float-right">accountholder@goodemail.com</label>
+					</li>
+					<li>
+						<label>SSL</label>
+						<label class="dim-label float-right">Yes</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(18) li').addClass("active");});
+</script>
