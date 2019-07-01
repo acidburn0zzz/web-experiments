@@ -1,0 +1,32 @@
+---
+layout: mockup
+title: "Widgets - Zoom Levels"
+theme: Adwaita/Adwaita.css
+permalink: widgets/zoom-levels
+---
+<!-- Switches Lists -->
+<div class="row" style="width: 166px;">
+	<ul class="listrow unstyled">
+		<li>
+			<label style="margin-left: 4px;">Zoom</label>
+			<label class="float-right dim-label" id="zoomLevel" style="margin-right: 4px;">100%</label>
+		</li>
+		<li>
+			<div class="linked float-left">
+				<a class="button image-button left" onclick="$('#zoomLevel').text('75%');$('#zoomLevelreset').removeClass('insensitive');">{% include symbolic/actions/zoom-out-symbolic.svg %}</a><a class="button image-button insensitive middle" id="zoomLevelreset"  onclick="$('#zoomLevel').text('100%');$('#zoomLevelreset').addClass('insensitive');">{% include symbolic/actions/zoom-original-symbolic.svg %}</a><a class="button image-button right" onclick="$('#zoomLevel').text('125%');$('#zoomLevelreset').removeClass('insensitive');">{% include symbolic/actions/zoom-in-symbolic.svg %}</a>
+			</div>
+		</li>
+	</ul>
+</div>
+
+<style type="text/css">
+	.linked > .button {
+		width: 44px;
+		text-align: center;
+		vertical-align: top;
+	}
+
+	li {
+		padding: 2px 0 !important;
+	}
+</style>
