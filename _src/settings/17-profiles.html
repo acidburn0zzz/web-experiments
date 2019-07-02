@@ -86,7 +86,7 @@ wallpaper: triangles
 								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
 								<label class="float-right dim-label">CalDav</label>
 							</li>
-							<li class="text-center">
+							<li class="text-center" onclick="$('#configurationProfileDropdown1').hide();$('#configurationProfile1').hide();">
 								<label class="destructive-action">Remove Profile</label>
 							</li>
 						</ul>
@@ -110,7 +110,7 @@ wallpaper: triangles
 							<li>
 								<label>Verification</label>
 								<div class="icon s16 float-right success-label">{%- include symbolic/emblems/emblem-default-symbolic.svg -%}</div>
-								<label class="float-right dim-label">GoodEmail LLC.</label>
+								<label class="float-right dim-label">FastVPN Ltd.</label>
 							</li>
 							<li>
 								<label>Signing Certificates</label>
@@ -124,7 +124,7 @@ wallpaper: triangles
 								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
 								<label class="float-right dim-label">OpenVPN</label>
 							</li>
-							<li class="text-center">
+							<li class="text-center" onclick="$('#configurationProfileDropdown2').hide();$('#configurationProfile2').hide();">
 								<label class="destructive-action">Remove Profile</label>
 							</li>
 						</ul>
@@ -133,7 +133,7 @@ wallpaper: triangles
 						<!-- <div class="icon s32">{%- include symbolic/mimetypes/application-certificate-symbolic.svg -%}</div> -->
 						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/mimetypes/application-certificate.png">
 						<div class="label-group">
-							<label>MyPrefs</label>
+							<label>My Prefs</label>
 							<label class="small-label warning-label">Unsigned</label>
 						</div>
 						{%- include components/listrow-expander-icon.html -%}
@@ -155,12 +155,96 @@ wallpaper: triangles
 								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
 								<label class="float-right dim-label">GSettings</label>
 							</li>
-							<li class="text-center">
+							<li>
+								<label>WiFi Connection</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">WPA</label>
+							</li>
+							<li>
+								<label>Email Account</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">IMAP</label>
+							</li>
+							<li class="text-center" onclick="$('#configurationProfileDropdown3').hide();$('#configurationProfile3').hide();">
 								<label class="destructive-action">Remove Profile</label>
 							</li>
 						</ul>
 					</div>
+					<li class="medium dropdown" data-toggle="collapse" data-target="#configurationProfile4" aria-controls="configurationProfile4" aria-expanded="false" id="configurationProfileDropdown4" onclick="$('#configurationProfileDropdown4 .expander > svg').toggleClass('turn');">
+						<!-- <div class="icon s32">{%- include symbolic/mimetypes/application-certificate-symbolic.svg -%}</div> -->
+						<img class="icon s32" src="{{ site.baseurl }}/img/icons/32x32/mimetypes/application-certificate.png">
+						<div class="label-group">
+							<label>Enterprise Profile</label>
+							<label class="small-label dim-label">USS Enterprise</label>
+						</div>	
+						{%- include components/listrow-expander-icon.html -%}
+						<div class="icon s16 float-right">{%- include symbolic/status/changes-prevent-symbolic.svg -%}</div>
+						<!-- <label class="float-right dim-label">3 Settings</label> -->
+					</li>
+					<div id="configurationProfile4" class="collapse" data-parent="#defaultHandlersAccordion">
+						<ul class="listrow scrollbox borderless">
+							<li>
+								<label>Installed</label>
+								<label class="float-right dim-label">Oct 12, 2018, 7:00 AM</label>
+							</li>
+							<li>
+								<label>Verification</label>
+								<div class="icon s16 float-right success-label">{%- include symbolic/emblems/emblem-default-symbolic.svg -%}</div>
+								<label class="float-right dim-label">USS Enterprise</label>
+							</li>
+							<li>
+								<label>Desktop Preferences</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">GSettings</label>
+							</li>
+							<li>
+								<label>DNS Proxy</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+							</li>
+							<li>
+								<label>VPN Account</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">OpenVPN</label>
+							</li>
+							<li>
+								<label>WiFi Connection</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">WPA</label>
+							</li>
+							<li>
+								<label>Email Account</label>
+								<div class="icon s16 float-right dim-label">{%- include symbolic/actions/go-next-symbolic.svg -%}</div>
+								<label class="float-right dim-label">IMAP</label>
+							</li>
+							<li class="text-center" onclick="$('#configurationProfileEnterpriseDialog').show();">
+								<div class="icon s16 float-left">{%- include symbolic/status/empty-symbolic.svg -%}</div>
+								<label class="dim-label">Remove Profile...</label>
+								<div class="icon s16 float-right">{%- include symbolic/status/changes-prevent-symbolic.svg -%}</div>
+							</li>
+						</ul>
+					</div>
+					<li class="text-center">
+						<label class="">Add New Configuration Profile...</label>
+					</li>
 				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Remove Device Dialog -->
+	<div class="gtkdialog" id="configurationProfileEnterpriseDialog">
+		<div class="gtkdialog-window message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Authentication Required</h3>
+					<p>This configuration profile was installed by an adminstrator and cannot be removed without authentication.</p>
+					<ul class="listrow unstyled">
+						<li>
+							<input class="entry full-width" placeholder="password"></input>
+						</li>
+					</ul>
+				</div>
+				<a class="button text-button float-left" onclick="$('#configurationProfileEnterpriseDialog').hide();">Cancel</a>
+				<a class="button text-button destructive-action float-right" onclick="$('#configurationProfile4').hide();$('#configurationProfileDropdown4').hide();$('#configurationProfileEnterpriseDialog').hide();">Remove Profile</a>
 			</div>
 		</div>
 	</div>
