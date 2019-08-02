@@ -179,7 +179,7 @@ $pane_width:270px;
 		width: calc(60%) !important;
 		margin: 0 auto;
 		.title {
-			margin-top: 0; // hardcode in position
+			margin-top: -6px; // hardcode in position
 		}
 	}
 
@@ -268,4 +268,9 @@ $pane_width:270px;
 			}
 		}
 	}
+}
+
+// mobile
+.window.mobile > .titlebar {
+	border-radius: 0;
 }

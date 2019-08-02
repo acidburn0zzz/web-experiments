@@ -25,7 +25,7 @@ $window_border: if($variant=='light', transparentize(black, 0.77), transparentiz
 	&.mobile {
 		border-radius: 0;
 		width:360px;
-		height:640px;
+		height:640px + 24px;
 		box-shadow: 0 0 0 1px black;
 	}
 

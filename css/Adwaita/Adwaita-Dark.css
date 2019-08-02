@@ -744,6 +744,8 @@ select {
     margin-top: 0; }
   .gtkdialog-window.narrow {
     width: 400px; }
+  .gtkdialog-window.mobile {
+    width: 320px !important; }
 
 .action-dialog {
   border-radius: 8px; }
@@ -796,6 +798,9 @@ select {
   height: 240px;
   margin: 0 auto;
   top: calc(50% - 120px); }
+
+.window.mobile .content .view .row.empty-state {
+  padding-top: 10em; }
 
 textarea,
 input.entry {
@@ -1518,6 +1523,13 @@ ul.notebook {
       filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7)); }
       .panel.transparent:hover .icon > svg > path, .panel.transparent:hover .icon > svg > g {
         fill: white; }
+  .panel.mobile {
+    position: relative;
+    height: 32px; }
+    .panel.mobile:before {
+      display: none; }
+    .panel.mobile:after {
+      display: none; }
   .panel .icon {
     margin: 2px; }
     .panel .icon > svg {
@@ -2108,7 +2120,7 @@ ul.tiles {
   width: calc(60%) !important;
   margin: 0 auto; }
   .titlebar.grouped .title-group .title {
-    margin-top: 0; }
+    margin-top: -6px; }
 .titlebar.grouped .button-group {
   padding: 0; }
   .titlebar.grouped .button-group div, .titlebar.grouped .button-group a {
@@ -2167,6 +2179,9 @@ ul.tiles {
       margin-left: 6px; }
     .titlebar.paned > .button-group.float-right > .linked {
       margin-left: 6px; }
+
+.window.mobile > .titlebar {
+  border-radius: 0; }
 
 .toolbar.inline {
   border-style: solid;
@@ -2254,7 +2269,7 @@ ul.tiles {
 
 .view {
   max-height: calc(100%);
-  width: calc(100%);
+  width: calc(100% + 12px);
   overflow: hidden;
   overflow-y: scroll;
   box-sizing: content-box;
@@ -2275,8 +2290,9 @@ ul.tiles {
 
 .window.mobile .row {
   width: calc(100% - 24px);
-  margin: 12px auto;
-  max-width: 100%; }
+  margin: 12px auto; }
+.window.mobile .content {
+  height: calc(100% - 48px - 24px); }
 
 @media only screen and (max-width: 600px) {
   .row {
@@ -2301,7 +2317,7 @@ ul.tiles {
   .window.mobile {
     border-radius: 0;
     width: 360px;
-    height: 640px;
+    height: 664px;
     box-shadow: 0 0 0 1px black; }
   .window.medium {
     width: 1024px;

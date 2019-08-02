@@ -7,13 +7,13 @@
 // view within the content
 .view {
 	max-height: calc(100%);
-	width: calc(100%);
+	width: calc(100% + 12px);
 	overflow: hidden;
 	overflow-y: scroll;
 
 	// hide the scrollbar
 	box-sizing: content-box;
-	padding-right: 24px; 
+	padding-right: 24px;
 }
 
 // rows within views
@@ -37,7 +37,10 @@
 	.row {
 		width: calc(100% - 24px);
 		margin:12px auto;
-		max-width: 100%;
+	}
+
+	.content {
+		height: calc(100% - 48px - 24px);
 	}
 }
 

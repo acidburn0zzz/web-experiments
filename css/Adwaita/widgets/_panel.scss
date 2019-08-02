@@ -112,6 +112,18 @@ $corner_size: 7px;
 		}
 	}
 
+	&.mobile {
+		position: relative;
+		height: $panel_height + 6px;
+		&:before {
+			display: none;
+		}
+
+		&:after {
+			display: none;
+		}
+	}
+
 	// icons
 	.icon {
 		margin: 2px;

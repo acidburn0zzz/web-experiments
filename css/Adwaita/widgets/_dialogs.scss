@@ -60,6 +60,10 @@ $message_button_height: 44px;
 	&.narrow {
 		width: $dialog_width - 80px;
 	}
+
+	&.mobile {
+		width: $dialog_width - 160px !important;
+	}
 }
 
 // action dialog

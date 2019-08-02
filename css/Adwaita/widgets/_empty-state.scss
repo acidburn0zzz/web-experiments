@@ -7,3 +7,10 @@
 	margin: 0 auto;
 	top: calc(50% - 120px)
 }
+
+
+// empty state 
+.window.mobile .content .view .row.empty-state {
+	padding-top: 10em;
+	// background: red;
+}
