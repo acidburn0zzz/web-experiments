@@ -2298,7 +2298,15 @@ ul.tiles {
   .row {
     width: calc(100% - 36px);
     margin: 18px auto;
-    max-width: 100%; } }
+    max-width: 100%; }
+
+  .view {
+    max-height: calc(100%);
+    width: calc(100%);
+    overflow: hidden;
+    overflow-y: scroll;
+    box-sizing: content-box;
+    padding-right: 0; } }
 .window {
   margin: 0 auto;
   margin-top: 5%;

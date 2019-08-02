@@ -50,4 +50,15 @@
 		margin:18px auto;
 		max-width: 100%;
 	}
+
+	.view {
+		max-height: calc(100%);
+		width: calc(100%);
+		overflow: hidden;
+		overflow-y: scroll;
+
+		// hide the scrollbar
+		box-sizing: content-box;
+		padding-right: 0;
+	}
 }
