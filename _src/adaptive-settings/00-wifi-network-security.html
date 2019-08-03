@@ -46,11 +46,11 @@ wallpaper: black
 						<label>CA Certificate</label>
 						{%- include components/switch.html float = "right" checked = "" id = "wifiSecurityCACertSwitch" -%}
 					</li>
-					<li id="wifiSecurityUserCert" class="insensitive">
+					<li id="wifiSecurityUserCert" class="hidden">
 						<label>User Certificate</label>
 						<input type="button" name="" value="(None)" class="float-right">
 					</li>
-					<li id="wifiSecurityCACert" class="insensitive">
+					<li id="wifiSecurityCACert" class="hidden">
 						<label>CA Certificate</label>
 						<input type="button" name="" value="(None)" class="float-right">
 					</li>
@@ -112,13 +112,10 @@ function popoverWifiSecurity() {
 function popoverWifiSecurityNone() {
 	$("#wifiSecurityAuthentication").hide();
 	$("#wifiSecurityKey").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityIdentity").hide();
 	$("#wifiSecurityPrivateKey").hide();
 	$("#wifiSecurityPrivateKeyPassword").hide();
 	$("#wifiSecurityCerts").hide();
-	$("#wifiSecurityUserCert").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityUsername").hide();
 	$("#wifiSecurityPassword").hide();
 }
@@ -126,13 +123,10 @@ function popoverWifiSecurityNone() {
 function popoverWifiSecurityWEP40() {
 	$("#wifiSecurityAuthentication").show();
 	$("#wifiSecurityKey").show();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityIdentity").hide();
 	$("#wifiSecurityPrivateKey").hide();
 	$("#wifiSecurityPrivateKeyPassword").hide();
 	$("#wifiSecurityCerts").hide();
-	$("#wifiSecurityUserCert").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityUsername").hide();
 	$("#wifiSecurityPassword").hide();
 }
@@ -140,13 +134,10 @@ function popoverWifiSecurityWEP40() {
 function popoverWifiSecurityWEP128() {
 	$("#wifiSecurityAuthentication").hide();
 	$("#wifiSecurityKey").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityIdentity").hide();
 	$("#wifiSecurityPrivateKey").hide();
 	$("#wifiSecurityPrivateKeyPassword").hide();
 	$("#wifiSecurityCerts").hide();
-	$("#wifiSecurityUserCert").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityUsername").show();
 	$("#wifiSecurityPassword").show();
 }
@@ -154,13 +145,10 @@ function popoverWifiSecurityWEP128() {
 function popoverWifiSecurityLEAP() {
 	$("#wifiSecurityAuthentication").hide();
 	$("#wifiSecurityKey").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityIdentity").hide();
 	$("#wifiSecurityPrivateKey").hide();
 	$("#wifiSecurityPrivateKeyPassword").hide();
 	$("#wifiSecurityCerts").hide();
-	$("#wifiSecurityUserCert").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityUsername").show();
 	$("#wifiSecurityPassword").show();
 }
@@ -168,13 +156,10 @@ function popoverWifiSecurityLEAP() {
 function popoverWifiSecurityDynWEP() {
 	$("#wifiSecurityAuthentication").show();
 	$("#wifiSecurityKey").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityIdentity").show();
 	$("#wifiSecurityPrivateKey").hide();
 	$("#wifiSecurityPrivateKeyPassword").hide();
 	$("#wifiSecurityCerts").show();
-	$("#wifiSecurityUserCert").show();
-	$("#wifiSecurityCACert").show();
 	$("#wifiSecurityUsername").show();
 	$("#wifiSecurityPassword").show();
 }
@@ -182,13 +167,10 @@ function popoverWifiSecurityDynWEP() {
 function popoverWifiSecurityWPA2() {
 	$("#wifiSecurityAuthentication").hide();
 	$("#wifiSecurityKey").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityIdentity").hide();
 	$("#wifiSecurityPrivateKey").hide();
 	$("#wifiSecurityPrivateKeyPassword").hide();
 	$("#wifiSecurityCerts").hide();
-	$("#wifiSecurityUserCert").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityUsername").hide();
 	$("#wifiSecurityPassword").show();
 }
@@ -196,26 +178,36 @@ function popoverWifiSecurityWPA2() {
 function popoverWifiSecurityWPA2E() {
 	$("#wifiSecurityAuthentication").show();
 	$("#wifiSecurityKey").hide();
-	$("#wifiSecurityCACert").hide();
 	$("#wifiSecurityIdentity").show();
 	$("#wifiSecurityPrivateKey").hide();
 	$("#wifiSecurityPrivateKeyPassword").hide();
 	$("#wifiSecurityCerts").show();
-	$("#wifiSecurityUserCert").show();
-	$("#wifiSecurityCACert").show();
 	$("#wifiSecurityUsername").show();
 	$("#wifiSecurityPassword").show();
 }
 
 $("#wifiSecurityAuthentication").hide();
 $("#wifiSecurityKey").hide();
-$("#wifiSecurityCACert").hide();
 $("#wifiSecurityIdentity").hide();
 $("#wifiSecurityPrivateKey").hide();
 $("#wifiSecurityPrivateKeyPassword").hide();
 $("#wifiSecurityCerts").hide();
-$("#wifiSecurityUserCert").hide();
-$("#wifiSecurityCACert").hide();
 $("#wifiSecurityUsername").hide();
+
+
+
+
+// wifi toggle
+$(document).ready(function(){
+	$('#wifiSecurityCACertSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#wifiSecurityUserCert').removeClass('hidden');
+			$('#wifiSecurityCACert').removeClass('hidden');
+		} else {
+			$('#wifiSecurityUserCert').addClass('hidden');
+			$('#wifiSecurityCACert').addClass('hidden');
+		}
+	});
+});
 
 </script>
