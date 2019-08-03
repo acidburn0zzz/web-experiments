@@ -246,7 +246,7 @@ ul.listrow  {
 
 	}
 
-	a li label:nth-child(2) {
+	a li > label:nth-child(1) {
 		color: $fg_color;
 	}
 

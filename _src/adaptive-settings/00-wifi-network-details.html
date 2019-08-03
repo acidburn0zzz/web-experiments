@@ -1,0 +1,86 @@
+---
+layout: mockup
+title: "Wi-Fi - Network Details"
+theme: Adwaita/Adwaita.css
+permalink: adaptive-settings/wifi/network-details
+wallpaper: black
+---
+
+<!-- Window -->
+<div class="window mobile">
+	{%- include widgets/_panel-mobile.html -%}
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a class="button image-button" href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		</div>
+		<!-- Title -->
+		<div class="title-group">
+			<span class="title">Network Details</span>
+		</div>
+		<div class="button-group float-right">
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- View -->
+		<div class="view">
+			<!-- Row -->
+			<div id="myWifiNetworkDetails" class="row">
+				<ul class="listrow nohover">
+					<li>
+						<label>IPv4 Address</label>
+						<label class="float-right dim-label">192.168.2.14</label>
+					</li>
+					<li>
+						<label>IPv6 Address</label>
+						<label class="float-right dim-label">2001:0db8:85a3:0000</label>
+					</li>
+					<li>
+						<label>Link Speed</label>
+						<label class="float-right dim-label">886 Mb/s</label>
+					</li>
+					<li>
+						<label>Default Route</label>
+						<label class="float-right dim-label">192.168.2.1</label>
+					</li>
+					<li>
+						<label>Hardware Address</label>
+						<label class="float-right dim-label">A1:B2:C3:D4:E5:F6</label>
+					</li>
+					<li>
+						<label>DNS Servers</label>
+						<label class="float-right dim-label">192.168.2.1, 1.1.1.1</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div id="myWifiNetworkIdentity" class="row">
+				<h4>Identity</h4>
+				<ul class="listrow">
+					<li>
+						<label>SSID</label>
+						<input type="entry" name="" value="MyWifi" class="float-right text-right">
+					</li>
+					<li>
+						<label>BSSID</label>
+						<input type="entry" name="" placeholder="" class="float-right text-right">
+					</li>
+					<li>
+						<label>MAC Address</label>
+						<input type="entry" name="" value="A1:B2:C3:D4:E5:F6 (wlp1s0)" class="float-right text-right">
+					</li>
+					<li>
+						<label>Cloned Address</label>
+						<input type="entry" name="" placeholder="" class="float-right text-right">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+
+</script>

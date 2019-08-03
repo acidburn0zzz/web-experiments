@@ -70,18 +70,22 @@ wallpaper: black
 			<div id="myWifiNetworkAdvanced" class="row">
 				<h4>Advanced</h4>
 				<ul class="listrow">
-					<li>
+					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-details"><li>
 						<label class="float-left">Network Details</label>
 						{%- include components/listrow-link-icon.html -%}
-					</li>
-					<li>
+					</li></a>
+					<!-- <a href="{{ site.baseurl }}/adaptive-settings/wifi/network-dns"><li>
+						<label class="float-left">DNS Settings</label>
+						{%- include components/listrow-link-icon.html -%}
+					</li></a> -->
+					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-ipv4"><li>
 						<label class="float-left">IPv4 Settings</label>
 						{%- include components/listrow-link-icon.html -%}
-					</li>
-					<li>
+					</li></a>
+					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-ipv6"><li>
 						<label class="float-left">IPv6 Settings</label>
 						{%- include components/listrow-link-icon.html -%}
-					</li>
+					</li></a>
 				</ul>
 			</div>
 		</div>

@@ -63,7 +63,7 @@ wallpaper: black
 					</li>
 					<li class="text-center overflow" id="viewMoreWifiOptions" onclick="$('.viewMoreWifiOptions').show();$('#viewMoreWifiOptions').css({'display':'none'});">
 						<!-- <div class="icon s16">{%- include symbolic/actions/view-more-symbolic.svg -%}</div> -->
-						<label>View your other networks&hellip;</label>
+						<label>Other networks&hellip;</label>
 					</li>
 					<li class="viewMoreWifiOptions">
 						<div class="insensitive">
@@ -88,25 +88,27 @@ wallpaper: black
 				<h5>Nearby Networks<div class="icon s16 spinner dim-label float-right">{%- include symbolic/status/process-working-symbolic.svg -%}</div></h5>
 				<ul class="listrow">
 					<li id="forgottenNetwork1" class="hidden" onclick="$('#connectToWifiDialog').show();">
-						<div class="icon s16 float-left">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<label>MyWifi</label>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
-						<div class="icon s16 float-left">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label>Coffee Shop</label>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
-						<div class="icon s16 float-left">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
 						<label>d-link333</label>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
-						<div class="icon s16 float-left">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 						<label>d-link333 Guest</label>
-						<div class="icon s16 float-right">{%- include symbolic/status/channel-insecure-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
-						<div class="icon s16 float-left">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 						<label>FBI Surveillance Van</label>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 					</li>
 					<li>
 						<label class="dim-label">Unknown</label>
