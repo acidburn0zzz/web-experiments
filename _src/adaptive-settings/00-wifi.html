@@ -50,14 +50,14 @@ wallpaper: black
 					<li onclick="$('#wifiOption2').prop('checked', true );">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption2" name = "wifiOptions" -%}
 						<label>MyWifi_5GHz</label>
-						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover2" -%}
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
 					<li onclick="$('#wifiOption3').prop('checked', true );">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption3" name = "wifiOptions" -%}
 						<label>eduroam</label>
-						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover3" -%}
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
@@ -70,7 +70,7 @@ wallpaper: black
 							{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption4" name = "wifiOptions" -%}
 						</div>
 						<label class="dim-label">Public Library</label>
-						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover4" -%}
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<label class="dim-label float-right">Not Found</label>
 					</li>
 					<li class="viewMoreWifiOptions">
@@ -78,7 +78,7 @@ wallpaper: black
 							{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption5" name = "wifiOptions" -%}
 						</div>
 						<label class="dim-label">Starbucks</label>
-						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover5" -%}
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<label class="dim-label float-right">Not Found</label>
 					</li>
 				</ul>

@@ -1,0 +1,221 @@
+---
+layout: mockup
+title: "Wi-Fi - Network Security Settings"
+theme: Adwaita/Adwaita.css
+permalink: adaptive-settings/wifi/network-security
+wallpaper: black
+---
+
+<!-- Window -->
+<div class="window mobile">
+	{%- include widgets/_panel-mobile.html -%}
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a class="button image-button" href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		</div>
+		<!-- Title -->
+		<div class="title-group">
+			<span class="title">Network Security</span>
+		</div>
+		<div class="button-group float-right">
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- View -->
+		<div class="view">
+			<!-- Row -->
+			<div id="myWifiNetworkSecurity" class="row">
+				<ul class="listrow">
+					<li id="wifiSecurityPopover">
+						<label>Security</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="wifiSecurityTypeStatus">WPA & WPA2 Personal</label>
+					</li>
+					<li id="wifiSecurityAuthentication">
+						<label>Authentication</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="wifiSecurityAuthenticationStatus">TLS</label>
+					</li>
+					<li id="wifiSecurityKey">
+						<label>Key</label>
+						<input type="entry" name="" value="" class="float-right text-right">
+					</li>
+					<li id="wifiSecurityCerts">
+						<label>CA Certificate</label>
+						{%- include components/switch.html float = "right" checked = "" id = "wifiSecurityCACertSwitch" -%}
+					</li>
+					<li id="wifiSecurityUserCert" class="insensitive">
+						<label>User Certificate</label>
+						<input type="button" name="" value="(None)" class="float-right">
+					</li>
+					<li id="wifiSecurityCACert" class="insensitive">
+						<label>CA Certificate</label>
+						<input type="button" name="" value="(None)" class="float-right">
+					</li>
+					<li id="wifiSecurityIdentity">
+						<label>Identity</label>
+						<input type="entry" name="" value="" class="float-right text-right">
+					</li>
+					<li id="wifiSecurityPrivateKey">
+						<label>Key</label>
+						<input type="button" name="" value="(None)" class="float-right">
+					</li>
+					<li id="wifiSecurityPrivateKeyPassword">
+						<label>Key password</label>
+						<input type="entry" name="" value="" class="float-right text-right">
+					</li>
+					<li id="wifiSecurityUsername">
+						<label>Username</label>
+						<input type="entry" name="" value="" class="float-right text-right">
+					</li>
+					<li id="wifiSecurityPassword">
+						<label>Password</label>
+						<label class="float-right">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="popoverWifiSecurity($(this).text());popoverWifiSecurityNone();">None</li>',
+			'<li onclick="popoverWifiSecurity($(this).text());popoverWifiSecurityWEP40();">WEP 40/128-bit key</li>',
+			'<li onclick="popoverWifiSecurity($(this).text());popoverWifiSecurityWEP128();">WEP 128-bit passphrase</li>',
+			'<li onclick="popoverWifiSecurity($(this).text());popoverWifiSecurityLEAP();">LEAP</li>',
+			'<li onclick="popoverWifiSecurity($(this).text());popoverWifiSecurityDynWEP();">Dynamic WEP (802.1x)</li>',
+			'<li onclick="popoverWifiSecurity($(this).text());popoverWifiSecurityWPA2();">WPA & WPA2 Personal</li>',
+			'<li onclick="popoverWifiSecurity($(this).text());popoverWifiSecurityWPA2E();">WPA & WPA2 Enterprise</li>',
+		'</ul>'].join('');
+
+	$("#wifiSecurityPopover").popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function popoverWifiSecurity() {
+	$('#wifiSecurityTypeStatus').text(arguments[0]);
+	$("#wifiSecurityPopover").popover("hide");
+}
+
+function popoverWifiSecurityNone() {
+	$("#wifiSecurityAuthentication").hide();
+	$("#wifiSecurityKey").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityIdentity").hide();
+	$("#wifiSecurityPrivateKey").hide();
+	$("#wifiSecurityPrivateKeyPassword").hide();
+	$("#wifiSecurityCerts").hide();
+	$("#wifiSecurityUserCert").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityUsername").hide();
+	$("#wifiSecurityPassword").hide();
+}
+
+function popoverWifiSecurityWEP40() {
+	$("#wifiSecurityAuthentication").show();
+	$("#wifiSecurityKey").show();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityIdentity").hide();
+	$("#wifiSecurityPrivateKey").hide();
+	$("#wifiSecurityPrivateKeyPassword").hide();
+	$("#wifiSecurityCerts").hide();
+	$("#wifiSecurityUserCert").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityUsername").hide();
+	$("#wifiSecurityPassword").hide();
+}
+
+function popoverWifiSecurityWEP128() {
+	$("#wifiSecurityAuthentication").hide();
+	$("#wifiSecurityKey").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityIdentity").hide();
+	$("#wifiSecurityPrivateKey").hide();
+	$("#wifiSecurityPrivateKeyPassword").hide();
+	$("#wifiSecurityCerts").hide();
+	$("#wifiSecurityUserCert").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityUsername").show();
+	$("#wifiSecurityPassword").show();
+}
+
+function popoverWifiSecurityLEAP() {
+	$("#wifiSecurityAuthentication").hide();
+	$("#wifiSecurityKey").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityIdentity").hide();
+	$("#wifiSecurityPrivateKey").hide();
+	$("#wifiSecurityPrivateKeyPassword").hide();
+	$("#wifiSecurityCerts").hide();
+	$("#wifiSecurityUserCert").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityUsername").show();
+	$("#wifiSecurityPassword").show();
+}
+
+function popoverWifiSecurityDynWEP() {
+	$("#wifiSecurityAuthentication").show();
+	$("#wifiSecurityKey").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityIdentity").show();
+	$("#wifiSecurityPrivateKey").hide();
+	$("#wifiSecurityPrivateKeyPassword").hide();
+	$("#wifiSecurityCerts").show();
+	$("#wifiSecurityUserCert").show();
+	$("#wifiSecurityCACert").show();
+	$("#wifiSecurityUsername").show();
+	$("#wifiSecurityPassword").show();
+}
+
+function popoverWifiSecurityWPA2() {
+	$("#wifiSecurityAuthentication").hide();
+	$("#wifiSecurityKey").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityIdentity").hide();
+	$("#wifiSecurityPrivateKey").hide();
+	$("#wifiSecurityPrivateKeyPassword").hide();
+	$("#wifiSecurityCerts").hide();
+	$("#wifiSecurityUserCert").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityUsername").hide();
+	$("#wifiSecurityPassword").show();
+}
+
+function popoverWifiSecurityWPA2E() {
+	$("#wifiSecurityAuthentication").show();
+	$("#wifiSecurityKey").hide();
+	$("#wifiSecurityCACert").hide();
+	$("#wifiSecurityIdentity").show();
+	$("#wifiSecurityPrivateKey").hide();
+	$("#wifiSecurityPrivateKeyPassword").hide();
+	$("#wifiSecurityCerts").show();
+	$("#wifiSecurityUserCert").show();
+	$("#wifiSecurityCACert").show();
+	$("#wifiSecurityUsername").show();
+	$("#wifiSecurityPassword").show();
+}
+
+$("#wifiSecurityAuthentication").hide();
+$("#wifiSecurityKey").hide();
+$("#wifiSecurityCACert").hide();
+$("#wifiSecurityIdentity").hide();
+$("#wifiSecurityPrivateKey").hide();
+$("#wifiSecurityPrivateKeyPassword").hide();
+$("#wifiSecurityCerts").hide();
+$("#wifiSecurityUserCert").hide();
+$("#wifiSecurityCACert").hide();
+$("#wifiSecurityUsername").hide();
+
+</script>

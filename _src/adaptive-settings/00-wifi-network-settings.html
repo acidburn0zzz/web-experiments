@@ -26,30 +26,6 @@ wallpaper: black
 		<!-- View -->
 		<div class="view">
 			<!-- Row -->
-			<div id="myWifiNetworkDetails" class="row">
-				<ul class="listrow nohover">
-					<li>
-						<label>Signal Strength</label>
-						<label class="float-right dim-label">Excellent</label>
-					</li>
-					<li>
-						<label>Frequency</label>
-						<label class="float-right dim-label">5 GHz</label>
-					</li>
-					<li>
-						<label>Security</label>
-						<label class="float-right dim-label">WPA2</label>
-					</li>
-					<li>
-						<label>Password</label>
-						<label class="float-right dim-label">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
-					</li>
-					<li class="text-center">
-						<label class="center destructive-action" id="">Forget This Network</label>
-					</li>
-				</ul>
-			</div>
-			<!-- Row -->
 			<div id="myWifiNetworkOptions" class="row">
 				<ul class="listrow">
 					<li onclick="toggleChecked('#wifiConnectAutomaticallySwitch');">
@@ -68,24 +44,40 @@ wallpaper: black
 			</div>
 			<!-- Row -->
 			<div id="myWifiNetworkAdvanced" class="row">
-				<h4>Advanced</h4>
+				<h5>Advanced</h5>
 				<ul class="listrow">
 					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-details"><li>
-						<label class="float-left">Network Details</label>
+						<label>Network Details</label>
 						{%- include components/listrow-link-icon.html -%}
 					</li></a>
-					<!-- <a href="{{ site.baseurl }}/adaptive-settings/wifi/network-dns"><li>
-						<label class="float-left">DNS Settings</label>
+					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-identity"><li>
+						<label>Identity</label>
 						{%- include components/listrow-link-icon.html -%}
-					</li></a> -->
+						<label class="float-right dim-label">MyWifi</label>
+					</li></a>
 					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-ipv4"><li>
-						<label class="float-left">IPv4 Settings</label>
+						<label>IPv4</label>
 						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">192.168.2.1</label>
 					</li></a>
-					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-ipv6"><li>
-						<label class="float-left">IPv6 Settings</label>
+					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-ipv4"><li>
+						<label>IPv6</label>
 						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">2001:0db8:85a3:0000</label>
 					</li></a>
+					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-security"><li>
+						<label>Security</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">WPA2</label>
+					</li></a>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div class="row">
+				<ul class="listrow">
+					<li class="text-center">
+						<label class="center destructive-action" id="">Forget This Network</label>
+					</li>
 				</ul>
 			</div>
 		</div>
