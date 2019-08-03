@@ -1,0 +1,94 @@
+---
+layout: mockup
+title: "Wi-Fi - Network Settings Dialog"
+theme: Adwaita/Adwaita.css
+permalink: adaptive-settings/wifi/network-settings
+wallpaper: black
+---
+
+<!-- Window -->
+<div class="window mobile">
+	{%- include widgets/_panel-mobile.html -%}
+	<!-- Titlebar -->
+	<div class="titlebar grouped">
+		<div class="button-group float-left">
+			<a class="button image-button" href="{{ site.baseurl }}/adaptive-settings/wifi">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		</div>
+		<!-- Title -->
+		<div class="title-group">
+			<span class="title">MyWifi_SSID</span>
+		</div>
+		<div class="button-group float-right">
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- View -->
+		<div class="view">
+			<!-- Row -->
+			<div id="myWifiNetworkDetails" class="row">
+				<ul class="listrow nohover">
+					<li>
+						<label>Signal Strength</label>
+						<label class="float-right dim-label">Excellent</label>
+					</li>
+					<li>
+						<label>Frequency</label>
+						<label class="float-right dim-label">5 GHz</label>
+					</li>
+					<li>
+						<label>Security</label>
+						<label class="float-right dim-label">WPA2</label>
+					</li>
+					<li>
+						<label>Password</label>
+						<label class="float-right dim-label">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
+					</li>
+					<li class="text-center">
+						<label class="center destructive-action" id="">Forget This Network</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div id="myWifiNetworkOptions" class="row">
+				<ul class="listrow">
+					<li onclick="toggleChecked('#wifiConnectAutomaticallySwitch');">
+						<label>Connect automatically</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "wifiConnectAutomaticallySwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#wifiAvailableSwitch');">
+						<label>Available to others</label>
+						{%- include components/switch.html float = "right" checked = "" id = "wifiAvailableSwitch" -%}
+					</li>
+					<li onclick="toggleChecked('#wifiRestrictBackgroundSwitch');">
+						<label>Restrict background data</label>
+						{%- include components/switch.html float = "right" checked = "" id = "wifiRestrictBackgroundSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div id="myWifiNetworkAdvanced" class="row">
+				<h4>Advanced</h4>
+				<ul class="listrow">
+					<li>
+						<label class="float-left">Network Details</label>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+					<li>
+						<label class="float-left">IPv4 Settings</label>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+					<li>
+						<label class="float-left">IPv6 Settings</label>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+
+</script>

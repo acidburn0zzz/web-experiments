@@ -114,7 +114,8 @@ $corner_size: 7px;
 
 	&.mobile {
 		position: relative;
-		height: $panel_height + 6px;
+		height: $panel_height;
+		padding: 3px $panel_padding;
 		&:before {
 			display: none;
 		}

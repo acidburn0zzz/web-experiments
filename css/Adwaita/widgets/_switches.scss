@@ -67,7 +67,7 @@ $switch_transition: all 100ms $ease-out-quad;
 
 		// "off" text
 		&:before {
-			content: attr(data-off-intl);
+			// content: attr(data-off-intl);
 			// content: attr(data-off);
 			right: $switch_font_margin;
 			color: inherit;
@@ -75,7 +75,7 @@ $switch_transition: all 100ms $ease-out-quad;
 
 		// "on" text
 		&:after {
-			content: attr(data-on-intl);
+			// content: attr(data-on-intl);
 			// content: attr(data-on);
 			left: $switch_font_margin;
 			color: inherit;

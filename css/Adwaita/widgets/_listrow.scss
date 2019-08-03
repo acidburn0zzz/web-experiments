@@ -141,6 +141,16 @@ ul.listrow  {
 			z-index: 14;
 		}
 
+		// spacer
+		.spacer {
+			margin:0;
+			padding:0;
+			height: $listrow_item_height;
+			max-height: $listrow_item_height;
+			display: inline-block;
+			width: 6px;
+		}
+
 		// drag handle
 		.drag-handle {
 			opacity: 0.5;
@@ -319,5 +329,12 @@ ul.listrow  {
 		}
 		&.selected {
 		}
+	}
+}
+
+.window.mobile {
+	// List Rows
+	ul.listrow  {
+		border-radius:4px;
 	}
 }

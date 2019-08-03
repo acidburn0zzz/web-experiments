@@ -179,7 +179,10 @@ $pane_width:270px;
 		width: calc(60%) !important;
 		margin: 0 auto;
 		.title {
-			margin-top: -6px; // hardcode in position
+			margin-top:0 !important;
+		}
+		&.with-subtitle {
+			margin-top: -6px !important; // hardcode in position
 		}
 	}
 

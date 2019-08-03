@@ -2,11 +2,9 @@
 layout: mockup
 title: "Wi-Fi"
 theme: Adwaita/Adwaita.css
-permalink: adaptive-settings/wifi
+permalink: adaptive-settings/wifi/
 wallpaper: black
 ---
-
-
 
 <!-- Window -->
 <div class="window mobile">
@@ -17,11 +15,11 @@ wallpaper: black
 			<a class="button image-button">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
 		</div>
 		<!-- Title -->
-		<div class="title-group">
+		<div class="title-group with-subtitle">
 			<span class="title">{{ page.title }}</span><span class="subtitle" id="wifiStatus">Connected</span>
 		</div>
 		<div class="button-group float-right">
-			<a class="button image-button" id="wifiMenuPopover">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>
+			<a class="button image-button" id="wifiMenuPopover">{%- include symbolic/actions/view-more-symbolic.svg -%}</a>
 		</div>
 	</div>
 	<!-- Content -->
@@ -44,7 +42,7 @@ wallpaper: black
 					<li id="wifiNetwork1" onclick="$('#wifiOption1').prop('checked', true );">
 						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "wifiOption1" name = "wifiOptions" onclick = "wifiConnect();" -%}
 						<label>MyWifi</label>
-						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover1" -%}
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label class="dim-label float-right hidden">Disconnected</label>
@@ -119,7 +117,7 @@ wallpaper: black
 			{%- include components/empty-state.html
 				id = "wifiDisabled"
 				icon="status/network-wireless-no-route" 
-				title = "No Wi-Fi adapter found" 
+				title = "No Wi-Fi Connections" 
 				message= "Make sure you have a Wi-Fi adapter plugged in and turned on." 
 			-%}
 		</div>
@@ -270,9 +268,9 @@ $(document).ready(function(){
 	});
 });
 
-// hide empty state
-$('#wifiDisabled').hide().css({'margin-top':'-140px'});
-
-
 $('.viewMoreWifiOptions').hide();
+
+// hide empty state
+$('#wifiDisabled').hide();
+
 </script>

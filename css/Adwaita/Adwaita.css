@@ -53,7 +53,7 @@ body {
   font-size: 15px;
   height: 100%;
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   padding: 0;
   width: 100%;
   background: no-repeat center center fixed;
@@ -802,9 +802,6 @@ select {
   margin: 0 auto;
   top: calc(50% - 120px); }
 
-.window.mobile .content .view .row.empty-state {
-  padding-top: 10em; }
-
 textarea,
 input.entry {
   min-height: 32px;
@@ -1150,12 +1147,12 @@ h3 {
 h4 {
   font-size: 15px;
   line-height: 23px;
-  margin: 4px 0; }
+  margin: 4px 2px; }
 
 h5 {
   font-size: 15px;
   line-height: 15px;
-  margin: 16px 0; }
+  margin: 16px 2px; }
 
 /***********************
 * Text styles (headings)
@@ -1273,6 +1270,13 @@ ul.listrow {
       margin: 0 8px;
       position: relative;
       z-index: 14; }
+    ul.listrow li .spacer {
+      margin: 0;
+      padding: 0;
+      height: 32px;
+      max-height: 32px;
+      display: inline-block;
+      width: 6px; }
     ul.listrow li .drag-handle {
       opacity: 0.5;
       margin: 0;
@@ -1381,6 +1385,9 @@ ul.listrow {
     border-bottom: none; }
     .popover-content > ul > li:hover {
       background-color: white; }
+
+.window.mobile ul.listrow {
+  border-radius: 4px; }
 
 ul.notebook {
   height: 36px;
@@ -1528,7 +1535,8 @@ ul.notebook {
         fill: white; }
   .panel.mobile {
     position: relative;
-    height: 32px; }
+    height: 26px;
+    padding: 3px 7px; }
     .panel.mobile:before {
       display: none; }
     .panel.mobile:after {
@@ -1909,11 +1917,9 @@ ul.sidebar {
       line-height: 26px;
       transition: inherit; }
     .switch .switch-trough:before {
-      content: attr(data-off-intl);
       right: 8px;
       color: inherit; }
     .switch .switch-trough:after {
-      content: attr(data-on-intl);
       left: 8px;
       color: inherit;
       opacity: 0; }
@@ -2123,7 +2129,9 @@ ul.tiles {
   width: calc(60%) !important;
   margin: 0 auto; }
   .titlebar.grouped .title-group .title {
-    margin-top: -6px; }
+    margin-top: 0 !important; }
+  .titlebar.grouped .title-group.with-subtitle {
+    margin-top: -6px !important; }
 .titlebar.grouped .button-group {
   padding: 0; }
   .titlebar.grouped .button-group div, .titlebar.grouped .button-group a {
@@ -2292,7 +2300,7 @@ ul.tiles {
     max-width: 95%; }
 
 .window.mobile .row {
-  width: calc(100% - 24px);
+  width: calc(100% - 24px - 2px);
   margin: 12px auto; }
 .window.mobile .content {
   height: calc(100% - 48px - 24px); }
