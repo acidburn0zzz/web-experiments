@@ -152,6 +152,23 @@ wallpaper: black
 			</div>
 		</div>
 	</div>
+	<!-- Network SSID Dialog -->
+	<div class="gtkdialog" id="networkSSIDDialog">
+		<div class="gtkdialog-window mobile action-dialog">
+			<div class="titlebar" title="Network Name">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="networkSSIDApply">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Choose a new network SSID this is how it will appear to others.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<input class="entry full-width" placeholder="MyWifi" id="networkSSIDEntry"></input>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 	<!-- Network BSSID Dialog -->
 	<div class="gtkdialog" id="networkBSSIDDialog">
 		<div class="gtkdialog-window mobile action-dialog">
