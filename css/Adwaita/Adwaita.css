@@ -1229,10 +1229,8 @@ ul.listrow {
       ul.listrow li label:not(.switch) {
         pointer-events: none; }
       ul.listrow li label.suggested-action {
-        font: bold;
         color: #1b6acb; }
       ul.listrow li label.destructive-action {
-        font: bold;
         color: #e01b24; }
     ul.listrow li:first-child {
       border-radius: 0 0 0 0; }

@@ -61,12 +61,12 @@ ul.listrow  {
 				pointer-events: none;
 			}
 			&.suggested-action {
-				font:bold;
+				// font-family:$bold_font_family;
 				color: $link_color;
 			}
 
 			&.destructive-action {
-				font:bold;
+				// font-family:$bold_font_family;
 				color: $destructive_color;
 			}
 		}

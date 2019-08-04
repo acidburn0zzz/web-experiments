@@ -145,7 +145,7 @@ wallpaper: black
 			<!-- Row -->
 			<div class="row">
 				<ul class="listrow">
-					<li class="text-center">
+					<li class="text-center" onclick="$('#wifiForgetDialog').show();">
 						<label class="center destructive-action" id="">Forget This Network</label>
 					</li>
 				</ul>
@@ -217,6 +217,19 @@ wallpaper: black
 						<input class="entry full-width" placeholder="---" id="networkClonedAddressEntry"></input>
 					</li>
 				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Forget Network Dialog -->
+	<div class="gtkdialog" id="wifiForgetDialog">
+		<div class="gtkdialog-window mobile message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Forget "$NETWORK"?</h3>
+					<p>Your device will no longer be able to join this Wi-Fi network.</p>
+				</div>
+				<a class="button text-button float-left" onclick="$('#wifiForgetDialog').hide();">Cancel</a>
+				<a class="button text-button float-right destructive-action" onclick="$('#wifiForgetDialog').hide();">Forget</a>
 			</div>
 		</div>
 	</div>
