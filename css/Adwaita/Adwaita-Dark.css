@@ -1326,8 +1326,10 @@ ul.listrow {
       ul.listrow li.large .label-group {
         margin-top: 12px;
         margin-left: 4px; }
-  ul.listrow a li > label:nth-child(1) {
-    color: #eeeeec; }
+  ul.listrow a li {
+    border-bottom: 1px solid #202020 !important; }
+    ul.listrow a li > label:nth-child(1) {
+      color: #eeeeec; }
   ul.listrow.nohover li:hover {
     background-color: #2d2d2d; }
   ul.listrow.borderless {

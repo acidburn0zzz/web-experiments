@@ -16,7 +16,7 @@ wallpaper: black
 		</div>
 		<!-- Title -->
 		<div class="title-group">
-			<span class="title">Network Security</span>
+			<span class="title">Security Settings</span>
 		</div>
 		<div class="button-group float-right">
 		</div>
@@ -75,6 +75,7 @@ wallpaper: black
 						<label class="float-right">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
 					</li>
 				</ul>
+				<div id="wifiSecurityNoneWarning" class="dim-label" style="margin: 6px auto;"><div class="icon s16 symbolic">{%- include symbolic/status/dialog-warning-symbolic.svg -%}</div> Connecting to a Wi-Fi network without security is not recommended.</div>
 			</div>
 		</div>
 	</div>
@@ -111,6 +112,7 @@ function popoverWifiSecurity() {
 
 function popoverWifiSecurityNone() {
 	$("#wifiSecurityAuthentication").hide();
+	$("#wifiSecurityNoneWarning").show();
 	$("#wifiSecurityKey").hide();
 	$("#wifiSecurityIdentity").hide();
 	$("#wifiSecurityPrivateKey").hide();
@@ -187,6 +189,7 @@ function popoverWifiSecurityWPA2E() {
 }
 
 $("#wifiSecurityAuthentication").hide();
+$("#wifiSecurityNoneWarning").hide();
 $("#wifiSecurityKey").hide();
 $("#wifiSecurityIdentity").hide();
 $("#wifiSecurityPrivateKey").hide();

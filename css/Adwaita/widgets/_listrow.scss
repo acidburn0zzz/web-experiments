@@ -22,7 +22,7 @@ ul.listrow  {
 	// list item
 	li {
 		border:none;
-		border-bottom:1px solid darken($base_color, 5%); // draw only bottomr
+		border-bottom:1px solid darken($base_color, 5%); // draw only bottom
 		padding: $listrow_padding;
 		height: $listrow_item_height;
 		line-height: $listrow_item_height;
@@ -246,8 +246,11 @@ ul.listrow  {
 
 	}
 
-	a li > label:nth-child(1) {
-		color: $fg_color;
+	a li {
+		border-bottom:1px solid darken($base_color, 5%) !important;
+			> label:nth-child(1) {
+			color: $fg_color;
+		}
 	}
 
 	&.nohover {

@@ -40,21 +40,24 @@ wallpaper: black
 						<label>Restrict background data</label>
 						{%- include components/switch.html float = "right" checked = "" id = "wifiRestrictBackgroundSwitch" -%}
 					</li>
-				</ul>
-			</div>
-			<!-- Row -->
-			<div id="myWifiNetworkAdvanced" class="row">
-				<h5>Advanced</h5>
-				<ul class="listrow">
 					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-details"><li>
 						<label>Network Details</label>
 						{%- include components/listrow-link-icon.html -%}
 					</li></a>
-					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-identity"><li>
+					<li class="text-center">
+						<label class="center destructive-action" id="">Forget This Network</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div id="myWifiNetworkAdvanced" class="row">
+				<h5>Advanced Settings</h5>
+				<ul class="listrow">
+					<!-- <a href="{{ site.baseurl }}/adaptive-settings/wifi/network-identity"><li>
 						<label>Identity</label>
 						{%- include components/listrow-link-icon.html -%}
 						<label class="float-right dim-label">MyWifi</label>
-					</li></a>
+					</li></a> -->
 					<a href="{{ site.baseurl }}/adaptive-settings/wifi/network-ipv4"><li>
 						<label>IPv4</label>
 						{%- include components/listrow-link-icon.html -%}
@@ -70,14 +73,6 @@ wallpaper: black
 						{%- include components/listrow-link-icon.html -%}
 						<label class="float-right dim-label">WPA2</label>
 					</li></a>
-				</ul>
-			</div>
-			<!-- Row -->
-			<div class="row">
-				<ul class="listrow">
-					<li class="text-center">
-						<label class="center destructive-action" id="">Forget This Network</label>
-					</li>
 				</ul>
 			</div>
 		</div>
