@@ -25,6 +25,62 @@ wallpaper: black
 	<div class="content">
 		<!-- View -->
 		<div class="view">
+			<div class="row">
+				<ul class="listrow">
+					<li>
+						<label>Link Speed</label>
+						<label class="float-right dim-label">886 Mb/s</label>
+					</li>
+					<li>
+						<label>DNS Servers</label>
+						<label class="float-right dim-label">192.168.2.1, 1.1.1.1</label>
+					</li>
+					<li>
+						<label>IPv4 Address</label>
+						<label class="float-right dim-label">192.168.2.14</label>
+					</li>
+					<li>
+						<label>IPv6 Address</label>
+						<label class="float-right dim-label">2001:0db8:85a3:0000</label>
+					</li>
+					<!-- <li>
+						<label>Hardware Address</label>
+						<label class="float-right dim-label">A1:B2:C3:D4:E5:F6</label>
+					</li> -->
+					<li class="medium" onclick="$('#networkSSIDDialog').show();">
+						<div class="label-group">
+							<label>Network Name</label>
+							<label class="small-label dim-label">SSID</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right" id="networkSSIDLabel">MyWifi</label>
+					</li>
+					<li class="medium" onclick="$('#networkBSSIDDialog').show();">
+						<div class="label-group">
+							<label>Access Point</label>
+							<label class="small-label dim-label">BSSID</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label" id="networkBSSIDLabel">Not Set</label>
+					</li>
+					<li class="medium" onclick="$('#networkMACAddressDialog').show();">
+						<div class="label-group">
+							<label>Hardware Address</label>
+							<label class="small-label dim-label">MAC</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right" id="networkMACAddressLabel">A1:B2:C3:D4:E5:F6</label>
+					</li>
+					<li class="medium" onclick="$('#networkClonedAddressDialog').show();">
+						<div class="label-group">
+							<label>Cloned Address</label>
+							<label class="small-label dim-label">MAC</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label" id="networkClonedAddressLabel">Not Set</label>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<!-- Network SSID Dialog -->

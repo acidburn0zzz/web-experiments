@@ -29,8 +29,11 @@ wallpaper: black
 			<!-- Airplane mode -->
 			<div class="row">
 				<ul class="listrow">
-					<li>
-						<label>Wi-Fi</label>
+					<li class="medium">
+						<div class="label-group">
+							<label>Wi-Fi</label>
+							<label class="small-label dim-label" id="currentlyConnectedWifi">MyWifi</label>
+						</div>
 						{%- include components/switch.html float = "right" checked="checked" id = "wifiSwitch" -%}
 					</li>
 				</ul>
