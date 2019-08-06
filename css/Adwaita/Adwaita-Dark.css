@@ -745,6 +745,7 @@ select {
   .gtkdialog-window.narrow {
     width: 400px; }
   .gtkdialog-window.mobile {
+    margin-top: calc(50% + ($dialog_height * 0.25)) !important;
     width: 320px !important; }
 
 .action-dialog {

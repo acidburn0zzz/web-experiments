@@ -35,6 +35,7 @@ issue: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/30
 					</div>
 					{%- include components/listrow-menu-button.html onclick = "$('#configureAlarmDialog').show();" %}
 					{%- include components/switch.html float = "right" checked = "checked" id = "alarmList1" -%}
+					<label class="float-right">Weekdays</label>
 				</li>
 				<li class="medium" onclick="toggleChecked('#alarmList2');">
 					<div class="label-group">
