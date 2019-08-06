@@ -32,7 +32,7 @@ wallpaper: black
 					<li class="medium">
 						<div class="label-group">
 							<label>Wi-Fi</label>
-							<label class="small-label dim-label" id="currentlyConnectedWifi">MyWifi</label>
+							<label class="small-label dim-label" id="currentlyConnectedWifi">MyHomeWifi</label>
 						</div>
 						{%- include components/switch.html float = "right" checked="checked" id = "wifiSwitch" -%}
 					</li>
@@ -44,7 +44,7 @@ wallpaper: black
 				<ul class="listrow">
 					<li id="wifiNetwork1" onclick="$('#wifiOption1').prop('checked', true );">
 						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "wifiOption1" name = "wifiOptions" onclick = "wifiConnect();" -%}
-						<label>MyWifi</label>
+						<label>MyHomeWifi</label>
 						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
@@ -52,7 +52,7 @@ wallpaper: black
 					</li>
 					<li onclick="$('#wifiOption2').prop('checked', true );">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption2" name = "wifiOptions" -%}
-						<label>MyWifi_5GHz</label>
+						<label>MyHomeWifi_5GHz</label>
 						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
@@ -91,7 +91,7 @@ wallpaper: black
 				<h5>Nearby Networks<div class="icon s16 spinner dim-label float-right">{%- include symbolic/status/process-working-symbolic.svg -%}</div></h5>
 				<ul class="listrow">
 					<li id="forgottenNetwork1" class="hidden" onclick="$('#connectToWifiDialog').show();">
-						<label>MyWifi</label>
+						<label>MyHomeWifi</label>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
