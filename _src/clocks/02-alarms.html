@@ -8,7 +8,7 @@ published: true
 issue: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/30
 ---
 <!-- Window -->
-<div class="window large">
+<div class="window medium">
 	<!-- Titlebar -->
 	<div class="titlebar grouped">
 		<!-- left button group -->
@@ -35,7 +35,7 @@ issue: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/30
 					</div>
 					{%- include components/listrow-menu-button.html onclick = "$('#configureAlarmDialog').show();" %}
 					{%- include components/switch.html float = "right" checked = "checked" id = "alarmList1" -%}
-					<label class="float-right">Weekdays</label>
+					<label class="float-right dim-label">Weekdays</label>
 				</li>
 				<li class="medium" onclick="toggleChecked('#alarmList2');">
 					<div class="label-group">
@@ -44,6 +44,7 @@ issue: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/30
 					</div>
 					{%- include components/listrow-menu-button.html onclick = "$('#configureAlarmDialog').show();" -%}
 					{%- include components/switch.html float = "right" checked = "Checked" id = "alarmList2" -%}
+					<label class="float-right dim-label">Every Day</label>
 				</li>
 				<li class="medium" onclick="toggleChecked('#alarmList3');">
 					<div class="label-group">
@@ -52,6 +53,7 @@ issue: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/30
 					</div>
 					{%- include components/listrow-menu-button.html onclick = "$('#configureAlarmDialog').show();" -%}
 					{%- include components/switch.html float = "right" checked = "" id = "alarmList3" -%}
+					<label class="float-right dim-label">Mon, Wed, Fri</label>
 				</li>
 				<li onclick="$('#newAlarmDialog').show();" class="text-center">
 					<label class="center">Add an new Alarm&hellip;</label>
