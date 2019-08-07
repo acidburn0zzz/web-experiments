@@ -59,7 +59,7 @@ published: true
 				<ul class="listrow">
 					<li id="wifiNetwork1" onclick="$('#wifiOption1').prop('checked', true );">
 						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "wifiOption1" name = "wifiOptions" onclick = "wifiConnect();" -%}
-						<label>MyHomeWifi</label>
+						<label>MyWifi</label>
 						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover1" -%}
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
@@ -67,7 +67,7 @@ published: true
 					</li>
 					<li onclick="$('#wifiOption2').prop('checked', true );">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "wifiOption2" name = "wifiOptions" -%}
-						<label>MyHomeWifi_5GHz</label>
+						<label>MyWifi_5GHz</label>
 						{%- include components/listrow-menu-button.html id="wifiOptionsMenuPopover2" -%}
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
@@ -107,7 +107,7 @@ published: true
 				<ul class="listrow">
 					<li id="forgottenNetwork1" class="hidden" onclick="$('#connectToWifiDialog').show();">
 						<div class="icon s16 float-left">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
-						<label>MyHomeWifi</label>
+						<label>MyWifi</label>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
 						<div class="icon s16 float-left">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>

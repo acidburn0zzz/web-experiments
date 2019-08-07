@@ -1906,7 +1906,7 @@ ul.sidebar {
     border-radius: 18px;
     box-shadow: inset 0 0 0 1px #cdc7c2;
     color: rgba(46, 52, 54, 0.6);
-    display: block;
+    display: block !important;
     height: inherit;
     position: relative;
     text-shadow: none;
