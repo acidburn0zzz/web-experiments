@@ -157,7 +157,7 @@ ul.sidebar {
 	.sidebar.full-width {
 		display: block !important;
 		// view within the content
-		height: calc(100% - 32px);
+		height: calc(100% - 6px);
 		width: calc(100% + 12px);
 		overflow: hidden !important;
 		overflow-y: scroll !important;

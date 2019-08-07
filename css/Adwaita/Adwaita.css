@@ -1536,7 +1536,6 @@ ul.notebook {
       .panel.transparent:hover .icon > svg > path, .panel.transparent:hover .icon > svg > g {
         fill: white; }
   .panel.mobile {
-    display: none;
     position: relative;
     height: 26px;
     padding: 3px 7px; }
@@ -1558,6 +1557,8 @@ ul.notebook {
       margin: 2px 0; }
   .panel #activitiesButton {
     padding: 0 3px; }
+  .panel #statusConnectivity {
+    visibility: hidden; }
   .panel #dateTimeMenu {
     left: 0;
     padding: 0;
@@ -1573,11 +1574,28 @@ ul.notebook {
     margin-right: 20px; }
 
 @media only screen and (max-width: 800px) {
-  .panel.desktop {
-    display: none !important; }
+  .panel {
+    height: 26px;
+    padding: 3px 7px; }
+    .panel:before {
+      display: none; }
+    .panel:after {
+      display: none; }
+    .panel .date,
+    .panel .dropdown {
+      display: none; }
 
-  .panel.mobile {
-    display: block !important; } }
+  #statusConnectivity {
+    visibility: visible !important; }
+
+  #statusMenu > #statusWireless {
+    display: none; }
+
+  #statusVolumeMedium,
+  #statusVolumeMuted,
+  #accessibilityMenu,
+  #activitiesButton {
+    display: none; } }
 .popover {
   position: absolute;
   top: 0;
@@ -1886,7 +1904,7 @@ ul.sidebar {
 
   .sidebar.full-width {
     display: block !important;
-    height: calc(100% - 32px);
+    height: calc(100% - 6px);
     width: calc(100% + 12px);
     overflow: hidden !important;
     overflow-y: scroll !important;
@@ -2405,8 +2423,8 @@ ul.tiles {
 @media only screen and (max-width: 800px) {
   .window.mobile, .window.medium, .window.large {
     border-radius: 0 !important;
-    margin-top: 0 !important;
-    height: 100% !important; }
+    margin-top: 32px !important;
+    height: calc(100% - (26px + 6px)) !important; }
   .window.mobile {
     margin-top: 0;
     height: 100% !important; } }

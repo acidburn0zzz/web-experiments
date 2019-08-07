@@ -99,8 +99,8 @@ $window_border: if($variant=='light', transparentize(black, 0.77), transparentiz
 		&.medium,
 		&.large {
 			border-radius: 0 !important; 
-			margin-top: 0 !important; // account for the panel
-			height: 100% !important; // account for the margin
+			margin-top: 26px + 6px !important; // account for the panel
+			height: calc(100% - (26px + 6px)) !important; // account for the margin
 		}
 
 		&.mobile {

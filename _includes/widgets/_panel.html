@@ -4,6 +4,17 @@
 	<div id="activitiesButton" class="panel-item float-left">
 		<span>Activities</span>
 	</div>
+	<!-- Status menu -->
+	<div id="statusConnectivity" class="panel-item float-left">
+		<!-- Wireless -->
+		<span class="icon" id="statusWireless">{% include symbolic/status/network-wireless-signal-good-symbolic.svg %}</span>
+		<!-- Cellular -->
+		<span class="icon" id="statusCellular">{% include symbolic/status/network-cellular-signal-good-symbolic.svg %}</span>
+		<!-- VPN -->
+		<span class="icon hidden" id="statusVPN">{% include symbolic/status/network-vpn-symbolic.svg %}</span>
+		<!-- Airplane Mode -->
+		<span class="icon hidden" id="statusAirplaneMode">{% include symbolic/status/airplane-mode-symbolic.svg %}</span>
+	</div>
 	<!-- Clock -->
 	<div id="dateTimeMenu" class="panel-item center">
 		<span class="date"><script> document.write(new Date().toDateString()); </script></span>

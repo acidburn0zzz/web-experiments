@@ -113,7 +113,6 @@ $corner_size: 7px;
 	}
 
 	&.mobile {
-		display: none;
 		position: relative;
 		height: $panel_height;
 		padding: 3px $panel_padding;
@@ -148,6 +147,10 @@ $corner_size: 7px;
 		padding:0 3px;
 	}
 
+	#statusConnectivity {
+		visibility: hidden;
+	}
+
 	// clock
 	#dateTimeMenu {
 		left: 0;
@@ -174,10 +177,36 @@ $corner_size: 7px;
 }
 
 @media only screen and (max-width:800px) {
-	.panel.desktop {
-		display: none !important;
+
+	.panel {
+		height: $panel_height;
+		padding: 3px $panel_padding;
+		&:before {
+			display: none;
+		}
+
+		&:after {
+			display: none;
+		}
+		.date,
+		.dropdown {
+			display: none;
+		}
 	}
-	.panel.mobile {
-		display: block !important;
+	#statusConnectivity {
+		visibility: visible !important;
+	}
+
+	#statusMenu {
+		> #statusWireless {
+			display: none;
+		}
+	}
+
+	#statusVolumeMedium,
+	#statusVolumeMuted,
+	#accessibilityMenu,
+	#activitiesButton {
+		display: none;
 	}
 }
