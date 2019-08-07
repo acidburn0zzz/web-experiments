@@ -240,6 +240,7 @@ $(document).ready(function(){
 			$('#networkList').show(); // show network list
 			$('#wifiDisabled').hide(); // hide empty state
 			$('#statusWireless').show(); // show panel icon
+			$('#statusWirelessMobile').show(); // show panel icon
 			$('#wifiStatus').text('Connected'); //change status text
 		} else {
 			$('#nearbyNetworkList').hide();
@@ -247,6 +248,7 @@ $(document).ready(function(){
 			$('#networkList').hide();
 			$('#wifiDisabled').show();
 			$('#statusWireless').hide();
+			$('#statusWirelessMobile').hide();
 			$('#wifiStatus').text('Disconnected');
 		}
 	});
@@ -257,16 +259,22 @@ $(document).ready(function(){
 	$('#airplaneModeSwitch').change(function(){
 		if($(this).is(":checked")) {
 			$('#statusAirplaneMode').removeClass('hidden');
+			$('#statusAirplaneModeMobile').removeClass('hidden');
 			$('#statusCellular').hide();
+			$('#statusBluetooth').hide();
 			$('#statusWireless').hide();
+			$('#statusWirelessMobile').hide();
 			$('#networkList').addClass('insensitive');
 			$('#wifiOptions').addClass('insensitive');
 			$('#nearbyNetworkList').hide();
 			$('#wifiStatus').text('Disconnected');
 		} else {
 			$('#statusAirplaneMode').addClass('hidden');
+			$('#statusAirplaneModeMobile').addClass('hidden');
 			$('#statusCellular').show();
+			$('#statusBluetooth').show();
 			$('#statusWireless').show();
+			$('#statusWirelessMobile').show();
 			$('#networkList').removeClass('insensitive');
 			$('#wifiOptions').removeClass('insensitive');
 			$('#nearbyNetworkList').show();

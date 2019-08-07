@@ -4,6 +4,12 @@
   has-submenu: false
   has-separator: false
 
+- link: /cellular
+  icon: status/network-cellular-signal-excellent
+  title: Cellular
+  has-submenu: false
+  has-separator: false
+
 - link: /bluetooth
   icon: status/bluetooth-active
   title: Bluetooth

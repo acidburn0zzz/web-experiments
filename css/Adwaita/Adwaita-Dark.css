@@ -1588,6 +1588,9 @@ ul.notebook {
   #statusMenu > #statusWireless {
     display: none; }
 
+  #statusWireless,
+  #statusVPN,
+  #statusAirplaneMode,
   #statusVolumeMedium,
   #statusVolumeMuted,
   #accessibilityMenu,

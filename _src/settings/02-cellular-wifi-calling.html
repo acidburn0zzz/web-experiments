@@ -1,0 +1,55 @@
+---
+layout: mockup
+title: "Cellular - Wi-Fi Calling"
+theme: Adwaita/Adwaita.css
+permalink: settings/cellular/wifi-calling
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="button-group pane float-left">
+			<a class="button image-button float-left secondaryButton" href="{{ site.baseurl }}/settings/cellular">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<a class="button image-button primaryButton">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<a class="button image-button float-left primaryButton" href="{{ site.baseurl }}/settings/cellular">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		<!-- Title -->
+		<div class="title-group">
+			<span class="title">Wi-Fi Calling</span>
+		</div>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		{%- include widgets/_settings-sidebar.html -%}
+		<!-- View -->
+		<div class="view">
+			<!-- Row -->
+			<div class="row">
+				<p>Your service provider must support this feature in order for you to make and receive calls over Wi-Fi on this device. Be sure to review your service provider's policy on emergency calls to understand the availability of emergency calling over Wi-Fi.</p>
+				<ul class="listrow">
+					<li>
+						<label>Wi-Fi Calling on this Device</label>
+						{%- include components/switch.html float = "right" checked = "" id = "cellularAutomaticNetworkSelectionSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(2) li').addClass("active");});
+</script>

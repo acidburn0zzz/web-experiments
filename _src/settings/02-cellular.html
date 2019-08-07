@@ -1,0 +1,131 @@
+---
+layout: mockup
+title: "Cellular"
+theme: Adwaita/Adwaita.css
+permalink: settings/cellular/
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="button-group pane float-left">
+			<a class="button image-button secondaryButton" href="{{ site.baseurl }}/settings/">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<a class="button image-button primaryButton">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<!-- Title -->
+		<div class="title-group">
+			<span class="title">{{ page.title }}</span>
+		</div>
+		<div class="button-group float-right">
+			{%- include components/switch.html checked = "checked" id = "cellularSwitch" -%}
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		{%- include widgets/_settings-sidebar.html -%}
+		<!-- View -->
+		<div class="view">
+			<!-- Cellular Details -->
+			<div class="row" id="cellularDetails">
+				<ul class="listrow">
+					<li>
+						<label>Phone Number</label>
+						<label class="float-right dim-label">+1 234 567 9800</label>
+					</li>
+					<li>
+						<label>Carrier</label>
+						<label class="float-right dim-label">Very Good Cellular</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Cellular Data -->
+			<div class="row" id="cellularData">
+				<h4>Data</h4>
+				<p>Turn off Mobile Data to restrict data usage to Wi-Fi, including email, web browsing, and notifications.</p>
+				<ul class="listrow">
+					<li>
+						<label>Mobile Data</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "cellularDataSwitch" -%}
+					</li>
+					<li>
+						<label>Data Roaming</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "cellularDataRoamingSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Cellular Network -->
+			<div class="row" id="cellularNetwork">
+				<h4>Network</h4>
+				<ul class="listrow">
+					<a href="{{ site.baseurl }}/settings/cellular/network-selection"><li>
+						<label>Network Selection</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">Automatic</label>
+					</li></a>
+					<a href="{{ site.baseurl }}/settings/cellular/wifi-calling"><li>
+						<label>Wi-Fi Calling</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">Off</label>
+					</li></a>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div id="cellularAdvanced" class="row">
+				<h5>Advanced</h5>
+				<ul class="listrow">
+					<li>
+						<label>Access Points</label>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+					<li>
+						<label>SIM Lock</label>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label">Off</label>
+					</li>
+					<li>
+						<label>Modem Details</label>
+						{%- include components/listrow-link-icon.html -%}
+					</li>
+				</ul>
+			</div>
+			{%- include components/empty-state.html
+				id = "cellularDisabled"
+				icon="status/network-cellular-signal-none" 
+				title = "Cellular is turned off" 
+				message= "Turn on to make and receive calls and use mobile broadband." 
+			-%}
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(2) li').addClass("active");});
+
+// cellular toggle
+$('#cellularSwitch').change(function(){
+	if($(this).is(":checked")) {
+		$('#cellularMyDevices').show();
+		$('#cellularNearbyDevices').show();
+		$('#cellularDisabled').hide();
+		$('#statusCellular').show();
+	} else {
+		$('#cellularMyDevices').hide();
+		$('#cellularNearbyDevices').hide();
+		$('#cellularDisabled').show();
+		$('#statusCellular').hide();
+	}
+});
+
+$('#cellularDisabled').hide();
+</script>
