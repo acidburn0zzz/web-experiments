@@ -1,0 +1,66 @@
+---
+layout: mockup
+title: "Wi-Fi - Network Identity"
+theme: Adwaita/Adwaita.css
+permalink: settings/wifi/network-identity
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="button-group pane float-left">
+			<a class="button image-button float-left secondaryButton" href="{{ site.baseurl }}/settings/wifi/network-settings">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<a class="button image-button primaryButton">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<a class="button image-button float-left primaryButton" href="{{ site.baseurl }}/settings/wifi/network-settings">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		<!-- Title -->
+		<div class="title-group with-subtitle">
+			<span class="title">Network Identity</span><span class="subtitle">MyHomeWifi</span>
+		</div>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		<!-- View -->
+		<div class="view">
+			<!-- Row -->
+			<div id="myWifiNetworkIdentity" class="row">
+				<h4>Identity</h4>
+				<ul class="listrow">
+					<li>
+						<label>SSID</label>
+						<input type="entry" name="" value="MyHomeWifi" class="float-right text-right">
+					</li>
+					<li>
+						<label>BSSID</label>
+						<input type="entry" name="" placeholder="" class="float-right text-right">
+					</li>
+					<li>
+						<label>MAC Address</label>
+						<input type="entry" name="" value="A1:B2:C3:D4:E5:F6 (wlp1s0)" class="float-right text-right">
+					</li>
+					<li>
+						<label>Cloned Address</label>
+						<input type="entry" name="" placeholder="" class="float-right text-right">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+</script>

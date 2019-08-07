@@ -124,8 +124,8 @@ $pane_width:270px;
 		vertical-align: top;
 		display: block;
 		// padding on all except close button
-		&:not(.left){margin-left:0;}
-		&:not(.right){margin-left:0;}
+		&:not(.float-left){margin-left:0;}
+		&:not(.float-right){margin-left:0;}
 		&:not(.flat){margin-left:0;}
 		&:not(.linked){margin-left:0;}
 
@@ -189,23 +189,22 @@ $pane_width:270px;
 	// Paned
 	&.paned {
 		>.button-group.float-center {
-			width: calc(100% - #{$pane_width} - 20%);
+			width: calc(100% - #{$pane_width} - 10%);
 			margin-left: $pane_width;
 		}
 
 		>.title-group {
-			width: calc(40%);
+			width: calc(100% - #{$pane_width} - 15%);
 			.title,
 			.subtitle {
-				width: calc(100% - #{$pane_width});
-				margin-left: $pane_width;
+				margin-left: 10%;
 			}
 		}
 
 		>.pane {
 			max-height: $titlebar_height;
 			border-right: 1px solid $borders_color;
-
+			margin-right:6px !important;
 			width: calc(#{$pane_width} - 6px)!important;
 
 			.title {

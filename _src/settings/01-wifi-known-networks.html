@@ -1,0 +1,81 @@
+---
+layout: mockup
+title: "Wi-Fi - Known Networks"
+theme: Adwaita/Adwaita.css
+permalink: settings/wifi/known-networks
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="button-group pane float-left">
+			<a class="button image-button secondaryButton" href="{{ site.baseurl }}/settings/wifi">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<a class="button image-button primaryButton">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<a class="button image-button float-left" href="{{ site.baseurl }}/settings/wifi">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		<!-- Title -->
+		<div class="title-group">
+			<span class="title">Known Networks</span>
+		</div>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		{%- include widgets/_settings-sidebar.html -%}
+		<!-- View -->
+		<div class="view">
+			<!-- My Visible Networks -->
+			<div id="networkList" class="row">
+				<ul class="listrow">
+					<li>
+						<label>MyWifi</label>
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+						<label class="dim-label float-right hidden">Disconnected</label>
+					</li>
+					<li>
+						<label>MyWifi_5GHz</label>
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+					</li>
+					<li>
+						<label>eduroam</label>
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
+						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+					</li>
+					<li>
+						<div class="insensitive">
+						</div>
+						<label class="dim-label">Public Library</label>
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
+						<label class="dim-label float-right">Not Found</label>
+					</li>
+					<li>
+						<div class="insensitive">
+						</div>
+						<label class="dim-label">Starbucks</label>
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
+						<label class="dim-label float-right">Not Found</label>
+					</li>
+				</ul>
+			</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+</script>

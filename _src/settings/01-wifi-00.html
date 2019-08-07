@@ -2,7 +2,7 @@
 layout: mockup
 title: "Wi-Fi"
 theme: Adwaita/Adwaita.css
-permalink: settings/wifi
+permalink: settings/wifi/
 wallpaper: triangles
 published: true
 ---
@@ -55,20 +55,20 @@ published: true
 					<li>
 						<label>MyWifi</label>
 						<div class="icon s16">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
-						<a class="button image-button circular float-right" href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
+						<a class="button image-button circular float-right" href="{{ site.baseurl }}/settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label class="dim-label float-right hidden">Disconnected</label>
 					</li>
 					<li>
 						<label>MyWifi_5GHz</label>
-						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
 					<li>
 						<label>eduroam</label>
-						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/adaptive-settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
+						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
@@ -118,7 +118,7 @@ published: true
 						<label>Connect to Hidden network&hellip;</label>
 						<!-- {%- include components/listrow-link-icon.html -%} -->
 					</li>
-					<a href="{{ site.baseurl }}/adaptive-settings/wifi/known-networks"><li>
+					<a href="{{ site.baseurl }}/settings/wifi/known-networks"><li>
 						<label>View known other networks</label>
 						{%- include components/listrow-link-icon.html -%}
 					</li></a>
@@ -174,9 +174,6 @@ published: true
 <script type="text/javascript">
 // highlight sidebar
 $(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
-
-
-
 
 // fill popover use &apos; to quote escape
 $(document).ready(function() {

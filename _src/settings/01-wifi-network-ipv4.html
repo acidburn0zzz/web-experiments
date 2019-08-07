@@ -1,0 +1,189 @@
+---
+layout: mockup
+title: "Wi-Fi - Network IPv4 Settings"
+theme: Adwaita/Adwaita.css
+permalink: settings/wifi/network-ipv4
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="button-group pane float-left">
+			<a class="button image-button float-left secondaryButton" href="{{ site.baseurl }}/settings/wifi/network-settings">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<a class="button image-button primaryButton">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<a class="button image-button float-left primaryButton" href="{{ site.baseurl }}/settings/wifi/network-settings">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		<!-- Title -->
+		<div class="title-group with-subtitle">
+			<span class="title">IPv4 Settings</span><span class="subtitle">MyHomeWifi</span>
+		</div>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		{%- include widgets/_settings-sidebar.html -%}
+		<!-- View -->
+		<div class="view">
+			<!-- Row -->
+			<div id="myWifiNetworkIdentity" class="row">
+				<ul class="listrow">
+					<li id="iPv4MethodPopover">
+						<label>IPv4 Method</label>
+						<div class="icon s16 float-right">{%- include symbolic/actions/dropdown-symbolic.svg -%}</div>
+						<label class="float-right" id="iPv4MethodStatus">Automatic (DHCP)</label>
+					</li>
+					<li>
+						<label>Automatic DNS</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "wifiAutomaticDNSSwitch" -%}
+					</li>
+					<li>
+						<label>Automatic Routing</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "wifiAutomaticRoutingSwitch" -%}
+					</li>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div id="myWifiNetworkAddressSettings" class="row hidden">
+				<h4>Addresses</h4>
+				<ul id="myWifiNetworkAddresses" class="listrow">
+					<li>
+						<label>Address</label>
+						<input type="entry" name="" placeholder="---" class="float-right text-right">
+					</li>
+					<li>
+						<label>Netmask</label>
+						<input type="entry" name="" placeholder="---" class="float-right text-right">
+					</li>
+					<li>
+						<label>Gateway</label>
+						<input type="entry" name="" placeholder="---" class="float-right text-right">
+					</li>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div id="myWifiNetworkDNSSettings" class="row">
+				<h4>DNS Servers</h4>
+				<ul id="myWifiNetworkDNSServers" class="listrow insensitive">
+					<li id="hideMe1">
+						<label>192.168.2.1</label>
+						<a class="button image-button float-right" onclick="$('#hideMe1').hide();">{%- include symbolic/actions/edit-delete-symbolic.svg -%}</a>
+					</li>
+					<li id="hideMe2">
+						<label>1.1.1.1</label>
+						<a class="button image-button float-right" onclick="$('#hideMe2').hide();">{%- include symbolic/actions/edit-delete-symbolic.svg -%}</a>
+					</li>
+					<li id="addedDNSServer" class="hidden">
+						<label id="addedDNSServerLabel"></label>
+						<a class="button image-button float-right" onclick="$('#addedDNSServer').addClass('hidden');">{%- include symbolic/actions/edit-delete-symbolic.svg -%}</a>
+					</li>
+					<li class="text-center" onclick="$('#addDNSServerDialog').show();">
+						<label class="center" id="">Add DNS Server...</label>
+					</li>
+				</ul>
+			</div>
+			<!-- Row -->
+			<div id="myWifiNetworkRoutesSettings" class="row">
+				<h4>Routes</h4>
+				<ul id="myWifiNetworkRoutes" class="listrow insensitive">
+					<li>
+						<label>Address</label>
+						<input type="entry" name="" placeholder="---" class="float-right text-right">
+					</li>
+					<li>
+						<label>Netmask</label>
+						<input type="entry" name="" placeholder="---" class="float-right text-right">
+					</li>
+					<li>
+						<label>Gateway</label>
+						<input type="entry" name="" placeholder="---" class="float-right text-right">
+					</li>
+					<li>
+						<label>Metric</label>
+						<input type="entry" name="" placeholder="---" class="float-right text-right">
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Add DNS Server Dialog -->
+	<div class="gtkdialog" id="addDNSServerDialog">
+		<div class="gtkdialog-window mobile message-dialog">
+			<div class="gtkdialog-content">
+				<div class="row">
+					<h3>Add DNS Server</h3>
+					<p>Add a custom Domain Name System (DNS) server for resolving IP Addresses.</p>
+					<ul class="listrow unstyled">
+						<li><input class="entry full-width" placeholder="0.0.0.0" id="addDSNServerEntry"></input></li>
+					</ul>
+				</div>
+				<a class="button text-button float-left" onclick="$('#addDNSServerDialog').hide();">Cancel</a>
+				<a class="button text-button float-right" id="DNSServerApply" onclick="$('#addDNSServerDialog').hide();">Add</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+
+$('#DNSServerApply').click(function(){
+	$("#addedDNSServer").removeClass('hidden');
+	$("#addedDNSServerLabel").text($('#addDSNServerEntry').val());
+});
+
+// fill popover use &apos; to quote escape
+$(document).ready(function() {
+	var label = "";
+	var popoverContent = ['<ul>',
+			'<li onclick="popoverIPv4Method($(this).text());">Automatic (DHCP)</li>',
+			'<li onclick="popoverIPv4Method($(this).text());">Link-local Only</li>',
+			'<li onclick="popoverIPv4Method($(this).text());$(&apos;#myWifiNetworkAddressSettings&apos;).removeClass(&apos;hidden&apos;);">Manual</li>',
+			'<li onclick="popoverIPv4Method($(this).text());">Disable</li>',
+		'</ul>'].join('');
+
+	$("#iPv4MethodPopover").popover({
+		trigger: 'click',
+		content: popoverContent,
+		placement: "bottom",
+		html: true
+	});
+});
+
+function popoverIPv4Method() {
+	$('#iPv4MethodStatus').text(arguments[0]);
+	$("#iPv4MethodPopover").popover("hide");
+}
+
+// wifi toggle
+$(document).ready(function(){
+	$('#wifiAutomaticDNSSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#myWifiNetworkDNSServers').addClass('insensitive'); // show network list
+		} else {
+			$('#myWifiNetworkDNSServers').removeClass('insensitive');
+		}
+	});
+});
+// wifi toggle
+$(document).ready(function(){
+	$('#wifiAutomaticRoutingSwitch').change(function(){
+		if($(this).is(":checked")) {
+			$('#myWifiNetworkRoutes').addClass('insensitive'); // show network list
+		} else {
+			$('#myWifiNetworkRoutes').removeClass('insensitive');
+		}
+	});
+});
+</script>

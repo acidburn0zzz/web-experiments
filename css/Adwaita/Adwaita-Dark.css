@@ -2127,9 +2127,9 @@ ul.tiles {
     margin: 6px 0;
     vertical-align: top;
     display: block; }
-    .titlebar .button:not(.left) {
+    .titlebar .button:not(.float-left) {
       margin-left: 0; }
-    .titlebar .button:not(.right) {
+    .titlebar .button:not(.float-right) {
       margin-left: 0; }
     .titlebar .button:not(.flat) {
       margin-left: 0; }
@@ -2171,17 +2171,17 @@ ul.tiles {
     .titlebar .button-group.float-right > .linked {
       margin-left: 6px; }
   .titlebar.paned > .button-group.float-center {
-    width: calc(100% - 270px - 20%);
+    width: calc(100% - 270px - 10%);
     margin-left: 270px; }
   .titlebar.paned > .title-group {
-    width: calc(40%); }
+    width: calc(100% - 270px - 15%); }
     .titlebar.paned > .title-group .title,
     .titlebar.paned > .title-group .subtitle {
-      width: calc(100% - 270px);
-      margin-left: 270px; }
+      margin-left: 10%; }
   .titlebar.paned > .pane {
     max-height: 46px;
     border-right: 1px solid #1b1b1b;
+    margin-right: 6px !important;
     width: calc(270px - 6px) !important; }
     .titlebar.paned > .pane .title {
       position: relative;

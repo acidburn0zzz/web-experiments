@@ -1,0 +1,201 @@
+---
+layout: mockup
+title: "Wi-Fi - Network Details"
+theme: Adwaita/Adwaita.css
+permalink: settings/wifi/network-details
+wallpaper: triangles
+---
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/Adwaita/apps/settings.css">
+
+{%- include widgets/_panel.html -%}
+
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div class="titlebar paned">
+		<div class="button-group pane float-left">
+			<a class="button image-button float-left secondaryButton" href="{{ site.baseurl }}/settings/wifi/network-settings">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<a class="button image-button primaryButton">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
+		</div>
+		<a class="button image-button float-left primaryButton" href="{{ site.baseurl }}/settings/wifi/network-settings">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		<!-- Title -->
+		<div class="title-group with-subtitle">
+			<span class="title">Network Details</span><span class="subtitle">MyHomeWifi</span>
+		</div>
+		<div class="button-group float-right">
+			{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Content -->
+	<div class="content">
+		{%- include widgets/_settings-sidebar.html -%}
+		<!-- View -->
+		<div class="view">
+			<div class="row">
+				<ul class="listrow">
+					<li>
+						<label>Link Speed</label>
+						<label class="float-right dim-label">886 Mb/s</label>
+					</li>
+					<li>
+						<label>DNS Servers</label>
+						<label class="float-right dim-label">192.168.2.1, 1.1.1.1</label>
+					</li>
+					<li>
+						<label>IPv4 Address</label>
+						<label class="float-right dim-label">192.168.2.14</label>
+					</li>
+					<li>
+						<label>IPv6 Address</label>
+						<label class="float-right dim-label">2001:0db8:85a3:0000</label>
+					</li>
+					<!-- <li>
+						<label>Hardware Address</label>
+						<label class="float-right dim-label">A1:B2:C3:D4:E5:F6</label>
+					</li> -->
+					<li class="medium" onclick="$('#networkSSIDDialog').show();">
+						<div class="label-group">
+							<label>Network Name</label>
+							<label class="small-label dim-label">SSID</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right" id="networkSSIDLabel">MyHomeWifi</label>
+					</li>
+					<li class="medium" onclick="$('#networkBSSIDDialog').show();">
+						<div class="label-group">
+							<label>Access Point</label>
+							<label class="small-label dim-label">BSSID</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label" id="networkBSSIDLabel">Not Set</label>
+					</li>
+					<li class="medium" onclick="$('#networkMACAddressDialog').show();">
+						<div class="label-group">
+							<label>Hardware Address</label>
+							<label class="small-label dim-label">MAC</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right" id="networkMACAddressLabel">A1:B2:C3:D4:E5:F6</label>
+					</li>
+					<li class="medium" onclick="$('#networkClonedAddressDialog').show();">
+						<div class="label-group">
+							<label>Cloned Address</label>
+							<label class="small-label dim-label">MAC</label>
+						</div>
+						{%- include components/listrow-link-icon.html -%}
+						<label class="float-right dim-label" id="networkClonedAddressLabel">Not Set</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Network SSID Dialog -->
+	<div class="gtkdialog" id="networkSSIDDialog">
+		<div class="gtkdialog-window mobile action-dialog">
+			<div class="titlebar" title="Network Name">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="networkSSIDApply">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Choose a new network SSID this is how it will appear to others.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<input class="entry full-width" placeholder="MyHomeWifi" id="networkSSIDEntry"></input>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Network BSSID Dialog -->
+	<div class="gtkdialog" id="networkBSSIDDialog">
+		<div class="gtkdialog-window mobile action-dialog">
+			<div class="titlebar" title="Access Point">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="networkBSSIDApply">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Choose a new network BSSID this is how it will appear to others.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<input class="entry full-width" placeholder="---" id="networkBSSIDEntry"></input>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Network MACAddress Dialog -->
+	<div class="gtkdialog" id="networkMACAddressDialog">
+		<div class="gtkdialog-window mobile action-dialog">
+			<div class="titlebar" title="Hardware Address">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="networkMACAddressApply">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Choose a new network MAC Address this is how it will appear to others.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<input class="entry full-width" placeholder="A1:B2:C3:D4:E5:F6" id="networkMACAddressEntry"></input>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- Network ClonedAddress Dialog -->
+	<div class="gtkdialog" id="networkClonedAddressDialog">
+		<div class="gtkdialog-window mobile action-dialog">
+			<div class="titlebar" title="Cloned Address">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="networkClonedAddressApply">Apply</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p>Choose a new network Cloned Address this is how it will appear to others.</p>
+				<ul class="listrow unstyled">
+					<li>
+						<input class="entry full-width" placeholder="---" id="networkClonedAddressEntry"></input>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- js -->
+<script type="text/javascript">
+// highlight sidebar
+$(document).ready(function() {$('#settingsSidebar a:nth-of-type(1) li').addClass("active");});
+
+// change network ssid
+$(document).ready(function(){
+	$('#networkSSIDApply').click(function(){
+		$("#networkSSIDLabel").text($('#networkSSIDEntry').val());
+	});
+});
+$("#networkSSIDApply").click(function(){$(".gtkdialog").hide();}); 
+
+// change network bssid
+$(document).ready(function(){
+	$('#networkBSSIDApply').click(function(){
+		$("#networkBSSIDLabel").text($('#networkBSSIDEntry').val());
+	});
+});
+$("#networkBSSIDApply").click(function(){$(".gtkdialog").hide();}); 
+
+// change network mac address
+$(document).ready(function(){
+	$('#networkMacAddressApply').click(function(){
+		$("#networkMacAddressLabel").text($('#networkMacAddressEntry').val());
+	});
+});
+$("#networkMacAddressApply").click(function(){$(".gtkdialog").hide();}); 
+
+// change network cloned address
+$(document).ready(function(){
+	$('#networkClonedAddressApply').click(function(){
+		$("#networkClonedAddressLabel").text($('#networkClonedAddressEntry').val());
+	});
+});
+$("#networkClonedAddressApply").click(function(){$(".gtkdialog").hide();}); 
+</script>
