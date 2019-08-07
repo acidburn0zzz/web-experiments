@@ -22,7 +22,7 @@
 	width: 100%;
 	margin:24px auto;
 	width: 66%;
-	max-width: 480px;
+	width: 480px;
 	&.wide {
 		width: 75%;
 		max-width: 600px;
@@ -44,8 +44,10 @@
 	}
 }
 
-@media only screen and (max-width:600px) {
-	.row {
+@media only screen and (max-width:900px) {
+	.row,
+	.row.wide,
+	.row.full {
 		width: calc(100% - 36px);
 		margin:18px auto;
 		max-width: 100%;
@@ -60,5 +62,13 @@
 		// hide the scrollbar
 		box-sizing: content-box;
 		padding-right: 0;
+	}
+}
+
+@media only screen and (max-width:800px) {
+	.row {
+		width: calc(100% - 24px - 2px);
+		margin:12px auto;
+		max-width: 480px;
 	}
 }

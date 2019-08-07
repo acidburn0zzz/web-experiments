@@ -7,6 +7,23 @@
 	grid-gap: 0;
 }
 
+.secondaryButton {
+	display: none !important;
+}
+
+@media only screen and (max-width:800px) {
+	.content {
+		display: block !important;
+	}
+
+	.secondaryButton {
+		display: inline-block !important;
+	}
+	.primaryButton {
+		display: none !important;
+	}
+}
+
 // background panel
 
 .backgroundColorSquare {

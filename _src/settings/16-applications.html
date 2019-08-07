@@ -12,17 +12,20 @@ wallpaper: triangles
 {%- include widgets/_panel.html -%}
 
 <!-- Window -->
-<div class="window large">
+<div class="window medium">
+	{%- include widgets/_panel-mobile.html -%}
 	<!-- Titlebar -->
 	<div class="titlebar paned">
-		<div class="pane">
-			<a href="{{ site.baseurl }}/settings/" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+		<div class="button-group pane float-left">
+			<a class="button image-button" href="{{ site.baseurl }}/settings/wifi">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
 			<span class="title">{{ page.title }}</span>
 		</div>
 		<!-- Title -->
-		<span class="title">App Name</span>
+		<div class="title-group">
+			<span class="title">App Name</span>
+		</div>
 		<div class="button-group float-right">
-			<a class="button image-text-button"><div>{%- include symbolic/apps/org.gnome.Software-symbolic.svg -%}</div>Show in Software</a>
+			<a class="button image-text-button"><div>{%- include symbolic/apps/org.gnome.Software-symbolic.svg -%}</div>Software</a>
 			{%- include components/close-button.html close = "window" -%}
 		</div>
 	</div>

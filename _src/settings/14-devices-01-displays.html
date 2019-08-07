@@ -28,13 +28,18 @@ category: "Devices"
 
 <!-- Window -->
 <div class="window medium">
+	{%- include widgets/_panel-mobile.html -%}
 	<!-- Titlebar -->
 	<div class="titlebar paned">
-		<div class="pane">
-			<a href="{{ site.baseurl }}/settings/" class="button image-button float-left">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
-			<span class="title">{{ page.category }}</span>
+		<div class="button-group pane float-left">
+			<a class="button image-button secondaryButton" href="{{ site.baseurl }}/settings/devices-root">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<a class="button image-button primaryButton" href="{{ site.baseurl }}/settings/wifi">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<span class="title">Settings</span>
 		</div>
-		<span class="title">{{ page.title }}</span>
+		<!-- Title -->
+		<div class="title-group">
+			<span class="title">{{ page.title }}</span>
+		</div>
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>

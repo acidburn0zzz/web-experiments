@@ -1,0 +1,7 @@
+<!-- Sidebar -->
+<ul id="settingsSidebar" class="sidebar">
+{%- for item in site.data.settings-sidebar -%}
+	<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
+	</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
+{%- endfor -%}
+</ul>

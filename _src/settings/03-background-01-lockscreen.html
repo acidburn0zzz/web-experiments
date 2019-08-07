@@ -13,31 +13,26 @@ wallpaper: triangles
 
 <!-- Window -->
 <div class="window medium">
+	{%- include widgets/_panel-mobile.html -%}
 	<!-- Titlebar -->
 	<div class="titlebar paned">
-		<div class="pane">
-			<a class="button image-button float-left">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
+		<div class="button-group pane float-left">
+			<a class="button image-button secondaryButton" href="{{ site.baseurl }}/settings/">{%- include symbolic/actions/go-previous-symbolic.svg -%}</a>
+			<a class="button image-button primaryButton">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
 			<span class="title">Settings</span>
 		</div>
 		<div class="button-group float-center">
 			<div class="linked stack-switcher">
-				<a class="button text-button left" href="{{ site.baseurl }}/settings/background">Desktop</a><a class="button text-button pressed right" href="#">Lock Screen</a>
+				<a class="button text-button left" href="{{ site.baseurl }}/settings/background">Desktop</a><a class="button text-button pressed right">Lock Screen</a>
 			</div>
 		</div>
-		<!-- center button group -->
 		<div class="button-group float-right">
 			{%- include components/close-button.html close = "window" -%}
 		</div>
 	</div>
 	<!-- Content -->
 	<div class="content">
-		<!-- Sidebar -->
-		<ul id="settingsSidebar" class="sidebar">
-		{%- for item in site.data.settings-sidebar -%}
-			<a href="{{ site.baseurl }}/settings{{ item.link }}"><li>{%- include symbolic/{{ item.icon }}-symbolic.svg -%}<span>{{ item.title }}</span>{%- if item.has-submenu == true -%}<span class="float-right">{%- include symbolic/actions/go-next-symbolic.svg -%}</span>{%- endif -%}
-			</li></a>{%- if item.has-separator == true -%}<div class="separator"></div>{%- endif -%}
-		{%- endfor -%}
-		</ul>
+		{%- include widgets/_settings-sidebar.html -%}
 		<!-- View -->
 		<div class="view">
 			<div class="infobar info hidden">

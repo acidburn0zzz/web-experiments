@@ -69,7 +69,7 @@ $window_border: if($variant=='light', transparentize(black, 0.77), transparentiz
 	}
 }
 // window always fullscreen on small displays
-@media only screen and (max-height: 750px) {
+@media only screen and (max-width: 1024px) {
 	.window {
 		&.mobile,
 		&.medium,
@@ -83,6 +83,24 @@ $window_border: if($variant=='light', transparentize(black, 0.77), transparentiz
 			top: 0;
 			overflow: hidden;
 			position: fixed;
+		}
+
+		&.mobile {
+			margin-top:0;
+			height: 100% !important;
+		}
+	}
+}
+
+// window always fullscreen on small displays
+@media only screen and (max-width: 800px) {
+	.window {
+		&.mobile,
+		&.medium,
+		&.large {
+			border-radius: 0 !important; 
+			margin-top: 0 !important; // account for the panel
+			height: 100% !important; // account for the margin
 		}
 
 		&.mobile {

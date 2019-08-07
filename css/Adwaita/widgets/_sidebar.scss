@@ -56,8 +56,8 @@ ul.sidebar {
 			border-radius: 3px;
 		}
 
-		.right>.symbolic {
-			margin-right:6px;
+		.float-right>.symbolic {
+			margin-right:0px;
 		}
 
 		&:hover {
@@ -78,6 +78,18 @@ ul.sidebar {
 		height: 1px;
 		width: $sidebar_width;
 		background-color: lighten($borders_color, 7%);
+	}
+
+	&.full-width {
+		width: 100%;
+		max-width: 100%;
+
+		li {
+			width: calc(100% - (#{$sidebar_listitem_padding} * 2));
+		}
+		> .separator {
+			width: 100%;
+		}
 	}
 
 	&.large {
@@ -135,5 +147,14 @@ ul.sidebar {
 				}
 			}
 		}
+	}
+}
+
+@media only screen and (max-width:800px) {
+	.sidebar {
+		display: none !important;
+	}
+	.sidebar.full-width {
+		display: block !important;
 	}
 }

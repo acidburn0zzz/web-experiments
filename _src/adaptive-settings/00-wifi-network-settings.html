@@ -62,8 +62,11 @@ wallpaper: black
 						<label>Available to others</label>
 						{%- include components/switch.html float = "right" checked = "" id = "wifiAvailableSwitch" -%}
 					</li>
-					<li onclick="toggleChecked('#wifiRestrictBackgroundSwitch');">
-						<label>Restrict background data</label>
+					<li class="medium" onclick="toggleChecked('#wifiRestrictBackgroundSwitch');">
+						<div class="label-group">
+							<label>Metered connection</label>
+							<label class="small-label dim-label">Limit significant background data.</label>
+						</div>
 						{%- include components/switch.html float = "right" checked = "" id = "wifiRestrictBackgroundSwitch" -%}
 					</li>
 				</ul>

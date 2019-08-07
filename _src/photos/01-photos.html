@@ -18,9 +18,10 @@ wallpaper: triangles
 		<div class="button-group float-left">
 			<a class="button image-text-button">{%- include symbolic/devices/media-flash-symbolic.svg -%} SD Card</a>
 		</div>
-		<!-- Title -->
-		<div class="button-group float-center linked">
-			<a class="button text-button left pressed">Photos</a><a href="{{ site.baseurl }}/photos/albums" class="button text-button right">Albums</a>
+		<div class="button-group float-center wide">
+			<div class="linked stack-switcher">
+				<a class="button text-button pressed left">Photos</a><a href="{{ site.baseurl }}/photos/albums" class="button text-button right">Albums</a>
+			</div>
 		</div>
 		<div class="button-group float-right">
 			<a class="button image-button">{%- include symbolic/actions/edit-find-symbolic.svg -%}</a>
