@@ -802,7 +802,7 @@ select {
   width: 100%;
   height: 240px;
   margin: 0 auto;
-  top: calc(50% - 120px); }
+  margin-top: calc(50% - 120px); }
 
 textarea,
 input.entry {

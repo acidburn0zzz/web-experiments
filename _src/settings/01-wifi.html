@@ -239,12 +239,14 @@ $(document).ready(function(){
 	$('#wifiSwitch').change(function(){
 		if($(this).is(":checked")) {
 			$('#nearbyNetworkList').show(); // show network list
+			$('#wifiOptions').show(); // show network list
 			$('#networkList').show(); // show network list
 			$('#wifiDisabled').hide(); // hide empty state
 			$('#statusWireless').show(); // show panel icon
 			$('#wifiStatus').text('Connected'); //change status text
 		} else {
 			$('#nearbyNetworkList').hide();
+			$('#wifiOptions').hide();
 			$('#networkList').hide();
 			$('#wifiDisabled').show();
 			$('#statusWireless').hide();
@@ -258,23 +260,24 @@ $(document).ready(function(){
 	$('#airplaneModeSwitch').change(function(){
 		if($(this).is(":checked")) {
 			$('#statusAirplaneMode').removeClass('hidden');
+			$('#statusCellular').hide();
 			$('#statusWireless').hide();
 			$('#networkList').addClass('insensitive');
+			$('#wifiOptions').addClass('insensitive');
 			$('#nearbyNetworkList').hide();
 			$('#wifiStatus').text('Disconnected');
 		} else {
 			$('#statusAirplaneMode').addClass('hidden');
+			$('#statusCellular').show();
 			$('#statusWireless').show();
 			$('#networkList').removeClass('insensitive');
+			$('#wifiOptions').removeClass('insensitive');
 			$('#nearbyNetworkList').show();
 			$('#wifiStatus').text('Connected');
 		}
 	});
 });
 
-// hide empty state
-$('#wifiDisabled').hide().css({'margin-top':'-140px'});
-
-
+$('#wifiDisabled').hide();
 $('.viewMoreWifiOptions').hide();
 </script>
