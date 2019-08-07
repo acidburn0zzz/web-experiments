@@ -1882,7 +1882,13 @@ ul.sidebar {
     display: none !important; }
 
   .sidebar.full-width {
-    display: block !important; } }
+    display: block !important;
+    height: calc(100% - 32px);
+    width: calc(100% + 12px);
+    overflow: hidden !important;
+    overflow-y: scroll !important;
+    box-sizing: content-box;
+    padding-right: 24px; } }
 .spinner {
   -webkit-animation: spin 1s linear infinite;
   -moz-animation: spin 1s linear infinite;
