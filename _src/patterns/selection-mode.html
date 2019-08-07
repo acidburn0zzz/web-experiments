@@ -1,17 +1,50 @@
 ---
 layout: mockup
 title: "Patterns - Selection Mode"
-theme: Adwaita/Adwaita-Dark.css
+theme: Adwaita/Adwaita.css
 permalink: patterns/selection-mode
-wallpaper: black
 ---
 
 <style type="text/css">
-.window {margin-top: 5em;}
+.window {margin-top: 3em;}
+.title-group {
+	width: calc(20%) !important;
+}
+
+.button-group.float-left {
+	width: calc(40%) !important;
+}
+
+.button-group.float-right {
+	width: auto;
+}
 </style>
 
+<div class="row">
+	<h2>Selection Mode</h2>
+	<p>Selection Mode is a pattern to allow for the selection of multiple items of content and to allow batch actions to performed on that selection. It would typically be used in conjunction with long lists or grids of items. Appropriate scenarios for Selection Mode would be when the view has multple content items and:</p>
+	<ul>
+		<li>You need to perform actions simultaneously.</li>
+		<li>Several actions are available to be performed.</li>
+		<li>It is helpful to be able to perform actions without opening them.</li>
+		<li>You need to organize or reorder items.</li>
+	</ul>
+	<br>
+	<h4>Activating Selection Mode</h4>
+	<p>Selection Mode is activated by a right-aligned button, identified either with a text label <a class="button text-button">Edit...</a> or a icon <a class="button image-button">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</a>, which transforms the header bar into the Selection Mode (by hiding the main window actions and revealing the Selection Mode actions).</p>
+
+	<p>Selection Mode would be de-activated when the batch action is performed or when cancelled or dismissed, typically with a button: <a class="button text-button">Cancel</a> or <a class="button text-button suggested-action">Done</a>.</p>
+	<br><br>
+	<h4>Selection Mode Actions</h4>
+	<p>While in Selection Mode, the title bar contains actions that only apply to a batch selection of items.</p>
+	<p>Actions specific to the application occupy left-aligned buttons with <b>text labels</b>&mdash;it's crucial to avoid the use of icons for these app-specific actions are they are often only known to the app. Standard, more universal actions, that may be used across applications, occupy right-aligned buttons with <b>icons</b>&mdash;icons are used here because the actions often are widely used, e.g. Print (<span class="icon s16" style="margin:3px 0;">{%- include symbolic/actions/document-print-symbolic.svg -%}</span>).</p>
+	<br>
+	<h2>Examples</h2>
+
+</div>
+
 <!-- Window -->
-<div class="window large no-content">
+<div class="window medium no-content">
 	<!-- Titlebar -->
 	<div id="titlebarPhotos" class="titlebar grouped">
 		<!-- left button group -->
@@ -50,7 +83,7 @@ wallpaper: black
 </div>
 
 <!-- Window -->
-<div class="window large no-content">
+<div class="window medium no-content">
 	<!-- Titlebar -->
 	<div id="titlebarDocuments" class="titlebar grouped">
 		<!-- left button group -->
@@ -91,7 +124,7 @@ wallpaper: black
 </div>
 
 <!-- Window -->
-<div class="window large no-content">
+<div class="window medium no-content">
 	<!-- Titlebar -->
 	<div id="titlebarPlaylist" class="titlebar grouped">
 		<!-- left button group -->
@@ -126,7 +159,7 @@ wallpaper: black
 </div>
 
 <!-- Window -->
-<div class="window large no-content">
+<div class="window medium no-content">
 	<!-- Titlebar -->
 	<div id="titlebarFiles" class="titlebar grouped">
 		<!-- left button group -->
@@ -170,7 +203,7 @@ wallpaper: black
 </div>
 
 <!-- Window -->
-<div class="window large no-content">
+<div class="window medium no-content">
 	<!-- Titlebar -->
 	<div id="titlebarMail" class="titlebar grouped">
 		<!-- left button group -->
@@ -209,7 +242,7 @@ wallpaper: black
 </div>
 
 <!-- Window -->
-<div class="window large no-content">
+<div class="window medium no-content">
 	<!-- Titlebar -->
 	<div id="titlebarClocks" class="titlebar grouped">
 		<!-- left button group -->

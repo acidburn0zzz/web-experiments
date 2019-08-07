@@ -2127,7 +2127,7 @@ ul.tiles {
   top: 0 !important;
   margin-top: 0 !important; }
 .titlebar.grouped .title-group {
-  width: calc(60%) !important;
+  width: calc(60%);
   margin: 0 auto; }
   .titlebar.grouped .title-group .title {
     margin-top: 0 !important; }
