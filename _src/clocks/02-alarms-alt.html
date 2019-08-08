@@ -1,0 +1,176 @@
+---
+layout: mockup
+title: "Clocks - Alarms"
+theme: Adwaita/Adwaita.css
+permalink: clocks/alarm-alt
+wallpaper: adwaita
+published: true
+issue: https://gitlab.gnome.org/GNOME/gnome-clocks/issues/30
+---
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div id="titlebarClocksAlarms" class="titlebar grouped">
+		<!-- left button group -->
+		<div class="button-group float-left">
+			<a class="button text-button">New</a>
+		</div>
+		<!-- center button group -->
+		<div class="button-group float-center wide">
+			<div class="linked stack-switcher">
+				<a class="button text-button left">World</a><a class="button text-button middle pressed">Alarm</a><a class="button text-button middle">Stopwatch</a><a class="button text-button right">Timer</a>
+			</div>
+		</div>
+		<!-- right button group -->
+		<div class="button-group float-right"><a class="button text-button" id="clocksSelectionMode" onclick="alarmSelectionMode();">Edit</a><a class="button image-button">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Selection Mode -->
+	<div id="selectionModeClocksAlarms" class="titlebar grouped">
+		<!-- left button group -->
+		<div class="button-group float-left">
+			<a class="button image-text-button">Delete</a>
+		</div>
+		<!-- title group -->
+		<div class="title-group"><div class="title"># Selected</div></div>
+		<!-- right button group -->
+		<div class="button-group float-right">
+			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeClocksAlarms').hide();$('#titlebarClocksAlarms').show();alarmSelectionModeCancel();">Cancel</a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="row">
+			<ul class="listrow switchlist">
+				<li class="medium" onclick="toggleChecked('#alarmList1');toggleChecked('#alarmCheck1');">
+					{%- include components/listrow-selection.html type = "checkbox" checked = "" id = "alarmCheck1" name = "alarmChecks" -%}
+					<div class="label-group">
+						<label>9:00 AM</label>
+						<label class="small-label dim-label">Work Alarm</label>
+					</div>
+					{%- include components/listrow-menu-button.html onclick = "$('#configureAlarmDialog').show();" %}
+					{%- include components/switch.html float = "right" checked = "checked" id = "alarmList1" -%}
+					<label class="float-right dim-label">Weekdays</label>
+				</li>
+				<li class="medium" onclick="toggleChecked('#alarmList2');toggleChecked('#alarmCheck2');">
+					{%- include components/listrow-selection.html type = "checkbox" checked = "" id = "alarmCheck2" name = "alarmChecks" -%}
+					<div class="label-group">
+						<label>9:15 AM</label>
+						<label class="small-label dim-label">Second Work Alarm</label>
+					</div>
+					{%- include components/listrow-menu-button.html onclick = "$('#configureAlarmDialog').show();" -%}
+					{%- include components/switch.html float = "right" checked = "Checked" id = "alarmList2" -%}
+					<label class="float-right dim-label">Every Day</label>
+				</li>
+				<li class="medium" onclick="toggleChecked('#alarmList3');toggleChecked('#alarmCheck3');">
+					{%- include components/listrow-selection.html type = "checkbox" checked = "" id = "alarmCheck3" name = "alarmChecks" -%}
+					<div class="label-group">
+						<label>3:00 PM</label>
+						<label class="small-label dim-label">Alarm</label>
+					</div>
+					{%- include components/listrow-menu-button.html onclick = "$('#configureAlarmDialog').show();" -%}
+					{%- include components/switch.html float = "right" checked = "" id = "alarmList3" -%}
+					<label class="float-right dim-label">Mon, Wed, Fri</label>
+				</li>
+				<li id="addAlarm" onclick="$('#newAlarmDialog').show();" class="text-center">
+					<label class="center">Add an new Alarm&hellip;</label>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- Edit Alarm Dialog -->
+	<div class="gtkdialog" id="configureAlarmDialog">
+		<div class="gtkdialog-window action-dialog">
+			<div class="titlebar" title="Edit Alarm">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="configureAlarmDone" onclick="$('.gtkdialog').hide();">Done</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p><i>[ TIME WIDGET GOES HERE ]</i></p>
+
+				<ul class="listrow">
+					<li>
+						<label>Label</label>
+						<input class="entry float-right" placeholder="Alarm" id="alarmNameEntry"></input>
+					</li>
+					<li>
+						<label>Repeat</label>
+						<div class="float-right linked">
+							<a class="button text-button left">Sun</a><a class="button text-button middle pressed">Mon</a><a class="button text-button middle">Tues</a><a class="button text-button middle">Wed</a><a class="button text-button middle">Thurs</a><a class="button text-button middle">Fri</a><a class="button text-button right">Sat</a>
+						</div>
+					</li>
+					<li>
+						<label>Snoozing</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "alarmSnoozingSwitch" -%}
+					</li>
+					<li>
+						<label>Sound</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "alarmSnoozingSwitch" -%}
+					</li>
+					<li class="text-center">
+						<label class="center destructive-action" id="configureAlarmDelete">Delete Alarm</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- New Alarm Dialog -->
+	<div class="gtkdialog" id="newAlarmDialog">
+		<div class="gtkdialog-window action-dialog">
+			<div class="titlebar" title="New Alarm">
+				<a class="button text-button float-left" onclick="$('.gtkdialog').hide();">Cancel</a>
+				<a class="button text-button suggested-action float-right" id="configureAlarmDone" onclick="$('.gtkdialog').hide();">Done</a>
+			</div>
+			<div class="gtkdialog-content">
+				<p><i>[ TIME WIDGET GOES HERE ]</i></p>
+
+				<ul class="listrow">
+					<li>
+						<label>Label</label>
+						<input class="entry float-right" placeholder="Alarm" id="alarmNameEntry"></input>
+					</li>
+					<li>
+						<label>Repeat</label>
+						<div class="float-right linked">
+							<a class="button text-button left">Sun</a><a class="button text-button middle pressed">Mon</a><a class="button text-button middle">Tues</a><a class="button text-button middle">Wed</a><a class="button text-button middle">Thurs</a><a class="button text-button middle">Fri</a><a class="button text-button right">Sat</a>
+						</div>
+					</li>
+					<li>
+						<label>Snoozing</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "alarmSnoozingSwitch" -%}
+					</li>
+					<li>
+						<label>Sound</label>
+						{%- include components/switch.html float = "right" checked = "checked" id = "alarmSnoozingSwitch" -%}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(".selection").hide();
+$('.circular').hide();
+
+$('#selectionModeClocksAlarms').hide();
+
+function alarmSelectionMode() {
+	$('#selectionModeClocksAlarms').show();
+	$('#addAlarm').hide();
+	$('#titlebarClocksAlarms').hide()
+	$('.selection').show();
+	$('.circular').show();
+	$('.switch').hide();
+	$('label.float-right.dim-label').hide();
+}	
+
+function alarmSelectionModeCancel() {
+	$('#selectionModeClocksAlarms').hide();
+	$('#addAlarm').show();
+	$('#titlebarClocksAlarms').show()
+	$('.selection').hide();
+	$('.switch').show();
+	$('.circular').hide();
+	$('label.float-right.dim-label').show();
+}	
+</script>
