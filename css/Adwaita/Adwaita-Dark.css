@@ -1035,7 +1035,7 @@ path.warning {
 
 select option, p, .small-label, caption,
 .caption, .monospace-label,
-code, a, .bold-label,
+code, a, .light-text, .bold-label,
 b, .ultrabold-label, h1, h2, h3, h4, h5, h6 {
   color: #eeeeec;
   font-family: "cantarell", sans-serif;
@@ -1058,9 +1058,9 @@ caption,
 .caption {
   font-size: 9pt; }
 
+.large-label,
 .larger-label {
-  line-height: 18px;
-  font-size: 18px; }
+  font-size: 21px; }
 
 .dark-label {
   color: #bebeb6; }
@@ -1101,6 +1101,10 @@ caption,
   .warning-label svg > path, .warning-label svg > g {
     fill: #f57900; }
 
+.monospace {
+  font-family: monospace;
+  color: white; }
+
 .monospace-label,
 code {
   font-size: 13px;
@@ -1110,6 +1114,11 @@ code {
 a {
   text-decoration: none;
   color: #15539e; }
+
+.light-text {
+  color: inherit;
+  font-family: "cantarell_light";
+  font-weight: 300; }
 
 .bold-label,
 b {

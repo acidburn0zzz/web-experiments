@@ -29,9 +29,9 @@ caption,
 	@extend %text;
 	font-size: $caption_font_size;}
 
+.large-label,
 .larger-label {
-	line-height: $font_size + 3px;
-	font-size: $font_size + 3px;
+	font-size: $font_size + 6px;
 }
 
 .dark-label {
@@ -67,6 +67,11 @@ caption,
 	svg>path, svg>g {fill: $warning_color;}
 }
 
+.monospace {
+	font-family: monospace;
+	color: lighten($fg_color, 20%);
+}
+
 .monospace-label,
 code {
 	@extend %text;
@@ -80,6 +85,14 @@ a {
 	@extend %text;
 	text-decoration: none;
 	color: $selected_bg_color;
+}
+
+// bold
+.light-text {
+	@extend %text;
+	color:inherit;
+	font-family: "cantarell_light";
+	font-weight: 300;
 }
 
 // bold

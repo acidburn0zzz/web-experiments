@@ -78,24 +78,24 @@ published: true
 	<ul class="listrow">
 		<li onclick="toggleChecked('#cheeseOption1');">
 			<label>Mozzarella</label>
-			{%- include components/listrow-selection.html float = "right" checked = "checked" id = "cheeseOption1" name = "cheeseOptions" -%}
+			{%- include components/listrow-selection.html float = "left" checked = "checked" id = "cheeseOption1" name = "cheeseOptions" -%}
 			<div class="icon s16 dim-label float-right">{%- include symbolic/apps/recipes-dairy-symbolic.svg -%}</div>
 		</li>
 		<li onclick="toggleChecked('#cheeseOption2');">
 			<label>Cheddar</label>
-			{%- include components/listrow-selection.html float = "right" id = "cheeseOption2" name = "cheeseOptions" -%}
+			{%- include components/listrow-selection.html float = "left" id = "cheeseOption2" name = "cheeseOptions" -%}
 			<label class="float-right dim-label">Lactose-free</label>
 		</li>
 		<li onclick="toggleChecked('#cheeseOption3');">
 			<label>Tomato</label>
-			{%- include components/listrow-selection.html float = "right" id = "cheeseOption3" name = "cheeseOptions" -%}
+			{%- include components/listrow-selection.html float = "left" id = "cheeseOption3" name = "cheeseOptions" -%}
 		</li>
 		<li onclick="toggleChecked('#cheeseOption4');">
 			<label>Peppers</label>
-			{%- include components/listrow-selection.html float = "right" id = "cheeseOption4" name = "cheeseOptions" -%}
+			{%- include components/listrow-selection.html float = "left" id = "cheeseOption4" name = "cheeseOptions" -%}
 		</li>
 	</ul>
-	<p>In this case the selection indicator is always on the right hand side, supplemental info on the right is displaced.</p>
+	<p>Like the options list, the selection indicator is always on the left hand side and supplemental info on the right.</p>
 </div>
 <!-- Switches Lists -->
 <div class="row" id="switchLists">

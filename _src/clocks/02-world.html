@@ -1,0 +1,128 @@
+---
+layout: mockup
+title: "Clocks - World"
+theme: Adwaita/Adwaita.css
+permalink: clocks/world
+wallpaper: adwaita
+---
+
+
+{%- include widgets/_panel.html -%}
+<!-- Window -->
+<div class="window medium">
+	<!-- Titlebar -->
+	<div id="titlebarClocksAlarms" class="titlebar grouped">
+		<!-- left button group -->
+		<div class="button-group float-left">
+			<a class="button text-button">Add</a>
+		</div>
+		<!-- center button group -->
+		<div class="button-group float-center wide">
+			<div class="linked stack-switcher">
+				<a class="button text-button pressed left">World</a><a class="button text-button middle">Alarm</a><a class="button text-button middle">Stopwatch</a><a class="button text-button right">Timer</a>
+			</div>
+		</div>
+		<!-- right button group -->
+		<div class="button-group float-right"><a class="button text-button" id="clocksSelectionMode" onclick="alarmSelectionMode();">Edit</a><a class="button image-button">{%- include symbolic/actions/open-menu-symbolic.svg -%}</a>{%- include components/close-button.html close = "window" -%}
+		</div>
+	</div>
+	<!-- Selection Mode -->
+	<div id="selectionModeClocksAlarms" class="titlebar grouped">
+		<!-- left button group -->
+		<div class="button-group float-left">
+			<a class="button image-text-button">Delete</a>
+		</div>
+		<!-- title group -->
+		<div class="title-group"><div class="title"># Selected</div></div>
+		<!-- right button group -->
+		<div class="button-group float-right">
+			<a class="button text-button" style="margin-left:0;" onclick="$('#selectionModeClocksAlarms').hide();$('#titlebarClocksAlarms').show();alarmSelectionModeCancel();">Cancel</a>
+		</div>
+	</div>
+	<div class="content">
+		<div class="row">
+			<ul class="listrow" id="alarmsList">
+				<li class="medium">
+					<div class="label-group">
+						<label>San Fransisco, United States</label>
+						<label class="small-label dim-label">Today, -2HRS</label>
+					</div>
+					<label class="large-label light-text float-right" id="date1">12:00 PM</label>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+				<li class="medium">
+					<div class="label-group">
+						<label>Toronto, Canada</label>
+						<label class="small-label dim-label">Today, +0HRS</label>
+					</div>
+					<label class="large-label light-text float-right" id="date1">2:00 PM</label>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+				<li class="medium">
+					<div class="label-group">
+						<label>New York, United States</label>
+						<label class="small-label dim-label">Today, +1HRS</label>
+					</div>
+					<label class="large-label light-text float-right" id="date1">3:00 PM</label>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+				<li class="medium">
+					<div class="label-group">
+						<label>London, United Kingdom</label>
+						<label class="small-label dim-label">Today, +6HRS</label>
+					</div>
+					<label class="large-label light-text float-right" id="date1">8:00 PM</label>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+				<li class="medium">
+					<div class="label-group">
+						<label>Hong Kong</label>
+						<label class="small-label dim-label">Tomorrow, +13HRS</label>
+					</div>
+					<label class="large-label light-text float-right" id="date1">3:00 AM</label>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+function writeDate() {
+	new Date().toLocaleTimeString('en-US', { hour12: true, hour: "numeric",minute: "numeric"})
+	var d = new Date();
+	var n = d.getTime();
+	$('#writeDate').text(n);
+}
+
+$(".selection").hide();
+$('.circular').hide();
+$('.link').hide();
+
+$('#selectionModeClocksAlarms').hide();
+
+function alarmSelectionMode() {
+	$('#selectionModeClocksAlarms').show();
+	$('#addAlarm').hide();
+	$('#titlebarClocksAlarms').hide()
+	$('.selection').show();
+	$('.circular').show();
+	$('.link').show();
+	$('.listrow > a').removeAttr('href');
+	$('.listrow > li').attr('onclick', "$('#configureAlarmDialog').show();");
+	$('.separator').hide();
+	$('#alarmsList .switch').hide();
+}	
+
+function alarmSelectionModeCancel() {
+	$('#selectionModeClocksAlarms').hide();
+	$('#addAlarm').show();
+	$('#titlebarClocksAlarms').show()
+	$('.selection').hide();
+	$('.separator').show();
+	$('.listrow > li').removeAttr('onclick');
+	$('.link').hide();
+	$('#alarmsList .switch').show();
+	$('.circular').hide();
+}	
+</script>
