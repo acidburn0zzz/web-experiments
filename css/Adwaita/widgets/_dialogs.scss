@@ -131,8 +131,17 @@ $message_button_height: 44px;
 
 
 @media only screen and (max-width:800px) {
-	.gtkdialog-window {
+	.message-dialog {
 		margin-top: calc(50% + ($dialog_height * 0.25)) !important;
 		width: $dialog_width - 160px !important;
+	}
+
+	.action-dialog {
+		border-radius:0;
+		.titlebar {border-radius:0;}
+		margin:0;
+		height: 100%;
+		width: 100%;
+		margin-top: 32px;
 	}
 }

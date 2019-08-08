@@ -791,9 +791,18 @@ select {
       max-width: calc(100% - (36px)); }
 
 @media only screen and (max-width: 800px) {
-  .gtkdialog-window {
+  .message-dialog {
     margin-top: calc(50% + ($dialog_height * 0.25)) !important;
-    width: 320px !important; } }
+    width: 320px !important; }
+
+  .action-dialog {
+    border-radius: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    margin-top: 32px; }
+    .action-dialog .titlebar {
+      border-radius: 0; } }
 .row.empty-state {
   position: relative;
   width: 100%;
@@ -1328,6 +1337,7 @@ ul.listrow {
         margin-left: 4px; }
   ul.listrow a li {
     border-bottom: 1px solid #202020 !important; }
+    ul.listrow a li .label-group > label:nth-child(1),
     ul.listrow a li > label:nth-child(1) {
       color: #eeeeec; }
   ul.listrow.nohover li:hover {
