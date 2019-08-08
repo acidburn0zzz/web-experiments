@@ -5,7 +5,7 @@
   has-separator: false
 
 - link: /cellular
-  icon: status/network-cellular-signal-excellent
+  icon: devices/network-cellular
   title: Cellular
   has-submenu: false
   has-separator: false

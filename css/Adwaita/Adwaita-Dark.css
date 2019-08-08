@@ -1554,8 +1554,6 @@ ul.notebook {
       margin: 2px 0; }
   .panel #activitiesButton {
     padding: 0 3px; }
-  .panel #statusConnectivity {
-    visibility: hidden; }
   .panel #dateTimeMenu {
     left: 0;
     padding: 0;
@@ -1569,6 +1567,9 @@ ul.notebook {
       padding: 0 3px; }
   .panel #accessibilityMenu {
     margin-right: 20px; }
+  .panel #statusRotationLock,
+  .panel #statusConnectivity {
+    display: none; }
 
 @media only screen and (max-width: 800px) {
   .panel {
@@ -1582,8 +1583,9 @@ ul.notebook {
     .panel .dropdown {
       display: none; }
 
+  #statusRotationLock,
   #statusConnectivity {
-    visibility: visible !important; }
+    display: inline-block !important; }
 
   #statusCellular,
   #statusCellularNetwork,

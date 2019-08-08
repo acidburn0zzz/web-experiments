@@ -147,10 +147,6 @@ $corner_size: 7px;
 		padding:0 3px;
 	}
 
-	#statusConnectivity {
-		visibility: hidden;
-	}
-
 	// clock
 	#dateTimeMenu {
 		left: 0;
@@ -174,6 +170,12 @@ $corner_size: 7px;
 	// status
 	#statusMenu {
 	}
+
+	// hidden items
+	#statusRotationLock,
+	#statusConnectivity {
+		display: none
+	}
 }
 
 @media only screen and (max-width:800px) {
@@ -193,8 +195,10 @@ $corner_size: 7px;
 			display: none;
 		}
 	}
+
+	#statusRotationLock,
 	#statusConnectivity {
-		visibility: visible !important;
+		display: inline-block !important;
 	}
 
 	#statusCellular,
