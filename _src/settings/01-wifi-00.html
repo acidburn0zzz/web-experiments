@@ -42,7 +42,7 @@ published: true
 					<li class="medium" onclick="toggleChecked('#airplaneModeSwitch');">
 						<div class="label-group">
 							<label>Airplane Mode</label>
-							<label class="small-label dim-label">Disables Wi-Fi, Bluetooth and cellular modems</label>
+							<label class="small-label dim-label">Disables Wi-Fi, Bluetooth and Cellular</label>
 						</div>
 						{%- include components/switch.html float = "right" id = "airplaneModeSwitch" -%}
 					</li>
@@ -53,51 +53,51 @@ published: true
 				<h5>Visible Networks<div class="icon s16 spinner dim-label float-right">{%- include symbolic/status/process-working-symbolic.svg -%}</div></h5>
 				<ul class="listrow">
 					<li>
+						<div class="icon s16">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16" style="margin-left:0">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label>MyWifi</label>
-						<div class="icon s16">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
 						<a class="button image-button circular float-right" href="{{ site.baseurl }}/settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label class="dim-label float-right hidden">Disconnected</label>
+						<div class="icon s16 float-right">{%- include symbolic/emblems/emblem-ok-symbolic.svg -%}</div>
 					</li>
 					<li>
+						<div class="icon s16">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16" style="margin-left:0">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label>MyWifi_5GHz</label>
 						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
 					<li>
+						<div class="icon s16">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
+						<div class="icon s16" style="margin-left:0">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label>eduroam</label>
 						<a class="button image-button circular float-right"  href="{{ site.baseurl }}/settings/wifi/network-settings">{% include symbolic/categories/applications-system-symbolic.svg %}</a><div class="spacer float-right"></div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
 					<li id="forgottenNetwork1" class="hidden" onclick="$('#connectToWifiDialog').show();">
+						<div class="icon s16">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
+						<div class="icon s16" style="margin-left:0">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label>MyWifi</label>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-excellent-symbolic.svg -%}</div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
+						<div class="icon s16">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
+						<div class="icon s16" style="margin-left:0">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label>Coffee Shop</label>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
+						<div class="icon s16">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
+						<div class="icon s16" style="margin-left:0">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 						<label>d-link333</label>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-good-symbolic.svg -%}</div>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-encrypted-symbolic.svg -%}</div>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
+						<div class="icon s16">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 						<label>d-link333 Guest</label>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 					</li>
 					<li onclick="$('#connectToWifiDialog').show();">
+						<div class="icon s16">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 						<label>FBI Surveillance Van</label>
-						<div class="icon s16 float-right">{%- include symbolic/status/network-wireless-signal-weak-symbolic.svg -%}</div>
 					</li>
 					<li>
+						<div class="icon s16 dim-label">{%- include symbolic/status/network-wireless-no-route-symbolic.svg -%}</div>
 						<label class="dim-label">Unknown</label>
-						<label class="dim-label float-right">&mdash;</label>
 					</li>
 				</ul>
 			</div>
@@ -111,15 +111,15 @@ published: true
 			<div id="wifiOptions" class="row">
 				<ul class="listrow">
 					<li id="wifiHotspotOption" onclick="$('#wifiHotspotDialog').show();">
-						<label>Turn on Wi-Fi hotspot&hellip;</label>
+						<label>Turn on Wi-Fi Hotspot&hellip;</label>
 						<!-- {%- include components/listrow-link-icon.html -%} -->
 					</li>
 					<li id="hiddenWifiOption" onclick="$('#hiddenNetworksDialog').show();">
-						<label>Connect to Hidden network&hellip;</label>
+						<label>Connect to Hidden Network&hellip;</label>
 						<!-- {%- include components/listrow-link-icon.html -%} -->
 					</li>
 					<a href="{{ site.baseurl }}/settings/wifi/known-networks"><li>
-						<label>View known other networks</label>
+						<label>Known Networks</label>
 						{%- include components/listrow-link-icon.html -%}
 					</li></a>
 				</ul>
