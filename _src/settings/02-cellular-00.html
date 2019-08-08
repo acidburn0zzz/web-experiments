@@ -115,15 +115,33 @@ $(document).ready(function() {$('#settingsSidebar a:nth-of-type(2) li').addClass
 // cellular toggle
 $('#cellularSwitch').change(function(){
 	if($(this).is(":checked")) {
-		$('#cellularMyDevices').show();
-		$('#cellularNearbyDevices').show();
+		$('#cellularData').show();
+		$('#cellularNetwork').show();
 		$('#cellularDisabled').hide();
+		$('#cellularAdvanced').show();
+		$('#statusCellularNetworkMobile').show();
+		$('#statusCellularNetwork').show();
+		$('#statusCellularMobile').show();
 		$('#statusCellular').show();
 	} else {
-		$('#cellularMyDevices').hide();
-		$('#cellularNearbyDevices').hide();
+		$('#cellularData').hide();
+		$('#cellularNetwork').hide();
 		$('#cellularDisabled').show();
+		$('#cellularAdvanced').hide();
+		$('#statusCellularNetworkMobile').hide();
+		$('#statusCellularNetwork').hide();
+		$('#statusCellularMobile').hide();
 		$('#statusCellular').hide();
+	}
+});
+// cellular toggle
+$('#cellularDataSwitch').change(function(){
+	if($(this).is(":checked")) {
+		$('#statusCellularNetworkMobile').show();
+		$('#statusCellularNetwork').show();
+	} else {
+		$('#statusCellularNetworkMobile').hide();
+		$('#statusCellularNetwork').hide();
 	}
 });
 

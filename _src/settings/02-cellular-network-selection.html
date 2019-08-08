@@ -47,15 +47,15 @@ wallpaper: triangles
 			<div class="row" id="cellularNetworkSelectionOptions">
 				<h4>Available Networks</h4>
 				<ul class="listrow">
-					<li onclick="$('#cellularNetworkOption1').prop('checked', true );">
+					<li onclick="cellularNetworkOption4G()">
 						{%- include components/listrow-selection.html float = "left" type = "radio" checked = "checked" id = "cellularNetworkOption1" name = "cellularNetworks" -%}
 						<label>4G (recommended)</label>
 					</li>
-					<li onclick="$('#cellularNetworkOption2').prop('checked', true );">
+					<li onclick="cellularNetworkOption3G()">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "cellularNetworkOption2" name = "cellularNetworks" -%}
 						<label>3G</label>
 					</li>
-					<li onclick="$('#cellularNetworkOption3').prop('checked', true );">
+					<li onclick="cellularNetworkOption2G()">
 						{%- include components/listrow-selection.html float = "left" type = "radio" id = "cellularNetworkOption3" name = "cellularNetworks" -%}
 						<label>2G</label>
 					</li>
@@ -70,7 +70,7 @@ wallpaper: triangles
 // highlight sidebar
 $(document).ready(function() {$('#settingsSidebar a:nth-of-type(2) li').addClass("active");});
 
-$('#cellularNetworkSelectionOptions').hide();
+// $('#cellularNetworkSelectionOptions').hide();
 
 // cellular toggle
 $('#cellularAutomaticNetworkSelectionSwitch').change(function(){
@@ -80,4 +80,34 @@ $('#cellularAutomaticNetworkSelectionSwitch').change(function(){
 		$('#cellularNetworkSelectionOptions').show();
 	}
 });
+
+function cellularNetworkOption4G(){
+	$('#cellularNetworkOption1').prop('checked', true )
+	;$('#statusCellularNetworkMobile').removeClass('hidden')
+	;$('#statusCellularNetwork3GMobile').addClass('hidden')
+	;$('#statusCellularNetwork2GMobile').addClass('hidden');
+	;$('#statusCellularNetwork').removeClass('hidden')
+	;$('#statusCellularNetwork3G').addClass('hidden')
+	;$('#statusCellularNetwork2G').addClass('hidden');
+}
+
+function cellularNetworkOption3G(){
+	$('#cellularNetworkOption2').prop('checked', true )
+	;$('#statusCellularNetworkMobile').addClass('hidden')
+	;$('#statusCellularNetwork3GMobile').removeClass('hidden')
+	;$('#statusCellularNetwork2GMobile').addClass('hidden');
+	;$('#statusCellularNetwork').addClass('hidden')
+	;$('#statusCellularNetwork3G').removeClass('hidden')
+	;$('#statusCellularNetwork2G').addClass('hidden');
+}
+
+function cellularNetworkOption2G(){
+	$('#cellularNetworkOption3').prop('checked', true )
+	;$('#statusCellularNetworkMobile').addClass('hidden')
+	;$('#statusCellularNetwork3GMobile').addClass('hidden')
+	;$('#statusCellularNetwork2GMobile').removeClass('hidden');
+	;$('#statusCellularNetwork').addClass('hidden')
+	;$('#statusCellularNetwork3G').addClass('hidden')
+	;$('#statusCellularNetwork2G').removeClass('hidden');
+}
 </script>

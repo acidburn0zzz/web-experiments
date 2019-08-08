@@ -1585,17 +1585,18 @@ ul.notebook {
   #statusConnectivity {
     visibility: visible !important; }
 
-  #statusMenu > #statusWireless {
-    display: none; }
-
+  #statusCellular,
+  #statusCellularNetwork,
   #statusWireless,
   #statusVPN,
   #statusAirplaneMode,
+  #statusCellularNetwork3G,
+  #statusCellularNetwork2G,
   #statusVolumeMedium,
   #statusVolumeMuted,
   #accessibilityMenu,
   #activitiesButton {
-    display: none; } }
+    display: none !important; } }
 .popover {
   position: absolute;
   top: 0;
