@@ -6,9 +6,12 @@ $sidebar_listitem_width: $sidebar_width;
 $sidebar_listitem_padding: 12px;
 
 // sidebar
-ul.sidebar {
-	background-color: $base_color;
+.sidebar {
+	background-color: $base_color !important;
 	border-right: 1px solid $borders_color;
+}
+
+ul.sidebar {
 	display: inline-block;
 	list-style: none;
 	margin:0;

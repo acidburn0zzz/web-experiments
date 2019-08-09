@@ -40,8 +40,8 @@ caption,
 
 %dim_label,
 .dim-label {
-	color: desaturate(lighten($fg_color, 40%), 20%);
-	// opacity: 0.4;
+	// color: desaturate(lighten($fg_color, 40%), 20%);
+	opacity: 0.6;
 	b,u,i {color: inherit;}
 	svg>path, svg>g {fill: desaturate(lighten($fg_color, 30%), 20%);}
 }

@@ -1,0 +1,59 @@
+---
+layout: mockup
+title: "Games - Save States"
+theme: Adwaita/Adwaita-Dark.css
+permalink: games/savestates
+wallpaper: road
+---
+<!-- Window -->
+<div class="window small">
+	<!-- Titlebar -->
+	<div id="titlebarClocksAlarms" class="titlebar grouped">
+		<!-- left button group -->
+		<div class="button-group float-left">
+			<a class="button text-button">Cancel</a>
+		</div>
+		<div class="title-group">
+			<div class="title">Name of Game</div>
+		</div>
+		<!-- right button group -->
+		<div class="button-group float-right">
+			<a class="button text-button">Delete</a>
+			<a class="button text-button suggested-action">Load</a>
+		</div>
+	</div>
+	<div class="content" style="background-color: #000;">
+		<div class="sidebar float-right" style="height:100%;width: 300px;border-top-width: 0;border-bottom-width: 0;border-right-width: 0;">
+			<ul class="listrow full-width" style="margin:0;border-top-width: 0;border-left-width: 0;border-right-width: 0;">
+				<li class="large" id="addAlarm" onclick="$('#newAlarmDialog').show();">
+					<img class="thumbnail rounded s64" src="{{ site.baseurl }}/img/empty.png">
+					<label>Create new savestate</label>
+				</li>
+				<li class="large">
+					<img class="thumbnail rounded s64" src="{{ site.baseurl }}/img/empty.png">
+					<div class="label-group">
+						<label>Autosave</label>
+						<label class="small-label dim-label">9 Aug 2019 12:34:56 PM</label>
+					</div>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+				<li class="large">
+					<img class="thumbnail rounded s64" src="{{ site.baseurl }}/img/empty.png">
+					<div class="label-group">
+						<label>Autosave</label>
+						<label class="small-label dim-label">9 Aug 2019 12:34:56 PM</label>
+					</div>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+				<li class="large">
+					<img class="thumbnail rounded s64" src="{{ site.baseurl }}/img/empty.png">
+					<div class="label-group">
+						<label>New savestate 1</label>
+						<label class="small-label dim-label">9 Aug 2019 12:34:56 PM</label>
+					</div>
+					{%- include components/listrow-link-icon.html -%}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

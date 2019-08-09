@@ -1,0 +1,54 @@
+// icons
+.thumbnail {
+	vertical-align: top;
+	display: inline-block;
+	background: $bg_color;
+	border: none;
+	outline: none;
+	box-shadow: inset 0 0 0 1px $borders_color;
+	&.rounded {
+		border-radius: 4px;
+	}
+}
+
+.s48 {
+	width: 64px;
+	max-width: 64px;
+	height: 64px;
+	max-height: 64px;
+}
+
+.s64 {
+	width: 64px;
+	max-width: 64px;
+	height: 64px;
+	max-height: 64px;
+}
+
+.s96 {
+	width: 96px;
+	max-width: 96px;
+	height: 96px;
+	max-height: 96px;
+}
+
+.s128 {
+	width: 128px;
+	max-width: 128px;
+	height: 128px;
+	max-height: 128px;
+}
+
+.s192 {
+	width: 192px;
+	max-width: 192px;
+	height: 192px;
+	max-height: 192px;
+}
+
+.s256 {
+	width: 256px;
+	max-width: 256px;
+	height: 256px;
+	max-height: 256px;
+}

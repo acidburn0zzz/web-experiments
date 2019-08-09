@@ -1067,7 +1067,7 @@ caption,
 
 .small-label, .titlebar .subtitle,
 .dim-label {
-  color: white; }
+  opacity: 0.6; }
   .small-label b, .titlebar .subtitle b, .small-label u, .titlebar .subtitle u, .small-label i, .titlebar .subtitle i,
   .dim-label b,
   .dim-label u,
@@ -1344,6 +1344,8 @@ ul.listrow {
       ul.listrow li.large .label-group {
         margin-top: 12px;
         margin-left: 4px; }
+      ul.listrow li.large > .link {
+        margin-top: 24px !important; }
   ul.listrow a li {
     border-bottom: 1px solid #202020 !important; }
     ul.listrow a li .label-group > label:nth-child(1),
@@ -1825,9 +1827,11 @@ ul.notebook {
     .selection input:checked ~ .checkbox:after {
       display: block; }
 
+.sidebar {
+  background-color: #2d2d2d !important;
+  border-right: 1px solid #1b1b1b; }
+
 ul.sidebar {
-  background-color: #2d2d2d;
-  border-right: 1px solid #1b1b1b;
   display: inline-block;
   list-style: none;
   margin: 0;
@@ -2037,6 +2041,52 @@ ul.sidebar {
   .switch.intl > .switch-trough:after {
     content: attr(data-on-intl);
     font-size: 12px; }
+
+.thumbnail {
+  vertical-align: top;
+  display: inline-block;
+  background: #353535;
+  border: none;
+  outline: none;
+  box-shadow: inset 0 0 0 1px #1b1b1b; }
+  .thumbnail.rounded {
+    border-radius: 4px; }
+
+.s48 {
+  width: 64px;
+  max-width: 64px;
+  height: 64px;
+  max-height: 64px; }
+
+.s64 {
+  width: 64px;
+  max-width: 64px;
+  height: 64px;
+  max-height: 64px; }
+
+.s96 {
+  width: 96px;
+  max-width: 96px;
+  height: 96px;
+  max-height: 96px; }
+
+.s128 {
+  width: 128px;
+  max-width: 128px;
+  height: 128px;
+  max-height: 128px; }
+
+.s192 {
+  width: 192px;
+  max-width: 192px;
+  height: 192px;
+  max-height: 192px; }
+
+.s256 {
+  width: 256px;
+  max-width: 256px;
+  height: 256px;
+  max-height: 256px; }
 
 ul.tiles {
   margin: 0;
