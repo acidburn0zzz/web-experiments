@@ -140,7 +140,7 @@ $pane_width:270px;
 
 	// title group
 	.title-group {
-		width: calc(60%);
+		width: calc(55%);
 		margin: 0 auto;
 		.title {
 			margin-top:0 !important;
@@ -244,7 +244,7 @@ $pane_width:270px;
 		// Paned
 		&.paned {
 			>.title-group {
-				width: calc(60%);
+				width: calc(55%);
 				margin-left: 0;
 				.title,
 				.subtitle {

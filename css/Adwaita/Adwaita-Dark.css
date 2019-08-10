@@ -2217,7 +2217,7 @@ ul.tiles {
     vertical-align: top;
     margin: 6px 4px; }
   .titlebar .title-group {
-    width: calc(60%);
+    width: calc(55%);
     margin: 0 auto; }
     .titlebar .title-group .title {
       margin-top: 0 !important; }
@@ -2282,7 +2282,7 @@ ul.tiles {
     border-radius: 0; }
 
   .titlebar.paned > .title-group {
-    width: calc(60%);
+    width: calc(55%);
     margin-left: 0; }
     .titlebar.paned > .title-group .title,
     .titlebar.paned > .title-group .subtitle {
