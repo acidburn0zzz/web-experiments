@@ -1349,7 +1349,8 @@ ul.listrow {
   ul.listrow a li {
     border-bottom: 1px solid #202020 !important; }
     ul.listrow a li .label-group > label:nth-child(1),
-    ul.listrow a li > label:nth-child(1) {
+    ul.listrow a li > label:nth-child(1),
+    ul.listrow a li > label.float-right {
       color: #eeeeec; }
   ul.listrow.nohover li:hover {
     background-color: #2d2d2d; }

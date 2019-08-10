@@ -31,6 +31,7 @@ wallpaper: triangles
 	</div>
 	<!-- Content -->
 	<div class="content">
+		{%- include widgets/_settings-sidebar.html -%}
 		<!-- View -->
 		<div class="view">
 			<!-- Row -->
@@ -80,8 +81,16 @@ wallpaper: triangles
 					</li>
 					<li id="wifiSecurityPassword">
 						<label>Password</label>
-						<label class="float-right">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
+						<div data-toggle="collapse" data-target="#showPassword" class="dropdown button image-button flat float-right" id="revealPassword" onclick="$('#revealPassword > .symbolic:nth-child(1)').toggle();$('#revealPassword > .symbolic:nth-child(2)').toggle();">{%- include symbolic/actions/view-reveal-symbolic.svg -%}{%- include symbolic/actions/view-conceal-symbolic.svg -%}</div>
+						<label class="float-right dim-label">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</label>
 					</li>
+					<div id="showPassword" class="collapse" aria-expanded="false">
+						<ul class="listrow borderless text-center">
+							<li>
+								<label class="bold-label monospace">phxMcP8GoBU8hpQ3hHJbfpP4</label>
+							</li>
+						</ul>
+					</div>
 				</ul>
 				<div id="wifiSecurityNoneWarning" class="dim-label" style="margin: 6px auto;"><div class="icon s16 symbolic">{%- include symbolic/status/dialog-warning-symbolic.svg -%}</div> Connecting to a Wi-Fi network without security is not recommended.</div>
 			</div>
@@ -114,6 +123,8 @@ $(document).ready(function() {
 		html: true
 	});
 });
+
+$('#revealPassword > .symbolic:nth-child(2)').hide();
 
 function popoverWifiSecurity() {
 	$('#wifiSecurityTypeStatus').text(arguments[0]);

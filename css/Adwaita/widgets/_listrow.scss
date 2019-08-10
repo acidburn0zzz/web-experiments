@@ -253,7 +253,8 @@ ul.listrow  {
 	a li {
 		border-bottom:1px solid darken($base_color, 5%) !important;
 		.label-group > label:nth-child(1),
-		> label:nth-child(1) {
+		> label:nth-child(1),
+		> label.float-right {
 			color: $fg_color;
 		}
 	}
